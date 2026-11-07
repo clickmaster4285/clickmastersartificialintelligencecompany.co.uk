@@ -1,12 +1,14 @@
 import React from "react";
 
-const row1 = ["TechCorp", "HealthPlus", "RetailHub", "EstatePro", "EduSmart", "FinTrust", "LogiCore"];
-const row2 = ["TechCorp", "HealthPlus", "RetailHub", "EstatePro", "EduSmart", "FinTrust", "LogiCore"];
+// Capability ticker. Previously listed placeholder "client" names
+// (TechCorp, RetailHub, ...) that are not verified clients.
+const row1 = ["AI Automation", "Machine Learning", "Custom Software", "Web Apps", "Mobile Apps", "ERP & CRM", "Cloud & DevOps"];
+const row2 = ["Healthcare", "Finance", "E-Commerce", "EdTech", "Real Estate", "Logistics", "Manufacturing"];
 
 function MarqueeRow({ items, direction = "left", speed = 30 }) {
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden w-full -rotate-[2.03deg]">
+    <div className="overflow-hidden w-full -rotate-[2.03deg]" aria-hidden="true">
       <div
         className="flex items-center gap-8 sm:gap-10 lg:gap-12 w-max"
         style={{
@@ -28,7 +30,7 @@ function MarqueeRow({ items, direction = "left", speed = 30 }) {
 
 export default function ClientsMarquee() {
   return (
-    <section id="clients" className="relative w-full max-w-[1728px] mx-auto bg-[#0a0a0a] overflow-hidden py-14 sm:py-20 lg:py-24 flex flex-col gap-8 sm:gap-9 lg:gap-10">
+    <section id="capabilities" aria-label="Capabilities and sectors" className="relative w-full max-w-[1728px] mx-auto bg-[#0a0a0a] overflow-hidden py-14 sm:py-20 lg:py-24 flex flex-col gap-8 sm:gap-9 lg:gap-10">
       <style>{`
         @keyframes scroll-left {
           from { transform: translateX(0); }

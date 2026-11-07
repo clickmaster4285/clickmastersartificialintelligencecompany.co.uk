@@ -118,7 +118,8 @@ export default function Testimonials() {
   return (
     <section id="testimonial" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-16 lg:py-20 px-6 lg:px-[65px]">
       {/* Background watermark text */}
-      <h2
+      <div
+        aria-hidden="true"
         className="hidden lg:block absolute inset-x-0 text-center font-bold uppercase whitespace-nowrap select-none pointer-events-none z-0"
         style={{
           fontFamily: "Garamond, serif",
@@ -129,17 +130,17 @@ export default function Testimonials() {
         }}
       >
         Testimonial
-      </h2>
+      </div>
 
       {/* Heading + paragraph — pushed below the watermark text */}
       <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-6 mb-16 lg:mb-24 pt-32 lg:pt-40">
-        <h3
+        <h2
           className="text-2xl lg:text-3xl text-[#333333]"
           style={{ fontFamily: "Garamond, serif" }}
         >
           <span className="font-bold">Hear What </span>
           <span className="italic">Our Clients Have To Say</span>
-        </h3>
+        </h2>
 
         <p className="text-xs lg:text-sm text-gray-500 text-left lg:text-right max-w-sm leading-relaxed">
           Discover why businesses trust us for their custom software, web,
@@ -153,7 +154,7 @@ export default function Testimonials() {
       <div className="relative z-10 flex flex-col lg:hidden gap-8 items-center">
         {cards.map((c) => (
           <div key={c.role} className="w-[280px] bg-white shadow-xl p-4 pb-6">
-            <img src={c.photo} alt={c.role} className="w-full h-[280px] object-cover grayscale mb-3" />
+            <img src={c.photo} alt={c.role} loading="lazy" className="w-full h-[280px] object-cover grayscale mb-3" />
             <p className="text-[11px] uppercase tracking-[1.1px] text-[#18181B] mb-2">{c.role}</p>
             <p className="text-sm text-[#18181B] leading-relaxed">[ {c.quote} ]</p>
           </div>

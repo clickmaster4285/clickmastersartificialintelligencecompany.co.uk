@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import {
   aiModelImg,
   avatar1,
@@ -17,8 +19,9 @@ export default function Hero() {
       id="hero"
       className="relative w-full max-w-[1728px] mx-auto overflow-hidden bg-white px-6 py-16 lg:px-0 lg:py-0 lg:h-[820px]"
     >
-      {/* Background giant watermark text (desktop only) */}
-      <h2
+      {/* Background giant watermark text (desktop only, decorative) */}
+      <div
+        aria-hidden="true"
         className="hidden lg:block absolute font-bold whitespace-nowrap select-none pointer-events-none z-0"
         style={{
           fontFamily: "Garamond, serif",
@@ -33,10 +36,10 @@ export default function Hero() {
         }}
       >
         Artificial Intelligence
-      </h2>
+      </div>
 
       {/* Decorative rotated badges (desktop only) */}
-      <div className="hidden lg:block absolute inset-0 z-10 pointer-events-none">
+      <div aria-hidden="true" className="hidden lg:block absolute inset-0 z-10 pointer-events-none">
         <div
           className="absolute flex items-center justify-center bg-[#18181B] border border-black/5"
           style={{ left: "8%", top: "7%", width: "3.24%", height: "6.83%", transform: "rotate(-60deg)" }}
@@ -64,21 +67,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mobile AI model image */}
-      <img
-        src={aiModelImg}
-        alt="AI Model"
-        className="lg:hidden w-full max-w-xs mx-auto mb-8 relative z-20"
-      />
-
-      {/* Desktop layout: proportional 3-column flex so it scales on lg / xl / 2xl */}
-      <div className="hidden lg:flex relative z-20 items-center justify-between gap-8 h-full w-full px-[4vw]">
+      {/* Mobile: stacked (image, heading, copy). Desktop: proportional 3-column flex. */}
+      <div className="relative z-20 flex flex-col items-center gap-8 lg:flex-row lg:justify-between h-full w-full lg:px-[4vw]">
         {/* Left content block */}
-        <div className="flex flex-col items-start text-left gap-6 w-[30%] max-w-[520px] shrink-0 lg:ml-[3%]">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-6 w-full lg:w-[30%] max-w-[520px] shrink-0 lg:ml-[3%]">
           <h1
             className="font-bold text-3xl leading-tight xl:text-[52px] 2xl:text-[58px] xl:leading-[60px] 2xl:leading-[66px]"
             style={{ fontFamily: "Garamond, serif", color: "#333333" }}
           >
+            <span className="sr-only">Artificial Intelligence Software </span>
             That Scales Your Business Revenue
           </h1>
 
@@ -96,8 +93,8 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             {/* Get a free quote */}
-            <a
-              href="#quote"
+            <Link
+              href="/contact"
               className="flex items-center justify-center px-5 py-3.5 gap-2.5 w-[170px] h-[47px] bg-[#A000DF] hover:opacity-90 transition-opacity"
             >
               <span
@@ -106,9 +103,9 @@ export default function Hero() {
               >
                 Get a free quote
               </span>
-            </a>
+            </Link>
 
-            {/* Founders */}
+            {/* Team avatars */}
             <div className="flex items-center gap-3">
               <div className="flex items-center">
                 {[avatar1, avatar2, avatar3, avatar4].map((av, i) => (
@@ -116,24 +113,31 @@ export default function Hero() {
                     key={av}
                     src={av}
                     alt=""
+                    loading="lazy"
+                    width={28}
+                    height={28}
                     className="w-7 h-7 rounded-full border-2 border-white object-cover"
                     style={{ marginLeft: i === 0 ? 0 : "-8px" }}
                   />
                 ))}
               </div>
               <span className="text-xs text-gray-500 whitespace-nowrap">
-                120+ founders shipped
+                Free project consultation
               </span>
             </div>
           </div>
         </div>
 
-        {/* Center AI model image — scales with viewport height */}
-        <div className="flex-1 flex items-start justify-center self-start pt-[82px] min-w-0 relative top-[5%]">
-          <img
+        {/* AI model image: first on mobile, centre column on desktop (LCP element) */}
+        <div className="order-first lg:order-none w-full lg:w-auto flex-1 flex items-start justify-center lg:self-start lg:pt-[82px] min-w-0 relative lg:top-[5%]">
+          <Image
             src={aiModelImg}
-            alt="AI Model"
-            className="w-auto max-w-full object-contain object-top"
+            alt="AI-powered humanoid model representing ClickMasters AI software development"
+            width={654}
+            height={739}
+            preload
+            sizes="(min-width: 1024px) 570px, 320px"
+            className="w-auto max-w-xs lg:max-w-full h-auto object-contain object-top"
             style={{
               maxHeight: "min(72vh, 640px)",
               maskImage:
@@ -145,9 +149,9 @@ export default function Hero() {
         </div>
 
         {/* Right content block */}
-        <div className="flex flex-col items-end gap-6 w-[30%] max-w-[420px] shrink-0 lg:mr-[4%]">
+        <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-[30%] max-w-[420px] shrink-0 lg:mr-[4%]">
           <p
-            className="text-right text-[15px] leading-[20px] 2xl:text-base 2xl:leading-[22px]"
+            className="text-center lg:text-right text-[15px] leading-[20px] 2xl:text-base 2xl:leading-[22px]"
             style={{ fontFamily: "Urbanist, sans-serif", color: "#333333" }}
           >
             We build scalable ERP, CRM, and enterprise solutions focused on
@@ -157,11 +161,11 @@ export default function Hero() {
           </p>
 
           {/* icons */}
-          <div className="flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-5">
             <div className="flex flex-col items-center gap-5">
-              <img src={instagramIcon} alt="Instagram" className="w-[38px] h-[38px]" />
-              <img src={facebookIcon} alt="Facebook" className="w-[30px] h-[30px]" />
-              <img src={linkedinIcon} alt="LinkedIn" className="w-[30px] h-[30px]" />
+              <img src={instagramIcon} alt="Instagram" loading="lazy" width={38} height={38} className="w-[38px] h-[38px]" />
+              <img src={facebookIcon} alt="Facebook" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
+              <img src={linkedinIcon} alt="LinkedIn" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
             </div>
             <div className="flex flex-col items-center gap-0">
               <span className="w-[6px] h-[6px] rounded-full bg-[#333333]" />

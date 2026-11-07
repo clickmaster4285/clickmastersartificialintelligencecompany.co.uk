@@ -94,7 +94,7 @@ export default function WhyClickmasters() {
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
             <a
-              href="#"
+              href="/contact"
               className="w-full sm:w-auto text-center bg-[#AF00E8] text-white px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
               style={{ fontFamily: "Urbanist, sans-serif" }}
             >
@@ -102,7 +102,7 @@ export default function WhyClickmasters() {
             </a>
 
             <a
-              href="#"
+              href="/case-studies"
               className="w-full sm:w-auto text-center text-white px-6 py-3 text-sm font-semibold underline"
               style={{ fontFamily: "Urbanist, sans-serif" }}
             >

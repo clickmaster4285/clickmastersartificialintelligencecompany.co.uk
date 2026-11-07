@@ -1,8 +1,13 @@
 // app/CaseStudies/page.jsx
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { logo } from "../assets";
 import CountUp from "../component/countup";
+
+import JsonLd from "../Components/JsonLd";
+import { jsonLdFor, metadataFor } from "../lib/seo-pages";
+
+export const metadata = metadataFor("caseStudies");
 
 const filters = ["All Studies", "Healthcare", "Finance", "Retail", "Manufacturing"];
 
@@ -12,50 +17,50 @@ const caseStudyCards = [
     title: "Radiology Diagnostics Engine with Computer Vision",
     description:
       "A state-of-the-art vision model that scans medical imagery, reducing human classification error and expediting patient triage.",
-    image: "/assets/Studies/case6.png",
+    image: "/assets/Studies/Case6.png",
   },
   {
     tag: "FINGUARD",
     title: "Automated Financial Fraud Detection & Compliance",
     description:
       "Custom fine-tuned anomaly models running on private isolated servers, validating millions of real-time transactions.",
-    image: "/assets/Studies/case1.png",
+    image: "/assets/Studies/Case1.png",
   },
   {
     tag: "RETAILMIND",
     title: "UGC-Driven Demand Prediction & Inventory Sync",
     description:
       "Syncing real-time social media trends directly with supply chain planners to prevent inventory blockages and over-manufacturing.",
-    image: "/assets/Studies/case2.png",
+    image: "/assets/Studies/Case2.png",
   },
   {
     tag: "AUTODRIVE",
     title: "Real-Time Fleet Routing Automation Systems",
     description:
       "Fleet monitors, real-time routing engines, and automated dispatch maps powered by historical regional traffic data sets.",
-    image: "/assets/Studies/case3.png",
+    image: "/assets/Studies/Case3.png",
   },
   {
     tag: "EDUAI",
     title: "Custom LLM Learning Copilots for Education",
     description:
       "Interactive pupil dashboards, adaptive automated training scripts, and robust analytical progress trackers.",
-    image: "/assets/Studies/case4.png",
+    image: "/assets/Studies/Case4.png",
   },
   {
     tag: "AGRISENSE",
     title: "Multispectral Crop Health Monitoring Models",
     description:
       "Custom computer vision software executing real-time object classification of crop illnesses across global agricultural infrastructure.",
-    image: "/assets/Studies/case5.png",
+    image: "/assets/Studies/Case5.png",
   },
 ];
 
 const impactStats = [
-  { value: "200+", label: "Enterprise Projects Completed" },
-  { value: "98%", label: "Verified Client Retention Rate" },
-  { value: "$500M+", label: "Measurable Revenue Generated" },
-  { value: "50+", label: "Niche Industries Served" },
+  { value: "AI", label: "Pipelines & Intelligent Automation" },
+  { value: "Cloud", label: "Migrations & Microservices" },
+  { value: "Web", label: "& Mobile Platforms" },
+  { value: "8", label: "Sectors Served" },
 ];
 
 const testimonials = [
@@ -79,11 +84,11 @@ const testimonials = [
   },
 ];
 
-const links = ["Support", "Blog", "Testimonials", "Careers", "About Us"];
 
 export default function CaseStudies() {
   return (
     <>
+      <JsonLd data={jsonLdFor("caseStudies")} />
       {/* Hero Section */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -127,16 +132,11 @@ export default function CaseStudies() {
               </p>
 
               <div className="mt-6 flex items-center gap-6">
-                <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
-                  Read Full Case Study
-                </button>
+                <Link href="/contact" className="inline-block bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
+                  Discuss a Similar Project
+                </Link>
 
                 
-               <a   href="#"
-                  className="text-gray-900 text-sm font-medium hover:text-[#A000DF] transition-colors"
-                >
-                  Watch Interview Video →
-                </a>
               </div>
             </div>
           </div>
@@ -182,10 +182,10 @@ export default function CaseStudies() {
                 </p>
 
                 
-                <a  href="#"
+                <a  href="/contact"
                   className="inline-block mt-3 text-[#A000DF] text-sm font-medium hover:underline"
                 >
-                  Read Full Study →
+                  Discuss a Similar Project
                 </a>
               </div>
             ))}
@@ -197,8 +197,8 @@ export default function CaseStudies() {
       <section className="bg-black py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-4xl font-bold text-white">
-            Quantifiable Impact.{" "}
-            <span className="italic text-[#A000DF]">Guaranteed Scaling.</span>
+            Built For Impact.{" "}
+            <span className="italic text-[#A000DF]">Designed To Scale.</span>
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 mt-14">
@@ -252,12 +252,12 @@ export default function CaseStudies() {
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-6">
-            <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
+            <Link href="/contact" className="inline-block bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
               Discuss Your Project
-            </button>
+            </Link>
 
             
-            <a  href="#"
+            <a  href="/services"
               className="text-[#A000DF] text-sm font-medium hover:underline"
             >
               View Pricing Packages
@@ -266,82 +266,6 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden lg:h-[687px] py-16 lg:py-0 px-6">
-        <div className="relative z-10 flex flex-col items-center gap-[60px] w-full lg:max-w-[1528px] lg:mx-auto lg:pt-[100.71px]">
-          <img
-            src={logo}
-            alt="ClickMasters"
-            style={{ width: "271px", height: "37.03px" }}
-            className="object-contain"
-          />
-
-          <div className="flex flex-col items-center gap-3 w-full lg:w-[600px]">
-            <h3
-              className="text-center capitalize text-3xl lg:text-[94px] lg:leading-[106px]"
-              style={{
-                fontFamily: "Garamond, serif",
-                fontWeight: 700,
-                color: "#333333",
-              }}
-            >
-              Got A Vision?
-              <br />
-              <span className="italic font-thin">{"Let's Build It."}</span>
-            </h3>
-
-            <p
-              className="text-center text-sm"
-              style={{
-                fontFamily: "Urbanist, sans-serif",
-                fontSize: "16px",
-                lineHeight: "19px",
-                color: "#333333",
-              }}
-            >
-              ClickMasters is a software development company. We build custom
-              software, web applications, mobile apps, and ERP solutions for
-              businesses worldwide.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-start gap-[50px] w-full">
-            <div className="w-full border-t" style={{ borderColor: "#4A4A4A" }} />
-
-            <div className="flex flex-col sm:flex-row items-center gap-[50px] w-full">
-              <span
-                className="flex-1 text-center sm:text-left"
-                style={{
-                  fontFamily: "Urbanist, sans-serif",
-                  fontSize: "16px",
-                  lineHeight: "19px",
-                  color: "#252525",
-                }}
-              >
-                © 2026 ClickMasters. All rights reserved.
-              </span>
-
-              <div className="flex flex-wrap justify-center sm:justify-end items-center gap-[50px]">
-                {links.map((link) => (
-                  
-                 <a   key={link}
-                    href="#"
-                    style={{
-                      fontFamily: "Urbanist, sans-serif",
-                      fontSize: "16px",
-                      lineHeight: "19px",
-                      color: "#252525",
-                    }}
-                    className="hover:text-[#AF00E8] transition-colors"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

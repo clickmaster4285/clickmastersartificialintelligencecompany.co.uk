@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef, useState, useCallback } from "react";
+import Link from "next/link";
 import {
   img15,
   img15_2,
@@ -49,97 +47,20 @@ const SERVICES = [
   },
 ];
 
+// Previously animated counters (5+ years, 1860+ projects, 75+ awards,
+// 3500+ clients) that rendered "0+" server-side and were not verified.
 const STATS = [
-  { value: 5, label: "Years Experience" },
-  { value: 1860, label: "Projects Delivered" },
-  { value: 75, label: "Awards Won" },
-  { value: 3500, label: "Happy Clients" },
+  { value: "AI", label: "Automation & Machine Learning" },
+  { value: "Web", label: "& Mobile Applications" },
+  { value: "Cloud", label: "Native Deployments" },
+  { value: "8", label: "Sectors Served" },
 ];
 
-function useCountUp(target, shouldStart, duration = 1800) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!shouldStart) return;
-
-    let startTime = null;
-    let rafId;
-    let cancelled = false;
-
-    const step = (timestamp) => {
-      if (cancelled) return;
-      if (startTime === null) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      setValue(Math.floor(eased * target));
-
-      if (progress < 1) {
-        rafId = requestAnimationFrame(step);
-      } else {
-        setValue(target);
-      }
-    };
-
-    rafId = requestAnimationFrame(step);
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(rafId);
-    };
-  }, [shouldStart, target, duration]);
-
-  return value;
-}
-
 function StatItem({ stat }) {
-  const [node, setNode] = useState(null);
-  const [inView, setInView] = useState(false);
-  const observerRef = useRef(null);
-
-  const setRef = useCallback((el) => {
-    setNode(el);
-  }, []);
-
-  useEffect(() => {
-    if (!node) return;
-    if (typeof IntersectionObserver === "undefined") {
-      const rafFallback = requestAnimationFrame(() => setInView(true));
-      return () => cancelAnimationFrame(rafFallback);
-    }
-
-    const rect = node.getBoundingClientRect();
-    const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (alreadyVisible) {
-      // setState ko effect ke bahar (next frame mein) defer karo,
-      // warna cascading render warning aati hai
-      const raf = requestAnimationFrame(() => setInView(true));
-      return () => cancelAnimationFrame(raf);
-    }
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            observerRef.current?.disconnect();
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    observerRef.current.observe(node);
-
-    return () => observerRef.current?.disconnect();
-  }, [node]);
-
-  const count = useCountUp(stat.value, inView);
-
   return (
-    <div ref={setRef}>
+    <div>
       <p className="flex items-start font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#1a1a1a] leading-none">
-        {count}
-        <span className="text-lg sm:text-xl md:text-2xl mt-0.5">+</span>
+        {stat.value}
       </p>
       <p className="text-xs sm:text-sm text-gray-500 mt-2">{stat.label}</p>
     </div>
@@ -203,7 +124,7 @@ const Explore = () => {
 
                 <div className="relative z-10">
                   <div className="w-9 h-9 rounded-md overflow-hidden mb-4">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={item.img.src ?? item.img}
                       alt={item.title}
                       className="w-full h-full object-cover"
@@ -227,9 +148,9 @@ const Explore = () => {
           </div>
 
           <div className="flex justify-center mt-6 relative z-10">
-            <button className="bg-[#A000DF] text-white text-sm font-medium px-8 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
+            <Link href="/services" className="inline-block bg-[#A000DF] text-white text-sm font-medium px-8 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
               View All Services
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -238,7 +159,7 @@ const Explore = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 sm:gap-10 mb-16 sm:mb-20 md:mb-24">
             <div className="w-full lg:max-w-md">
-              <h2 className="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] leading-snug w-141">
+              <h2 className="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] leading-snug lg:w-141">
                 Ready To Transform Your Industry?
               </h2>
               <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-[#1a1a1a] mt-1">
@@ -251,9 +172,9 @@ const Explore = () => {
                 forward.
               </p>
 
-              <button className="mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
+              <Link href="/contact" className="inline-block mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
                 Discuss Your Project
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-x-10 sm:gap-x-20 gap-y-8 sm:gap-y-10 shrink-0 w-full lg:w-auto">
@@ -275,7 +196,7 @@ const Explore = () => {
               </div>
               <div>
                 <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1a1a1a]">
-                  24/7
+                  Ongoing
                 </p>
                 <p className="text-xs sm:text-sm text-gray-500 mt-1">Support</p>
               </div>
@@ -303,9 +224,9 @@ const Explore = () => {
                 life.
               </p>
 
-              <button className="mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
+              <Link href="/contact" className="inline-block mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
                 Get In Touch
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function SectorsWeServe() {
               className={`absolute -right-16 w-35 h-35 rounded-full bg-white/5 ${s.corner === "top" ? "-top-18" : "-bottom-18"
                 }`}
             />
-            <img src={s.icon} alt={s.title} className="w-12 h-12 rounded-lg mb-4 relative z-10" />
+            <img loading="lazy" decoding="async" src={s.icon} alt={s.title} className="w-12 h-12 rounded-lg mb-4 relative z-10" />
             <h3
               className="relative z-10 w-[285px] text-white mb-2"
               style={{ fontFamily: "'EB Garamond', serif", fontWeight: 700, fontSize: "24px", lineHeight: "31px" }}

@@ -1,8 +1,13 @@
 // app/Industries/page.jsx
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { logo } from "../assets";
 import CountUp from "../component/countup";
+
+import JsonLd from "../Components/JsonLd";
+import { jsonLdFor, metadataFor } from "../lib/seo-pages";
+
+export const metadata = metadataFor("industries");
 
 const industries = [
   {
@@ -48,15 +53,15 @@ const industries = [
 ];
 
 const clinicalStats = [
-  { value: "HIPAA", label: "Security Certified" },
-  { value: "4.8 Hours", label: "Saved Daily per Doc" },
+  { value: "Secure", label: "Privacy-First Architecture" },
+  { value: "Faster", label: "Clinical Documentation Workflows" },
 ];
 
 const scaleStats = [
-  { value: "500+", label: "Projects Delivered", sub: "Fully integrated live models" },
-  { value: "50+", label: "Industries Supported", sub: "Different compliance rules" },
-  { value: "$2B+", label: "Generated Value", sub: "Operational efficiency & sales" },
-  { value: "99.9%", label: "Live System Uptime", sub: "AWS resilient microservices" },
+  { value: "8", label: "Sectors Served", sub: "From healthcare to manufacturing" },
+  { value: "Cloud", label: "Native Deployments", sub: "AWS, Azure & Google Cloud" },
+  { value: "End-to-End", label: "Delivery", sub: "Discovery, build, launch & support" },
+  { value: "GDPR", label: "Aware Data Handling", sub: "Privacy built into every build" },
 ];
 
 const foundations = [
@@ -77,11 +82,11 @@ const foundations = [
   },
 ];
 
-const links = ["Support", "Blog", "Testimonials", "Careers", "About Us"];
 
 export default function Industries() {
   return (
     <>
+      <JsonLd data={jsonLdFor("industries")} />
       {/* Hero Section */}
       <main className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
         <section className="max-w-4xl text-center py-24">
@@ -99,9 +104,9 @@ export default function Industries() {
           </p>
 
           <div className="mt-8">
-            <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
+            <Link href="/contact" className="inline-block bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
               Consult Our Sector Leads
-            </button>
+            </Link>
           </div>
         </section>
       </main>
@@ -173,7 +178,7 @@ export default function Industries() {
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="font-serif text-2xl md:text-4xl font-bold text-gray-900 mb-16">
-            Unmatched Leverage{" "}
+            Built To Deliver{" "}
             <span className="text-[#A000DF]">Sustained at Scale</span>
           </h2>
 
@@ -230,91 +235,13 @@ export default function Industries() {
           </p>
 
           <div className="mt-8">
-            <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3 transition-colors">
+            <Link href="/contact" className="inline-block bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3 transition-colors">
               Consult a Specialist
-            </button>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden lg:h-[687px] py-16 lg:py-0 px-6">
-    
-
-        <div className="relative z-10 flex flex-col items-center gap-[60px] w-full lg:max-w-[1528px] lg:mx-auto lg:pt-[100.71px]">
-          <img
-            src={logo}
-            alt="ClickMasters"
-            style={{ width: "271px", height: "37.03px" }}
-            className="object-contain"
-          />
-
-          <div className="flex flex-col items-center gap-3 w-full lg:w-[600px]">
-            <h3
-              className="text-center capitalize text-3xl lg:text-[94px] lg:leading-[106px]"
-              style={{
-                fontFamily: "Garamond, serif",
-                fontWeight: 700,
-                color: "#333333",
-              }}
-            >
-              Got A Vision?
-              <br />
-              <span className="italic font-thin">{"Let's Build It."}</span>
-            </h3>
-
-            <p
-              className="text-center text-sm"
-              style={{
-                fontFamily: "Urbanist, sans-serif",
-                fontSize: "16px",
-                lineHeight: "19px",
-                color: "#333333",
-              }}
-            >
-              ClickMasters is a software development company. We build custom
-              software, web applications, mobile apps, and ERP solutions for
-              businesses worldwide.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-start gap-[50px] w-full">
-            <div className="w-full border-t" style={{ borderColor: "#4A4A4A" }} />
-
-            <div className="flex flex-col sm:flex-row items-center gap-[50px] w-full">
-              <span
-                className="flex-1 text-center sm:text-left"
-                style={{
-                  fontFamily: "Urbanist, sans-serif",
-                  fontSize: "16px",
-                  lineHeight: "19px",
-                  color: "#252525",
-                }}
-              >
-                © 2026 ClickMasters. All rights reserved.
-              </span>
-
-              <div className="flex flex-wrap justify-center sm:justify-end items-center gap-[50px]">
-                {links.map((link) => (
-                  
-                   <a key={link}
-                    href="#"
-                    style={{
-                      fontFamily: "Urbanist, sans-serif",
-                      fontSize: "16px",
-                      lineHeight: "19px",
-                      color: "#252525",
-                    }}
-                    className="hover:text-[#AF00E8] transition-colors"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+
     </>
   );
 }

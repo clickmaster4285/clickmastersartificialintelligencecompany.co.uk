@@ -50,7 +50,7 @@ const Proven = () => {
           <div key={item.title} className="group flex flex-col bg-[#18181B] pb-4">
             {/* Image */}
             <div className="w-full aspect-[4/2] overflow-hidden ">
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.img}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -76,7 +76,7 @@ const Proven = () => {
             <p className="text-sm text-gray-400 leading-relaxed  mt-3 px-3">
               {item.desc}
             </p>
-            <a className="flex items-center mt-3 gap-1.5 px-3">
+            <a href="/case-studies" className="flex items-center mt-3 gap-1.5 px-3">
               Read Full Study
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>

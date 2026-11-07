@@ -6,7 +6,7 @@ export default function CTASection() {
     <section className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
 
       {/* Background decorative image */}
-      <img
+      <img loading="lazy" decoding="async"
         src={ctaBgImage}
         alt=""
         className="hidden lg:block absolute pointer-events-none select-none"
@@ -40,14 +40,14 @@ export default function CTASection() {
         <div className="flex flex-wrap justify-center gap-4 mt-4">
 
           <a
-            href="#"
+            href="/about"
             className="border border-[#A000DF] text-[#A000DF] px-6 py-3 text-sm font-medium hover:bg-[#A000DF] hover:text-white transition-colors"
           >
             About Our Company & Team
           </a>
 
           <a
-            href="#"
+            href="/contact"
             className="bg-[#A000DF] text-white px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Get Free Consultation

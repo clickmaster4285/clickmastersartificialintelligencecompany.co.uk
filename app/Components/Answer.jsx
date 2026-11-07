@@ -81,7 +81,7 @@ const Answer = () => {
           </p>
 
           <div className="mt-8 sm:mt-12 flex justify-center lg:justify-start items-center w-full">
-            <img
+            <img loading="lazy" decoding="async"
               src={glassCapsule}
               alt="Glass capsule"
               className="w-48 sm:w-64 md:w-72 object-contain rotate-[-5deg] opacity-60"

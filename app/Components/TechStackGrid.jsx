@@ -114,7 +114,7 @@ export default function TechStackGrid() {
               {cat.rows.map((row, i) => (
                 <div key={i} className="flex justify-center gap-6">
                   {row.map((item) => (
-                    <img
+                    <img loading="lazy" decoding="async"
                       key={item.label}
                       src={item.icon}
                       alt={item.label}

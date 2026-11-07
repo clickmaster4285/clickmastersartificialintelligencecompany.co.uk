@@ -55,7 +55,7 @@ const Article = () => {
           >
             {/* Image */}
             <div className="w-full aspect-[4/2] overflow-hidden bg-[#141414]">
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.img}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -83,9 +83,9 @@ const Article = () => {
                 {item.desc}
               </p>
 
-              <a className="flex items-center justify-between mt-4 gap-1.5 pt-3 border-t border-gray-200 cursor-pointer text-[#333333]">
+              <a href="/blog" className="flex items-center justify-between mt-4 gap-1.5 pt-3 border-t border-gray-200 cursor-pointer text-[#333333]">
                 Read Article
-                <h4 className="font-thin whitespace-nowrap">{item.time}</h4>
+                <span className="font-thin whitespace-nowrap">{item.time}</span>
               </a>
             </div>
           </div>

@@ -1,14 +1,28 @@
-import React from "react";
+import Link from "next/link";
 import { logo } from "../assets";
 
-const links = ["Support", "Blog", "Testimonials", "Careers", "About Us"];
+const links = [
+  { label: "Support", href: "/contact" },
+  { label: "Blog", href: "/blog" },
+  { label: "Testimonials", href: "/#testimonial" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About Us", href: "/about" },
+];
+
+const linkStyle = {
+  fontFamily: "Urbanist, sans-serif",
+  fontSize: "16px",
+  lineHeight: "19px",
+  color: "#252525",
+};
 
 export default function Footer() {
   return (
     <footer className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden lg:h-[687px] py-16 lg:py-0 px-6">
 
-      {/* Background giant watermark text */}
-      <h2
+      {/* Background giant watermark text (decorative) */}
+      <div
+        aria-hidden="true"
         className="hidden text-transparent [-webkit-text-stroke:2px_#AF00E8] lg:block absolute font-bold uppercase whitespace-nowrap select-none pointer-events-none z-0"
         style={{
           fontFamily: "Outfit, sans-serif",
@@ -21,13 +35,16 @@ export default function Footer() {
           WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 90%)",
           maskImage: "linear-gradient(to bottom, black 40%, transparent 90%)",
         }}
-      >Clickmasters</h2>
+      >Clickmasters</div>
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center gap-[60px] w-full lg:max-w-[1528px] lg:mx-auto lg:pt-[100.71px]">
         <img
           src={logo}
           alt="ClickMasters"
+          width={271}
+          height={37}
+          loading="lazy"
           style={{
             width: "271px",
             height: "37.03px",
@@ -37,7 +54,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-3 w-full lg:w-[600px]">
 
-          <h3
+          <p
             className="text-center capitalize text-3xl lg:text-[94px] lg:leading-[106px]"
             style={{
               fontFamily: "Garamond, serif",
@@ -48,7 +65,7 @@ export default function Footer() {
             Got A Vision?
             <br />
             <span className="italic font-thin">{"Let's Build It."}</span>
-          </h3>
+          </p>
 
           <p
             className="text-center text-sm"
@@ -78,35 +95,23 @@ export default function Footer() {
 
             <span
               className="flex-1 text-center sm:text-left"
-              style={{
-                fontFamily: "Urbanist, sans-serif",
-                fontSize: "16px",
-                lineHeight: "19px",
-                color: "#252525",
-              }}
+              style={linkStyle}
             >
-              © 2026 ClickMasters. All rights reserved.
+              © {new Date().getFullYear()} ClickMasters. All rights reserved.
             </span>
 
-            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-[50px]">
-
-              {links.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  style={{
-                    fontFamily: "Urbanist, sans-serif",
-                    fontSize: "16px",
-                    lineHeight: "19px",
-                    color: "#252525",
-                  }}
+            <nav aria-label="Footer" className="flex flex-wrap justify-center sm:justify-end items-center gap-[50px]">
+              {links.map(({ label, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  style={linkStyle}
                   className="hover:text-[#AF00E8] transition-colors"
                 >
-                  {link}
-                </a>
+                  {label}
+                </Link>
               ))}
-
-            </div>
+            </nav>
 
           </div>
         </div>
