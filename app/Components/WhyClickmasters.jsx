@@ -14,7 +14,7 @@ const cards = [
     bg: "#AF00E8",
     text: "text-white",
     title: "24/7 Dedicated Support",
-    desc: "Our software development company stays with you post-launch monitoring performance, eploying updates, and resolving issues around the clock.",
+    desc: "Our software development company stays with you post-launch monitoring performance, deploying updates, and resolving issues around the clock.",
     rotate: "rotate-[6deg] lg:rotate-[20deg]",
     position: "lg:top-0 lg:right-3",
     width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
@@ -32,7 +32,7 @@ const cards = [
     bg: "#151515",
     text: "text-white",
     title: "Enterprise Security & Compliance",
-    desc: "Every product from our software house follows OWASP standards, GDPR best practices, and rigorous QA so your business and users stay.",
+    desc: "Every product from our software house follows OWASP standards, GDPR best practices, and rigorous QA so your business and users stay protected.",
     rotate: "rotate-[-4deg] lg:rotate-[-8deg]",
     position: "lg:bottom-25 lg:right-6",
     width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
@@ -46,7 +46,7 @@ export default function WhyClickmasters() {
 
         {/* Left text content */}
         <div className="text-white">
-          <div
+          <h2
             className="mb-6 max-w-[578px] font-bold capitalize text-white text-[32px] leading-[44px] sm:text-[38px] sm:leading-[54px] lg:text-[44px] lg:leading-[70px]"
             style={{
               fontFamily: "Garamond, serif",
@@ -57,12 +57,12 @@ export default function WhyClickmasters() {
             <span className="italic font-normal text-white text-[24px] sm:text-[28px] lg:text-[32px]">
               We Build Revenue Systems
             </span>
-          </div>
+          </h2>
 
           <div className="space-y-4 text-gray-400 text-sm leading-relaxed mb-8">
             <div className="space-y-4 mb-8">
               <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                A results-driven software building custom web apps, mobile apps,
+                A results-driven software company building custom web apps, mobile apps,
                 and enterprise software that powers real business growth.
               </p>
               <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
@@ -78,7 +78,7 @@ export default function WhyClickmasters() {
                 real-world conditions.
               </p>
               <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                As a full-service house, we handle everything from discovery
+                As a full-service software house, we handle everything from discovery
                 and UI/UX design to backend development, QA, testing, cloud
                 deployment, and long-term maintenance — end to end under one
                 roof.
@@ -119,8 +119,8 @@ export default function WhyClickmasters() {
               className={`relative z-10 lg:absolute ${card.position} ${card.width} ${card.rotate} p-6 shadow-2xl overflow-visible transition-all duration-300 hover:-translate-y-4 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]`}
               style={{ backgroundColor: card.bg }}
             >
-              <div className="w-10 h-10 rounded-full bg-white/60 mb-4 absolute -top-3.5 -left-3.5" />
-              <h4
+              <div aria-hidden="true" className="w-10 h-10 rounded-full bg-white/60 mb-4 absolute -top-3.5 -left-3.5" />
+              <h3
                 className={`mb-2 ${card.text} text-[22px] leading-[28px] sm:text-[26px] sm:leading-[32px] lg:text-[30px] lg:leading-[36px]`}
                 style={{
                   fontFamily: "'Times New Roman', serif",
@@ -129,7 +129,7 @@ export default function WhyClickmasters() {
                 }}
               >
                 {card.title}
-              </h4>
+              </h3>
 
               <p
                 className={card.text}

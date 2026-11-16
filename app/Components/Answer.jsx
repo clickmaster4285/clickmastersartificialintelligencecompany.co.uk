@@ -7,7 +7,7 @@ import { RiGeminiFill } from "react-icons/ri";
 const FAQS = [
   {
     q: 'How long does a typical project take?',
-    a: 'Most MVP projects are delivered within 6-8 weeks. Full-scale enterprise solutions typically take 3-6 months depending on complexity. We follow agile sprints with weekly',
+    a: 'Most MVP projects are delivered within 6-8 weeks. Full-scale enterprise solutions typically take 3-6 months depending on complexity. We follow agile sprints with weekly progress updates.',
   },
   {
     q: 'Do you provide ongoing support after launch?',
@@ -83,7 +83,9 @@ const Answer = () => {
           <div className="mt-8 sm:mt-12 flex justify-center lg:justify-start items-center w-full">
             <img loading="lazy" decoding="async"
               src={glassCapsule}
-              alt="Glass capsule"
+              alt="Translucent glass capsule illustration"
+              width={383}
+              height={386}
               className="w-48 sm:w-64 md:w-72 object-contain rotate-[-5deg] opacity-60"
             />
           </div>
@@ -96,6 +98,7 @@ const Answer = () => {
             return (
               <div key={item.q} className="py-5 sm:py-6 hover:bg-[#f5ecf9] transition duration-700 hover:translate-x-1.5 transition-transform duration-300">
                 <button
+                  type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
                   className="flex w-full items-start justify-between gap-4 text-left"
                   aria-expanded={isOpen}
@@ -104,6 +107,7 @@ const Answer = () => {
                     {item.q}
                   </span>
                   <span
+                    aria-hidden="true"
                     className={`shrink-0 mt-1 flex items-center justify-center w-6 h-6 rounded-full  text-[#A000DF] hover:bg-fuchsia-200 bg-[#f7effa] text-sm transition-transform ${
                       isOpen ? 'rotate-45' : ''
                     }`}

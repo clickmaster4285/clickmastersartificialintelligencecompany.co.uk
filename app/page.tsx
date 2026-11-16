@@ -4,12 +4,9 @@ import ProvenTrackRecord from "./Components/ProvenTrackRecord";
 import WhyClickmasters from "./Components/WhyClickmasters";
 import ClientsMarquee from "./Components/ClientsMarquee";
 import TechStack from "./Components/TechStack";
-import Proven from "./Components/Proven";
 import Explore from "./Components/Explore";
 import TechStackGrid from "./Components/TechStackGrid";
 import CTASection from "./Components/CTASection";
-import Article from "./Components/Article";
-import Testimonials from "./Components/Testimonials";
 import SectorsWeServe from "./Components/SectorsWeServe";
 import Answer from "./Components/Answer";
 import JsonLd from "./Components/JsonLd";
@@ -29,12 +26,9 @@ function Home() {
       <TechStack />
       <TechStackGrid />
       <CTASection />
-      <Proven />
       <Explore />
-      <Testimonials />
       <SectorsWeServe />
       <Answer />
-      <Article />
     </div>
   );
 }

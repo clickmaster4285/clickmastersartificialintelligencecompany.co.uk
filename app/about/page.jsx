@@ -1,4 +1,4 @@
-// app/About/page.jsx
+// app/about/page.jsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,10 +81,12 @@ export default function About() {
 
           <div className="w-full flex justify-center">
             <Image
-              src="/assets/About/image0.png"
-              alt="Abstract geometric AI structure illustration"
-              width={500}
+              src="/assets/About/image0.webp"
+              alt="Purple wireframe illustration of interlocking geometric cubes"
+              width={600}
               height={400}
+              preload
+              sizes="(min-width: 768px) 448px, 100vw"
               className="w-full max-w-md h-auto object-contain"
             />
           </div>

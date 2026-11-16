@@ -1,4 +1,4 @@
-// app/Services/page.jsx
+// app/services/page.jsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export const metadata = metadataFor("services");
 const llmPoints = [
   "Secure data ingestion frameworks",
   "Private infrastructure isolation (AWS/Azure)",
-  "Up to 90% reduction in response latency",
+  "Latency-optimised inference for production workloads",
 ];
 
 const enterpriseFeatures = [
@@ -143,7 +143,7 @@ export default function Services() {
     <>
       <JsonLd data={jsonLdFor("services")} />
       {/* Hero Section */}
-      <main className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
+      <div className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
         <section className="max-w-4xl text-center py-24">
           <h1 className="font-serif text-3xl md:text-6xl font-bold text-gray-900 leading-tight">
             Comprehensive AI <span className="text-[#A000DF]">Services</span>
@@ -163,7 +163,7 @@ export default function Services() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
 
       {/* LLM Fine-Tuning Section */}
       <section className="bg-black py-20 px-6">
@@ -196,10 +196,12 @@ export default function Services() {
 
           <div className="w-full">
             <Image
-              src="/assets/Services/container.png"
-              alt="LLM fine-tuning data pipeline visualization"
-              width={700}
-              height={450}
+              src="/assets/Services/container.webp"
+              alt="Data centre corridor of server racks lit with purple light"
+              width={600}
+              height={400}
+              preload
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="w-full h-auto object-contain rounded-md"
             />
           </div>
@@ -319,7 +321,7 @@ export default function Services() {
                 </ul>
 
                 <Link href="/contact"
-                  className={`mt-8 w-full py-3  text-sm font-medium transition-colors ${
+                  className={`mt-8 block w-full py-3 text-center text-sm font-medium transition-colors ${
                     plan.highlighted
                       ? "bg-[#A000DF] hover:bg-[#a000dfdf] text-white"
                       : "border border-gray-500 text-white hover:bg-gray-800"
@@ -342,8 +344,8 @@ export default function Services() {
           </h2>
 
           <p className="mt-6 text-gray-500 text-sm md:text-base leading-relaxed">
-            Consult directly with our head of technology. Learn how custom
-            models can remove scale limitations in your pipelines.
+            Talk directly with our technical team. Learn how custom models
+            can remove scale limitations in your pipelines.
           </p>
 
           <div className="mt-8">

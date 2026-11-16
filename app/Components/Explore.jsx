@@ -13,36 +13,42 @@ const SERVICES = [
     title: "Custom Software Development",
     desc: "End-to-end product delivery.",
     img: img16,
+    alt: "Gear with code brackets icon",
     rotate: -3.63,
   },
   {
     title: "Web Application Development",
-    desc: "Healthcare",
+    desc: "Fast, secure, scalable web platforms.",
     img: img15_3,
+    alt: "Browser window with globe icon",
     rotate: 4,
   },
   {
-    title: "Client testimonials",
-    desc: "What businesses say after launch.",
+    title: "AI Chatbots & Assistants",
+    desc: "Conversational AI for support and sales.",
     img: img15_5,
+    alt: "Chat bubbles icon",
     rotate: -2,
   },
   {
     title: "Mobile App Development",
     desc: "Native + cross-platform builds.",
     img: img15,
+    alt: "Smartphone with app icons",
     rotate: 5,
   },
   {
     title: "Cloud Solutions & DevOps",
     desc: "CI/CD, containers, observability.",
     img: img15_2,
+    alt: "Cloud with gears and sync arrows icon",
     rotate: -5,
   },
   {
     title: "Database Design & Management",
     desc: "Modeling, migrations, tuning.",
     img: img15_4,
+    alt: "Database stack icon",
     rotate: 3,
   },
 ];
@@ -112,21 +118,24 @@ const Explore = () => {
             </h2>
 
             <p className="text-sm text-gray-500 max-w-xs sm:text-right leading-relaxed w-full sm:w-70">
-              Start with our service offerings, review proof, and read insights
-              — everything you need to choose the right solution.
+              Start with our service offerings, explore the industries we
+              support and talk to our team — everything you need to choose the
+              right solution.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-10 gap-y-12 sm:gap-y-14 md:gap-y-20 relative z-10">
             {SERVICES.map((item) => (
               <div key={item.title} className="relative min-w-0 pb-14">
-                <div className="absolute right-2 bottom-0 w-20 sm:w-24 h-16 sm:h-19 bg-[#9b1fe0]/10 rounded-tl-full pointer-events-none" />
+                <div aria-hidden="true" className="absolute right-2 bottom-0 w-20 sm:w-24 h-16 sm:h-19 bg-[#9b1fe0]/10 rounded-tl-full pointer-events-none" />
 
                 <div className="relative z-10">
                   <div className="w-9 h-9 rounded-md overflow-hidden mb-4">
                     <img loading="lazy" decoding="async"
-                      src={item.img.src ?? item.img}
-                      alt={item.title}
+                      src={item.img}
+                      alt={item.alt}
+                      width={70}
+                      height={70}
                       className="w-full h-full object-cover"
                     />
                   </div>

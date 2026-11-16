@@ -5,13 +5,14 @@ export default function CTASection() {
   return (
     <section className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
 
-      {/* Background decorative image */}
-      <img loading="lazy" decoding="async"
-        src={ctaBgImage}
-        alt=""
-        className="hidden lg:block absolute pointer-events-none select-none"
+      {/* Background decorative image (CSS background, hidden from assistive tech) */}
+      <div
+        aria-hidden="true"
+        className="hidden lg:block absolute pointer-events-none select-none bg-contain bg-center bg-no-repeat"
         style={{
           width: "300px",
+          aspectRatio: "383 / 386",
+          backgroundImage: `url("${ctaBgImage}")`,
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%) rotate(1deg)",

@@ -1,4 +1,4 @@
-// app/Solutions/page.jsx
+// app/solutions/page.jsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,12 +13,12 @@ const features = [
   {
     title: "Intelligent Document Processing",
     description:
-      "Automate reading and validation of legacy PDF forms, invoice pipelines, medical charts, and compliance documentation with 99.8% precision.",
+      "Automate reading and validation of legacy PDF forms, invoice pipelines, medical charts, and compliance documentation with automated validation checks.",
   },
   {
     title: "AI-Powered Customer Service",
     description:
-      "Deploy natural contextual support models trained on your core internal product docs to deflect up to 80% of standard ticket workloads.",
+      "Deploy natural contextual support models trained on your core internal product docs to deflect routine, repetitive support tickets.",
   },
   {
     title: "Smart Supply Chain Optimization",
@@ -47,7 +47,7 @@ const stats = [
     value: "Precise",
     title: "Accuracy Focused",
     description:
-      "Automate reading unstructured charts with greater accuracy than manual review teams.",
+      "Automate reading unstructured documents with consistent validation that reduces manual review errors.",
   },
   {
     value: "Lean",
@@ -65,7 +65,7 @@ const stats = [
     value: "24/7",
     title: "Continuous Autopilot",
     description:
-      "Rest easy with automated routing pipelines running continuously, zero down-time.",
+      "Automated routing pipelines designed for continuous, monitored operation.",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function Solutions() {
     <>
       <JsonLd data={jsonLdFor("solutions")} />
       {/* Hero Section */}
-      <main className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
+      <div className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
         <section className="max-w-4xl text-center py-24">
           <h1 className="font-serif text-3xl md:text-6xl font-bold text-gray-900 leading-tight">
             AI <span className="text-[#A000DF]">Solutions</span> For Complex
@@ -103,11 +103,11 @@ export default function Solutions() {
 
           <div className="mt-8">
             <Link href="/case-studies" className="inline-block bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3 transition-colors">
-              Explore Case Studies
+              Explore Use Cases
             </Link>
           </div>
         </section>
-      </main>
+      </div>
 
       {/* Features Section */}
       <section className="bg-gray-50 py-20 px-6 min-h-[60vh]">
@@ -137,10 +137,11 @@ export default function Solutions() {
         <div className="max-w-8xl mx-auto flex justify-center items-center md:grid-cols-2 gap-12">
           <div className="w-[347px] h-[150px] flex items-center justify-center">
             <Image
-              src="/assets/Solution/visual.png"
-              alt="Intelligent Dispatch Routing Logic visualization"
-              width={400}
-              height={200}
+              src="/assets/Solution/visual.webp"
+              alt="Holographic city map with glowing delivery routes on a control table"
+              width={900}
+              height={600}
+              sizes="347px"
               className="object-contain"
             />
           </div>
@@ -152,21 +153,20 @@ export default function Solutions() {
             </h2>
 
             <p className="mt-3 text-gray-400 text-xs md:text-base leading-relaxed">
-              In partnership with LogiFlow Solutions, we replaced legacy
-              static scheduling scripts with a real-time predictive routing
-              matrix. The system maps regional freight volumes, live highway
-              weather patterns, and local storage limits to calculate dynamic
-              delivery lanes instantly.
+              We replace legacy static scheduling scripts with a real-time
+              predictive routing model. It can take into account regional
+              freight volumes, live road and weather conditions, and local
+              storage limits to calculate dynamic delivery lanes.
             </p>
 
             <div className="mt-5 flex gap-16">
               <div>
-                <p className="text-[#A000DF] text-2xl font-bold">40%</p>
-                <p className="text-gray-400 text-xs mt-1">Efficiency Boost</p>
+                <p className="text-[#A000DF] text-2xl font-bold">Real-Time</p>
+                <p className="text-gray-400 text-xs mt-1">Route Recalculation</p>
               </div>
               <div>
-                <p className="text-[#A000DF] text-2xl font-bold">$1.2M</p>
-                <p className="text-gray-400 text-xs mt-1">Yearly Savings</p>
+                <p className="text-[#A000DF] text-2xl font-bold">Predictive</p>
+                <p className="text-gray-400 text-xs mt-1">Demand-Aware Planning</p>
               </div>
             </div>
           </div>
@@ -220,50 +220,50 @@ export default function Solutions() {
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-14">
-            Success Stories{" "}
-            <span className="text-[#A000DF]">After Implementation</span>
+            Example Solution{" "}
+            <span className="text-[#A000DF]">Blueprints</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card 1 */}
             <div>
               <Image
-                src="/assets/Solution/Rectangle.png"
-                alt="Cloud-Native Microservice Redesign"
+                src="/assets/Solution/Rectangle.webp"
+                alt="Dark dashboard with glowing data line charts"
                 width={772}
                 height={240}
-                className="w-full h-[240px] object-contain"
+                className="w-full h-auto object-contain"
               />
               <p className="text-[#A000DF] text-xs font-semibold mt-4">
-                FinTrust Global
+                Finance
               </p>
               <h3 className="font-serif text-xl font-bold text-gray-900 mt-1">
                 Cloud-Native Microservice Redesign
               </h3>
               <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                How we migrated legacy platform architectures to an isolated,
-                SOC2-compliant AWS secure stack.
+                Migrating legacy platform architectures to isolated,
+                cloud-native microservices on a secure AWS stack.
               </p>
             </div>
 
             {/* Card 2 */}
             <div>
               <Image
-                src="/assets/Solution/Rectangle1.png"
-                alt="Medical Portal Triage Automation"
+                src="/assets/Solution/Rectangle1.webp"
+                alt="Burst of blue light from a glowing digital network"
                 width={772}
                 height={240}
-                className="w-full h-[240px] object-contain "
+                className="w-full h-auto object-contain"
               />
               <p className="text-[#A000DF] text-xs font-semibold mt-4">
-                HealthPlus Networks
+                Healthcare
               </p>
               <h3 className="font-serif text-xl font-bold text-gray-900 mt-1">
                 Medical Portal Triage Automation
               </h3>
               <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                Designing patient coordinate workflows enabling doctors to
-                triage sensitive files securely.
+                Patient coordination workflows that help doctors triage
+                sensitive files securely.
               </p>
             </div>
           </div>

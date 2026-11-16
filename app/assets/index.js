@@ -6,8 +6,7 @@
 // ============================================
 
 // ---------- Hero ----------
-export const starIcon = "/assets/hero-icons/Text%20(1).png";
-export const aiModelImg = "/assets/hero-images/AI%20Model.png";
+export const aiModelImg = "/assets/hero-images/ai-model.webp";
 
 export const avatar1 = "/assets/hero-images/herodp1.jpg";
 export const avatar2 = "/assets/hero-images/herodp2.jpg";
@@ -27,15 +26,10 @@ export const logo = "/assets/logo.png";
 export const stripStarIcon = "/assets/servicesStrip/starIcon.png";
 
 // ---------- Answer (FAQ) ----------
-export const glassCapsule = "/assets/Answer-img/abstract4g.png";
+export const glassCapsule = "/assets/Answer-img/glass-capsule.webp";
 
 // ---------- Proven Track Record ----------
 export const trackRecordBg = "/assets/provenTrackRecords/lowerHeroBg.png";
-
-// ---------- Proven (Case Studies) ----------
-export const logiflowImg = "/assets/proven-img/LogiFlow.png";
-export const fintrustImg = "/assets/proven-img/FinTrustGlobal.png";
-export const healthplusImg = "/assets/proven-img/Health.png";
 
 // ---------- Explore ----------
 export const img15 = "/assets/Explore-img/image%2015.png";
@@ -88,18 +82,8 @@ export const newRelicIcon = "/assets/devops/new-relic.png";
 export const grafanaIcon = "/assets/devops/grafana.png";
 
 // ---------- CTA Section ----------
-export const ctaBgImage = "/assets/cta-background.png";
-
-// ---------- Article ----------
-export const articleEngineering = "/assets/Article-img/Engineering.png";
-export const articleMethodology = "/assets/Article-img/Methodology.png";
-export const articleCompliance = "/assets/Article-img/Compliance.png";
-
-// ---------- Testimonials ----------
-export const person1 = "/assets/testimonials/person1.png";
-export const person2 = "/assets/testimonials/person2.png";
-export const person3 = "/assets/testimonials/person3.png";
-export const person4 = "/assets/testimonials/person4.png";
+// Same artwork as the FAQ capsule (the two PNGs were byte-identical).
+export const ctaBgImage = "/assets/Answer-img/glass-capsule.webp";
 
 // ---------- Sectors We Serve ----------
 export const healthcareIcon = "/assets/sectors/healthcare.png";

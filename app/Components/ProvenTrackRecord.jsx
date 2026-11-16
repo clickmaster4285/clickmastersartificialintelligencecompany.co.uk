@@ -53,8 +53,9 @@ function StatItem({ stat }) {
 export default function ProvenTrackRecord() {
   return (
     <section id="proven-track" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden px-6 py-16 lg:py-24">
-      {/* Background watermark box */}
+      {/* Background watermark box (decorative, CSS background) */}
       <div
+        aria-hidden="true"
         className="hidden lg:block absolute pointer-events-none select-none"
         style={{
           left: "50%",
@@ -63,10 +64,11 @@ export default function ProvenTrackRecord() {
           width: "97.11vw",
           height: "147px",
           zIndex: 0,
+          backgroundImage: `url("${trackRecordBg}")`,
+          backgroundSize: "100% 100%",
+          backgroundRepeat: "no-repeat",
         }}
-      >
-        <img src={trackRecordBg} alt="" loading="lazy" className="w-full h-full object-fit" />
-      </div>
+      />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Heading */}

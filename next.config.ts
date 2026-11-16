@@ -26,7 +26,7 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()",
+    value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
   },
   // Dev mode needs eval for React Refresh, so CSP is applied to production only.
   ...(isProd ? [{ key: "Content-Security-Policy", value: contentSecurityPolicy }] : []),

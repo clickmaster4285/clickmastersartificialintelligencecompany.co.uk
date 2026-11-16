@@ -58,15 +58,15 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
       "How ClickMasters applies AI and custom software across healthcare, finance, e-commerce, education, real estate, logistics and manufacturing.",
   },
   caseStudies: {
-    title: "AI & Software Case Studies",
+    title: "AI Use Cases & Example Projects",
     description:
-      "Explore ClickMasters case studies covering AI pipelines, enterprise automation, cloud migrations and custom web and mobile platforms.",
+      "Example AI projects ClickMasters can design and build: computer vision, fraud detection, demand forecasting, fleet routing, learning copilots and more.",
     pageType: "CollectionPage",
   },
   locations: {
-    title: "Where We Work",
+    title: "Where We Work: UK & Remote AI Services",
     description:
-      "ClickMasters works with businesses across the UK and internationally, delivering AI and custom software projects remotely with collaborative workflows.",
+      "Remote AI development and automation for UK and international businesses, with ClickMasters contact lines in the UK, US and Pakistan.",
   },
   about: {
     title: "About Our AI Software Company",
@@ -83,7 +83,7 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
   blog: {
     title: "AI & Software Development Blog",
     description:
-      "Articles and guides from ClickMasters on AI engineering, software architecture, agile delivery, security and GDPR compliance.",
+      "Technical guides and upcoming articles from ClickMasters on AI engineering, software architecture, agile delivery, security and GDPR compliance.",
     pageType: "CollectionPage",
   },
 };

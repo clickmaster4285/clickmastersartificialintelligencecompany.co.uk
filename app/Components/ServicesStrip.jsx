@@ -33,7 +33,11 @@ export default function ServicesStrip() {
               >
                 {item}
               </span>
-              <img loading="lazy" decoding="async" src={starIcon} alt="" className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 object-contain shrink-0" />
+              <span
+                aria-hidden="true"
+                className="inline-block w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 shrink-0 bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url("${starIcon}")` }}
+              />
             </React.Fragment>
           ))}
         </div>

@@ -13,6 +13,15 @@ import {
 import { RiGeminiFill } from "react-icons/ri";
 import { GrPlayFill } from "react-icons/gr";
 
+// Small portrait photos beside the consultation prompt. Alt text describes
+// what each photo shows (they are not identified as named staff or clients).
+const AVATARS = [
+  { src: avatar1, alt: "Black-and-white side profile of a man with curly hair and a beard" },
+  { src: avatar2, alt: "Portrait of an older man in a white cap and white T-shirt" },
+  { src: avatar3, alt: "Smiling young man in a black T-shirt with his arms crossed" },
+  { src: avatar4, alt: "Portrait of a young woman with natural afro hair in a black jacket" },
+];
+
 export default function Hero() {
   return (
     <section
@@ -108,11 +117,11 @@ export default function Hero() {
             {/* Team avatars */}
             <div className="flex items-center gap-3">
               <div className="flex items-center">
-                {[avatar1, avatar2, avatar3, avatar4].map((av, i) => (
+                {AVATARS.map(({ src, alt }, i) => (
                   <img
-                    key={av}
-                    src={av}
-                    alt=""
+                    key={src}
+                    src={src}
+                    alt={alt}
                     loading="lazy"
                     width={28}
                     height={28}

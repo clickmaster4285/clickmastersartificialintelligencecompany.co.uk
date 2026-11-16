@@ -2,8 +2,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { CONTACT } from "../lib/site";
 
-const CONTACT_EMAIL = "hello@clickmasters.com";
+const CONTACT_EMAIL = CONTACT.email;
 
 const consultationOptions = [
   {
@@ -63,13 +64,14 @@ const faqs = [
 function FaqItem({ faq, isOpen, onToggle }) {
   return (
     <div className="group py-6 px-4 -mx-4 rounded-md transition-colors duration-200 hover:bg-white hover:shadow-md">
+      <h3>
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         className="w-full flex items-center justify-between gap-4 text-left cursor-pointer"
       >
-        <h3
+        <span
           className={`font-serif text-lg font-semibold transition-colors ${
             isOpen
               ? "text-[#A000DF]"
@@ -77,9 +79,10 @@ function FaqItem({ faq, isOpen, onToggle }) {
           }`}
         >
           {faq.question}
-        </h3>
+        </span>
 
         <span
+          aria-hidden="true"
           className={`flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border transition-all duration-300 bg-pink-50 ${
             isOpen
               ? "bg-[#A000DF] border-[#A000DF] text-white rotate-180"
@@ -109,6 +112,7 @@ function FaqItem({ faq, isOpen, onToggle }) {
           )}
         </span>
       </button>
+      </h3>
 
       {/* Answer: smooth slide down when open, slide up when closed */}
       <div
@@ -278,11 +282,27 @@ export default function Contact() {
                 Direct Information
               </h2>
               <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                Prefer email? Write to us directly and our team will get back to
-                you to discuss your project.
+                Prefer to talk directly? Call one of our contact lines or write
+                to us and our team will get back to you to discuss your project.
               </p>
 
-              <div className="space-y-6">
+              <address className="not-italic space-y-6">
+                <div>
+                  <p className="text-[#A000DF] text-xs font-semibold tracking-wide">
+                    PHONE
+                  </p>
+                  <ul className="mt-1 space-y-1">
+                    {CONTACT.phones.map((phone) => (
+                      <li key={phone.e164} className="text-sm text-gray-900">
+                        <span className="text-gray-500">{phone.country}:</span>{" "}
+                        <a href={`tel:${phone.e164}`} className="hover:text-[#A000DF]">
+                          {phone.display}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div>
                   <p className="text-[#A000DF] text-xs font-semibold tracking-wide">
                     GENERAL EMAIL
@@ -292,7 +312,15 @@ export default function Contact() {
                   </a>
                 </div>
 
-              </div>
+                <div>
+                  <p className="text-[#A000DF] text-xs font-semibold tracking-wide">
+                    RESPONSE TIME
+                  </p>
+                  <p className="text-gray-900 text-sm mt-1">
+                    We usually respond {CONTACT.responseTime}.
+                  </p>
+                </div>
+              </address>
             </div>
           </div>
         </div>

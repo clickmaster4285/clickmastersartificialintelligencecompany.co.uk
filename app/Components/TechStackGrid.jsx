@@ -42,6 +42,45 @@ import {
   grafanaIcon,
 } from "../assets";
 
+// Intrinsic pixel size of each logo file (width, height), so the browser can
+// reserve the right space before the image loads.
+const LOGO_SIZE = {
+  "React.js": [98, 27],
+  "Next.js": [90, 28],
+  "Angular": [100, 28],
+  "TypeScript": [124, 28],
+  "Tailwind CSS": [157, 28],
+  "Vue.js": [83, 27],
+  "Node.js": [95, 30],
+  "Python/Django": [155, 27],
+  "Laravel": [95, 30],
+  "Go": [61, 30],
+  "Java/Spring": [133, 28],
+  "Ruby on Rails": [141, 28],
+  "React Native": [138, 27],
+  "Flutter": [88, 28],
+  "Swift/iOS": [115, 27],
+  "Ionic": [74, 28],
+  "Kotlin/Android": [149, 27],
+  "PostgreSQL": [131, 28],
+  "MongoDB": [115, 28],
+  "MySQL": [96, 28],
+  "Firebase": [104, 30],
+  "Elasticsearch": [141, 27],
+  "Redis": [79, 27],
+  "AWS": [85, 27],
+  "Google Cloud": [152, 27],
+  "Azure": [84, 27],
+  "Kubernetes": [127, 27],
+  "Terraform": [119, 28],
+  "Docker": [109, 27],
+  "GitHub Actions": [155, 28],
+  "Jenkins": [95, 38],
+  "Prometheus": [131, 30],
+  "New Relic": [114, 28],
+  "Grafana": [104, 28],
+};
+
 // Har category ke "rows" array mein har row apni icons ki list hai
 const categories = [
   {
@@ -117,7 +156,9 @@ export default function TechStackGrid() {
                     <img loading="lazy" decoding="async"
                       key={item.label}
                       src={item.icon}
-                      alt={item.label}
+                      alt={`${item.label} logo`}
+                      width={LOGO_SIZE[item.label][0]}
+                      height={LOGO_SIZE[item.label][1]}
                       className={`w-auto object-contain ${item.size || "h-[24px]"}`}
                     />
                   ))}

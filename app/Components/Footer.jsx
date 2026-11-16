@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { logo } from "../assets";
+import { CONTACT } from "../lib/site";
 
 const links = [
   { label: "Support", href: "/contact" },
   { label: "Blog", href: "/blog" },
-  { label: "Testimonials", href: "/#testimonial" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Services", href: "/services" },
+  { label: "Use Cases", href: "/case-studies" },
   { label: "About Us", href: "/about" },
 ];
 
@@ -18,7 +19,7 @@ const linkStyle = {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden lg:h-[687px] py-16 lg:py-0 px-6">
+    <footer className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden lg:min-h-[687px] py-16 lg:pb-[110px] lg:py-0 px-6">
 
       {/* Background giant watermark text (decorative) */}
       <div
@@ -82,6 +83,27 @@ export default function Footer() {
           </p>
 
         </div>
+
+        {/* Contact details (shared with the contact page via lib/site) */}
+        <address className="not-italic flex flex-col items-center gap-3 text-center" style={linkStyle}>
+          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+            {CONTACT.phones.map((phone) => (
+              <li key={phone.e164}>
+                <span className="font-semibold">{phone.country}:</span>{" "}
+                <a href={`tel:${phone.e164}`} className="hover:text-[#AF00E8] transition-colors">
+                  {phone.display}
+                </a>
+              </li>
+            ))}
+            <li>
+              <span className="font-semibold">Email:</span>{" "}
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-[#AF00E8] transition-colors">
+                {CONTACT.email}
+              </a>
+            </li>
+          </ul>
+          <p className="text-sm text-[#4A4A4A]">We usually respond {CONTACT.responseTime}.</p>
+        </address>
 
         {/* Bottom row */}
         <div className="flex flex-col items-start gap-[50px] w-full">

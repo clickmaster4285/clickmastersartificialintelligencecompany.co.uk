@@ -16,9 +16,36 @@ export const SITE = {
   defaultTitle: "AI Software Development Company UK | ClickMasters",
   defaultDescription:
     "ClickMasters delivers AI-powered software development, intelligent automation, custom applications and enterprise solutions for businesses across the UK.",
-  // Unverified contact details are deliberately null — fill in once confirmed.
-  email: "hello@clickmasters.com" as string | null,
-  telephone: null as string | null,
+} as const;
+
+/**
+ * Contact details, shared by the contact page, footer, locations page and the
+ * Organization JSON-LD so they can never drift apart.
+ *
+ * - Phone numbers were supplied by the business owner.
+ * - `email` is the address already published on the site. It is shown in the
+ *   UI (the contact form needs a destination) but is only added to structured
+ *   data once `emailVerified` is set to true by the owner.
+ * - No postal address has been supplied, so none is published anywhere.
+ */
+export type ContactPhone = {
+  country: string;
+  /** ISO 3166-1 alpha-2 code, used for schema.org areaServed. */
+  countryCode: string;
+  display: string;
+  /** E.164 format for tel: links and structured data. */
+  e164: string;
+};
+
+export const CONTACT = {
+  email: "hello@clickmasters.com",
+  emailVerified: false,
+  responseTime: "within a few hours",
+  phones: [
+    { country: "United Kingdom", countryCode: "GB", display: "+44 7988 576086", e164: "+447988576086" },
+    { country: "United States", countryCode: "US", display: "+1 325 202 4074", e164: "+13252024074" },
+    { country: "Pakistan", countryCode: "PK", display: "+92 332 5394285", e164: "+923325394285" },
+  ] as readonly ContactPhone[],
 } as const;
 
 /** Every indexable route. Used by the sitemap, canonicals and breadcrumbs. */
@@ -27,7 +54,7 @@ export const ROUTES = {
   solutions: { path: "/solutions", name: "AI Solutions" },
   services: { path: "/services", name: "AI Services" },
   industries: { path: "/industries", name: "Industries" },
-  caseStudies: { path: "/case-studies", name: "Case Studies" },
+  caseStudies: { path: "/case-studies", name: "Use Cases" },
   locations: { path: "/locations", name: "Locations" },
   about: { path: "/about", name: "About Us" },
   contact: { path: "/contact", name: "Contact" },
@@ -95,8 +122,17 @@ export function siteJsonLd() {
     logo: { "@type": "ImageObject", url: `${SITE.url}${SITE.logo}` },
     description: SITE.defaultDescription,
   };
-  if (SITE.email) organization.email = SITE.email;
-  if (SITE.telephone) organization.telephone = SITE.telephone;
+  // Primary (UK) line for the organisation, plus one ContactPoint per line.
+  organization.telephone = CONTACT.phones[0].e164;
+  if (CONTACT.emailVerified) organization.email = CONTACT.email;
+  organization.contactPoint = CONTACT.phones.map((phone) => ({
+    "@type": "ContactPoint",
+    contactType: "sales",
+    telephone: phone.e164,
+    areaServed: phone.countryCode,
+    availableLanguage: ["English"],
+    ...(CONTACT.emailVerified ? { email: CONTACT.email } : {}),
+  }));
 
   return {
     "@context": "https://schema.org",

@@ -1,9 +1,10 @@
-// app/Industries/page.jsx
+// app/industries/page.jsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import CountUp from "../component/countup";
-
+
+
 import JsonLd from "../Components/JsonLd";
 import { jsonLdFor, metadataFor } from "../lib/seo-pages";
 
@@ -68,7 +69,7 @@ const foundations = [
   {
     title: "Universal Security Frameworks",
     description:
-      "Every model is deployed inside secure Docker enclosures with TLS encryption  at rest and in transit, strictly satisfying  SOC2, and HIPAA regulations.",
+      "Every model is deployed inside secure Docker enclosures with encryption at rest and in transit, designed to support SOC 2 and HIPAA requirements.",
   },
   {
     title: "Continuous Pipeline Tuning",
@@ -78,7 +79,7 @@ const foundations = [
   {
     title: "Decoupled Scalable Architecture",
     description:
-      "Using React frontends, Node.js controllers, and scalable serverless compute paths, we build systems that scale smoothly to millions.",
+      "Using React frontends, Node.js controllers, and scalable serverless compute paths, we build systems that scale smoothly with demand.",
   },
 ];
 
@@ -88,7 +89,7 @@ export default function Industries() {
     <>
       <JsonLd data={jsonLdFor("industries")} />
       {/* Hero Section */}
-      <main className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
+      <div className="min-h-[50vh] bg-gray-50 flex items-center justify-center px-6">
         <section className="max-w-4xl text-center py-24">
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
             AI Across <span className="text-[#A000DF]">Industries</span>{" "}
@@ -109,7 +110,7 @@ export default function Industries() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
 
       {/* Deep Specialization Section */}
       <section className="bg-gray-50 py-20 px-6">
@@ -143,11 +144,11 @@ export default function Industries() {
             </h2>
 
             <p className="mt-5 text-gray-400 text-sm md:text-base leading-relaxed">
-              In partnership with leading medical centers, we deployed a
-              custom clinical document reader. It automatically ingests
-              intake notes, extracts critical historical symptoms, and
-              structures the patient record under HIPAA security baselines —
-              saving physicians hours of documentation workload.
+              We build custom clinical document readers that ingest intake
+              notes, extract key historical symptoms and structure the
+              patient record in line with HIPAA and GDPR security
+              requirements, designed to reduce the documentation workload on
+              clinicians.
             </p>
 
             <div className="mt-8 flex gap-16">
@@ -164,10 +165,10 @@ export default function Industries() {
 
           <div className="w-full">
             <Image
-              src="/assets/industries/industry.png"
-              alt="Clinical workflow AI network visualization"
-              width={700}
-              height={450}
+              src="/assets/industries/industry.webp"
+              alt="Neon circuit-board style network of glowing data pathways"
+              width={600}
+              height={400}
               className="w-full h-auto object-contain rounded-md"
             />
           </div>
@@ -230,8 +231,8 @@ export default function Industries() {
           </h2>
 
           <p className="mt-6 text-gray-500 text-sm md:text-base leading-relaxed">
-            Our team is comprised of senior sector engineers with decades of
-            experience satisfying unique compliance requirements.
+            Our engineers work with you to understand your sector&apos;s
+            workflows and the compliance requirements your software must meet.
           </p>
 
           <div className="mt-8">
@@ -241,7 +242,8 @@ export default function Industries() {
           </div>
         </div>
       </section>
-
+
+
     </>
   );
 }
