@@ -38,8 +38,8 @@ export type ContactPhone = {
 };
 
 export const CONTACT = {
-  email: "hello@clickmasters.com",
-  emailVerified: false,
+  email: "clickmasters@clickmastersartificialintelligencecompany.co.uk",
+  emailVerified: true,
   responseTime: "within a few hours",
   phones: [
     { country: "United Kingdom", countryCode: "GB", display: "+44 7988 576086", e164: "+447988576086" },

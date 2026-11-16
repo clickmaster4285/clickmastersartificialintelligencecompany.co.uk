@@ -9,8 +9,7 @@ No written evidence or publication permission was found in the codebase, git his
 
 | Item | Status | What we need from you |
 |---|---|---|
-| Email `sales@domain_name.com` | **Not published** (placeholder domain) | The real, monitored sales address |
-| Email `hello@clickmasters.com` | Still shown in the UI (the contact form sends to it) but **left out of JSON-LD** | Confirm it is real and monitored. Then set `CONTACT.emailVerified = true` in `app/lib/site.ts`, or give a replacement address |
+| Email | **Resolved.** The placeholder `domain_name.com` was replaced with `clickmasters@clickmastersartificialintelligencecompany.co.uk`, which the owner confirmed is live. It is published on the site and in the Organization JSON-LD | None |
 | Phone numbers (UK, US, Pakistan) | Published as supplied by the owner | None — please just double-check the digits |
 | Postal address | Not published anywhere | Provide one if you want it shown or added to schema |
 | Free guides on `/blog` (RAG Playbook, HIPAA Frameworks, MLOps Pipeline) | "Request the Free Guide" opens an email | Confirm these guides exist, or ask us to remove the section |
