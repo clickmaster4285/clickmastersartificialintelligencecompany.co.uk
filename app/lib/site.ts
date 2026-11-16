@@ -38,7 +38,7 @@ export type ContactPhone = {
 };
 
 export const CONTACT = {
-  email: "clickmasters@clickmastersartificialintelligencecompany.co.uk",
+  email: "sales@clickmastersartificialintelligencecompany.co.uk",
   emailVerified: true,
   responseTime: "within a few hours",
   phones: [
