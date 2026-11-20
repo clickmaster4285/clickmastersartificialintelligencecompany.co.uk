@@ -11,6 +11,7 @@ import SectorsWeServe from "./Components/SectorsWeServe";
 import Answer from "./Components/Answer";
 import JsonLd from "./Components/JsonLd";
 import { jsonLdFor, metadataFor } from "./lib/seo-pages";
+import { homeFaqJsonLd } from "./lib/home-faqs";
 
 export const metadata = metadataFor("home");
 
@@ -18,6 +19,7 @@ function Home() {
   return (
     <div>
       <JsonLd data={jsonLdFor("home")} />
+      <JsonLd data={homeFaqJsonLd()} />
       <Hero />
       <ServicesStrip />
       <ProvenTrackRecord />

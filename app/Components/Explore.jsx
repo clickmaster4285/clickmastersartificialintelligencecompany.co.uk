@@ -46,7 +46,7 @@ const SERVICES = [
   },
   {
     title: "Database Design & Management",
-    desc: "Modeling, migrations, tuning.",
+    desc: "Modelling, migrations, tuning.",
     img: img15_4,
     alt: "Database stack icon",
     rotate: 3,
@@ -145,7 +145,9 @@ const Explore = () => {
                     style={{ transform: `rotate(${item.rotate}deg)` }}
                   >
                     <h3 className="font-serif font-semibold text-base sm:text-lg md:text-xl text-[#A000DF] mb-2 leading-snug">
-                      {item.title}
+                      <Link href="/services" className="hover:underline">
+                        {item.title}
+                      </Link>
                     </h3>
                     <p className="text-[13px] sm:text-sm text-[#3a3a3a]">
                       {item.desc}
@@ -172,13 +174,21 @@ const Explore = () => {
                 Ready To Transform Your Industry?
               </h2>
               <p className="font-serif italic text-lg sm:text-xl md:text-2xl text-[#1a1a1a] mt-1">
-                Let&rsquo;s Build Something Extra-Ordinary
+                Let&rsquo;s Build Something Extraordinary
               </p>
 
               <p className="text-sm text-gray-500 leading-relaxed mt-4">
-                Whether you&rsquo;re in manufacturing, healthcare, or retail, we
+                Whether you&rsquo;re in manufacturing, healthcare or retail, we
                 have the expertise to build software that drives your business
-                forward.
+                forward. See how we work across{" "}
+                <Link href="/industries" className="underline hover:text-[#A000DF]">
+                  each industry
+                </Link>{" "}
+                and the{" "}
+                <Link href="/locations" className="underline hover:text-[#A000DF]">
+                  locations we cover
+                </Link>
+                .
               </p>
 
               <Link href="/contact" className="inline-block mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">
@@ -228,9 +238,13 @@ const Explore = () => {
               </p>
 
               <p className="text-sm text-gray-500 leading-relaxed mt-4">
-                Whether you need a custom web app, mobile solution, or
+                Whether you need a custom web app, mobile solution or
                 enterprise software, our team is ready to bring your vision to
-                life.
+                life. Read our{" "}
+                <Link href="/blog" className="underline hover:text-[#A000DF]">
+                  AI and software development blog
+                </Link>{" "}
+                for practical guides.
               </p>
 
               <Link href="/contact" className="inline-block mt-6 bg-[#A000DF] text-white text-sm font-medium px-7 py-3 rounded-sm hover:bg-[#8600bb] transition-colors">

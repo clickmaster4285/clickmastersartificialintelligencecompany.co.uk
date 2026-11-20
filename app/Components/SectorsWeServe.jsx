@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   healthcareIcon,
   financeIcon,
@@ -14,7 +15,7 @@ const sectors = [
   { icon: healthcareIcon, title: "Healthcare & MedTech", desc: "Patient portals, HIPAA-compliant storage, medical diagnostics tools, and custom EHR integrations.", corner: "bottom" },
   { icon: financeIcon, title: "Finance & Fintech", desc: "Automated billing systems, ledger backends, asset tracking dashboards, and secure compliance layers.", corner: "top" },
   { icon: ecommerceIcon, title: "E-Commerce Systems", desc: "Scalable marketplace software, cart logic, payment gateway architectures, and real-time inventory tools.", corner: "bottom" },
-  { icon: edutechIcon, title: "EduTech & Learning", desc: "Interactive student dashboards, custom LMS development, testing engines, and analytics pipelines.", corner: "top" },
+  { icon: edutechIcon, title: "EdTech & Learning", desc: "Interactive student dashboards, custom LMS development, testing engines, and analytics pipelines.", corner: "top" },
   { icon: realEstateIcon, title: "Real Estate Tech", desc: "Property portfolios, MLS sync systems, tenant communication platforms, and automated lease managers.", corner: "top" },
   { icon: supplyChainIcon, title: "Supply Chain & Logistics", desc: "Fleet monitors, real-time routing engines, warehouse management software, and dispatch workflows.", corner: "bottom" },
   { icon: enterpriseIcon, title: "Enterprise SaaS Platforms", desc: "Multi-tenant cloud systems, modular billing, robust user permissions pipelines, and API integrations.", corner: "top" },
@@ -31,7 +32,11 @@ export default function SectorsWeServe() {
         </h2>
         <p className="text-xs lg:text-sm text-gray-400 text-left lg:text-right max-w-xs leading-relaxed">
           We couple deep technological excellence with industry-specific
-          insight to build high-performance products.
+          insight to build high-performance products.{" "}
+          <Link href="/industries" className="underline text-white hover:text-[#AF00E8]">
+            Explore AI solutions by industry
+          </Link>
+          .
         </p>
       </div>
 

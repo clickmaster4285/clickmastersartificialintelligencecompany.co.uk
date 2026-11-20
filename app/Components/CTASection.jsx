@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { ctaBgImage } from "../assets";
 
 export default function CTASection() {
@@ -23,36 +24,31 @@ export default function CTASection() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-6">
 
+        {/* One complete heading (previously the H2 was only "Let's Build Your Next") */}
         <h2
-          className="font-bold text-3xl lg:text-5xl text-[#333333]"
+          className="flex flex-col items-center gap-6 text-[#333333]"
           style={{ fontFamily: "Garamond, serif" }}
         >
-          {"Let's Build Your Next"}
+          <span className="font-bold text-3xl lg:text-5xl">{"Let's Build Your Next"}</span>
+          <span className="italic font-normal text-2xl lg:text-4xl">Software Product Together</span>
         </h2>
-
-        <p
-          className="italic text-2xl lg:text-4xl text-[#333333]"
-          style={{ fontFamily: "Garamond, serif" }}
-        >
-          Software Product Together
-        </p>
 
         {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
 
-          <a
+          <Link
             href="/about"
             className="border border-[#A000DF] text-[#A000DF] px-6 py-3 text-sm font-medium hover:bg-[#A000DF] hover:text-white transition-colors"
           >
             About Our Company & Team
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/contact"
             className="bg-[#A000DF] text-white px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            Get Free Consultation
-          </a>
+            Get a Free Consultation
+          </Link>
 
         </div>
       </div>

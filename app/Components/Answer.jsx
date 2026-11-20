@@ -3,33 +3,7 @@
 import React, { useState } from 'react'
 import { glassCapsule } from '../assets'
 import { RiGeminiFill } from "react-icons/ri";
-
-const FAQS = [
-  {
-    q: 'How long does a typical project take?',
-    a: 'Most MVP projects are delivered within 6-8 weeks. Full-scale enterprise solutions typically take 3-6 months depending on complexity. We follow agile sprints with weekly progress updates.',
-  },
-  {
-    q: 'Do you provide ongoing support after launch?',
-    a: 'Yes, every project includes a post-launch support window, and we offer flexible ongoing maintenance plans after that period ends.',
-  },
-  {
-    q: 'Can you integrate with our existing systems?',
-    a: 'Absolutely. We regularly integrate with existing CRMs, ERPs, payment gateways, and third-party APIs to fit seamlessly into your current stack.',
-  },
-  {
-    q: 'What technologies do you use?',
-    a: 'We work with modern, battle-tested tools — React, Node.js, cloud-native infrastructure, and more — chosen based on what best fits your project.',
-  },
-  {
-    q: 'Is my data secure with your solutions?',
-    a: 'Security is built in from day one. We follow OWASP standards, encrypt data at rest and in transit, and maintain strict compliance guardrails.',
-  },
-  {
-    q: 'How do you handle project pricing?',
-    a: 'We offer fixed-scope pricing for well-defined projects, or a flexible monthly retainer model for ongoing product development.',
-  },
-]
+import { HOME_FAQS as FAQS } from '../lib/home-faqs'
 
 const Answer = () => {
   const [openIndex, setOpenIndex] = useState(0)
@@ -116,11 +90,14 @@ const Answer = () => {
                   </span>
                 </button>
 
-                {isOpen && (
-                  <p className="text-[0.8rem] text-gray-500 leading-relaxed mt-3 max-w-2xl">
-                    {item.a}
-                  </p>
-                )}
+                {/* Always rendered so every answer is in the server HTML (SEO);
+                    collapsed items are hidden with the `hidden` attribute. */}
+                <p
+                  hidden={!isOpen}
+                  className="text-[0.8rem] text-gray-500 leading-relaxed mt-3 max-w-2xl"
+                >
+                  {item.a}
+                </p>
               </div>
             )
           })}

@@ -3,11 +3,14 @@ import { logo } from "../assets";
 import { CONTACT } from "../lib/site";
 
 const links = [
-  { label: "Support", href: "/contact" },
-  { label: "Blog", href: "/blog" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
   { label: "Use Cases", href: "/case-studies" },
+  { label: "Locations", href: "/locations" },
   { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const linkStyle = {
@@ -122,7 +125,7 @@ export default function Footer() {
               © {new Date().getFullYear()} ClickMasters. All rights reserved.
             </span>
 
-            <nav aria-label="Footer" className="flex flex-wrap justify-center sm:justify-end items-center gap-[50px]">
+            <nav aria-label="Footer" className="flex flex-wrap justify-center sm:justify-end items-center gap-x-8 gap-y-4">
               {links.map(({ label, href }) => (
                 <Link
                   key={label}

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const cards = [
   {
@@ -14,7 +15,7 @@ const cards = [
     bg: "#AF00E8",
     text: "text-white",
     title: "24/7 Dedicated Support",
-    desc: "Our software development company stays with you post-launch monitoring performance, deploying updates, and resolving issues around the clock.",
+    desc: "Our software development company stays with you after launch: monitoring performance, deploying updates and resolving issues around the clock.",
     rotate: "rotate-[6deg] lg:rotate-[20deg]",
     position: "lg:top-0 lg:right-3",
     width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
@@ -23,7 +24,7 @@ const cards = [
     bg: "#FDE68A",
     text: "text-[#0a0a0a]",
     title: "Scalable & Future-Proof Architecture",
-    desc: "We engineer software solutions on proven stacks React, Node.js, and cloud-native infrastructure built to scale without costly rewrites.",
+    desc: "We engineer software solutions on proven stacks (React, Node.js and cloud-native infrastructure) built to scale without costly rewrites.",
     rotate: "rotate-[4deg] lg:rotate-[15deg]",
     position: "lg:bottom-10 lg:left-0",
     width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
@@ -84,30 +85,40 @@ export default function WhyClickmasters() {
                 roof.
               </p>
               <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                Explore our web application development, mobile app
-                development, and custom software development services, or
-                browse the software solutions portfolio by industry.
+                Explore our{" "}
+                <Link href="/services" className="underline hover:text-[#AF00E8]">
+                  web application, mobile app and custom software development services
+                </Link>
+                , see our{" "}
+                <Link href="/solutions" className="underline hover:text-[#AF00E8]">
+                  AI solutions
+                </Link>
+                , or browse the{" "}
+                <Link href="/industries" className="underline hover:text-[#AF00E8]">
+                  industries we serve
+                </Link>
+                .
               </p>
             </div>
           </div>
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            <a
+            <Link
               href="/contact"
               className="w-full sm:w-auto text-center bg-[#AF00E8] text-white px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
               style={{ fontFamily: "Urbanist, sans-serif" }}
             >
               Start Your Project
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/case-studies"
               className="w-full sm:w-auto text-center text-white px-6 py-3 text-sm font-semibold underline"
               style={{ fontFamily: "Urbanist, sans-serif" }}
             >
-              View Our Work
-            </a>
+              View AI Use Cases
+            </Link>
           </div>
         </div>
 

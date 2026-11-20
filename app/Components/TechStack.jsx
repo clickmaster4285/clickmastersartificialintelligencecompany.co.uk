@@ -44,14 +44,14 @@ export default function TechStack() {
           >
             Modern Tech Stack
             <br />
-            For <span className="italic font-thin text-[#A000DF]">Future Ready Solutions</span>
+            For <span className="italic font-thin text-[#A000DF]">Future-Ready Solutions</span>
           </h2>
         </div>
 
-        <div className="max-w-3xs text-center lg:text-right text-sm text-gray-600 leading-relaxed">
-          We leverage cutting-edge technologies to build scalable, secure,
-          and high-performance applications
-        </div>
+        <p className="max-w-3xs text-center lg:text-right text-sm text-gray-600 leading-relaxed">
+          We use cutting-edge technologies to build scalable, secure and
+          high-performance applications.
+        </p>
       </div>
     </section>
   );
