@@ -1,109 +1,82 @@
 import React from "react";
 import Link from "next/link";
 
-const cards = [
+const LINK = "underline hover:text-[#AF00E8]";
+
+const reasons = [
   {
     bg: "#5EEAD4",
     text: "text-[#0a0a0a]",
-    title: "Agile Software Development",
-    desc: "Sprint-based delivery with full transparency. Our software developers ship faster, iterate smarter, and keep you in control at every milestone.",
-    rotate: "rotate-[-5deg] lg:rotate-[-10deg]",
-    position: "lg:top-10 lg:left-10",
-    width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
+    title: "Agile Software Development With Full Transparency",
+    desc: "Sprint-based delivery with weekly progress updates. You see working software early and stay in control at every milestone.",
+    link: { href: "/about", label: "Read more about how we work" },
+    rotate: "lg:rotate-[-3deg]",
   },
   {
     bg: "#AF00E8",
     text: "text-white",
-    title: "24/7 Dedicated Support",
-    desc: "Our software development company stays with you after launch: monitoring performance, deploying updates and resolving issues around the clock.",
-    rotate: "rotate-[6deg] lg:rotate-[20deg]",
-    position: "lg:top-0 lg:right-3",
-    width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
+    title: "24/7 Dedicated Support After Launch",
+    desc: "We monitor performance, deploy updates and resolve issues around the clock.",
+    link: { href: "/contact", label: "Speak to our support team" },
+    rotate: "lg:rotate-[3deg]",
   },
   {
     bg: "#FDE68A",
     text: "text-[#0a0a0a]",
-    title: "Scalable & Future-Proof Architecture",
-    desc: "We engineer software solutions on proven stacks (React, Node.js and cloud-native infrastructure) built to scale without costly rewrites.",
-    rotate: "rotate-[4deg] lg:rotate-[15deg]",
-    position: "lg:bottom-10 lg:left-0",
-    width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
+    title: "Scalable and Future-Proof Architecture",
+    desc: "Built on proven stacks such as React, Node.js and cloud-native infrastructure, so your product grows without costly rewrites.",
+    link: { href: "#tech-stack", label: "See our technology stack" },
+    rotate: "lg:rotate-[-2deg]",
   },
   {
     bg: "#151515",
     text: "text-white",
-    title: "Enterprise Security & Compliance",
-    desc: "Every product from our software house follows OWASP standards, GDPR best practices, and rigorous QA so your business and users stay protected.",
-    rotate: "rotate-[-4deg] lg:rotate-[-8deg]",
-    position: "lg:bottom-25 lg:right-6",
-    width: "w-full max-w-[320px] mx-auto sm:max-w-none sm:mx-0 lg:w-75",
+    title: "Enterprise Security and GDPR Compliance",
+    desc: "Every product follows OWASP standards, GDPR best practice and rigorous QA, so your business and your users stay protected.",
+    rotate: "lg:rotate-[2deg]",
   },
 ];
 
-export default function WhyClickmasters() {
+/** Section C: About / Revenue Systems. */
+export function RevenueSystems() {
   return (
-    <section className="relative w-full max-w-[1728px] mx-auto bg-[#0a0a0a] overflow-hidden py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-[130px]">
-      <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16 items-center">
+    <section
+      id="about-clickmasters"
+      aria-labelledby="revenue-heading"
+      className="relative w-full max-w-[1728px] mx-auto bg-[#0a0a0a] overflow-hidden py-12 sm:py-16 lg:py-20 px-5 sm:px-6 lg:px-[130px]"
+    >
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start text-white">
+        <h2
+          id="revenue-heading"
+          className="max-w-[578px] font-bold text-white text-[32px] leading-[44px] sm:text-[38px] sm:leading-[54px] lg:text-[44px] lg:leading-[60px]"
+          style={{ fontFamily: "Garamond, serif" }}
+        >
+          {"We Don't Just Build Software,"}{" "}
+          <span className="italic font-normal">We Build Revenue Systems</span>
+        </h2>
 
-        {/* Left text content */}
-        <div className="text-white">
-          <h2
-            className="mb-6 max-w-[578px] font-bold capitalize text-white text-[32px] leading-[44px] sm:text-[38px] sm:leading-[54px] lg:text-[44px] lg:leading-[70px]"
-            style={{
-              fontFamily: "Garamond, serif",
-              color: "#FFFFFF",
-            }}
-          >
-            {"We Don't Just Build Software"}{" "}
-            <span className="italic font-normal text-white text-[24px] sm:text-[28px] lg:text-[32px]">
-              We Build Revenue Systems
-            </span>
-          </h2>
+        <div className="space-y-4 font-['Arial'] font-thin text-[15px] leading-[24px] text-white">
+          <p>
+            ClickMasters is a professional software development company with a
+            proven record of delivering custom software across manufacturing,
+            healthcare, retail, real estate and education. Our experienced
+            developers work as an extension of your team, turning complex
+            requirements into reliable and scalable digital products.
+          </p>
+          <p>
+            As a full-service software house we handle discovery, UI/UX design,
+            backend and frontend development, QA testing, cloud deployment and
+            maintenance. That means one accountable partner instead of several
+            vendors.
+          </p>
+          <p>
+            Learn more about{" "}
+            <Link href="/about" className={LINK}>our company and team</Link>, see{" "}
+            <Link href="/case-studies" className={LINK}>our work</Link>, or{" "}
+            <Link href="/contact" className={LINK}>start your project today</Link>.
+          </p>
 
-          <div className="space-y-4 text-gray-400 text-sm leading-relaxed mb-8">
-            <div className="space-y-4 mb-8">
-              <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                A results-driven software company building custom web apps, mobile apps,
-                and enterprise software that powers real business growth.
-              </p>
-              <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                ClickMasters is a professional software development company with
-                a proven track record delivering custom software solutions
-                across manufacturing, healthcare, retail, real estate, and
-                education sectors.
-              </p>
-              <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                Our team of experienced software developers works as a seamless
-                extension of your business — translating complex requirements
-                into reliable, scalable digital products that perform under
-                real-world conditions.
-              </p>
-              <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                As a full-service software house, we handle everything from discovery
-                and UI/UX design to backend development, QA, testing, cloud
-                deployment, and long-term maintenance — end to end under one
-                roof.
-              </p>
-              <p className="max-w-[578px] font-['Arial'] font-thin text-[15px] leading-[22px] text-white">
-                Explore our{" "}
-                <Link href="/services" className="underline hover:text-[#AF00E8]">
-                  web application, mobile app and custom software development services
-                </Link>
-                , see our{" "}
-                <Link href="/solutions" className="underline hover:text-[#AF00E8]">
-                  AI solutions
-                </Link>
-                , or browse the{" "}
-                <Link href="/industries" className="underline hover:text-[#AF00E8]">
-                  industries we serve
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/contact"
               className="w-full sm:w-auto text-center bg-[#AF00E8] text-white px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -111,52 +84,65 @@ export default function WhyClickmasters() {
             >
               Start Your Project
             </Link>
-
             <Link
               href="/case-studies"
               className="w-full sm:w-auto text-center text-white px-6 py-3 text-sm font-semibold underline"
               style={{ fontFamily: "Urbanist, sans-serif" }}
             >
-              View AI Use Cases
+              View Case Studies
             </Link>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Right scattered cards — stacked grid on mobile/tablet, scattered on desktop */}
-        <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:block lg:h-[480px] lg:w-full lg:max-w-[460px] lg:mx-auto">
-          {cards.map((card) => (
-            <div
-              key={card.title}
-              className={`relative z-10 lg:absolute ${card.position} ${card.width} ${card.rotate} p-6 shadow-2xl overflow-visible transition-all duration-300 hover:-translate-y-4 hover:z-50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]`}
-              style={{ backgroundColor: card.bg }}
+/** Section D: Why Choose Us. */
+export default function WhyClickmasters() {
+  return (
+    <section
+      id="why-clickmasters"
+      aria-labelledby="why-heading"
+      className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-16 lg:py-24 px-5 sm:px-6 lg:px-[130px]"
+    >
+      <h2
+        id="why-heading"
+        className="max-w-3xl mb-12 lg:mb-16 font-bold text-[#333333] text-[30px] leading-[40px] lg:text-[42px] lg:leading-[52px]"
+        style={{ fontFamily: "Garamond, serif" }}
+      >
+        Why Businesses Choose ClickMasters as Their{" "}
+        <span className="italic font-normal text-[#AF00E8]">Software Development Partner</span>
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {reasons.map((card) => (
+          <div
+            key={card.title}
+            className={`relative ${card.rotate} p-6 shadow-xl transition-transform duration-300 hover:-translate-y-2`}
+            style={{ backgroundColor: card.bg }}
+          >
+            <div aria-hidden="true" className="w-10 h-10 rounded-full bg-white/60 absolute -top-3.5 -left-3.5" />
+            <h3
+              className={`mb-3 ${card.text} text-[22px] leading-[28px] lg:text-[24px] lg:leading-[30px]`}
+              style={{ fontFamily: "'Times New Roman', serif", fontWeight: 700, letterSpacing: "-0.4px" }}
             >
-              <div aria-hidden="true" className="w-10 h-10 rounded-full bg-white/60 mb-4 absolute -top-3.5 -left-3.5" />
-              <h3
-                className={`mb-2 ${card.text} text-[22px] leading-[28px] sm:text-[26px] sm:leading-[32px] lg:text-[30px] lg:leading-[36px]`}
-                style={{
-                  fontFamily: "'Times New Roman', serif",
-                  fontWeight: 700,
-                  letterSpacing: "-0.6px",
-                }}
-              >
-                {card.title}
-              </h3>
-
-              <p
-                className={card.text}
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                }}
-              >
-                {card.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-
+              {card.title}
+            </h3>
+            <p className={`${card.text} text-sm leading-5`} style={{ fontFamily: "Inter, sans-serif" }}>
+              {card.desc}
+              {card.link && (
+                <>
+                  {" "}
+                  <Link href={card.link.href} className="underline font-medium">
+                    {card.link.label}
+                  </Link>
+                  .
+                </>
+              )}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

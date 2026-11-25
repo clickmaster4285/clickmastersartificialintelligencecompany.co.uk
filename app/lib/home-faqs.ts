@@ -4,28 +4,30 @@
  */
 export const HOME_FAQS = [
   {
-    q: "How long does a typical project take?",
-    a: "Most MVP projects are delivered within 6–8 weeks. Full-scale enterprise solutions typically take 3–6 months, depending on complexity. We follow agile sprints with weekly progress updates.",
+    q: "How long does a typical software project take?",
+    a: "Most MVP projects are delivered within 6 to 8 weeks. Full-scale enterprise solutions typically take 3 to 6 months depending on complexity. We work in agile sprints and share weekly progress updates, so you always know where your project stands.",
   },
   {
     q: "Do you provide ongoing support after launch?",
-    a: "Yes. Every project includes a post-launch support window, and we offer flexible ongoing maintenance plans after that period ends.",
+    a: "Yes. We offer monitoring, bug fixes, security updates and feature development after launch, with flexible support plans and 24/7 assistance for critical systems.",
   },
   {
     q: "Can you integrate with our existing systems?",
-    a: "Absolutely. We regularly integrate with existing CRMs, ERPs, payment gateways and third-party APIs to fit seamlessly into your current stack.",
+    a: "Yes. We build secure API integrations with CRMs, ERPs, payment gateways, accounting tools and legacy software, and we can modernise existing systems without disrupting your operations.",
   },
   {
     q: "What technologies do you use?",
-    a: "We work with modern, battle-tested tools — React, Node.js, cloud-native infrastructure and more — chosen based on what best fits your project.",
+    a: "We use React, Next.js, Node.js, Python, Laravel, Flutter and cloud platforms including AWS, Azure and Google Cloud. We choose the stack that best fits your performance, security and budget needs.",
   },
   {
     q: "Is my data secure with your solutions?",
-    a: "Security is built in from day one. We follow OWASP standards, encrypt data at rest and in transit, and maintain strict compliance guardrails.",
+    a: "Security is built into every project. We follow OWASP standards and GDPR best practice, use encryption, role-based access and regular security testing, and sign NDAs on request.",
   },
   {
     q: "How do you handle project pricing?",
-    a: "We offer fixed-scope pricing for well-defined projects, or a flexible monthly retainer model for ongoing product development.",
+    a: "We offer fixed-price and time-and-materials models depending on scope. After a free consultation we provide a clear estimate with milestones.",
+    /** Rendered after the answer on the page; not part of the schema text. */
+    link: { href: "/contact", label: "Request your free quote" },
   },
 ] as const;
 

@@ -6,7 +6,7 @@ const doubled = [...items, ...items];
 
 export default function ServicesStrip() {
   return (
-    <section id="services-strip" className="w-full max-w-[1728px] mx-auto bg-white flex flex-col justify-center items-center py-10 sm:py-14 lg:py-[60px] gap-[10px] overflow-hidden">
+    <section id="services-strip" aria-hidden="true" className="w-full max-w-[1728px] mx-auto bg-white flex flex-col justify-center items-center py-10 sm:py-14 lg:py-[60px] gap-[10px] overflow-hidden">
       <style>{`
         @keyframes scroll-left-strip {
           from { transform: translateX(0); }

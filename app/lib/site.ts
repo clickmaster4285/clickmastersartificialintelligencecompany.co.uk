@@ -51,10 +51,10 @@ export const CONTACT = {
 /** Every indexable route. Used by the sitemap, canonicals and breadcrumbs. */
 export const ROUTES = {
   home: { path: "/", name: "Home" },
-  solutions: { path: "/solutions", name: "AI Solutions" },
+  solutions: { path: "/solutions", name: "Solutions" },
   services: { path: "/services", name: "AI Services" },
   industries: { path: "/industries", name: "Industries" },
-  caseStudies: { path: "/case-studies", name: "Use Cases" },
+  caseStudies: { path: "/case-studies", name: "Case Studies" },
   locations: { path: "/locations", name: "Locations" },
   about: { path: "/about", name: "About Us" },
   contact: { path: "/contact", name: "Contact" },
@@ -162,7 +162,7 @@ export function pageJsonLd({
   title: string;
   description: string;
   pageType?: "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
-  service?: { name: string; serviceType: string[] };
+  service?: { name: string; serviceType: string[]; description?: string; catalog?: string[] };
 }) {
   const url = absoluteUrl(ROUTES[route].path);
   const graph: Record<string, unknown>[] = [
@@ -176,6 +176,7 @@ export function pageJsonLd({
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORG_ID },
       ...(route !== "home" && { breadcrumb: { "@id": `${url}#breadcrumb` } }),
+      ...(service && { mainEntity: { "@id": `${url}#service` } }),
     },
   ];
 
@@ -196,12 +197,141 @@ export function pageJsonLd({
       "@id": `${url}#service`,
       name: service.name,
       serviceType: service.serviceType,
-      description,
+      description: service.description ?? description,
       url,
       provider: { "@id": ORG_ID },
       areaServed: { "@type": "Country", name: "United Kingdom" },
+      audience: { "@type": "BusinessAudience", name: "Businesses and enterprises" },
+      ...(service.catalog && {
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: service.name,
+          itemListElement: service.catalog.map((name) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name },
+          })),
+        },
+      }),
     });
   }
 
+  return { "@context": "https://schema.org", "@graph": graph };
+}
+
+
+// ---------------------------------------------------------------------------
+// Detail pages (e.g. /services/custom-software-development) that are not in
+// ROUTES: metadata and a WebPage + BreadcrumbList + Service graph with any
+// breadcrumb depth.
+// ---------------------------------------------------------------------------
+
+export type DetailCrumb = { name: string; path: string };
+
+export function detailPageMetadata({
+  path,
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+}: {
+  path: string;
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+    },
+    openGraph: {
+      type: "website",
+      siteName: SITE.name,
+      locale: SITE.locale,
+      url: path,
+      title: ogTitle ?? title,
+      description: ogDescription ?? description,
+    },
+    twitter: { card: "summary_large_image", title: ogTitle ?? title, description: ogDescription ?? description },
+  };
+}
+
+export function detailPageJsonLd({
+  path,
+  name,
+  description,
+  crumbs,
+  service,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  /** Trail after Home, ending with this page. */
+  crumbs: DetailCrumb[];
+  service?: {
+    name: string;
+    alternateName?: string;
+    serviceType: string[];
+    description: string;
+    catalogName?: string;
+    catalog?: string[];
+    /** Path of a related service page (its #service node). */
+    relatedServicePath?: string;
+  };
+}) {
+  const url = absoluteUrl(path);
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name,
+      description,
+      inLanguage: "en-GB",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORG_ID },
+      breadcrumb: { "@id": `${url}#breadcrumb` },
+      ...(service && { mainEntity: { "@id": `${url}#service` } }),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      itemListElement: [{ name: ROUTES.home.name, path: "/" }, ...crumbs].map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.name,
+        item: absoluteUrl(c.path),
+      })),
+    },
+  ];
+  if (service) {
+    graph.push({
+      "@type": "Service",
+      "@id": `${url}#service`,
+      name: service.name,
+      ...(service.alternateName && { alternateName: service.alternateName }),
+      serviceType: service.serviceType,
+      description: service.description,
+      url,
+      provider: { "@id": ORG_ID },
+      areaServed: { "@type": "Country", name: "United Kingdom" },
+      audience: { "@type": "BusinessAudience", name: "Businesses and enterprises" },
+      ...(service.relatedServicePath && {
+        isRelatedTo: { "@type": "Service", "@id": `${absoluteUrl(service.relatedServicePath)}#service` },
+      }),
+      ...(service.catalog && {
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: service.catalogName ?? service.name,
+          itemListElement: service.catalog.map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
+        },
+      }),
+    });
+  }
   return { "@context": "https://schema.org", "@graph": graph };
 }

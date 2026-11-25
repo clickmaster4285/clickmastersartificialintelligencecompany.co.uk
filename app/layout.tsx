@@ -7,6 +7,7 @@ import Footer from "./Components/Footer";
 import JsonLd from "./Components/JsonLd";
 import ScrollToTop from "./component/ScrolltoTop";
 import { SITE, siteJsonLd } from "./lib/site";
+import { siteNavigationJsonLd } from "./config/navigation";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -42,9 +43,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en-GB" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <JsonLd data={siteJsonLd()} />
-        <header>
-          <Navbar />
-        </header>
+        <JsonLd data={siteNavigationJsonLd()} />
+        <Navbar />
 
         <main>{children}</main>
         <Footer />

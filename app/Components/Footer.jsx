@@ -1,17 +1,11 @@
 import Link from "next/link";
 import { logo } from "../assets";
 import { CONTACT } from "../lib/site";
+import { footerColumns } from "../config/navigation";
 
-const links = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Use Cases", href: "/case-studies" },
-  { label: "Locations", href: "/locations" },
-  { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
+// Footer navigation is generated from app/config/navigation.ts (planned
+// pages such as Privacy Policy and Terms appear once their status is "live").
+const columns = footerColumns();
 
 const linkStyle = {
   fontFamily: "Urbanist, sans-serif",
@@ -108,6 +102,30 @@ export default function Footer() {
           <p className="text-sm text-[#4A4A4A]">We usually respond {CONTACT.responseTime}.</p>
         </address>
 
+        {/* Footer navigation (generated from the nav config) */}
+        <nav aria-label="Footer" className="w-full">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:mx-auto lg:max-w-4xl">
+            {columns.map((col) => (
+              <div key={col.heading}>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-[#7a1fa2]">{col.heading}</p>
+                <ul className="space-y-1">
+                  {col.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        style={linkStyle}
+                        className="inline-flex min-h-11 items-center hover:text-[#AF00E8] transition-colors sm:min-h-0 sm:py-1.5"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </nav>
+
         {/* Bottom row */}
         <div className="flex flex-col items-start gap-[50px] w-full">
 
@@ -125,18 +143,6 @@ export default function Footer() {
               © {new Date().getFullYear()} ClickMasters. All rights reserved.
             </span>
 
-            <nav aria-label="Footer" className="flex flex-wrap justify-center sm:justify-end items-center gap-x-8 gap-y-4">
-              {links.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  style={linkStyle}
-                  className="hover:text-[#AF00E8] transition-colors"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
 
           </div>
         </div>

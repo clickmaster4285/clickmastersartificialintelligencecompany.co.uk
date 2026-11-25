@@ -4,7 +4,7 @@ import { ctaBgImage } from "../assets";
 
 export default function CTASection() {
   return (
-    <section className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
+    <section id="get-started" aria-labelledby="cta-heading" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
 
       {/* Background decorative image (CSS background, hidden from assistive tech) */}
       <div
@@ -24,14 +24,23 @@ export default function CTASection() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center gap-6">
 
-        {/* One complete heading (previously the H2 was only "Let's Build Your Next") */}
         <h2
-          className="flex flex-col items-center gap-6 text-[#333333]"
+          id="cta-heading"
+          className="flex flex-col items-center gap-4 text-[#333333]"
           style={{ fontFamily: "Garamond, serif" }}
         >
-          <span className="font-bold text-3xl lg:text-5xl">{"Let's Build Your Next"}</span>
-          <span className="italic font-normal text-2xl lg:text-4xl">Software Product Together</span>
+          <span className="font-bold text-3xl lg:text-5xl">Ready to Build Your Next</span>{" "}
+          <span className="italic font-normal text-2xl lg:text-4xl">AI Software Product?</span>
         </h2>
+
+        <p className="max-w-2xl text-sm sm:text-base text-gray-600 leading-relaxed bg-white/80">
+          Whether you need a custom web app, a mobile solution or an enterprise
+          platform, our team is ready to bring your vision to life.{" "}
+          <Link href="/contact" className="underline text-[#A000DF] hover:opacity-80">Get a free consultation</Link>{" "}
+          or{" "}
+          <Link href="/about" className="underline text-[#A000DF] hover:opacity-80">meet the team</Link>.
+          We usually respond within a few hours.
+        </p>
 
         {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
@@ -40,7 +49,7 @@ export default function CTASection() {
             href="/about"
             className="border border-[#A000DF] text-[#A000DF] px-6 py-3 text-sm font-medium hover:bg-[#A000DF] hover:text-white transition-colors"
           >
-            About Our Company & Team
+            Meet the Team
           </Link>
 
           <Link
