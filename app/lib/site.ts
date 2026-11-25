@@ -19,6 +19,14 @@ export const SITE = {
 } as const;
 
 /**
+ * Official social / directory profiles for Organization `sameAs`.
+ * TODO: add the real profile URLs (e.g. LinkedIn, Clutch, GitHub, X) once the
+ * business confirms them. Left empty, `sameAs` is omitted from the JSON-LD
+ * rather than publishing placeholder URLs.
+ */
+export const SOCIAL_PROFILES: string[] = [];
+
+/**
  * Contact details, shared by the contact page, footer, locations page and the
  * Organization JSON-LD so they can never drift apart.
  *
@@ -52,7 +60,7 @@ export const CONTACT = {
 export const ROUTES = {
   home: { path: "/", name: "Home" },
   solutions: { path: "/solutions", name: "Solutions" },
-  services: { path: "/services", name: "AI Services" },
+  services: { path: "/services", name: "Services" },
   industries: { path: "/industries", name: "Industries" },
   caseStudies: { path: "/case-studies", name: "Case Studies" },
   locations: { path: "/locations", name: "Locations" },
@@ -125,6 +133,7 @@ export function siteJsonLd() {
   // Primary (UK) line for the organisation, plus one ContactPoint per line.
   organization.telephone = CONTACT.phones[0].e164;
   if (CONTACT.emailVerified) organization.email = CONTACT.email;
+  if (SOCIAL_PROFILES.length > 0) organization.sameAs = SOCIAL_PROFILES;
   organization.contactPoint = CONTACT.phones.map((phone) => ({
     "@type": "ContactPoint",
     contactType: "sales",
@@ -157,12 +166,15 @@ export function pageJsonLd({
   description,
   pageType = "WebPage",
   service,
+  itemList,
 }: {
   route: RouteKey;
   title: string;
   description: string;
   pageType?: "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
   service?: { name: string; serviceType: string[]; description?: string; catalog?: string[] };
+  /** Pages listed by a hub/collection page (emitted as an ItemList). */
+  itemList?: { name: string; path: string }[];
 }) {
   const url = absoluteUrl(ROUTES[route].path);
   const graph: Record<string, unknown>[] = [
@@ -177,8 +189,23 @@ export function pageJsonLd({
       about: { "@id": ORG_ID },
       ...(route !== "home" && { breadcrumb: { "@id": `${url}#breadcrumb` } }),
       ...(service && { mainEntity: { "@id": `${url}#service` } }),
+      ...(!service && itemList && { mainEntity: { "@id": `${url}#itemlist` } }),
     },
   ];
+
+  if (itemList) {
+    graph.push({
+      "@type": "ItemList",
+      "@id": `${url}#itemlist`,
+      numberOfItems: itemList.length,
+      itemListElement: itemList.map((it, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: it.name,
+        url: absoluteUrl(it.path),
+      })),
+    });
+  }
 
   if (route !== "home") {
     graph.push({

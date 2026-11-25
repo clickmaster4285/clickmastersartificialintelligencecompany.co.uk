@@ -23,11 +23,12 @@ import {
   RiShoppingCart2Line, RiSmartphoneLine, RiSparklingFill, RiStackLine, RiTruckLine,
   RiApps2Line, RiReactjsLine, RiNextjsLine, RiNodejsLine, RiFlutterFill, RiAmazonLine, RiCpuLine,
   RiTeamLine, RiUserAddLine, RiArticleLine, RiBook2Line, RiToolsLine, RiLayout4Line, RiBookMarkedLine,
-  RiQuestionAnswerLine,
+  RiQuestionAnswerLine, RiSparkling2Line, RiFileSearchLine, RiMagicLine, RiFlowChart, RiNodeTree, RiEyeLine,
+  RiLineChartLine, RiLightbulbFlashLine,
 } from "react-icons/ri";
 import { SiLaravel, SiPython } from "react-icons/si";
 import { logo } from "../assets";
-import { NAV_CTA, childrenOf, isVisible, visibleGroups, visibleNavItems } from "../config/navigation";
+import { NAV_CTA, childrenOf, isVisible, menuChildrenOf, visibleGroups, visibleNavItems } from "../config/navigation";
 
 // Icon keys used in app/config/navigation.ts. All icons are decorative.
 const NAV_ICONS = {
@@ -41,6 +42,8 @@ const NAV_ICONS = {
   laravel: SiLaravel, flutter: RiFlutterFill, aws: RiAmazonLine, cpu: RiCpuLine, team: RiTeamLine,
   useradd: RiUserAddLine, article: RiArticleLine, guide: RiBook2Line, tools: RiToolsLine,
   template: RiLayout4Line, glossary: RiBookMarkedLine, faq: RiQuestionAnswerLine,
+  sparkle: RiSparkling2Line, search: RiFileSearchLine, magic: RiMagicLine, flow: RiFlowChart, node: RiNodeTree,
+  eye: RiEyeLine, chart: RiLineChartLine, bulb: RiLightbulbFlashLine,
 };
 
 // Visible header items (config is static, so compute once).
@@ -278,7 +281,7 @@ export default function Navbar() {
 
   // ArrowLeft/Right between top-level links (desktop); ArrowDown opens a panel.
   const onTopKeyDown = (e, item) => {
-    const hasPanel = childrenOf(item).length > 0;
+    const hasPanel = menuChildrenOf(item).length > 0;
     if (e.key === "ArrowDown" && hasPanel) {
       e.preventDefault();
       setOpenMenu(item.label);
@@ -365,7 +368,8 @@ export default function Navbar() {
         >
           <ul className="flex flex-col lg:flex-row lg:items-center lg:gap-0 xl:gap-1.5 2xl:gap-3 max-lg:divide-y max-lg:divide-gray-100">
             {navItems.map((item, index) => {
-              const kids = childrenOf(item);
+              // Links shown in this item's panel (some pages are hub-only, see inMenu).
+              const kids = menuChildrenOf(item);
               const hasPanel = kids.length > 0;
               const isOpen = openMenu === item.label;
               const active = isItemActive(pathname, item);
@@ -449,6 +453,11 @@ export default function Navbar() {
                                       <ChildLink key={child.href} child={child} pathname={pathname} onNavigate={closeAll} />
                                     ))}
                                   </ul>
+                                  {group.viewAll && (
+                                    <div className="mt-1 lg:px-2.5">
+                                      <PanelFooterLink link={group.viewAll} onNavigate={closeAll} />
+                                    </div>
+                                  )}
                                 </div>
                               ))}
                             </div>

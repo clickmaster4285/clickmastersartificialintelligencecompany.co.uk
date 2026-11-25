@@ -35,6 +35,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: ["192.168.45.37"],
+  images: {
+    // No image on the site renders wider than ~1280px, so drop the 2048 and
+    // 3840 defaults; srcsets never offer (or generate) oversized variants.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

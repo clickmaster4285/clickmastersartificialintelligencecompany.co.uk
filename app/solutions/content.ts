@@ -111,7 +111,7 @@ export const CATEGORIES: Category[] = [
     title: "AI-powered solutions",
     text: {
       text: "AI applied to specific business tasks: reading documents, answering questions, forecasting and flagging risk. The engineering behind them is covered by our [[link]].",
-      link: { anchor: "AI development services", href: "/services" },
+      link: { anchor: "AI development services", href: "/services/ai-development" },
     },
     points: ["Intelligent document processing", "AI customer service assistants", "Forecasting and anomaly detection"],
   },

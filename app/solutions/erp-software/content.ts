@@ -161,7 +161,7 @@ export const INTEGRATIONS = {
 
 export const INTEGRATION_OUTRO: LinkedText = {
   text: "Integrations are built against sandbox environments first, monitored once live and designed to retry safely, so a failed sync raises an alert instead of silently losing an order. For work that needs judgement, such as reading supplier invoices or forecasting demand, our [[link]] can add document processing and predictive models to ERP workflows.",
-  link: { anchor: "AI development services", href: "/services" },
+  link: { anchor: "AI development services", href: "/services/ai-development" },
 };
 
 export const ARCH_INTRO: LinkedText = {

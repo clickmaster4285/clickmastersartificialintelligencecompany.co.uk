@@ -256,7 +256,7 @@ export default function CaseStudies() {
 
             
             <Link
-              href="/services"
+              href="/services/ai-development#packages"
               className="text-[#A000DF] text-sm font-medium hover:underline"
             >
               View Pricing Packages

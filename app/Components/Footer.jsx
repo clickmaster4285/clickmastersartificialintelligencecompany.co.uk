@@ -74,9 +74,9 @@ export default function Footer() {
               color: "#333333",
             }}
           >
-            ClickMasters is a software development company. We build custom
-            software, web applications, mobile apps, and ERP solutions for
-            businesses worldwide.
+            ClickMasters is a software and AI development company. We build
+            custom software, web and mobile applications, AI systems and ERP
+            solutions for businesses in the UK and worldwide.
           </p>
 
         </div>

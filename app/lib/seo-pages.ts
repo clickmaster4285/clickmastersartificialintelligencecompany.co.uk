@@ -6,9 +6,9 @@ export function metadataFor(route: RouteKey): Metadata {
   return pageMetadata({ route, title, description });
 }
 
-export function jsonLdFor(route: RouteKey) {
+export function jsonLdFor(route: RouteKey, extra: { itemList?: { name: string; path: string }[] } = {}) {
   const { title, description, pageType, service } = PAGE_SEO[route];
-  return pageJsonLd({ route, title, description, pageType, service });
+  return pageJsonLd({ route, title, description, pageType, service, ...extra });
 }
 
 /** SEO title/description for a route (used where a page needs them directly). */
@@ -56,29 +56,13 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
       ],
     },
   },
+  // Hub for every service (software, AI, enterprise & cloud). The full AI
+  // page now lives at /services/ai-development (see its content.ts).
   services: {
-    title: "AI Development Services UK | Custom AI & LLM",
+    title: "Software & AI Development Services UK",
     description:
-      "Custom AI development services for UK businesses: LLM fine-tuning, RAG, machine learning, computer vision and automation, integrated with your systems.",
-    service: {
-      name: "AI Development Services",
-      serviceType: ["Artificial intelligence software development"],
-      description:
-        "Design, development, integration and monitoring of custom AI systems, including LLM fine-tuning, retrieval-augmented generation, machine learning, computer vision and intelligent process automation.",
-      catalog: [
-        "Custom AI Development",
-        "LLM Development and Fine-Tuning",
-        "Retrieval-Augmented Generation (RAG) Development",
-        "Generative AI Development",
-        "AI Agent and Assistant Development",
-        "Machine Learning Development",
-        "Natural Language Processing",
-        "Computer Vision Development",
-        "Predictive Analytics",
-        "Intelligent Process Automation",
-        "AI Consulting and Strategy",
-      ],
-    },
+      "Custom software, web, mobile, ERP and AI development for UK businesses. Agile delivery, MVPs in 6-8 weeks. Get a free quote.",
+    pageType: "CollectionPage",
   },
   industries: {
     title: "AI Solutions by Industry",
