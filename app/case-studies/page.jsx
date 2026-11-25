@@ -1,4 +1,4 @@
-// app/CaseStudies/page.jsx
+// app/case-studies/page.jsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,50 +9,59 @@ import { jsonLdFor, metadataFor } from "../lib/seo-pages";
 
 export const metadata = metadataFor("caseStudies");
 
-const filters = ["All Studies", "Healthcare", "Finance", "Retail", "Manufacturing"];
-
-const caseStudyCards = [
+// Example project types. These describe work ClickMasters can deliver; they
+// are NOT presented as named client results. Client names, testimonials and
+// performance figures were removed because no evidence or publication
+// permission could be found. Re-add a real case study only with written
+// client approval and verifiable figures.
+const useCaseCards = [
   {
-    tag: "MEDVISION AI",
-    title: "Radiology Diagnostics Engine with Computer Vision",
+    tag: "HEALTHCARE",
+    title: "Radiology Diagnostics Support with Computer Vision",
     description:
-      "A state-of-the-art vision model that scans medical imagery, reducing human classification error and expediting patient triage.",
-    image: "/assets/Studies/Case6.png",
+      "Vision models that help clinicians review medical imagery and prioritise cases for triage, built with privacy and compliance in mind.",
+    image: "/assets/Studies/Case6.webp",
+    alt: "Clinicians reviewing an MRI scanner display in a modern hospital room",
   },
   {
-    tag: "FINGUARD",
+    tag: "FINANCE",
     title: "Automated Financial Fraud Detection & Compliance",
     description:
-      "Custom fine-tuned anomaly models running on private isolated servers, validating millions of real-time transactions.",
-    image: "/assets/Studies/Case1.png",
+      "Anomaly detection models that flag unusual transactions in real time, deployable on private, isolated infrastructure.",
+    image: "/assets/Studies/Case1.webp",
+    alt: "Digital vault surrounded by streams of encrypted data",
   },
   {
-    tag: "RETAILMIND",
-    title: "UGC-Driven Demand Prediction & Inventory Sync",
+    tag: "RETAIL",
+    title: "Demand Prediction & Inventory Sync",
     description:
-      "Syncing real-time social media trends directly with supply chain planners to prevent inventory blockages and over-manufacturing.",
-    image: "/assets/Studies/Case2.png",
+      "Forecasting that combines sales history and market signals so supply-chain planners can reduce stock-outs and over-production.",
+    image: "/assets/Studies/Case2.webp",
+    alt: "Automated retail warehouse with robotic arms and clothing racks",
   },
   {
-    tag: "AUTODRIVE",
-    title: "Real-Time Fleet Routing Automation Systems",
+    tag: "LOGISTICS",
+    title: "Real-Time Fleet Routing Automation",
     description:
-      "Fleet monitors, real-time routing engines, and automated dispatch maps powered by historical regional traffic data sets.",
-    image: "/assets/Studies/Case3.png",
+      "Fleet monitoring, routing engines and automated dispatch maps driven by historical and live traffic data.",
+    image: "/assets/Studies/Case3.webp",
+    alt: "World map dashboard showing global logistics routes",
   },
   {
-    tag: "EDUAI",
-    title: "Custom LLM Learning Copilots for Education",
+    tag: "EDUCATION",
+    title: "Custom LLM Learning Copilots",
     description:
-      "Interactive pupil dashboards, adaptive automated training scripts, and robust analytical progress trackers.",
-    image: "/assets/Studies/Case4.png",
+      "Interactive learner dashboards, adaptive practice content and progress analytics powered by large language models.",
+    image: "/assets/Studies/Case4.webp",
+    alt: "Student using a VR headset and tablet at a study desk",
   },
   {
-    tag: "AGRISENSE",
-    title: "Multispectral Crop Health Monitoring Models",
+    tag: "AGRICULTURE",
+    title: "Multispectral Crop Health Monitoring",
     description:
-      "Custom computer vision software executing real-time object classification of crop illnesses across global agricultural infrastructure.",
-    image: "/assets/Studies/Case5.png",
+      "Computer vision that classifies crop stress and disease from drone and satellite imagery.",
+    image: "/assets/Studies/Case5.webp",
+    alt: "Drones flying over green crop fields with highlighted analysis overlays",
   },
 ];
 
@@ -63,24 +72,21 @@ const impactStats = [
   { value: "8", label: "Sectors Served" },
 ];
 
-const testimonials = [
+const deliverySteps = [
   {
-    quote:
-      "ClickMasters operated as a true technical partner. Their predictive pricing model saved our marketplace division millions in our very first year.",
-    name: "Sarah Jenkins",
-    role: "VP of Product, FinGuard",
+    title: "Discovery",
+    description:
+      "We map your data, systems and goals, and agree what success looks like before any code is written.",
   },
   {
-    quote:
-      "The delivery timeline was mind-blowing. We went from raw operational logs to a fully deployed routing engine in under eight weeks.",
-    name: "Dave K.",
-    role: "Director of Fleet, AutoDrive",
+    title: "Proof of Concept",
+    description:
+      "A focused prototype lets you validate accuracy and value on your own data before committing to a full build.",
   },
   {
-    quote:
-      "HIPAA compliance is normally a blocker, but the ClickMasters team isolated our sandbox infrastructure and delivered a perfectly compliant portal.",
-    name: "Dr. Amanda Roy",
-    role: "Founder, MedVision AI",
+    title: "Build & Integrate",
+    description:
+      "Sprint-based delivery with regular demos, integrated with the tools and platforms your team already uses.",
   },
 ];
 
@@ -93,42 +99,44 @@ export default function CaseStudies() {
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            Proven Performance &{" "}
+            AI Use Cases &{" "}
             <span className="italic text-[#A000DF]">
-              Measurable Real-World ROI
+              Example Projects
             </span>
           </h1>
 
           <p className="mt-5 text-gray-500 text-sm md:text-base max-w-2xl leading-relaxed">
-            Discover how ClickMasters&apos; custom AI pipelines and enterprise
-            automation integrations scale business revenue, reduce operating
-            friction, and optimize workflows.
+            Explore the kinds of AI pipelines and enterprise automation
+            projects ClickMasters designs and builds, from computer vision
+            and fraud detection to routing engines and learning copilots.
           </p>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div className="w-full">
               <Image
-                src="/assets/Studies/case0.png"
-                alt="Global logistics network real-time operations center"
-                width={700}
+                src="/assets/Studies/case0.webp"
+                alt="Operations centre with wall screens showing a global logistics network"
+                width={750}
                 height={450}
+                preload
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-contain"
               />
             </div>
 
             <div>
               <p className="text-[#A000DF] text-xs font-semibold tracking-wide mb-3">
-                FEATURED CLIENT SUCCESS
+                FEATURED USE CASE
               </p>
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                Optimizing Depot Logistics with AI Custom Backends
+                AI-Powered Dispatch Routing for Logistics
               </h2>
 
               <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-                For LogiFlow Solutions, we designed and integrated a
-                real-time dispatch routing framework that boosted overall
-                operational planning efficiency. Powered by custom machine
-                learning models trained on proprietary route data.
+                Replace static scheduling with a real-time dispatch routing
+                framework. Custom machine learning models trained on your own
+                route and demand data help planners assign vehicles and
+                delivery windows more efficiently.
               </p>
 
               <div className="mt-6 flex items-center gap-6">
@@ -146,29 +154,19 @@ export default function CaseStudies() {
       {/* Filter + Studies Grid Section */}
       <section className="bg-gray-50 py-16 px-6 border-t border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-6">
-            {filters.map((filter, index) => (
-              <button
-                key={index}
-                className={`text-sm px-4 py-2 transition-colors ${
-                  index === 0
-                    ? "bg-[#A000DF] text-white"
-                    : "text-gray-600 hover:text-[#A000DF]"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 mb-12">
+            Example Projects{" "}
+            <span className="italic text-[#A000DF]">We Can Build</span>
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
-            {caseStudyCards.map((card, index) => (
-              <div key={index}>
+            {useCaseCards.map((card) => (
+              <div key={card.title}>
                 <Image
                   src={card.image}
-                  alt={card.title}
-                  width={500}
-                  height={280}
+                  alt={card.alt}
+                  width={468}
+                  height={240}
                   className="w-full h-[220px] object-contain"
                 />
                 <p className="text-[#A000DF] text-xs font-semibold tracking-wide mt-2">
@@ -182,11 +180,12 @@ export default function CaseStudies() {
                 </p>
 
                 
-                <a  href="/contact"
+                <Link
+                  href="/contact"
                   className="inline-block mt-3 text-[#A000DF] text-sm font-medium hover:underline"
                 >
                   Discuss a Similar Project
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -214,24 +213,23 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* How We Deliver Section */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-4xl font-bold text-gray-900 mb-16">
-            What Clients Say After{" "}
-            <span className="italic text-[#A000DF]">Rapid Integration</span>
+            How We Take A Use Case{" "}
+            <span className="italic text-[#A000DF]">From Idea To Launch</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
-            {testimonials.map((testimonial, index) => (
-              <div key={index}>
-                <p className="text-gray-600 text-sm leading-relaxed italic">
-                  &ldquo;{testimonial.quote}&rdquo;
+            {deliverySteps.map((step) => (
+              <div key={step.title}>
+                <h3 className="font-serif text-lg font-semibold text-[#A000DF]">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mt-3">
+                  {step.description}
                 </p>
-                <p className="text-[#A000DF] text-sm font-semibold mt-5">
-                  {testimonial.name}
-                </p>
-                <p className="text-gray-400 text-xs mt-1">{testimonial.role}</p>
               </div>
             ))}
           </div>
@@ -248,7 +246,7 @@ export default function CaseStudies() {
 
           <p className="mt-6 text-gray-500 text-sm md:text-base leading-relaxed">
             Let&apos;s identify the scaling bottlenecks in your systems and
-            build the automated systems to eliminate them forever.
+            build the automated systems to remove them.
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-6">
@@ -257,11 +255,12 @@ export default function CaseStudies() {
             </Link>
 
             
-            <a  href="/services"
+            <Link
+              href="/services"
               className="text-[#A000DF] text-sm font-medium hover:underline"
             >
               View Pricing Packages
-            </a>
+            </Link>
           </div>
         </div>
       </section>

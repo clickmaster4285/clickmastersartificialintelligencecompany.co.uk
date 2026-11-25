@@ -1,52 +1,24 @@
-// app/Blogs/page.jsx
+// app/blog/page.jsx
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
+
 import JsonLd from "../Components/JsonLd";
 import { jsonLdFor, metadataFor } from "../lib/seo-pages";
+import { CONTACT } from "../lib/site";
 
 export const metadata = metadataFor("blog");
 
-const filters = [
-  "All Resources",
-  "AI Research",
-  "Machine Learning",
-  "Industry Insights",
-  "Tutorials",
-  "News",
-];
-
-const articles = [
-  {
-    date: "Oct 19, 2026",
-    title: "How LLMs are Reshaping Customer Experience",
-    image: "/assets/Blogs/image1.png",
-  },
-  {
-    date: "Oct 15, 2026",
-    title: "Deep Computer Vision in Automated Smart Manufacturing",
-    image: "/assets/Blogs/image2.png",
-  },
-  {
-    date: "Oct 11, 2026",
-    title: "Building Ethical and Compliant Enterprise AI",
-    image: "/assets/Blogs/image3.png",
-  },
-  {
-    date: "Oct 04, 2026",
-    title: "Designing Edge AI Processing for Remote Telemetry",
-    image: "/assets/Blogs/image4.png",
-  },
-  {
-    date: "Sep 28, 2026",
-    title: "The Data-to-Decisions Pipeline for Growing Startups",
-    image: "/assets/Blogs/image5.png",
-  },
-  {
-    date: "Sep 20, 2026",
-    title: "HIPAA Secure Telemedicine Medical App Infrastructure",
-    image: "/assets/Blogs/image6.png",
-  },
+// No published article pages exist yet, so no article cards are listed (cards
+// without a real destination were removed). When an article is written, add a
+// route under /blog/[slug] and list it here and in the sitemap.
+const upcomingTopics = [
+  "Scaling system architecture from MVP to large user bases",
+  "Sprint-based agile delivery for on-time releases",
+  "Enterprise cyber security and GDPR compliance",
+  "How LLMs are reshaping customer experience",
+  "Computer vision in smart manufacturing",
+  "Edge AI processing for remote telemetry",
 ];
 
 const whitepapers = [
@@ -60,7 +32,7 @@ const whitepapers = [
     tag: "COMPLIANCE WHITEPAPER",
     title: "HIPAA Compliant AI Frameworks",
     description:
-      "A exhaustive security checklist for medical device developers implementing object recognition.",
+      "A thorough security checklist for medical device developers implementing object recognition.",
   },
   {
     tag: "REFERENCE ARCHITECTURE",
@@ -70,12 +42,13 @@ const whitepapers = [
   },
 ];
 
+const mailto = (subject) => `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}`;
 
-export default function Blogs() {
+export default function Blog() {
   return (
     <>
       <JsonLd data={jsonLdFor("blog")} />
-      {/* Hero / Featured Article Section */}
+      {/* Hero Section */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -84,123 +57,78 @@ export default function Blogs() {
           </h1>
 
           <p className="mt-5 text-gray-500 text-sm md:text-base max-w-2xl leading-relaxed">
-            Stay up to date with core technical methodologies, scaling
-            practices, and architectural insights curated by ClickMasters.
+            Technical methodologies, scaling practices and architectural
+            insights from the ClickMasters engineering team.
           </p>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div className="w-full">
               <Image
-                src="/assets/Blogs/image0.png"
-                alt="Digital network city visualization"
-                width={700}
+                src="/assets/Blogs/image0.webp"
+                alt="Glowing digital data network stretching towards the horizon"
+                width={750}
                 height={450}
+                preload
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-contain"
               />
             </div>
 
             <div>
-              <p className="text-gray-400 text-xs mb-3">October 24, 2026</p>
-
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                System Architecture Scaling from MVP to Million-User Baselines
+                Articles In Preparation
               </h2>
 
               <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-                Building backend pipelines requires foresight. Discover key
-                architectural choices that safeguard performance during rapid
-                enterprise scaling without costly rewrites.
+                Our engineers are writing in-depth articles on the topics our
+                clients ask about most. Upcoming topics include:
               </p>
 
-              <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div />
-                   <Image
-                src="/assets/Blogs/image7.png"
-                alt="Digital network city visualization"
-                width={700}
-                height={450}
-                className="w-[40px] h-[40px] object-contain "
-              />
-                  <div>
-                    <p className="text-gray-900 text-sm font-semibold">
-                      Alex Rivera
-                    </p>
-                    <p className="text-gray-400 text-xs">Principal Architect</p>
-                  </div>
-                </div>
-                <p className="text-gray-400 text-xs">8 min read</p>
-              </div>
+              <ul className="mt-4 space-y-2">
+                {upcomingTopics.map((topic) => (
+                  <li key={topic} className="flex items-start gap-2">
+                    <span aria-hidden="true" className="text-[#A000DF] mt-0.5">◆</span>
+                    <span className="text-gray-700 text-sm">{topic}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-6 text-gray-500 text-sm leading-relaxed">
+                Have a question on one of these topics now?{" "}
+                <Link href="/contact" className="text-[#A000DF] font-medium hover:underline">
+                  Talk to our team
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Filter + Articles Grid Section */}
-      <section className="bg-gray-50 py-16 px-6 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-4 mb-12 border-b border-gray-200 pb-6">
-            {filters.map((filter, index) => (
-              <button
-                key={index}
-                className={`text-sm px-4 py-2  transition-colors ${
-                  index === 0
-                    ? "bg-[#A000DF] text-white"
-                    : "text-gray-600 hover:text-[#A000DF]"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
-            {articles.map((article, index) => (
-              <div key={index}>
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  width={500}
-                  height={280}
-                  className="w-full h-[200px] object-cover"
-                />
-                <p className="text-gray-400 text-xs mt-4">{article.date}</p>
-                <h3 className="font-serif text-xs font-bold text-gray-900 mt-1 leading-snug flex justify-center">
-                  {article.title}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Subscribe + Whitepapers Section */}
+      {/* Subscribe Section */}
       <section className="bg-gray-50 py-16 px-6 border-t border-gray-200">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-              Subscribe for{" "}
+              Get Notified About{" "}
               <span className="italic text-[#A000DF]">
-                Weekly Engineering
-                <br></br> Insights
+                New Engineering
+                <br /> Insights
               </span>
             </h2>
             <p className="mt-4 text-gray-500 text-sm leading-relaxed max-w-xl">
-              Get technical deep-dives on systems development, custom model
-              deployment checklists, and performance case studies sent
-              directly to your inbox.
+              Email us to be told when new technical deep-dives on systems
+              development, model deployment and AI engineering are published.
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <input
-              type="email"
-              placeholder="Enter your business email"
-              className="border-b border-gray-300 focus:border-[#A000DF] outline-none py-2 text-sm text-gray-700 bg-transparent w-56"
-            />
-            <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors whitespace-nowrap">
-              Subscribe Now
-            </button>
+            <a
+              href={mailto("Notify me about new articles")}
+              className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors whitespace-nowrap"
+            >
+              Notify Me By Email
+            </a>
           </div>
         </div>
       </section>
@@ -214,8 +142,8 @@ export default function Blogs() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
-            {whitepapers.map((paper, index) => (
-              <div key={index}>
+            {whitepapers.map((paper) => (
+              <div key={paper.title}>
                 <p className="text-[#A000DF] text-xs font-semibold tracking-wide mb-3">
                   {paper.tag}
                 </p>
@@ -225,8 +153,9 @@ export default function Blogs() {
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
                   {paper.description}
                 </p>
-                
-                 <a href="mailto:hello@clickmasters.com?subject=Guide%20request"
+
+                <a
+                  href={mailto(`Guide request: ${paper.title}`)}
                   className="text-white text-sm font-medium hover:text-[#A000DF] transition-colors"
                 >
                   Request the Free Guide
@@ -237,33 +166,37 @@ export default function Blogs() {
         </div>
       </section>
 
-      {/* Newsletter CTA Section */}
+      {/* CTA Section */}
       <section className="bg-gray-50 py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-2xl md:text-4xl font-bold text-gray-900">
-            Subscribe to Our AI{" "}
-            <span className="italic text-[#A000DF]">Newsletter</span>
+            Need Answers{" "}
+            <span className="italic text-[#A000DF]">Sooner?</span>
           </h2>
 
           <p className="mt-6 text-gray-500 text-sm md:text-base leading-relaxed">
-            Stay ahead of the technology curve. Join 20k+ other enterprise
-            leaders who read our system engineering briefings.
+            Speak with our engineers about architecture, AI models, security
+            or delivery. We usually respond {CONTACT.responseTime}.
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-6">
-            <button className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors">
-              Subscribe Now
-            </button>
-            
-            <a  href="/blog"
+            <Link
+              href="/contact"
+              className="bg-[#A000DF] hover:bg-[#a000dfdf] text-white text-sm font-medium px-6 py-3  transition-colors"
+            >
+              Contact Our Team
+            </Link>
+
+            <Link
+              href="/services"
               className="text-[#A000DF] text-sm font-medium hover:underline"
             >
-              Browse Archive
-            </a>
+              Explore Our Services
+            </Link>
           </div>
         </div>
       </section>
-
+
     </>
   );
 }

@@ -1,17 +1,19 @@
 import React from "react";
+import Link from "next/link";
 import { ctaBgImage } from "../assets";
 
 export default function CTASection() {
   return (
-    <section className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
+    <section id="get-started" aria-labelledby="cta-heading" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-20 lg:py-28 px-6">
 
-      {/* Background decorative image */}
-      <img loading="lazy" decoding="async"
-        src={ctaBgImage}
-        alt=""
-        className="hidden lg:block absolute pointer-events-none select-none"
+      {/* Background decorative image (CSS background, hidden from assistive tech) */}
+      <div
+        aria-hidden="true"
+        className="hidden lg:block absolute pointer-events-none select-none bg-contain bg-center bg-no-repeat"
         style={{
           width: "300px",
+          aspectRatio: "383 / 386",
+          backgroundImage: `url("${ctaBgImage}")`,
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%) rotate(1deg)",
@@ -23,35 +25,39 @@ export default function CTASection() {
       <div className="relative z-10 flex flex-col items-center text-center gap-6">
 
         <h2
-          className="font-bold text-3xl lg:text-5xl text-[#333333]"
+          id="cta-heading"
+          className="flex flex-col items-center gap-4 text-[#333333]"
           style={{ fontFamily: "Garamond, serif" }}
         >
-          {"Let's Build Your Next"}
+          <span className="font-bold text-3xl lg:text-5xl">Ready to Build Your Next</span>{" "}
+          <span className="italic font-normal text-2xl lg:text-4xl">AI Software Product?</span>
         </h2>
 
-        <p
-          className="italic text-2xl lg:text-4xl text-[#333333]"
-          style={{ fontFamily: "Garamond, serif" }}
-        >
-          Software Product Together
+        <p className="max-w-2xl text-sm sm:text-base text-gray-600 leading-relaxed bg-white/80">
+          Whether you need a custom web app, a mobile solution or an enterprise
+          platform, our team is ready to bring your vision to life.{" "}
+          <Link href="/contact" className="underline text-[#A000DF] hover:opacity-80">Get a free consultation</Link>{" "}
+          or{" "}
+          <Link href="/about" className="underline text-[#A000DF] hover:opacity-80">meet the team</Link>.
+          We usually respond within a few hours.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
 
-          <a
+          <Link
             href="/about"
             className="border border-[#A000DF] text-[#A000DF] px-6 py-3 text-sm font-medium hover:bg-[#A000DF] hover:text-white transition-colors"
           >
-            About Our Company & Team
-          </a>
+            Meet the Team
+          </Link>
 
-          <a
+          <Link
             href="/contact"
             className="bg-[#A000DF] text-white px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
           >
-            Get Free Consultation
-          </a>
+            Get a Free Consultation
+          </Link>
 
         </div>
       </div>

@@ -6,7 +6,7 @@ const doubled = [...items, ...items];
 
 export default function ServicesStrip() {
   return (
-    <section id="services-strip" className="w-full max-w-[1728px] mx-auto bg-white flex flex-col justify-center items-center py-10 sm:py-14 lg:py-[60px] gap-[10px] overflow-hidden">
+    <section id="services-strip" aria-hidden="true" className="w-full max-w-[1728px] mx-auto bg-white flex flex-col justify-center items-center py-10 sm:py-14 lg:py-[60px] gap-[10px] overflow-hidden">
       <style>{`
         @keyframes scroll-left-strip {
           from { transform: translateX(0); }
@@ -33,7 +33,11 @@ export default function ServicesStrip() {
               >
                 {item}
               </span>
-              <img loading="lazy" decoding="async" src={starIcon} alt="" className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 object-contain shrink-0" />
+              <span
+                aria-hidden="true"
+                className="inline-block w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 shrink-0 bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url("${starIcon}")` }}
+              />
             </React.Fragment>
           ))}
         </div>

@@ -1,9 +1,11 @@
 import React from "react";
+import Link from "next/link";
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-16 lg:py-20" style={{ borderBottomWidth: "0.5px", borderImage: "repeating-linear-gradient(to right, #AF00E8 0 12px, transparent 12px 20px) 1" }}>
-      <h2
+    <section id="tech-stack" aria-labelledby="tech-stack-heading" className="relative w-full max-w-[1728px] mx-auto bg-white overflow-hidden py-16 lg:py-20" style={{ borderBottomWidth: "0.5px", borderImage: "repeating-linear-gradient(to right, #AF00E8 0 12px, transparent 12px 20px) 1" }}>
+      <div
+        aria-hidden="true"
         className="hidden lg:block absolute inset-x-0 text-center font-bold whitespace-nowrap select-none pointer-events-none z-0 text-gray-50"
         style={{
           fontFamily: "Garamond, serif",
@@ -15,7 +17,7 @@ export default function TechStack() {
         }}
       >
         TECH STACK
-      </h2>
+      </div>
 
       {/* Horizontal dashed line */}
       <div
@@ -37,20 +39,25 @@ export default function TechStack() {
 
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-[130px] gap-8">
         <div className="text-center lg:text-left">
-          <h3
+          <h2
+            id="tech-stack-heading"
             className="text-2xl lg:text-3xl font-bold text-[#333333] leading-snug"
             style={{ fontFamily: "Garamond, serif" }}
           >
-            Modern Tech Stack
+            Modern Technology Stack{" "}
             <br />
-            For <span className="italic font-thin text-[#A000DF]">Future Ready Solutions</span>
-          </h3>
+            for <span className="italic font-thin text-[#A000DF]">Future-Ready Software</span>
+          </h2>
         </div>
 
-        <div className="max-w-3xs text-center lg:text-right text-sm text-gray-600 leading-relaxed">
-          We leverage cutting-edge technologies to build scalable, secure,
-          and high-performance applications
-        </div>
+        <p className="max-w-sm text-center lg:text-right text-sm text-gray-600 leading-relaxed">
+          We choose cutting-edge, proven technologies to build secure, scalable
+          and high-performance applications. Not sure which stack fits?{" "}
+          <Link href="/contact" className="underline text-[#A000DF] hover:opacity-80">
+            Talk to our engineers
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

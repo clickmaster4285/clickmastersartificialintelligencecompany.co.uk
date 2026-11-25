@@ -12,6 +12,14 @@ import {
 } from "../assets";
 import { RiGeminiFill } from "react-icons/ri";
 import { GrPlayFill } from "react-icons/gr";
+import SmartLink from "./SmartLink";
+import { INDUSTRY_LINKS, SERVICE_LINKS } from "../lib/home-links";
+
+const LINK = "underline decoration-[#A000DF]/40 underline-offset-2 hover:text-[#A000DF]";
+
+// Small decorative portrait photos beside the consultation prompt. They are
+// stock images (not named staff or clients), so they use empty alt text.
+const AVATARS = [avatar1, avatar2, avatar3, avatar4];
 
 export default function Hero() {
   return (
@@ -54,17 +62,6 @@ export default function Hero() {
           <RiGeminiFill className="w-4 h-5 object-contain text-white" />
         </div>
 
-        <div
-          className="absolute flex items-center justify-center bg-[#FFE167]"
-          style={{ left: "82%", top: "9%", width: "3.24%", height: "6.83%", transform: "rotate(-15deg)" }}
-        >
-          <span
-            className="text-[#333333] text-[20px] leading-[28px]"
-            style={{ fontFamily: "'Times New Roman', serif", transform: "rotate(-15deg)" }}
-          >
-            TS
-          </span>
-        </div>
       </div>
 
       {/* Mobile: stacked (image, heading, copy). Desktop: proportional 3-column flex. */}
@@ -75,43 +72,50 @@ export default function Hero() {
             className="font-bold text-3xl leading-tight xl:text-[52px] 2xl:text-[58px] xl:leading-[60px] 2xl:leading-[66px]"
             style={{ fontFamily: "Garamond, serif", color: "#333333" }}
           >
-            <span className="sr-only">Artificial Intelligence Software </span>
-            That Scales Your Business Revenue
+            AI Software Development Company in the UK
           </h1>
 
+          {/* Tagline: a paragraph, not a heading */}
           <div className="flex items-center gap-3">
-            <div className="w-[44px] h-[44px] rounded-full bg-[#26262B] flex items-center justify-center shrink-0 2xl:w-[48px] 2xl:h-[48px]">
+            <div aria-hidden="true" className="w-[44px] h-[44px] rounded-full bg-[#26262B] flex items-center justify-center shrink-0 2xl:w-[48px] 2xl:h-[48px]">
               <RiGeminiFill className="w-6 h-8 object-contain text-white" />
             </div>
-            <span
-              className="italic text-3xl xl:text-[52px] xl:leading-[60px] 2xl:text-[58px] 2xl:leading-[66px]"
+            <p
+              className="italic text-xl leading-snug xl:text-[26px] xl:leading-[32px]"
               style={{ fontFamily: "Garamond, serif", color: "#A000DF" }}
             >
-              Not Just Code
-            </span>
+              Artificial intelligence software that scales your business
+              revenue, not just code.
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            {/* Get a free quote */}
             <Link
               href="/contact"
-              className="flex items-center justify-center px-5 py-3.5 gap-2.5 w-[170px] h-[47px] bg-[#A000DF] hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center px-5 py-3.5 gap-2.5 h-[47px] bg-[#A000DF] hover:opacity-90 transition-opacity"
             >
-              <span
-                className="text-white text-base font-thin"
-                style={{ fontFamily: "Urbanist, sans-serif" }}
-              >
-                Get a free quote
+              <span className="text-white text-base" style={{ fontFamily: "Urbanist, sans-serif" }}>
+                Get a Free Quote
               </span>
             </Link>
+            <Link
+              href="/case-studies"
+              className="flex items-center justify-center px-5 py-3.5 h-[47px] border border-[#A000DF] text-[#A000DF] hover:bg-[#A000DF] hover:text-white transition-colors"
+            >
+              <span className="text-base" style={{ fontFamily: "Urbanist, sans-serif" }}>
+                View Our Case Studies
+              </span>
+            </Link>
+          </div>
 
+          <div className="flex items-center gap-3">
             {/* Team avatars */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center">
-                {[avatar1, avatar2, avatar3, avatar4].map((av, i) => (
+              <div aria-hidden="true" className="flex items-center">
+                {AVATARS.map((src, i) => (
                   <img
-                    key={av}
-                    src={av}
+                    key={src}
+                    src={src}
                     alt=""
                     loading="lazy"
                     width={28}
@@ -121,9 +125,9 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <span className="text-xs text-gray-500 whitespace-nowrap">
-                Free project consultation
-              </span>
+              <p className="text-xs text-gray-500">
+                Free project consultation. Agile delivery. Ongoing support.
+              </p>
             </div>
           </div>
         </div>
@@ -151,21 +155,32 @@ export default function Hero() {
         {/* Right content block */}
         <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-[30%] max-w-[420px] shrink-0 lg:mr-[4%]">
           <p
-            className="text-center lg:text-right text-[15px] leading-[20px] 2xl:text-base 2xl:leading-[22px]"
+            className="text-center lg:text-right text-[15px] leading-[22px] 2xl:text-base 2xl:leading-[24px]"
             style={{ fontFamily: "Urbanist, sans-serif", color: "#333333" }}
           >
-            We build scalable ERP, CRM, and enterprise solutions focused on
-            performance and ROI. From MVPs to full-scale SaaS platforms, AI
-            automation systems, and native or cross-platform mobile apps, we
-            create future-ready digital products for growing businesses.
+            ClickMasters is a UK-focused{" "}
+            <SmartLink href="/services" className={LINK}>AI software development company</SmartLink>{" "}
+            that builds{" "}
+            <SmartLink href={SERVICE_LINKS.custom} className={LINK}>custom software</SmartLink>,{" "}
+            <SmartLink href={SERVICE_LINKS.aiAutomation} className={LINK}>AI automation systems</SmartLink>,{" "}
+            <SmartLink href={SERVICE_LINKS.web} className={LINK}>web and mobile applications</SmartLink>{" "}
+            and{" "}
+            <SmartLink href={SERVICE_LINKS.erpCrm} className={LINK}>ERP and CRM platforms</SmartLink>{" "}
+            designed to grow revenue. We work with businesses in{" "}
+            <SmartLink href={INDUSTRY_LINKS.healthcare} className={LINK}>healthcare</SmartLink>,{" "}
+            <SmartLink href={INDUSTRY_LINKS.finance} className={LINK}>finance</SmartLink>,{" "}
+            <SmartLink href={INDUSTRY_LINKS.ecommerce} className={LINK}>e-commerce</SmartLink>{" "}
+            and{" "}
+            <SmartLink href={INDUSTRY_LINKS.logistics} className={LINK}>logistics</SmartLink>{" "}
+            across the United Kingdom and worldwide.
           </p>
 
           {/* icons */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div aria-hidden="true" className="hidden lg:flex items-center gap-5">
             <div className="flex flex-col items-center gap-5">
-              <img src={instagramIcon} alt="Instagram" loading="lazy" width={38} height={38} className="w-[38px] h-[38px]" />
-              <img src={facebookIcon} alt="Facebook" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
-              <img src={linkedinIcon} alt="LinkedIn" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
+              <img src={instagramIcon} alt="" loading="lazy" width={38} height={38} className="w-[38px] h-[38px]" />
+              <img src={facebookIcon} alt="" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
+              <img src={linkedinIcon} alt="" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
             </div>
             <div className="flex flex-col items-center gap-0">
               <span className="w-[6px] h-[6px] rounded-full bg-[#333333]" />
