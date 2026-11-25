@@ -1,32 +1,39 @@
-// app/services/page.jsx
-// AI Development Services page. Content: app/services/services-content.ts
-// (from the ClickMasters Services SEO Pack). Fully server-rendered: no client JS.
+// /services/ai-development
+// AI Development Services page (moved here from /services, which is now the
+// hub for all services). Content: ./content.ts. Fully server-rendered.
 import Link from "next/link";
 import Image from "next/image";
 import {
-  RiAddLine, RiAlarmWarningLine, RiArrowRightLine, RiArrowRightUpLine, RiBankLine, RiBrainLine,
-  RiChatQuoteLine, RiCheckLine, RiCloudLine, RiCodeBoxLine, RiEyeLine, RiFileSearchLine, RiFlashlightLine,
-  RiFlowChart, RiGovernmentLine, RiGraduationCapLine, RiHeartLine, RiHeartPulseLine, RiInformationLine,
-  RiLightbulbFlashLine, RiLineChartLine, RiLockLine, RiMailLine, RiNodeTree, RiPhoneLine, RiPlugLine,
-  RiPriceTag3Line, RiPulseLine, RiQuestionAnswerLine, RiRobot2Line, RiScales3Line, RiServerLine,
-  RiSettings3Line, RiShieldCheckLine, RiShieldKeyholeLine, RiShoppingCart2Line, RiShuffleLine,
-  RiSparkling2Line, RiSparklingFill, RiStackLine, RiTimerFlashLine, RiTruckLine, RiUserSettingsLine,
+  RiArrowRightLine, RiBankLine, RiBrainLine, RiChatQuoteLine, RiCheckLine, RiCloudLine,
+  RiCodeBoxLine, RiEyeLine, RiFileSearchLine, RiFlowChart, RiGraduationCapLine, RiHeartLine, RiHeartPulseLine,
+  RiHome4Line, RiInformationLine, RiInstanceLine, RiLightbulbFlashLine, RiLineChartLine, RiLockLine, RiNodeTree,
+  RiPlugLine, RiPriceTag3Line, RiPulseLine, RiQuestionAnswerLine, RiRobot2Line, RiScales3Line, RiServerLine,
+  RiSettings3Line, RiShieldCheckLine, RiShieldKeyholeLine, RiShoppingCart2Line, RiShuffleLine, RiSparkling2Line,
+  RiSparklingFill, RiStackLine, RiTimerFlashLine, RiAlarmWarningLine, RiTruckLine, RiUserSettingsLine,
 } from "react-icons/ri";
 
-import JsonLd from "../Components/JsonLd";
-import Breadcrumbs from "../Components/Breadcrumbs";
-import { BODY_LINK, IconTile as Tile, SectionHeading, WRAP } from "../Components/ServicePageUI";
-import { jsonLdFor, metadataFor } from "../lib/seo-pages";
-import { CONTACT } from "../lib/site";
+import JsonLd from "../../Components/JsonLd";
+import Breadcrumbs from "../../Components/Breadcrumbs";
+import TrustSection from "../../Components/TrustSection";
+import { BODY_LINK, IconTile as Tile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
+import { FaqSection, FinalCta, RichText, faqPageJsonLd } from "../../Components/ServicePageSections";
+import { serviceBySlug } from "../../config/services-catalog";
+import { HIRE_AI_DEVELOPERS, TECH_LINKS } from "../../lib/internal-links";
+import { detailPageJsonLd, detailPageMetadata } from "../../lib/site";
 import {
   ArchitectureDiagram, RagDiagram, RagDiagramVertical, SecurityLayersDiagram,
-} from "./ServiceDiagrams";
+} from "../ServiceDiagrams";
 import {
-  COMPARISON, COVER, FINAL_CTA, HERO, INDUSTRIES, PACKAGES, PROCESS, PROCESS_INTRO, SECURITY,
-  SECURITY_INTRO, SERVICES, SERVICES_INTRO, SERVICE_FAQS, STACK, STACK_INTRO, WHY, servicesFaqJsonLd,
-} from "./services-content";
+  COMPARISON, COVER, FINAL_CTA, HERO, INDUSTRIES, PACKAGES, PATH, PROCESS, PROCESS_INTRO, SCHEMA_SERVICE, SECURITY,
+  SECURITY_INTRO, SEO, SERVICES, SERVICES_INTRO, SERVICE_FAQS, STACK, STACK_INTRO, WHY,
+} from "./content";
 
-export const metadata = metadataFor("services");
+export const metadata = detailPageMetadata({ path: PATH, ...SEO });
+
+const CRUMBS = [
+  { name: "Services", path: "/services" },
+  { name: "AI Development", path: PATH },
+];
 
 // All icons are decorative (headings carry the meaning).
 const ICONS = {
@@ -35,7 +42,7 @@ const ICONS = {
   predict: RiLineChartLine, automation: RiFlowChart, consulting: RiLightbulbFlashLine,
   timer: RiTimerFlashLine, answers: RiQuestionAnswerLine, warning: RiAlarmWarningLine, control: RiShieldCheckLine,
   health: RiHeartPulseLine, finance: RiBankLine, manufacturing: RiSettings3Line, retail: RiShoppingCart2Line,
-  energy: RiFlashlightLine, logistics: RiTruckLine, edtech: RiGraduationCapLine, public: RiGovernmentLine,
+  logistics: RiTruckLine, edtech: RiGraduationCapLine, realestate: RiHome4Line, saas: RiInstanceLine,
   lock: RiLockLine, access: RiUserSettingsLine, plug: RiPlugLine, server: RiServerLine, pulse: RiPulseLine,
   cloud: RiCloudLine, scales: RiScales3Line, shield: RiShieldKeyholeLine,
   stack: RiStackLine, shuffle: RiShuffleLine, price: RiPriceTag3Line, heart: RiHeartLine,
@@ -46,13 +53,21 @@ function IconTile({ name, dark = false }) {
   return <Tile icon={ICONS[name]} dark={dark} />;
 }
 
-const ukPhone = CONTACT.phones[0];
+const LABEL = "text-xs font-bold uppercase tracking-[0.14em] text-gray-500";
 
-export default function Services() {
+export default function AiDevelopmentServices() {
   return (
     <>
-      <JsonLd data={jsonLdFor("services")} />
-      <JsonLd data={servicesFaqJsonLd()} />
+      <JsonLd
+        data={detailPageJsonLd({
+          path: PATH,
+          name: `${SEO.title} | ClickMasters`,
+          description: SEO.description,
+          crumbs: CRUMBS,
+          service: { ...SCHEMA_SERVICE, catalog: SERVICES.map((s) => s.title) },
+        })}
+      />
+      <JsonLd data={faqPageJsonLd(SERVICE_FAQS)} />
 
       {/* ───────────── Hero ───────────── */}
       <section aria-labelledby="hero-heading" className="relative overflow-hidden bg-[#faf9f7] border-b border-[#9b1fe0]/15">
@@ -61,7 +76,8 @@ export default function Services() {
 
         <div className={`${WRAP} relative grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-20`}>
           <div>
-            <Breadcrumbs items={[{ name: "Services", href: "/services" }]} schema={false} />
+            {/* BreadcrumbList JSON-LD comes from detailPageJsonLd above. */}
+            <Breadcrumbs items={CRUMBS.map((c) => ({ name: c.name, href: c.path }))} schema={false} />
             <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-[#7a1fa2] shadow-sm ring-1 ring-[#AF00E8]/15">
               <RiSparklingFill aria-hidden="true" className="h-3.5 w-3.5 text-[#AF00E8]" />
               {HERO.eyebrow}
@@ -103,6 +119,7 @@ export default function Services() {
             </dl>
           </div>
 
+          {/* The hero visual is an inline SVG (no raster image to preload). */}
           <figure className="relative">
             <div aria-hidden="true" className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-[#AF00E8]/20 via-transparent to-[#5EEAD4]/25 blur-xl" />
             <div className="relative rounded-3xl border border-white bg-white/90 p-5 shadow-[0_30px_80px_-24px_rgba(60,0,90,0.35)] sm:p-7">
@@ -134,9 +151,9 @@ export default function Services() {
               <p key={p.slice(0, 20)} className="mt-5 text-[15px] leading-relaxed text-gray-600 lg:text-base">{p}</p>
             ))}
             <p className="mt-5 text-[15px] leading-relaxed text-gray-600 lg:text-base">
-              If you are starting from a business problem rather than a technology, our{" "}
-              <Link href="/solutions" className={BODY_LINK}>AI solutions for complex business workflows</Link>{" "}
-              show how these capabilities combine into document processing, customer service, fraud detection and supply chain systems.
+              If an off-the-shelf system with AI added would serve you better than a bespoke build, our{" "}
+              <Link href="/solutions" className={BODY_LINK}>ready-to-deploy business software solutions</Link>{" "}
+              cover ERP, CRM, document processing and customer service, and can be customised to your workflows.
             </p>
           </div>
           <ul className="grid content-start gap-4 sm:grid-cols-2">
@@ -161,27 +178,19 @@ export default function Services() {
             <p className="mt-5 text-[15px] leading-relaxed text-gray-600 lg:text-base">{SERVICES_INTRO}</p>
           </div>
 
-          {/* Mobile / tablet: horizontal jump links */}
-          <nav aria-label="Jump to a service" className="-mx-5 mt-8 overflow-x-auto px-5 lg:hidden">
-            <ul className="flex w-max gap-2 pb-2">
-              {SERVICES.map((s) => (
-                <li key={s.id}>
-                  <a href={`#${s.id}`} className="inline-flex min-h-11 items-center rounded-full border border-[#AF00E8]/20 bg-white px-4 text-sm text-gray-700 hover:border-[#AF00E8] hover:text-[#AF00E8]">
-                    {s.title.replace(/ \(.*\)/, "")}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="mt-10 grid gap-10 lg:grid-cols-[260px_1fr] lg:gap-12">
-            {/* Desktop: sticky jump links */}
-            <nav aria-label="Services on this page" className="hidden lg:block">
-              <ol className="sticky top-[112px] space-y-1 rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
+          <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[260px_1fr] lg:gap-12">
+            {/* ONE jump list: horizontal pills on mobile, sticky sidebar on desktop. */}
+            <nav aria-label="AI services on this page" className="-mx-5 overflow-x-auto px-5 lg:mx-0 lg:overflow-visible lg:px-0">
+              <ol className="flex w-max gap-2 pb-2 lg:sticky lg:top-[112px] lg:w-auto lg:flex-col lg:gap-1 lg:rounded-2xl lg:border lg:border-gray-100 lg:bg-white lg:p-3 lg:pb-3 lg:shadow-sm">
                 {SERVICES.map((s, i) => (
                   <li key={s.id}>
-                    <a href={`#${s.id}`} className="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-[#faf5fd] hover:text-[#AF00E8]">
-                      <span className="w-5 text-xs font-semibold text-gray-400 group-hover:text-[#AF00E8]">{String(i + 1).padStart(2, "0")}</span>
+                    <a
+                      href={`#${s.id}`}
+                      className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-[#AF00E8]/20 bg-white px-4 text-sm text-gray-700 hover:border-[#AF00E8] hover:text-[#AF00E8] lg:flex lg:min-h-0 lg:rounded-lg lg:border-0 lg:px-3 lg:py-2 lg:text-gray-600 lg:hover:bg-[#faf5fd]"
+                    >
+                      <span aria-hidden="true" className="hidden w-5 text-xs font-semibold text-gray-400 group-hover:text-[#AF00E8] lg:inline">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                       {s.title.replace(/ \(.*\)/, "").replace(" Development and Fine-Tuning", " Fine-Tuning")}
                     </a>
                   </li>
@@ -190,82 +199,91 @@ export default function Services() {
             </nav>
 
             <div className="space-y-6">
-              {SERVICES.map((s, i) => (
-                <article
-                  key={s.id}
-                  id={s.id}
-                  aria-labelledby={`${s.id}-h`}
-                  className="scroll-mt-28 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
-                >
-                  <div className="border-b border-gray-100 p-6 sm:p-8">
-                    <div className="flex items-start gap-4">
-                      <IconTile name={s.icon} />
-                      <div>
-                        <span className="text-xs font-semibold text-[#AF00E8]">{String(i + 1).padStart(2, "0")}</span>
-                        <h3 id={`${s.id}-h`} className="text-[22px] font-bold leading-snug text-[#1a1a1a] lg:text-[26px]" style={{ fontFamily: "Garamond, serif" }}>
-                          {s.title}
-                        </h3>
+              {SERVICES.map((s, i) => {
+                const page = serviceBySlug(s.page);
+                return (
+                  <article
+                    key={s.id}
+                    id={s.id}
+                    aria-labelledby={`${s.id}-h`}
+                    className="scroll-mt-28 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+                  >
+                    <div className="border-b border-gray-100 p-6 sm:p-8">
+                      <div className="flex items-start gap-4">
+                        <IconTile name={s.icon} />
+                        <div>
+                          <span aria-hidden="true" className="text-xs font-semibold text-[#AF00E8]">{String(i + 1).padStart(2, "0")}</span>
+                          <h3 id={`${s.id}-h`} className="text-[22px] font-bold leading-snug text-[#1a1a1a] lg:text-[26px]" style={{ fontFamily: "Garamond, serif" }}>
+                            {s.title}
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="mt-4 text-[15px] leading-relaxed text-gray-600 lg:text-base">{s.intro}</p>
+                      <p className="mt-4">
+                        <Link href={page.href} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#AF00E8] hover:underline underline-offset-4">
+                          Learn more about our {page.anchor}
+                          <RiArrowRightLine aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      </p>
+                    </div>
+
+                    <div className="grid gap-px bg-gray-100 md:grid-cols-2">
+                      <div className="bg-white p-6 sm:p-8">
+                        <h4 className={LABEL}>Problems it solves</h4>
+                        <p className="mt-3 text-sm leading-relaxed text-gray-700">{s.problems}</p>
+                        {s.extra?.map((e) => (
+                          <div key={e.label} className="mt-6">
+                            <h4 className={LABEL}>{e.label}</h4>
+                            <p className="mt-3 text-sm leading-relaxed text-gray-700"><RichText text={e.text} /></p>
+                          </div>
+                        ))}
+                        <h4 className={`mt-6 ${LABEL}`}>{s.howLabel}</h4>
+                        <p className="mt-3 text-sm leading-relaxed text-gray-700">{s.how}</p>
+                      </div>
+                      <div className="bg-white p-6 sm:p-8">
+                        <h4 className={LABEL}>{s.listLabel}</h4>
+                        <ul className="mt-3 space-y-2.5">
+                          {s.list.map((item) => (
+                            <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-gray-700">
+                              <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f7effa] text-[#AF00E8]">
+                                <RiCheckLine className="h-3.5 w-3.5" />
+                              </span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                        {s.tech.length > 0 && (
+                          <>
+                            <h4 className={`mt-6 ${LABEL}`}>{s.techLabel}</h4>
+                            <ul className="mt-3 flex flex-wrap gap-2">
+                              {s.tech.map((t) => (
+                                <li key={t} className="rounded-full border border-gray-200 bg-[#faf9f7] px-3 py-1 text-xs font-medium text-gray-700">{t}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
                       </div>
                     </div>
-                    <p className="mt-4 text-[15px] leading-relaxed text-gray-600 lg:text-base">{s.intro}</p>
-                  </div>
 
-                  <div className="grid gap-px bg-gray-100 md:grid-cols-2">
-                    <div className="bg-white p-6 sm:p-8">
-                      <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-gray-500">Problems it solves</h4>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-700">{s.problems}</p>
-                      {s.extra?.map((e) => (
-                        <div key={e.label} className="mt-6">
-                          <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-gray-500">{e.label}</h4>
-                          <p className="mt-3 text-sm leading-relaxed text-gray-700">{e.text}</p>
-                        </div>
-                      ))}
-                      <h4 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-gray-500">{s.howLabel}</h4>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-700">{s.how}</p>
-                    </div>
-                    <div className="bg-white p-6 sm:p-8">
-                      <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-gray-500">{s.listLabel}</h4>
-                      <ul className="mt-3 space-y-2.5">
-                        {s.list.map((item) => (
-                          <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-gray-700">
-                            <span aria-hidden="true" className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#f7effa] text-[#AF00E8]">
-                              <RiCheckLine className="h-3.5 w-3.5" />
-                            </span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      {s.tech.length > 0 && (
-                        <>
-                          <h4 className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-gray-500">{s.techLabel}</h4>
-                          <ul className="mt-3 flex flex-wrap gap-2">
-                            {s.tech.map((t) => (
-                              <li key={t} className="rounded-full border border-gray-200 bg-[#faf9f7] px-3 py-1 text-xs font-medium text-gray-700">{t}</li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </div>
-                  </div>
+                    {s.diagram === "rag" && (
+                      <figure className="border-t border-gray-100 bg-[#fcfaff] p-6 sm:p-8">
+                        <RagDiagram className="hidden h-auto w-full sm:block" />
+                        <RagDiagramVertical className="mx-auto h-auto w-full max-w-[340px] sm:hidden" />
+                        <figcaption className="mt-4 text-xs text-gray-500">
+                          Ingestion runs when content changes; retrieval runs on every question, so answers stay current without retraining.
+                        </figcaption>
+                      </figure>
+                    )}
 
-                  {s.diagram === "rag" && (
-                    <figure className="border-t border-gray-100 bg-[#fcfaff] p-6 sm:p-8">
-                      <RagDiagram className="hidden h-auto w-full sm:block" />
-                      <RagDiagramVertical className="mx-auto h-auto w-full max-w-[340px] sm:hidden" />
-                      <figcaption className="mt-4 text-xs text-gray-500">
-                        Ingestion runs when content changes; retrieval runs on every question, so answers stay current without retraining.
-                      </figcaption>
-                    </figure>
-                  )}
-
-                  {s.note && (
-                    <p className="flex gap-3 border-t border-[#AF00E8]/10 bg-[#faf5fd] px-6 py-4 text-sm leading-relaxed text-[#4b1d63] sm:px-8">
-                      <RiInformationLine aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#AF00E8]" />
-                      {s.note}
-                    </p>
-                  )}
-                </article>
-              ))}
+                    {s.note && (
+                      <p className="flex gap-3 border-t border-[#AF00E8]/10 bg-[#faf5fd] px-6 py-4 text-sm leading-relaxed text-[#4b1d63] sm:px-8">
+                        <RiInformationLine aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#AF00E8]" />
+                        <span><RichText text={s.note} /></span>
+                      </p>
+                    )}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -329,9 +347,14 @@ export default function Services() {
           </div>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {INDUSTRIES.map((ind) => (
-              <li key={ind.title} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors hover:border-[#AF00E8]/50 hover:bg-white/[0.07]">
+              <li key={ind.title} className="relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors hover:border-[#AF00E8]/50 hover:bg-white/[0.07]">
                 <IconTile name={ind.icon} dark />
-                <h3 className="mt-4 text-lg font-bold">{ind.title}</h3>
+                <h3 className="mt-4 text-lg font-bold">
+                  {/* Stretched link: the whole card opens the industry page. */}
+                  <Link href={ind.href} className="after:absolute after:inset-0 after:rounded-2xl hover:text-[#e9c2ff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8]">
+                    {ind.title}
+                  </Link>
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-300">{ind.text}</p>
                 <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-gray-400">Key considerations</p>
                 <ul className="mt-2 flex flex-wrap gap-1.5">
@@ -354,15 +377,14 @@ export default function Services() {
             </SectionHeading>
             <p className="mt-5 text-[15px] leading-relaxed text-gray-600 lg:text-base">{PROCESS_INTRO}</p>
           </div>
+          {/* The <ol> numbers the steps for assistive tech; "01" is the only visible number. */}
           <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS.map((step, i) => (
               <li key={step.title} className="relative flex flex-col rounded-2xl border border-gray-100 bg-[#faf9f7] p-6">
                 <span aria-hidden="true" className="font-bold text-[40px] leading-none text-transparent [-webkit-text-stroke:1.5px_#AF00E8]" style={{ fontFamily: "Garamond, serif" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 text-lg font-bold text-[#1a1a1a]">
-                  <span className="sr-only">{i + 1}. </span>{step.title}
-                </h3>
+                <h3 className="mt-4 text-lg font-bold text-[#1a1a1a]">{step.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">{step.text}</p>
                 <p className="mt-5 rounded-xl bg-white px-4 py-3 text-xs leading-relaxed text-gray-700 ring-1 ring-[#AF00E8]/15">
                   <span className="block font-bold uppercase tracking-wider text-[#AF00E8]">Deliverable</span>
@@ -387,11 +409,13 @@ export default function Services() {
             </SectionHeading>
             <p className="mt-5 text-[15px] leading-relaxed text-gray-300">{STACK_INTRO}</p>
             <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl ring-1 ring-white/10">
+              {/* Below the fold: lazy-loaded, and sized to its column (source is 600px wide). */}
               <Image
                 src="/assets/Services/container.webp"
-                alt="Data centre corridor of server racks lit with purple light"
+                alt="Data centre corridor with rows of server racks lit in purple, representing cloud AI infrastructure"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                loading="lazy"
+                sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, (min-width: 640px) 90vw, 100vw"
                 className="object-cover scale-[1.35]"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0d0a12]/70 to-transparent" />
@@ -402,9 +426,17 @@ export default function Services() {
               <div key={g.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-[#e9c2ff]">{g.title}</h3>
                 <ul className="mt-3 flex flex-wrap gap-1.5">
-                  {g.items.map((t) => (
-                    <li key={t} className="rounded-md bg-white/10 px-2.5 py-1 text-xs text-gray-100">{t}</li>
-                  ))}
+                  {g.items.map((t) =>
+                    TECH_LINKS[t] ? (
+                      <li key={t}>
+                        <Link href={TECH_LINKS[t]} className="block rounded-md bg-white/10 px-2.5 py-1 text-xs text-white underline decoration-[#AF00E8] underline-offset-2 hover:bg-white/20">
+                          {t}
+                        </Link>
+                      </li>
+                    ) : (
+                      <li key={t} className="rounded-md bg-white/10 px-2.5 py-1 text-xs text-gray-100">{t}</li>
+                    )
+                  )}
                 </ul>
               </div>
             ))}
@@ -459,7 +491,10 @@ export default function Services() {
               >
                 <h3 className="text-xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{tier.name}</h3>
                 <p className="mt-1 text-xs text-gray-400">{tier.subtitle}</p>
-                <p className="mt-6 text-5xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{tier.price}</p>
+                <p className="mt-6 flex items-baseline gap-2">
+                  <span className="text-5xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{tier.price}</span>
+                  <span className="text-xs text-gray-400">{tier.priceNote}</span>
+                </p>
                 <ul className="mt-6 flex-1 space-y-3">
                   {tier.features.map((f) => (
                     <li key={f} className="flex gap-2.5 text-sm text-gray-200">
@@ -468,17 +503,18 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold ${
-                    tier.highlighted ? "bg-[#AF00E8] text-white hover:bg-[#9600c7]" : "bg-white text-[#1a1a1a] hover:bg-[#f7effa]"
-                  }`}
-                >
-                  {tier.cta}
-                  <RiArrowRightLine aria-hidden="true" className="h-4 w-4" />
-                </Link>
               </div>
             ))}
+          </div>
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#AF00E8] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#9600c7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8]"
+            >
+              {PACKAGES.cta}
+              <RiArrowRightLine aria-hidden="true" className="h-4 w-4" />
+            </Link>
+            <p className="text-xs text-gray-400">{PACKAGES.vatNote}</p>
           </div>
         </div>
       </section>
@@ -503,79 +539,30 @@ export default function Services() {
             ))}
           </ul>
           <p className="mt-12 text-[15px] leading-relaxed text-gray-600">
-            Read more about the team and{" "}
+            Need engineers inside your own team instead of a managed project? You can{" "}
+            <Link href={HIRE_AI_DEVELOPERS} className={BODY_LINK}>hire AI developers</Link>{" "}
+            on a dedicated basis. We work with clients remotely nationwide; see{" "}
+            <Link href="/locations" className={BODY_LINK}>AI development across UK cities</Link>, or read more about the team and{" "}
             <Link href="/about" className={BODY_LINK}>our mission to make AI practical for every business</Link>.
           </p>
         </div>
       </section>
 
-      {/* ───────────── FAQ ───────────── */}
-      <section aria-labelledby="faq-heading" className="bg-[#faf9f7] py-16 lg:py-24 border-t border-[#9b1fe0]/10">
-        <div className={`${WRAP} grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16`}>
-          <div>
-            <SectionHeading id="faq-heading" eyebrow="FAQ">
-              AI Development Services: Frequently Asked Questions
-            </SectionHeading>
-            <p className="mt-5 text-[15px] leading-relaxed text-gray-600">
-              Cost, timelines, data, security and maintenance, answered plainly. Still have a question?{" "}
-              <Link href="/contact" className={BODY_LINK}>Ask our team</Link>.
-            </p>
-          </div>
-          {/* Native <details>: every answer is in the server HTML, no JavaScript needed. */}
-          <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
-            {SERVICE_FAQS.map((f, i) => (
-              <details key={f.q} className="group p-5 sm:p-6" open={i === 0}>
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-4 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AF00E8] [&::-webkit-details-marker]:hidden">
-                  <h3 className="text-base font-semibold leading-snug text-[#1a1a1a] group-open:text-[#AF00E8] lg:text-[17px]">{f.q}</h3>
-                  <span aria-hidden="true" className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f7effa] text-[#AF00E8] transition-transform group-open:rotate-45">
-                    <RiAddLine className="h-4 w-4" />
-                  </span>
-                </summary>
-                <div className="mt-3 space-y-3 pr-10 text-sm leading-relaxed text-gray-600">
-                  {f.a.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* TODO: renders nothing until real logos / testimonials / metrics are added in app/config/trust.ts. */}
+      <TrustSection title="Proof From AI Projects We Have Delivered" />
 
-      {/* ───────────── Final CTA ───────────── */}
-      <section aria-labelledby="cta-heading" className="bg-white px-5 py-16 sm:px-8 lg:py-24">
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-[32px] bg-gradient-to-br from-[#2a0b3a] via-[#1a0d24] to-[#0d0a12] px-6 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#AF00E8]/40 blur-3xl" />
-          <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 left-10 h-64 w-64 rounded-full bg-[#5EEAD4]/15 blur-3xl" />
-          <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-            <div>
-              <h2 id="cta-heading" className="font-bold text-[30px] leading-[38px] lg:text-[44px] lg:leading-[52px]" style={{ fontFamily: "Garamond, serif" }}>
-                {FINAL_CTA.title}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-gray-300 lg:text-base">{FINAL_CTA.text}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-[#AF00E8] hover:bg-[#f7effa]">
-                  Book an AI discovery call
-                  <RiArrowRightUpLine aria-hidden="true" className="h-4 w-4" />
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
-                  Request a project estimate
-                </Link>
-              </div>
-            </div>
-            <address className="not-italic space-y-3 rounded-2xl border border-white/10 bg-white/[0.06] p-6 text-sm backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">Talk to us directly</p>
-              <a href={`tel:${ukPhone.e164}`} className="flex items-center gap-3 hover:text-[#e9c2ff]">
-                <RiPhoneLine aria-hidden="true" className="h-5 w-5 text-[#5EEAD4]" />
-                UK {ukPhone.display}
-              </a>
-              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 break-all hover:text-[#e9c2ff]">
-                <RiMailLine aria-hidden="true" className="h-5 w-5 shrink-0 text-[#5EEAD4]" />
-                {CONTACT.email}
-              </a>
-              <p className="text-xs text-gray-400">We usually respond {CONTACT.responseTime}.</p>
-            </address>
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title="AI Development Services: Frequently Asked Questions"
+        intro="Cost, timelines, data, security and maintenance, answered plainly."
+        faqs={SERVICE_FAQS}
+      />
+
+      <FinalCta
+        title={FINAL_CTA.title}
+        body={{ text: FINAL_CTA.text }}
+        primaryCta={{ label: "Book an AI discovery call", href: "/contact" }}
+        secondaryCta={{ label: "Explore all our services", href: "/services" }}
+      />
     </>
   );
 }

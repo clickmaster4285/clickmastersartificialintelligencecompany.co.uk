@@ -1,13 +1,36 @@
 /*
- * /services page content, from "ClickMasters Services SEO Pack" (24 Nov 2026).
- * Edit copy here; app/services/page.jsx only renders it.
+ * /services/ai-development content, from "ClickMasters Services SEO Pack"
+ * (24 Nov 2026). This was the /services page until /services became the hub
+ * for all services. Edit copy here; ./page.jsx only renders it.
  *
  * Items the pack marks "needs human verification before publishing" are
- * flagged with VERIFY comments.
+ * flagged with VERIFY comments. Inline links use [anchor](/path) syntax.
  */
+
+import { AI_PACKAGE_PRICES, VAT_NOTE, formatPackagePrice } from "../../config/pricing";
+import { FREE_TOOLS, INDUSTRY_PAGES } from "../../lib/internal-links";
+
+export const PATH = "/services/ai-development";
+
+export const SEO = {
+  // Rendered as "AI Development Services UK | Custom AI & LLM | ClickMasters" (59 chars).
+  title: "AI Development Services UK | Custom AI & LLM",
+  description:
+    "Custom AI development services for UK businesses: LLM fine-tuning, RAG, machine learning, computer vision and automation, integrated with your systems.",
+};
+
+export const SCHEMA_SERVICE = {
+  name: "AI Development Services",
+  serviceType: ["Artificial intelligence software development"],
+  description:
+    "Design, development, integration and monitoring of custom AI systems, including LLM fine-tuning, retrieval-augmented generation, machine learning, computer vision and intelligent process automation.",
+  catalogName: "AI development services",
+};
 
 export type ServiceSection = {
   id: string;
+  /** Slug of this capability's own page in app/config/services-catalog.ts. */
+  page: string;
   icon: string;
   title: string;
   intro: string;
@@ -19,6 +42,7 @@ export type ServiceSection = {
   how: string;
   techLabel: string;
   tech: string[];
+  /** May contain [anchor](/path) links. */
   note?: string;
   diagram?: "rag";
   extra?: { label: string; text: string }[];
@@ -31,12 +55,13 @@ export const HERO = {
     "ClickMasters designs, builds and integrates custom AI systems: fine-tuned language models, retrieval-augmented generation (RAG), machine learning, computer vision and intelligent automation. We connect them to the CRM, ERP and data platforms you already run, and deploy them on cloud infrastructure you control.",
   audience:
     "Built for founders, CTOs, operations leaders and enterprise teams who have a defined business problem and data to work with, and who need an AI system that runs reliably in production rather than a demo.",
-  // VERIFY: timelines and sector count come from the live site FAQs.
+  // VERIFY: timelines come from the live site FAQs. "8 sectors" matches the
+  // eight industry pages and the INDUSTRIES cards below.
   stats: [
     { value: "6–8 weeks", label: "Typical MVP pilot" },
     { value: "AWS · Azure · GCP", label: "Cloud deployment" },
     { value: "ERP & CRM", label: "Native integrations" },
-    { value: "8 sectors", label: "Industry experience" },
+    { value: "8 sectors", label: "Industries served" },
   ],
 };
 
@@ -63,6 +88,7 @@ const T = "Technologies";
 export const SERVICES: ServiceSection[] = [
   {
     id: "custom-ai-development",
+    page: "custom-ai-development",
     icon: "custom",
     title: "Custom AI Development",
     intro: "Bespoke AI software built around your process and data: the model, the application logic, the APIs and the interface your team works in, delivered as one product.",
@@ -81,6 +107,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "llm-development-fine-tuning",
+    page: "llm-development-fine-tuning",
     icon: "llm",
     title: "Large Language Model (LLM) Development and Fine-Tuning",
     intro: "Fine-tuning adapts a pretrained large language model to your terminology, tone, output formats and tasks by training it further on curated examples. Parameter-efficient methods such as LoRA update a small fraction of the model's weights, which keeps training cost far below full retraining.",
@@ -100,6 +127,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "rag-development",
+    page: "rag-development",
     icon: "rag",
     title: "Retrieval-Augmented Generation (RAG) Development",
     intro: "RAG connects a language model to your own documents at the moment a question is asked. Documents are split into passages, converted into embeddings and stored in a vector index. For each question, the most relevant passages are retrieved and passed to the model, which answers from them and cites its sources.",
@@ -119,6 +147,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "generative-ai-development",
+    page: "generative-ai-development",
     icon: "genai",
     title: "Generative AI Development",
     intro: "Generative AI systems produce new content, such as text, images, transcripts and summaries, from instructions and context. The engineering challenge is consistency: getting output that meets your standards every time, not just in a demo.",
@@ -139,6 +168,7 @@ export const SERVICES: ServiceSection[] = [
   {
     // VERIFY: confirm tool-using agent capability before publishing (pack note).
     id: "ai-agent-development",
+    page: "ai-agent-development",
     icon: "agent",
     title: "AI Agent and Assistant Development",
     intro: "An AI agent uses a language model to plan steps and call tools, such as APIs, databases, search and internal systems, to complete a task. A chatbot answers a message; an agent can look up a customer, check an order, draft a reply and raise a ticket.",
@@ -154,10 +184,11 @@ export const SERVICES: ServiceSection[] = [
     how: "We start with a narrow task and a defined set of tools. Every tool has permission limits, high-impact actions require human approval, and every step is logged for audit. Agents are tested against scripted scenarios for task success before their scope is widened.",
     techLabel: T,
     tech: ["LangChain", "Model tool-calling APIs", "Your REST and GraphQL APIs", "Audit logging"],
-    note: "Agents are less predictable than fixed workflows. We recommend them where the flexibility is worth that trade-off, and a simple automation where it is not.",
+    note: "Agents are less predictable than fixed workflows. We recommend them where the flexibility is worth that trade-off, and a simple automation where it is not. For customer-facing conversational assistants, see our [AI chatbot development](/services/ai-chatbots).",
   },
   {
     id: "machine-learning-development",
+    page: "machine-learning",
     icon: "ml",
     title: "Machine Learning Development",
     intro: "Machine learning models learn patterns from historical, structured data to classify, cluster, recommend or detect anomalies. They suit problems where you have records of past outcomes and want consistent decisions at scale.",
@@ -176,6 +207,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "nlp-development",
+    page: "nlp-development",
     icon: "nlp",
     title: "Natural Language Processing (NLP)",
     intro: "NLP pipelines let software read and organise large volumes of written language: classifying it, extracting entities, measuring sentiment, redacting personal data and powering semantic search.",
@@ -194,6 +226,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "computer-vision-development",
+    page: "computer-vision-development",
     icon: "vision",
     title: "Computer Vision Development",
     intro: "Computer vision models interpret images and video: detecting objects, classifying images, reading documents and layouts, and inspecting products for defects.",
@@ -214,6 +247,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "predictive-analytics",
+    page: "predictive-analytics",
     icon: "predict",
     title: "Predictive Analytics",
     intro: "Predictive analytics applies statistical and machine learning models to estimate what is likely to happen next, such as which customers may leave, where demand will rise, or which transactions carry risk, and feeds that estimate into a decision.",
@@ -233,6 +267,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "intelligent-process-automation",
+    page: "ai-automation",
     icon: "automation",
     title: "Intelligent Process Automation",
     intro: "Intelligent process automation combines rule-based robotic process automation (RPA) with AI for the steps that need judgement, such as reading a document, classifying a request or spotting an exception.",
@@ -251,6 +286,7 @@ export const SERVICES: ServiceSection[] = [
   },
   {
     id: "ai-consulting-strategy",
+    page: "ai-consulting-strategy",
     icon: "consulting",
     title: "AI Consulting and Strategy",
     intro: "AI consulting decides where AI fits in your organisation, what it should cost and how to deliver it safely, before significant build budget is committed.",
@@ -267,7 +303,10 @@ export const SERVICES: ServiceSection[] = [
     how: "Workshops with business and technical stakeholders, followed by a written assessment and roadmap your team can act on with or without us.",
     techLabel: "",
     tech: [],
-    extra: [{ label: "Who it suits", text: "Organisations at the start of their AI programme, and teams with a stalled pilot that need an independent technical view." }],
+    extra: [
+      { label: "Who it suits", text: "Organisations at the start of their AI programme, and teams with a stalled pilot that need an independent technical view." },
+      { label: "Before you book", text: `Get a first estimate of value and readiness with our [AI ROI calculator and readiness quiz](${FREE_TOOLS}).` },
+    ],
   },
 ];
 
@@ -284,15 +323,22 @@ export const COMPARISON = {
 };
 
 // VERIFY: confirm the company has worked in each listed sector (pack note).
+// Cards match the eight /industries/* pages in app/config/navigation.ts, so
+// every card links to a page that exists.
+// TODO: Energy & Utilities and Public Sector were listed here before but have
+// no industry page. Their use cases now live on /services/predictive-analytics
+// (consumption-spike and outage-risk forecasting) and /services/nlp-development
+// (records redaction and searchable case archives). Add /industries/energy and
+// /industries/public-sector pages later if those sectors become a focus.
 export const INDUSTRIES = [
-  { icon: "health", title: "Healthcare & MedTech", text: "Clinical note summarisation, secure triage portals and imaging decision support.", considerations: ["UK GDPR health data", "NHS DTAC", "MHRA"] },
-  { icon: "finance", title: "Finance & Investment", text: "Ledger validation, risk models, fraud detection and automated audit preparation.", considerations: ["FCA Consumer Duty", "Model explainability"] },
-  { icon: "manufacturing", title: "Manufacturing", text: "Predictive maintenance from equipment data, visual quality inspection and inventory updates.", considerations: ["Edge deployment", "OT network security"] },
-  { icon: "retail", title: "Retail & E-Commerce", text: "Recommendation engines, seasonal demand forecasts and catalogue content generation.", considerations: ["Consumer data consent", "Pricing transparency"] },
-  { icon: "energy", title: "Energy & Utilities", text: "Consumption-spike forecasting and outage risk modelling linked to weather data.", considerations: ["Critical infrastructure security"] },
-  { icon: "logistics", title: "Logistics & Transport", text: "Real-time fleet routing, dispatch decision support and load planning.", considerations: ["Real-time data latency", "Driver data"] },
-  { icon: "edtech", title: "EdTech & Training", text: "Learning copilots, assessment generation and syllabus building tools.", considerations: ["Children's data", "DfE generative AI guidance"] },
-  { icon: "public", title: "Public Sector", text: "High-volume document ingestion, records redaction and searchable case archives.", considerations: ["Algorithmic Transparency Recording Standard"] },
+  { icon: "health", title: "Healthcare & MedTech", href: INDUSTRY_PAGES.healthcare, text: "Clinical note summarisation, secure triage portals and imaging decision support.", considerations: ["UK GDPR health data", "NHS DTAC", "MHRA"] },
+  { icon: "finance", title: "Finance & Fintech", href: INDUSTRY_PAGES.finance, text: "Ledger validation, risk models, fraud detection and automated audit preparation.", considerations: ["FCA Consumer Duty", "Model explainability"] },
+  { icon: "retail", title: "E-Commerce", href: INDUSTRY_PAGES.ecommerce, text: "Recommendation engines, seasonal demand forecasts and catalogue content generation.", considerations: ["Consumer data consent", "Pricing transparency"] },
+  { icon: "edtech", title: "EdTech & E-Learning", href: INDUSTRY_PAGES.edtech, text: "Learning copilots, assessment generation and syllabus building tools.", considerations: ["Children's data", "DfE generative AI guidance"] },
+  { icon: "realestate", title: "Real Estate", href: INDUSTRY_PAGES.realEstate, text: "Lease and tenancy document extraction, listing description drafting and enquiry triage.", considerations: ["Tenant and buyer personal data", "Accurate listing information"] },
+  { icon: "logistics", title: "Supply Chain & Logistics", href: INDUSTRY_PAGES.logistics, text: "Real-time fleet routing, dispatch decision support and load planning.", considerations: ["Real-time data latency", "Driver data"] },
+  { icon: "saas", title: "Enterprise SaaS", href: INDUSTRY_PAGES.enterpriseSaas, text: "AI features inside multi-tenant products: in-app copilots, semantic search and usage insights.", considerations: ["Tenant data isolation", "Model cost per tenant"] },
+  { icon: "manufacturing", title: "Smart Manufacturing", href: INDUSTRY_PAGES.manufacturing, text: "Predictive maintenance from equipment data, visual quality inspection and inventory updates.", considerations: ["Edge deployment", "OT network security"] },
 ];
 
 export const PROCESS_INTRO =
@@ -337,14 +383,17 @@ export const SECURITY = [
   { icon: "shield", title: "Prompt injection defences", text: "RAG systems and agents treat retrieved content and user input as untrusted, with input filtering, tool permission limits and output checks." },
 ];
 
-// VERIFY: prices come from the live page in USD. Confirm figures, whether they
-// are "from" prices, and whether to show GBP (pack note).
+// Prices are set in app/config/pricing.ts (GBP, excl. VAT).
+// TODO: Confirm final GBP amounts with business owner, and whether they are "from" prices.
 export const PACKAGES = {
   intro: "Every project is quoted after discovery. These packages show what each level of engagement typically includes.",
+  vatNote: `All prices are in GBP and ${VAT_NOTE}.`,
+  // One CTA for the whole section (one link per target per section).
+  cta: "Discuss which package fits your project",
   tiers: [
-    { name: "Starter MVP", price: "$15k", subtitle: "For rapid prototype validation", features: ["One custom fine-tuned model", "Core API integrations", "Standard cloud deployment support", "Two weeks of post-launch QA monitoring"], cta: "Discuss an MVP", highlighted: false },
-    { name: "Professional", price: "$45k", subtitle: "For scaling operational workloads", features: ["Multiple custom model architectures", "Full ERP and CRM integration", "Dedicated private VPC deployment", "Dedicated support specialist"], cta: "Plan a Professional build", highlighted: true },
-    { name: "Enterprise Core", price: "Custom", subtitle: "For global operations", features: ["Isolated sandbox environments aligned to your compliance requirements", "High-availability, redundant deployments", "24/7 priority SLA and on-call monitoring"], cta: "Talk to us about Enterprise", highlighted: false },
+    { name: "Starter MVP", price: formatPackagePrice(AI_PACKAGE_PRICES.starterMvp), priceNote: VAT_NOTE, subtitle: "For rapid prototype validation", features: ["One custom model (fine-tuned where justified)", "Core API integrations", "Standard cloud deployment support", "Two weeks of post-launch QA monitoring"], highlighted: false },
+    { name: "Professional", price: formatPackagePrice(AI_PACKAGE_PRICES.professional), priceNote: VAT_NOTE, subtitle: "For scaling operational workloads", features: ["Multiple custom model architectures", "Full ERP and CRM integration", "Dedicated private VPC deployment", "Dedicated support specialist"], highlighted: true },
+    { name: "Enterprise Core", price: formatPackagePrice(AI_PACKAGE_PRICES.enterpriseCore), priceNote: "Quoted after discovery", subtitle: "For global operations", features: ["Isolated sandbox environments aligned to your compliance requirements", "High-availability, redundant deployments", "24/7 priority SLA and on-call monitoring"], highlighted: false },
   ],
 };
 
@@ -357,18 +406,21 @@ export const WHY = [
   { icon: "heart", title: "Ethical AI as a working principle", text: "Privacy, human oversight and transparency are part of our core values and are built into how we scope and test every system." },
 ];
 
-/** FAQs: rendered on the page and used for FAQPage JSON-LD (identical text). */
+/**
+ * FAQs: rendered on the page and used for FAQPage JSON-LD (identical text;
+ * [anchor](/path) links are rendered as links and stripped in the JSON-LD).
+ */
 export const SERVICE_FAQS: { q: string; a: string[] }[] = [
   {
     q: "How much do AI development services cost in the UK?",
     a: [
       "Cost depends mainly on the amount of data preparation needed, the number of systems the AI must integrate with, whether models are fine-tuned or used through an API, hosting requirements (shared cloud or a private VPC) and the level of ongoing support. A focused proof of concept costs far less than a multi-system enterprise deployment.",
-      "Our published packages start with the Starter MVP and scale to Professional and custom Enterprise engagements. After discovery we provide a fixed quote for the agreed scope, and running costs such as cloud hosting and model API usage are estimated separately so you can see the total cost of ownership.",
+      `Our published packages start with the Starter MVP and scale to Professional and custom Enterprise engagements. After discovery we provide a fixed quote for the agreed scope, and running costs such as cloud hosting and model API usage are estimated separately so you can see the total cost of ownership. For a first estimate before you talk to us, try our [AI ROI calculator](${FREE_TOOLS}).`,
     ],
   },
   {
     q: "How long does it take to build a custom AI solution?",
-    a: ["Most functional MVP pilots launch within 6–8 weeks. Full enterprise solutions with several integrations, security reviews and staged roll-out typically take 3–6 months. The biggest variables are data readiness, access to internal systems and how quickly stakeholders can review and approve each stage."],
+    a: ["Most functional MVP pilots launch within 6–8 weeks. Full enterprise solutions with several integrations, security reviews and staged roll-out typically take 3–6 months. The biggest variables are data readiness, access to internal systems and how quickly stakeholders can review and approve each stage. To get a timeline for your own project, [book an AI discovery call](/contact)."],
   },
   {
     q: "Should we fine-tune an LLM or use retrieval-augmented generation?",
@@ -407,18 +459,6 @@ export const SERVICE_FAQS: { q: string; a: string[] }[] = [
     a: ["AI systems need more care than conventional software because their inputs change. Maintenance covers monitoring accuracy and drift, retraining or re-indexing as data changes, evaluating new model versions as providers release and retire them, managing cloud and API costs, and security updates. Our Starter MVP includes two weeks of post-launch QA monitoring, and higher tiers include dedicated support and SLA-backed monitoring."],
   },
 ];
-
-export function servicesFaqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: SERVICE_FAQS.map(({ q, a }) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: { "@type": "Answer", text: a.join(" ") },
-    })),
-  };
-}
 
 export const FINAL_CTA = {
   title: "Tell Us the Problem. We Will Map the AI System That Solves It.",

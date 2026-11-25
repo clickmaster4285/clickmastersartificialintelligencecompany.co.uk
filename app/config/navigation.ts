@@ -29,9 +29,19 @@ export type NavLink = {
   icon?: string;
   /** Search phrase the page should target (planning / placeholder titles). */
   keyword?: string;
+  /**
+   * false = the page exists (and is in the sitemap if live) but is not shown
+   * in the header menu, to keep a long mega menu column short.
+   */
+  inMenu?: boolean;
 };
 
-export type NavGroup = { heading: string; items: NavLink[] };
+export type NavGroup = {
+  heading: string;
+  items: NavLink[];
+  /** Link shown under the column, e.g. "View all AI services". */
+  viewAll?: NavLink;
+};
 
 export type NavItem = NavLink & {
   /** Short intro shown at the top of a dropdown and on the hub page. */
@@ -70,11 +80,24 @@ export const NAV_ITEMS: NavItem[] = [
       },
       {
         heading: "AI Services",
+        // The menu shows the parent page plus the top six; every AI page is
+        // listed on the /services hub (#ai-services) and in the sitemap.
         items: [
-          L("AI Automation Services", "/services/ai-automation", "placeholder", { icon: "robot", description: "Automate repetitive work and cut costs", keyword: "AI automation services UK" }),
-          L("Machine Learning Development", "/services/machine-learning", "placeholder", { icon: "brain", description: "Predictive models and data pipelines", keyword: "machine learning development company UK" }),
-          L("AI Chatbot Development", "/services/ai-chatbots", "placeholder", { icon: "chat", description: "24/7 assistants for support and sales", keyword: "AI chatbot development UK" }),
+          L("AI Development Services", "/services/ai-development", "live", { icon: "sparkle", description: "Custom AI, from discovery to production", keyword: "AI development services UK" }),
+          L("RAG Development", "/services/rag-development", "live", { icon: "search", description: "Cited answers from your own documents", keyword: "RAG development services UK" }),
+          L("LLM Development & Fine-Tuning", "/services/llm-development-fine-tuning", "live", { icon: "brain", description: "Models tuned to your terms and formats", keyword: "LLM fine-tuning services UK" }),
+          L("AI Agent Development", "/services/ai-agent-development", "live", { icon: "robot", description: "Agents that complete multi-step tasks", keyword: "AI agent development UK" }),
+          L("Generative AI Development", "/services/generative-ai-development", "live", { icon: "magic", description: "Drafts, summaries and images on-brand", keyword: "generative AI development UK" }),
+          L("AI Automation Services", "/services/ai-automation", "placeholder", { icon: "flow", description: "Automate repetitive work and cut costs", keyword: "AI automation services UK" }),
+          L("Machine Learning Development", "/services/machine-learning", "placeholder", { icon: "node", description: "Predictive models and data pipelines", keyword: "machine learning development company UK" }),
+          L("AI Chatbot Development", "/services/ai-chatbots", "placeholder", { icon: "chat", description: "24/7 assistants for support and sales", keyword: "AI chatbot development UK", inMenu: false }),
+          L("Custom AI Development", "/services/custom-ai-development", "live", { icon: "code", description: "Bespoke AI software around your data", keyword: "custom AI development UK", inMenu: false }),
+          L("NLP Development", "/services/nlp-development", "live", { icon: "chat", description: "Classify, extract and redact text", keyword: "NLP development services UK", inMenu: false }),
+          L("Computer Vision Development", "/services/computer-vision-development", "live", { icon: "eye", description: "Inspection and document scanning", keyword: "computer vision development UK", inMenu: false }),
+          L("Predictive Analytics", "/services/predictive-analytics", "live", { icon: "chart", description: "Forecast demand, churn and risk", keyword: "predictive analytics services UK", inMenu: false }),
+          L("AI Consulting & Strategy", "/services/ai-consulting-strategy", "live", { icon: "bulb", description: "Use-case scoring and AI roadmaps", keyword: "AI consulting UK", inMenu: false }),
         ],
+        viewAll: L("View all AI services", "/services#ai-services", "live"),
       },
       {
         heading: "Enterprise & Cloud",
@@ -101,7 +124,7 @@ export const NAV_ITEMS: NavItem[] = [
       L("ERP Software", "/solutions/erp-software", "live", { icon: "building", description: "Finance, inventory and HR in one place", keyword: "ERP software UK" }),
       L("CRM Software", "/solutions/crm-software", "live", { icon: "contacts", description: "Pipelines, contacts and automation", keyword: "custom CRM software UK" }),
       L("SaaS Platform Development", "/solutions/saas-platform", "placeholder", { icon: "apps", description: "Multi-tenant platforms with billing built in", keyword: "SaaS platform development UK" }),
-      L("Learning Management System (LMS)", "/solutions/lms-development", "placeholder", { icon: "graduation", description: "Courses, assessments and reporting", keyword: "LMS development UK" }),
+      L("Learning Management System (LMS)", "/solutions/lms-development", "live", { icon: "graduation", description: "Courses, assessments and reporting", keyword: "LMS development UK" }),
       L("Inventory & Warehouse Management", "/solutions/inventory-management", "placeholder", { icon: "archive", description: "Real-time stock across locations", keyword: "inventory management software UK" }),
       L("Fleet & Logistics Software", "/solutions/fleet-management", "placeholder", { icon: "truck", description: "Tracking, routing and dispatch", keyword: "fleet management software UK" }),
     ],
@@ -172,6 +195,7 @@ export const NAV_CTA = { label: "Get a Free Quote", href: "/contact" } as const;
 
 /** Links that only appear in the footer. */
 export const FOOTER_LINKS = {
+  aiDevelopment: L("AI Development", "/services/ai-development", "live"),
   locations: L("Locations", "/locations", "live"),
   contact: L("Contact", "/contact", "live"),
   caseStudies: L("Case Studies", "/case-studies", "live"),
@@ -194,11 +218,19 @@ export function childrenOf(item: NavItem): NavLink[] {
   return all.filter(isVisible);
 }
 
-/** Mega menu groups with planned items removed (empty groups dropped). */
+/** Shown in the header menu: not planned, and not opted out with inMenu: false. */
+export const isInMenu = (link: NavLink) => isVisible(link) && link.inMenu !== false;
+
+/** Mega menu groups as rendered in the header (empty groups dropped). */
 export function visibleGroups(item: NavItem): NavGroup[] {
   return (item.groups ?? [])
-    .map((g) => ({ ...g, items: g.items.filter(isVisible) }))
+    .map((g) => ({ ...g, items: g.items.filter(isInMenu) }))
     .filter((g) => g.items.length > 0);
+}
+
+/** Links an item shows in its header panel (mega menu or simple dropdown). */
+export function menuChildrenOf(item: NavItem): NavLink[] {
+  return item.groups ? visibleGroups(item).flatMap((g) => g.items) : childrenOf(item).filter(isInMenu);
 }
 
 /** Header items to render (planned top-level items are hidden). */
@@ -242,10 +274,11 @@ export function placeholderParams(section: string): { slug: string }[] {
 
 /** Footer navigation columns, generated from the config. */
 export function footerColumns(): { heading: string; links: NavLink[] }[] {
-  const explore = NAV_ITEMS.filter((i) => isVisible(i) && (i.groups || i.children)).map((i) => ({
-    ...i,
-    label: i.href === "/hire" ? "Hire Developers" : i.label,
-  }));
+  const explore: NavLink[] = NAV_ITEMS.filter((i) => isVisible(i) && (i.groups || i.children)).flatMap((i) => {
+    const link = { ...i, label: i.href === "/hire" ? "Hire Developers" : i.label };
+    // "AI Development" sits directly under "Services".
+    return i.href === "/services" ? [link, FOOTER_LINKS.aiDevelopment] : [link];
+  });
   return [
     { heading: "Explore", links: explore },
     {
@@ -270,7 +303,7 @@ export function siteNavigationJsonLd() {
   };
   for (const item of NAV_ITEMS) {
     add(item);
-    for (const child of childrenOf(item)) add(child);
+    for (const child of menuChildrenOf(item)) add(child);
   }
   add(L(NAV_CTA.label, NAV_CTA.href, "live"));
 

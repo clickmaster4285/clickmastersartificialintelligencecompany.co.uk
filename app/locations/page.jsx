@@ -208,7 +208,7 @@ export default function Locations() {
             </ul>
 
             <p className="mt-6 text-sm">
-              <Link href="/services" className="text-[#A000DF] font-medium hover:underline">
+              <Link href="/services/ai-development" className="text-[#A000DF] font-medium hover:underline">
                 Explore our AI services
               </Link>
               <span className="text-gray-400"> · </span>

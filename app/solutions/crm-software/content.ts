@@ -181,7 +181,7 @@ export const AUTOMATION = [
 
 export const AUTOMATION_OUTRO: LinkedText = {
   text: "Where automation needs judgement, such as summarising call notes, drafting replies or scoring which deals are at risk, our [[link]] can add those capabilities to the CRM, with people reviewing the output.",
-  link: { anchor: "AI development services", href: "/services" },
+  link: { anchor: "AI development services", href: "/services/ai-development" },
 };
 
 export const INTEGRATION_INTRO =

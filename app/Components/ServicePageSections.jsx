@@ -22,6 +22,29 @@ export function Linked({ value, className = BODY_LINK }) {
   );
 }
 
+const MD_LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+/**
+ * Text with any number of inline links written as [anchor](/path).
+ * Internal paths render as <Link>; everything else is plain text.
+ */
+export function RichText({ text, className = BODY_LINK }) {
+  const out = [];
+  let last = 0;
+  for (const m of text.matchAll(MD_LINK)) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(<Link key={m.index} href={m[2]} className={className}>{m[1]}</Link>);
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+/** The same text with link syntax removed (for JSON-LD, which must match the visible copy). */
+export function plainText(text) {
+  return text.replace(MD_LINK, "$1");
+}
+
 // ─────────────────────────────── Hero ───────────────────────────────
 
 export function ServiceHero({ crumbs, eyebrow, title, titleAccent, lead, audience, primaryCta, secondaryCta, stats, figureLabel, figure, figcaption }) {
@@ -200,7 +223,8 @@ export function ProcessGrid({ headingId = "process-heading", eyebrow, title, int
                 </span>
                 <span aria-hidden="true" className="ml-4 h-px flex-1 translate-y-1 bg-gradient-to-r from-[#AF00E8]/30 to-transparent" />
               </div>
-              <h3 className="mt-4 text-lg font-bold text-[#1a1a1a]"><span className="sr-only">{i + 1}. </span>{step.title}</h3>
+              {/* The <ol> already numbers steps for assistive tech; "01" is the only visible number. */}
+              <h3 className="mt-4 text-lg font-bold text-[#1a1a1a]">{step.title}</h3>
               <div className="flex-1">
                 {step.rows.map((r) => (
                   <p key={r.label} className="mt-2 text-sm leading-relaxed text-gray-600">
@@ -332,7 +356,7 @@ export function FaqSection({ headingId = "faq-heading", title, intro, faqs }) {
                 </span>
               </summary>
               <div className="mt-3 space-y-3 pr-10 text-sm leading-relaxed text-gray-600">
-                {f.a.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}
+                {f.a.map((p) => <p key={p.slice(0, 24)}><RichText text={p} /></p>)}
               </div>
             </details>
           ))}
@@ -350,7 +374,7 @@ export function faqPageJsonLd(faqs) {
     mainEntity: faqs.map(({ q, a }) => ({
       "@type": "Question",
       name: q,
-      acceptedAnswer: { "@type": "Answer", text: a.join(" ") },
+      acceptedAnswer: { "@type": "Answer", text: plainText(a.join(" ")) },
     })),
   };
 }

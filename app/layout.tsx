@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     description: SITE.defaultDescription,
   },
   formatDetection: { telephone: false, email: false, address: false },
+  // Google Search Console ownership: renders
+  // <meta name="google-site-verification" content="..."> in the <head>.
+  verification: {
+    google: "6ZlIo-0CRw9jsWqp_YxBE0voEpCiimzPsjbhsNGjRos",
+  },
 };
 
 export const viewport: Viewport = {
