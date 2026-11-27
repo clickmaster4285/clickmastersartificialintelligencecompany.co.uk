@@ -33,31 +33,31 @@ const IMG = "/assets/Solution/fleet";
 export const IMAGES = {
   overview: {
     src: `${IMG}/fleet-operations-overview.png`, width: 1080, height: 800,
-    alt: "Fleet operations overview: vehicles, drivers and jobs feeding one fleet system, with telematics data, ERP and accounts, a dispatcher dashboard, a driver app and maintenance records connected around it",
+    alt: "Diagram of vehicles, drivers and jobs feeding one fleet system, linked to telematics, ERP and apps",
   },
   records: {
     src: `${IMG}/fleet-four-records-model.png`, width: 1720, height: 520,
-    alt: "The four connected fleet records: vehicle, driver, job and movement data, linked in one system so the office can see which vehicle, which driver, which job, and whether it is safe and legal to go",
+    alt: "Diagram of four linked fleet records: vehicle, driver, job and movement data",
   },
   capabilities: {
     src: `${IMG}/fleet-capability-map.png`, width: 1720, height: 640,
-    alt: "Fleet capability map with vehicle tracking, dispatch, route planning and AI-assisted planning at the centre and vehicle register, maintenance scheduling, walkaround checks, driver records, fuel and expenses, compliance reminders, proof of delivery and reporting around them",
+    alt: "Map of fleet capabilities: tracking, dispatch and route planning at the centre, extensions around",
   },
   dispatch: {
     src: `${IMG}/fleet-dispatcher-dashboard.png`, width: 1720, height: 820,
-    alt: "Illustrative dispatcher dashboard with today's jobs, a map of vehicle positions and driver timelines, and an AI suggestion to move one job to a closer vehicle awaiting the planner's confirmation",
+    alt: "Illustrative dispatcher dashboard with today's jobs, a vehicle map, driver timelines and AI hints",
   },
   walkaround: {
     src: `${IMG}/fleet-walkaround-defect-flow.png`, width: 1720, height: 380,
-    alt: "Walkaround check flow: the driver completes the check in the app, reports a defect with a photo, the workshop rectifies it and the vehicle is signed off as safe to use, with every step stored against the vehicle",
+    alt: "Walkaround check flow: app check, defect photo, workshop repair and safe-to-use sign-off",
   },
   reporting: {
     src: `${IMG}/fleet-reporting-dashboard.png`, width: 1720, height: 720,
-    alt: "Illustrative fleet reporting dashboard filtered by depot, showing vehicle utilisation, cost per vehicle, inspections due, overdue checks, on-time jobs and licence checks due",
+    alt: "Illustrative fleet reporting dashboard by depot: utilisation, costs, inspections and checks due",
   },
   // Photo: Marcin Jozwiak (unsplash.com/photos/kGoPcmpPT7c)
   depot: {
-    src: `${IMG}/fleet-lorries-parked-at-depot.webp`, width: 1200, height: 800,
+    src: `${IMG}/fleet-lorries-parked-at-depot.webp`, width: 1080, height: 720,
     alt: "Aerial view of articulated lorries parked in angled bays at a depot beside a road",
   },
   // Photo: Artem Balashevsky (unsplash.com/photos/ZhNYKwjRMh4)
@@ -68,7 +68,7 @@ export const IMAGES = {
   // Photo: Marcin Jozwiak (unsplash.com/photos/oh0DITWoHi4)
   distribution: {
     src: `${IMG}/fleet-distribution-centre-aerial.webp`, width: 1200, height: 800,
-    alt: "Aerial view of a distribution centre with trailers at the loading docks, a lorry park and a staff car park",
+    alt: "Aerial view of a distribution centre with trailers at loading docks, a lorry park and a car park",
   },
 } as const;
 
@@ -76,9 +76,9 @@ export const IMAGES = {
 export const HERO = {
   eyebrow: "Fleet Management Solutions UK",
   title: "Custom Fleet Management Software",
-  titleAccent: "Built Around How Your Vehicles, Drivers and Jobs Actually Run",
+  titleAccent: "Built Around How Your Fleet Runs",
   lead:
-    "Most fleets are managed from several places at once: a tracking portal, a maintenance spreadsheet, a whiteboard in the transport office, paper defect sheets and a shared inbox for jobs. Each one holds part of the picture. When a vehicle fails its inspection, a driver's licence check lapses or a customer asks where their delivery is, someone has to piece the answer together by hand.",
+    "A fleet management system for UK operators, built around how your vehicles, drivers and jobs actually run. Most fleets are managed from several places at once: a tracking portal, a maintenance spreadsheet, a whiteboard in the transport office, paper defect sheets and a shared inbox for jobs. Each one holds part of the picture. When a vehicle fails its inspection, a driver's licence check lapses or a customer asks where their delivery is, someone has to piece the answer together by hand.",
   audience:
     "ClickMasters builds and tailors fleet management software that brings vehicles, drivers, jobs and maintenance into one operational system. We start from a ready-to-customise foundation for tracking, routing and dispatch, with AI-assisted, demand-aware route planning, then shape the vehicle records, workflows, driver apps and integrations around your operation, whether you run ten vans or several hundred commercial vehicles.",
   stats: [
@@ -115,7 +115,7 @@ export const SIGNS = {
 
 export const ROUTES = {
   intro:
-    "Telematics and fleet software products are widely available in the UK, and for many fleets one of them is the right answer. The choice depends on how standard your operation is.",
+    "Telematics and fleet management software solutions are widely available in the UK, and for many fleets one of them is the right answer. The choice depends on how standard your operation is.",
   headers: ["", "Telematics or fleet software product", "Tailored system on our fleet foundation", "Fully custom fleet platform"],
   rows: [
     ["Best when", "Your main need is tracking and standard reports, with typical workflows", "Tracking and dispatch are standard, but your jobs, vehicles, checks or integrations are not", "Fleet operations are your product or competitive edge, or no product models them"],
@@ -131,8 +131,9 @@ export const ROUTES = {
 
 // VERIFY: Foundation labels; capability for telematics integrations, maintenance,
 // walkaround checks, driver records, fuel imports and reporting (copy is hedged).
+// VERIFY: EV sentence is hedged as built-to-requirement scoping, not an existing feature.
 export const CAPABILITIES_INTRO =
-  "Capabilities marked Foundation are part of our configurable fleet base. Those marked Built to requirement are developed or extended for your fleet when you need them.";
+  "Capabilities marked Foundation are part of our configurable fleet base. Those marked Built to requirement are developed or extended for your fleet when you need them. If you need electric vehicle fleet management software features, such as recording charging sessions or planning around vehicle range, we scope them with you as built-to-requirement work.";
 
 export const CAPABILITIES: [string, string, "Foundation" | "Built to requirement"][] = [
   ["Vehicle tracking and location visibility", "Live and historical vehicle locations from your telematics provider or driver app, shown against jobs", "Foundation"],
@@ -279,7 +280,7 @@ export const SECURITY = [
   { icon: "location", title: "Location data protection", text: "Location history retained only as long as your policy requires, with access logged." },
   { icon: "audit", title: "Audit trail", text: "Checks, defects, rectifications and record changes stored with who, when and what." },
   { icon: "shield", title: "Secure engineering", text: "OWASP-guided development, encryption in transit and at rest, regular security testing, and data handled in line with UK GDPR best practice. No supplier can honestly guarantee a system can never be breached; these controls address the risks that matter most." },
-  { icon: "speed", title: "Performance with live data", text: "Location updates processed in the background and stored efficiently, so maps and dispatch screens stay responsive as the fleet grows." },
+  { icon: "speed", title: "Performance from ten vans to an enterprise fleet management system", text: "Location updates processed in the background and stored efficiently, so maps and dispatch screens stay responsive as the fleet grows." },
   { icon: "cloud", title: "Hosting", text: "Cloud deployment on AWS, Microsoft Azure or Google Cloud in the region you choose." },
 ];
 
@@ -296,7 +297,7 @@ export const OUTCOMES = {
 };
 
 export const PARTNER = {
-  intro: "Questions worth asking any supplier:",
+  intro: "There is no single best fleet management software UK operators should all choose; the right fit depends on your operation. Questions worth asking any supplier:",
   questions: [
     "Will they tell you if your current telematics product would do the job?",
     "Can they work with your existing tracking provider rather than forcing new hardware?",
@@ -315,16 +316,16 @@ export const PARTNER = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
-  { q: "What is fleet management software?", a: ["Fleet management software is the operational system for businesses that run vehicles. It records vehicles and drivers, shows vehicle locations, plans and assigns jobs, schedules maintenance and inspections, tracks costs such as fuel and repairs, and reports on fleet performance."] },
-  { q: "What is the difference between vehicle tracking and fleet management software?", a: ["Vehicle tracking shows where vehicles are, using telematics devices or a driver app. Fleet management software uses that location data alongside vehicle records, driver details, jobs, maintenance and costs, so the business can plan work and manage vehicles, not just watch them on a map."] },
+  { q: "What is a fleet management system?", a: ["A fleet management system is the operational software for businesses that run vehicles. It records vehicles and drivers, shows vehicle locations, plans and assigns jobs, schedules maintenance and inspections, tracks costs such as fuel and repairs, and reports on fleet performance."] },
+  { q: "How is a vehicle tracking fleet management system different from tracking alone?", a: ["Vehicle tracking on its own shows where vehicles are, using telematics devices or a driver app. A fleet management system uses that location data alongside vehicle records, driver details, jobs, maintenance and costs, so the business can plan work and manage vehicles, not just watch them on a map."] },
   { q: "When does custom fleet management software make sense?", a: ["When products force workarounds in the tasks that matter most, such as how jobs are planned, how vehicles are checked and maintained, or how fleet data connects to your other systems, or when per-vehicle fees are growing faster than the value. If a product handles your key tasks without workarounds, it is usually the better choice."] },
-  { q: "Can you use our existing tracking devices?", a: ["Usually, yes. Most commercial telematics providers offer an API or data feed, and we connect to it so location data appears inside your fleet system. We confirm your provider's data access during scoping. We do not supply tracking hardware ourselves."] },
+  { q: "Can a GPS fleet management system use our existing tracking devices?", a: ["Usually, yes. Most commercial telematics providers offer an API or data feed, and we connect to it so location data appears inside your fleet system. We confirm your provider's data access during scoping. We do not supply tracking hardware ourselves."] },
   { q: "Do drivers need an app?", a: ["Not always, but most fleets benefit from one. A driver app handles job lists, walkaround checks, defect reports, proof of delivery and messages, and can work offline in areas with poor signal."] },
   { q: "Can the system schedule vehicle maintenance and inspections?", a: ["Yes, as a built-to-requirement capability. Services and safety inspections are scheduled by date, mileage or engine hours, with reminders, work orders and a full service history stored against each vehicle."] },
   { q: "Does it help with DVSA and operator licence requirements?", a: ["A fleet system can organise the records DVSA expects goods vehicle operators to keep, such as inspection reports, walkaround checks and defect rectification, and remind you of due dates. Compliance remains the responsibility of the operator and transport manager, so always check the current DVSA guidance for your vehicles."] },
   { q: "How does AI route planning work?", a: ["AI-assisted planning uses your historical route and demand data, plus live job and fleet data, to suggest which vehicle should take which job and in what order. Planners review and confirm the suggestions, so they stay in control of the final plan."] },
   { q: "Is tracking drivers legal under UK GDPR?", a: ["Tracking work vehicles can be lawful, but tracking data is usually personal data. ICO guidance on monitoring workers expects a clear purpose, transparency with workers and proportionate use, including care over tracking outside working hours. This is general information; confirm your approach with your data protection adviser."] },
-  { q: "How much does custom fleet management software cost?", a: ["Cost depends on how much of the foundation can be used as is, the number of workflows and user roles, the telematics and business integrations needed, the driver app, data migration and ongoing support. We provide a fixed-price or time-and-materials estimate with milestones once requirements are understood."] },
+  { q: "How much does fleet management software cost?", a: ["Ready-made products are usually priced as per-vehicle subscriptions. For a tailored or custom system, cost depends on how much of the foundation can be reused, the number of workflows and user roles, the telematics and business integrations needed, the driver app, data migration and ongoing support. We provide a fixed-price or time-and-materials estimate with milestones once requirements are understood."] },
   // VERIFY: owner to confirm the IP and code-ownership position (pack note). Only the confirmed part is published.
   { q: "Who owns the system and the data?", a: ["Your vehicle, driver and job data remain yours. Ownership of the system code is set out in the contract and agreed before work starts."] },
 ];

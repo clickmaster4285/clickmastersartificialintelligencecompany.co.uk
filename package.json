@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "icons": "node scripts/build-icon-sprite.mjs",
+    "prebuild": "node scripts/build-icon-sprite.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:pages": "node scripts/check-pages.mjs",
+    "portfolio:pdf": "node scripts/build-portfolio-pdf.mjs",
+    "about:pdf": "node scripts/build-about-pdf.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.45.0",

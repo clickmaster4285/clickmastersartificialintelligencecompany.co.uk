@@ -6,12 +6,10 @@ import {
   avatar2,
   avatar3,
   avatar4,
-  instagramIcon,
-  facebookIcon,
-  linkedinIcon,
 } from "../assets";
-import { RiGeminiFill } from "react-icons/ri";
-import { GrPlayFill } from "react-icons/gr";
+import SocialLinks from "./SocialLinks";
+import { RiGeminiFill } from "./icons";
+import { GrPlayFill } from "./icons";
 import SmartLink from "./SmartLink";
 import { INDUSTRY_LINKS, SERVICE_LINKS } from "../lib/home-links";
 
@@ -116,7 +114,7 @@ export default function Hero() {
                   <img
                     key={src}
                     src={src}
-                    alt=""
+                    alt="Team member avatar"
                     loading="lazy"
                     width={28}
                     height={28}
@@ -175,16 +173,13 @@ export default function Hero() {
             across the United Kingdom and worldwide.
           </p>
 
-          {/* icons */}
-          <div aria-hidden="true" className="hidden lg:flex items-center gap-5">
-            <div className="flex flex-col items-center gap-5">
-              <img src={instagramIcon} alt="" loading="lazy" width={38} height={38} className="w-[38px] h-[38px]" />
-              <img src={facebookIcon} alt="" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
-              <img src={linkedinIcon} alt="" loading="lazy" width={30} height={30} className="w-[30px] h-[30px]" />
-            </div>
-            <div className="flex flex-col items-center gap-0">
+          {/* Social and review-site profiles: linked brand icons */}
+          <SocialLinks layout="row" className="lg:hidden" />
+          <div className="hidden lg:flex items-stretch gap-5">
+            <SocialLinks layout="grid" />
+            <div aria-hidden="true" className="flex flex-col items-center gap-0">
               <span className="w-[6px] h-[6px] rounded-full bg-[#333333]" />
-              <div className="w-0 h-[140px] border-l border-[#333333]" />
+              <div className="w-0 flex-1 border-l border-[#333333]" />
               <span className="w-[6px] h-[6px] rounded-full bg-[#333333]" />
             </div>
           </div>

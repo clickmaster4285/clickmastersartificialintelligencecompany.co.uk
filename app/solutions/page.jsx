@@ -8,8 +8,9 @@ import {
   RiLinksLine, RiLoopLeftLine, RiMoneyPoundCircleLine, RiPlugLine, RiRepeatLine, RiRocket2Line, RiRobot2Line,
   RiShieldCheckLine, RiShoppingCart2Line, RiSmartphoneLine, RiStore2Line, RiTruckLine, RiCheckLine,
   RiSettings3Line,
-} from "react-icons/ri";
+} from "../Components/icons";
 
+import Link from "next/link";
 import JsonLd from "../Components/JsonLd";
 import { IconTile, SectionHeading, WRAP } from "../Components/ServicePageUI";
 import {
@@ -191,6 +192,9 @@ export default function Solutions() {
                   <h4 className="mt-4 text-lg font-bold">{f.title}</h4>
                   <p className="mt-1.5 flex-1 text-sm leading-relaxed text-gray-300">{f.text}</p>
                   <p className="mt-4 text-xs leading-relaxed text-[#ecd0ff]"><span className="font-semibold uppercase tracking-wider text-gray-400">For: </span>{f.for}</p>
+                  <Link href={f.href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white underline decoration-[#AF00E8] underline-offset-4 hover:text-[#e9c2ff]">
+                    Learn more about our {f.anchor}
+                  </Link>
                 </li>
               ))}
             </ul>

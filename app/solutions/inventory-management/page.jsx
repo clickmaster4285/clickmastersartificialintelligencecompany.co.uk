@@ -7,9 +7,10 @@ import {
   RiFileList3Line, RiHandHeartLine, RiHistoryLine, RiLineChartLine, RiListCheck3, RiLockLine, RiMoneyPoundCircleLine,
   RiPlugLine, RiQuestionAnswerLine, RiShieldCheckLine, RiShieldUserLine, RiShoppingCart2Line, RiSpeedLine,
   RiStackLine, RiTeamLine, RiTimerLine, RiTruckLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   CheckCard, ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ON_DARK_LINK, ProcessGrid, ServiceHero,
@@ -125,6 +126,8 @@ export default function InventoryManagement() {
         figcaption="Every movement updates one live stock record that the whole business reads from."
       />
 
+      <ScopingCallBlock path={PATH} service="inventory management software" />
+
       {/* ───────────── What it does ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -188,7 +191,8 @@ export default function InventoryManagement() {
               minWidth="min-w-[900px]"
             />
           </div>
-          <p className="mt-8 max-w-4xl rounded-2xl bg-gradient-to-br from-[#faf5fd] to-[#f1fbf9] p-6 text-[15px] leading-relaxed text-gray-700 ring-1 ring-[#AF00E8]/10">
+          <h3 className="mt-10 text-xl font-bold text-[#1a1a1a] lg:text-2xl" style={SERIF}>{ROUTES.smallTitle}</h3>
+          <p className="mt-4 max-w-4xl rounded-2xl bg-gradient-to-br from-[#faf5fd] to-[#f1fbf9] p-6 text-[15px] leading-relaxed text-gray-700 ring-1 ring-[#AF00E8]/10">
             <Rich text={ROUTES.test} />
           </p>
         </div>
@@ -252,10 +256,11 @@ export default function InventoryManagement() {
           <Photo image={IMAGES.warehouse} sizes="(min-width: 1280px) 1216px, 100vw" className="aspect-[16/7] sm:aspect-[16/6]" />
           <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
             <div>
-              <SectionHeading id="warehouse-heading" eyebrow="More than one place">Warehouse and Multi-Location Inventory Management</SectionHeading>
+              <SectionHeading id="warehouse-heading" eyebrow="More than one place">Inventory Management Software for Warehouse and Multi-Location Stock</SectionHeading>
               <p className={`mt-5 ${P}`}>{WAREHOUSE.intro}</p>
             </div>
             <div>
+              <h3 className="mb-4 text-xl font-bold text-[#1a1a1a] lg:text-2xl" style={SERIF}>{WAREHOUSE.pointsTitle}</h3>
               <TermList items={WAREHOUSE.points} />
             </div>
           </div>
@@ -269,7 +274,7 @@ export default function InventoryManagement() {
         <div className={WRAP}>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="types-heading" eyebrow="Illustrative, not case studies">Inventory Requirements by Business Type</SectionHeading>
+              <SectionHeading id="types-heading" eyebrow="Illustrative, not case studies">From a Retail Inventory Management System to 3PL Stock Control</SectionHeading>
               <p className={`mt-5 ${P}`}><em>{BUSINESS_TYPES.note}</em></p>
             </div>
             <Photo image={IMAGES.shop} sizes="(min-width: 1280px) 600px, (min-width: 1024px) 48vw, 100vw" className="aspect-[16/10]" />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LAST_REVIEWED, REVIEWER } from "../config/editorial";
 
 /**
  * Single source of truth for site-wide SEO configuration.
@@ -19,12 +20,63 @@ export const SITE = {
 } as const;
 
 /**
- * Official social / directory profiles for Organization `sameAs`.
- * TODO: add the real profile URLs (e.g. LinkedIn, Clutch, GitHub, X) once the
- * business confirms them. Left empty, `sameAs` is omitted from the JSON-LD
- * rather than publishing placeholder URLs.
+ * Official social and directory profiles, supplied by the owner (26 Nov 2026).
+ * Shown as linked brand icons in the homepage hero and used as the
+ * Organization `sameAs` list in the JSON-LD. `icon` is a file in
+ * public/assets/social/ (each brand's own logo and colours).
  */
-export const SOCIAL_PROFILES: string[] = [];
+export type SocialLink = { name: string; url: string; icon: string };
+
+export const SOCIAL_LINKS: readonly SocialLink[] = [
+  { name: "Facebook", url: "https://www.facebook.com/clickmastersdigitalmarketingagencyuk", icon: "/assets/social/facebook.svg" },
+  { name: "Instagram", url: "https://www.instagram.com/clickmastersdigitalmarketinguk/", icon: "/assets/social/instagram.svg" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/clickmasters-digital-marketing-agency-uk/", icon: "/assets/social/linkedin.svg" },
+  { name: "YouTube", url: "https://www.youtube.com/@ClickmastersDigitalMarketinguk", icon: "/assets/social/youtube.svg" },
+  { name: "Pinterest", url: "https://uk.pinterest.com/clickmastersuk/", icon: "/assets/social/pinterest.svg" },
+  { name: "Clutch", url: "https://clutch.co/profile/clickmasters-digital-marketing-agency-uk", icon: "/assets/social/clutch.png" },
+  { name: "GoodFirms", url: "https://www.goodfirms.co/company/clickmasters-digital-marketing-agency-uk", icon: "/assets/social/goodfirms.png" },
+  { name: "TechBehemoths", url: "https://techbehemoths.com/company/clickmasters-digital-marketing-agency-uk", icon: "/assets/social/techbehemoths.svg" },
+];
+
+/** Profile URLs for Organization `sameAs` (audit D-09). */
+export const SOCIAL_PROFILES: string[] = SOCIAL_LINKS.map((s) => s.url);
+
+/**
+ * Legal entity facts for the Organization JSON-LD and the /about and /contact
+ * pages (audit D-09). Each field is published only once it is filled in.
+ *
+ * TODO (owner): supply the real values:
+ *   - legalName:     the registered company name, exactly as on Companies House
+ *   - companyNumber: the Companies House registration number
+ *   - foundingDate:  ISO date or year, e.g. "2019" or "2019-03-01"
+ *   - address:       the registered or trading address
+ * and add the Google Business Profile and Companies House page URLs to
+ * SOCIAL_LINKS above when available.
+ */
+export const ORG_FACTS: {
+  legalName: string | null;
+  companyNumber: string | null;
+  foundingDate: string | null;
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    postalCode: string;
+    addressRegion?: string;
+    addressCountry: string;
+  } | null;
+} = {
+  legalName: null,
+  companyNumber: null,
+  foundingDate: null,
+  address: null,
+};
+
+/** The address as one line for display, or null when not supplied. */
+export function addressLine(): string | null {
+  const a = ORG_FACTS.address;
+  if (!a) return null;
+  return [a.streetAddress, a.addressLocality, a.addressRegion, a.postalCode, a.addressCountry].filter(Boolean).join(", ");
+}
 
 /**
  * Contact details, shared by the contact page, footer, locations page and the
@@ -63,6 +115,7 @@ export const ROUTES = {
   services: { path: "/services", name: "Services" },
   industries: { path: "/industries", name: "Industries" },
   caseStudies: { path: "/case-studies", name: "Case Studies" },
+  portfolio: { path: "/portfolio", name: "Portfolio" },
   locations: { path: "/locations", name: "Locations" },
   about: { path: "/about", name: "About Us" },
   contact: { path: "/contact", name: "Contact" },
@@ -134,6 +187,12 @@ export function siteJsonLd() {
   organization.telephone = CONTACT.phones[0].e164;
   if (CONTACT.emailVerified) organization.email = CONTACT.email;
   if (SOCIAL_PROFILES.length > 0) organization.sameAs = SOCIAL_PROFILES;
+  if (ORG_FACTS.legalName) organization.legalName = ORG_FACTS.legalName;
+  if (ORG_FACTS.companyNumber) {
+    organization.identifier = { "@type": "PropertyValue", propertyID: "Companies House", value: ORG_FACTS.companyNumber };
+  }
+  if (ORG_FACTS.foundingDate) organization.foundingDate = ORG_FACTS.foundingDate;
+  if (ORG_FACTS.address) organization.address = { "@type": "PostalAddress", ...ORG_FACTS.address };
   organization.contactPoint = CONTACT.phones.map((phone) => ({
     "@type": "ContactPoint",
     contactType: "sales",
@@ -312,6 +371,12 @@ export function detailPageJsonLd({
   };
 }) {
   const url = absoluteUrl(path);
+  const reviewed = LAST_REVIEWED[path];
+  // A named reviewer once the owner supplies one (config/editorial.ts);
+  // until then the Organization is the accurate author and reviewer.
+  const reviewer = REVIEWER
+    ? { "@type": "Person", name: REVIEWER.name, jobTitle: REVIEWER.jobTitle, url: absoluteUrl(REVIEWER.url), worksFor: { "@id": ORG_ID } }
+    : { "@id": ORG_ID };
   const graph: Record<string, unknown>[] = [
     {
       "@type": "WebPage",
@@ -323,6 +388,12 @@ export function detailPageJsonLd({
       isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": ORG_ID },
       breadcrumb: { "@id": `${url}#breadcrumb` },
+      ...(reviewed && {
+        dateModified: reviewed,
+        lastReviewed: reviewed,
+        author: { "@id": ORG_ID },
+        reviewedBy: reviewer,
+      }),
       ...(service && { mainEntity: { "@id": `${url}#service` } }),
     },
     {

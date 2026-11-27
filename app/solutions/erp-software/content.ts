@@ -9,9 +9,9 @@
 export const PATH = "/solutions/erp-software";
 
 export const SEO = {
-  title: "Custom ERP Software Development UK | Bespoke ERP",
+  title: "Custom ERP Software Development UK",
   description:
-    "Custom ERP software development for UK businesses: bespoke modules for finance, stock, purchasing and operations, integrated with the systems you already use.",
+    "Custom ERP software development for UK businesses: bespoke modules for finance, stock, purchasing and operations, integrated with the systems you use.",
   ogTitle: "Custom ERP Software for UK Businesses | ClickMasters",
   ogDescription:
     "One connected system for finance, inventory, purchasing, sales and HR, built around your processes and integrated with the tools you keep.",
@@ -27,34 +27,34 @@ export const IMAGES = {
     src: `${IMG}/custom-erp-software-modules-hub.png`,
     width: 1080,
     height: 800,
-    alt: "ERP hub diagram: a central ERP core with one shared database connects finance, inventory, purchasing, sales and orders, HR, warehouse, projects and reporting modules, with integrations to CRM, e-commerce, payments and accounting",
+    alt: "ERP hub diagram: a central core and shared database linked to business modules and integrations",
   },
   beforeAfter: {
     src: `${IMG}/disconnected-tools-vs-integrated-erp.png`,
     width: 1720,
     height: 460,
-    alt: "Before and after comparison: on the left, separate tools for accounts, stock, sales, purchasing and reporting connected only by manual re-keying and emails; on the right, the same functions as modules sharing one ERP database with automatic updates",
+    alt: "Before-and-after diagram: separate tools linked by re-keying vs modules sharing one ERP database",
   },
   flows: {
     src: `${IMG}/erp-order-to-cash-procure-to-pay.png`,
     width: 1720,
     height: 400,
-    alt: "Order-to-cash and procure-to-pay flows across ERP modules: a sales order reserves stock, the warehouse picks and despatches, an invoice is raised and payment posted to finance; a requisition becomes a purchase order, goods are received, the supplier invoice is matched and paid",
+    alt: "Diagram of order-to-cash and procure-to-pay flows passing between ERP modules",
   },
   migration: {
     src: `${IMG}/erp-data-migration-phased-rollout.png`,
     width: 1720,
     height: 380,
-    alt: "ERP data migration and phased roll-out: legacy data is extracted, cleansed, mapped, trial-loaded and reconciled before cut-over, while modules go live in phases with a period of parallel running",
+    alt: "Diagram of ERP data migration from legacy extract to cut-over, beside a phased module roll-out",
   },
 } as const;
 
 export const HERO = {
   eyebrow: "ERP Software Solutions UK",
   title: "Custom ERP Software That Connects",
-  titleAccent: "Finance, Stock, Purchasing and Operations",
+  titleAccent: "Finance, Stock and Operations",
   lead:
-    "ClickMasters designs and builds ERP systems for UK businesses that have outgrown spreadsheets and disconnected tools. We start from a configurable ERP foundation covering finance, inventory, HR and operations, then shape the modules, workflows, permissions and integrations around how your business actually runs.",
+    "ClickMasters designs and builds ERP software UK businesses turn to when they have outgrown spreadsheets and disconnected tools: one ERP system UK finance, stock, purchasing and operations teams can all work from. We start from a configurable ERP foundation covering finance, inventory, HR and operations, then shape the modules, workflows, permissions and integrations around how your business actually runs.",
   audience:
     "For growing SMEs, multi-site operators, wholesalers, manufacturers and service businesses whose finance, stock and operations teams are each working from a different version of the truth.",
   stats: [
@@ -66,8 +66,8 @@ export const HERO = {
 };
 
 export const WHAT_IS = {
-  p1: "**Enterprise resource planning (ERP) software** is a single system that records and connects a business's core operations: money, stock, purchasing, sales, people and production. Each department works in its own part of the system, called a module, but every module reads from and writes to one shared database. When the warehouse dispatches an order, stock falls, the invoice is raised and finance sees the revenue, without anyone re-keying it.",
-  p2: "A **custom ERP**, often called **bespoke ERP** in the UK, is one designed around a particular business's processes rather than a vendor's standard model. Most businesses do not start with ERP. They grow into a patchwork: an accounting package, a stock spreadsheet, a sales tool, emailed purchase orders and a reporting workbook someone rebuilds every month. Each tool works on its own. The cost appears in the gaps: duplicated data, delays, errors and decisions made on numbers that are already out of date.",
+  p1: "What is an ERP system, and what are ERP software products actually for? **Enterprise resource planning (ERP) software** is a single system that records and connects a business's core operations: money, stock, purchasing, sales, people and production. Each department works in its own part of the system, called a module, but every module reads from and writes to one shared database. When the warehouse dispatches an order, stock falls, the invoice is raised and finance sees the revenue, without anyone re-keying it. Well-known ERP system examples include SAP ERP, Microsoft Dynamics and Oracle Cloud; a custom ERP is built for one business instead.",
+  p2: "A **custom ERP** system in UK usage is often called **bespoke ERP**: one designed around a particular business's processes rather than a vendor's standard model. Most businesses do not start with ERP. They grow into a patchwork: an accounting package, a stock spreadsheet, a sales tool, emailed purchase orders and a reporting workbook someone rebuilds every month. Each tool works on its own. The cost appears in the gaps: duplicated data, delays, errors and decisions made on numbers that are already out of date.",
 };
 
 export const FIT = {
@@ -83,6 +83,9 @@ export const FIT = {
     "You have no appetite to own and maintain software",
     "An established product already covers most requirements with light configuration",
   ],
+  smallTitle: "ERP Software for Small Business and Growing Teams",
+  small:
+    "Choosing ERP software small business teams can grow into matters more than buying every module up front. An ERP system for small companies rarely needs every module on day one. Smaller businesses usually start with two or three modules from our configurable foundation, such as finance and inventory, and add others as they grow. If a standard product fits with light configuration, that may be the better first step, and we will say so.",
 };
 
 export const PROBLEMS_INTRO =
@@ -121,6 +124,8 @@ export type Module = {
   id: string;
   icon: string;
   title: string;
+  /** Optional visible H3 wording; `title` stays the catalog name. */
+  heading?: string;
   foundation: boolean;
   manages: string;
   problem: string;
@@ -130,7 +135,7 @@ export type Module = {
 
 export const MODULES: Module[] = [
   // VERIFY: MTD hand-over approach and which accounting packages have been connected.
-  { id: "finance-accounting", icon: "finance", title: "Finance and accounting", foundation: true, manages: "Ledgers, receivables, payables, VAT records, bank reconciliation and management accounts.", problem: "Slow month-end and figures that do not match operational data.", usedBy: "Finance, directors and auditors.", connects: "Every module: sales post revenue, purchasing posts costs, inventory posts stock value, and HR provides cost centres. It can also hand over to your accounting package for Making Tax Digital VAT submissions." },
+  { id: "finance-accounting", icon: "finance", title: "Finance and accounting", heading: "Finance ERP system and accounting", foundation: true, manages: "Ledgers, receivables, payables, VAT records, bank reconciliation and management accounts.", problem: "Slow month-end and figures that do not match operational data.", usedBy: "Finance, directors and auditors.", connects: "Every module: sales post revenue, purchasing posts costs, inventory posts stock value, and HR provides cost centres. It can also hand over to your accounting package for Making Tax Digital VAT submissions." },
   { id: "inventory-management", icon: "stock", title: "Inventory management", foundation: true, manages: "Stock levels by location, batches and serial numbers, valuation, reorder points and stock movements.", problem: "Stock-outs, overstock and counts that do not match the books.", usedBy: "Operations, warehouse, purchasing and sales.", connects: "Sales (reservations), purchasing (replenishment), warehouse (movements) and finance (valuation)." },
   { id: "human-resource-management", icon: "hr", title: "Human resource management", foundation: true, manages: "Employee records, roles, departments, leave, and approval hierarchies.", problem: "Staff data in scattered files, and approval chains nobody can see.", usedBy: "HR, line managers and employees through self-service.", connects: "Permissions (who approves what), projects (resourcing) and finance (cost centres). Payroll is usually integrated rather than rebuilt." },
   { id: "operations-workflow", icon: "workflow", title: "Operations and workflow", foundation: true, manages: "Approvals, tasks, notifications and status tracking for operational processes.", problem: "Work that stalls between teams and exceptions nobody notices.", usedBy: "All departments.", connects: "Every module, as the layer that moves work between them." },
@@ -248,10 +253,10 @@ export const INDUSTRIES_INTRO =
 
 export const INDUSTRIES = [
   { icon: "truck", title: "Wholesale and distribution", text: "Multi-warehouse stock, customer-specific pricing, credit control and fast order-to-despatch.", considerations: ["Pricing rules", "Live availability across locations"] },
-  { icon: "factory", title: "Manufacturing", text: "Bills of materials, works orders, capacity planning and batch traceability.", considerations: ["Production linked to stock and purchasing in real time"] },
+  { icon: "factory", title: "Production ERP software for manufacturing", text: "Bills of materials, works orders, capacity planning and batch traceability: an ERP system manufacturing teams can plan production from.", considerations: ["Production linked to stock and purchasing in real time"] },
   { icon: "sales", title: "Retail and e-commerce", text: "Stock synced across shops, marketplaces and the website, with returns and replenishment.", considerations: ["Channel integrations that prevent overselling"] },
   { icon: "route", title: "Logistics and transport", text: "Jobs, vehicles, drivers, costs per shipment and customer billing.", considerations: ["Tracking and dispatch integration"] },
-  { icon: "construction", title: "Construction and trades", text: "Job costing, materials, subcontractors, timesheets and stage billing.", considerations: ["Profitability per project, updated as costs arrive"] },
+  { icon: "construction", title: "ERP software for construction industry firms and trades", text: "Job costing, materials, subcontractors, timesheets and stage billing, the core of the construction ERP software UK contractors and trades tend to ask for.", considerations: ["Profitability per project, updated as costs arrive"] },
   { icon: "briefcase", title: "Professional services", text: "Time, resources, projects and billing, combined with finance.", considerations: ["Utilisation and margin by client and engagement"] },
   { icon: "health", title: "Healthcare administration", text: "Procurement, stock of consumables, rotas and back-office finance.", considerations: ["Strict access control for staff and patient-related data"] },
   { icon: "education", title: "Education and training", text: "Course costs, resources, staffing and finance for training providers.", considerations: ["Integration with learning management systems"] },
@@ -309,18 +314,19 @@ export const WHY = [
 ];
 
 export const FAQS = [
-  { q: "What is ERP software?", a: ["ERP (enterprise resource planning) software is a single system that manages and connects core business operations, such as finance, inventory, purchasing, sales, HR and production, using one shared database. Each department works in its own module, and transactions in one module update the others automatically."] },
+  { q: "What is an ERP system?", a: ["An ERP (enterprise resource planning) system is a single piece of software that manages and connects core business operations, such as finance, inventory, purchasing, sales, HR and production, using one shared database. Each department works in its own module, and transactions in one module update the others automatically."] },
   { q: "What does a custom ERP system do differently?", a: ["A custom ERP is designed around your processes, rules and integrations rather than a vendor's standard model. You get the modules you need, workflows that match your approval policies, and connections to the systems you keep, without paying for features you will never use. ClickMasters builds custom ERP from a configurable foundation, so common functions are not rebuilt from scratch."] },
   { q: "How much does custom ERP software development cost in the UK?", a: ["Cost depends on the number of modules, users and roles, business complexity, integrations, data migration, custom workflows, security, reporting, hosting and ongoing support. A focused first phase, such as finance plus inventory, costs far less than a multi-entity system with many integrations. We provide a fixed-price or time-and-materials estimate with milestones after a free consultation."] },
   { q: "How long does ERP development take?", a: ["It depends on scope. We deliver module by module, so the first phase can be in use well before the whole system is complete. Larger enterprise builds typically take 3–6 months, and the timeline is agreed after discovery once modules, integrations and data migration are understood."] },
   { q: "What modules can an ERP system include?", a: ["Common modules include finance and accounting, inventory, procurement and purchasing, sales and order management, customer management, HR, warehouse management, project management and job costing, manufacturing, and reporting and analytics. Most businesses start with a few and add others in later phases."] },
   { q: "Can ERP software integrate with our existing systems?", a: ["Yes. We integrate ERP with CRMs, accounting packages, e-commerce platforms, payment gateways, warehouse systems and enterprise platforms such as SAP ERP, Microsoft Dynamics, Salesforce, HubSpot, ServiceNow, Oracle Cloud and Jira. Legacy systems without an API can be connected through their database, file exchange or middleware."] },
-  { q: "What is the difference between ERP and CRM?", a: ["A CRM manages relationships before and around the sale: leads, contacts, opportunities and service. An ERP manages the operational and financial side: orders, stock, purchasing, production, invoicing and accounts. Many businesses run both and integrate them, so won deals become ERP orders and account managers can see invoices and deliveries."] },
-  { q: "Is custom ERP suitable for small businesses?", a: ["It can be, when the business has outgrown spreadsheets and its processes do not fit packaged products well. Smaller businesses usually start with two or three modules from a configurable foundation and expand later. If a standard product fits with light configuration, that may be the better first step, and we will say so."] },
-  { q: "Can an ERP system be customised for a specific industry?", a: ["Yes. Industry requirements, such as batch traceability in manufacturing, customer-specific pricing in wholesale or job costing in construction, are where custom ERP adds most value, because generic products often handle them through workarounds."] },
-  { q: "What should a business consider before implementing ERP?", a: ["Be clear about the problems you are solving and how you will measure success. Map current processes honestly, decide which systems stay and which go, assess the quality of the data you will migrate, name an internal owner for each module, and plan time for training. Weak data and unclear ownership cause more ERP problems than technology does."] },
-  { q: "Is cloud ERP different from on-premise ERP?", a: ["Cloud ERP runs on hosted infrastructure, such as AWS, Azure or Google Cloud, and is accessed through a browser, with no servers for you to maintain. On-premise ERP runs on your own servers, which some organisations need for data-location or network reasons. The software can be the same. What changes is who manages the infrastructure, updates and backups."] },
+  { q: "ERP system vs CRM: what is the difference?", a: ["A CRM manages relationships before and around the sale: leads, contacts, opportunities and service. An ERP manages the operational and financial side: orders, stock, purchasing, production, invoicing and accounts. Many businesses run both and integrate them, so won deals become ERP orders and account managers can see invoices and deliveries."] },
+  { q: "Is a custom ERP system for small business a sensible choice?", a: ["It can be, when the business has outgrown spreadsheets and its processes do not fit packaged products well. Smaller businesses usually start with two or three modules from a configurable foundation and expand later. If a standard product fits with light configuration, that may be the better first step, and we will say so."] },
+  { q: "Can an ERP system in construction, manufacturing or wholesale be tailored to the industry?", a: ["Yes. Industry requirements, such as batch traceability in manufacturing, customer-specific pricing in wholesale or job costing in construction, are where custom ERP adds most value, because generic products often handle them through workarounds."] },
+  { q: "What should a business consider before the implementation of an ERP system?", a: ["Be clear about the problems you are solving and how you will measure success. Map current processes honestly, decide which systems stay and which go, assess the quality of the data you will migrate, name an internal owner for each module, and plan time for training. Weak data and unclear ownership cause more ERP problems than technology does."] },
+  { q: "Is a cloud ERP system different from on-premise ERP?", a: ["Cloud ERP runs on hosted infrastructure, such as AWS, Azure or Google Cloud, and is accessed through a browser, with no servers for you to maintain. On-premise ERP runs on your own servers, which some organisations need for data-location or network reasons. The software can be the same. What changes is who manages the infrastructure, updates and backups."] },
   { q: "How is data migrated into a new ERP system?", a: ["Data is extracted from existing systems, cleansed (de-duplicated and corrected), mapped to the new structure and trial-loaded several times. Each trial is reconciled against the source, for example stock values and customer balances, until the figures match. The final load happens at cut-over, sometimes followed by a short period of parallel running."] },
+  { q: "What should ERP software for production and manufacturing handle?", a: ["ERP software manufacturing businesses rely on usually needs bills of materials, works orders, production planning and batch traceability, linked in real time to stock, purchasing and sales demand. In our ERP, manufacturing management is built to requirement rather than part of the standard foundation, so it is shaped around how you plan and track production, and costs flow through to finance."] },
 ];
 
 export const FINAL_CTA = {

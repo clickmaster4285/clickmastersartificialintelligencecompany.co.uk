@@ -67,7 +67,7 @@ export default function CaseStudiesPreview() {
             <div className="relative aspect-[16/10] overflow-hidden">
               <Image
                 src={c.image}
-                alt=""
+                alt={`${c.title} illustration`}
                 fill
                 sizes="(min-width: 768px) 33vw, 100vw"
                 className="object-cover"

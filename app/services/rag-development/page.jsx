@@ -9,9 +9,10 @@ import {
   RiFileList3Line, RiFileSearchLine, RiFileShield2Line, RiFileTextLine, RiFolder3Line, RiInformationLine,
   RiLineChartLine, RiLockLine, RiPlugLine, RiQuestionAnswerLine, RiRefreshLine, RiScales3Line, RiServerLine,
   RiShieldCheckLine, RiToolsLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ON_DARK_LINK, ProcessGrid, ServiceHero, faqPageJsonLd,
@@ -120,6 +121,8 @@ export default function RagDevelopment() {
         }
         figcaption="Ingestion runs when content changes; retrieval runs on every question."
       />
+
+      <ScopingCallBlock path={PATH} service="RAG development" />
 
       {/* ───────────── What RAG is ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
@@ -247,7 +250,7 @@ export default function RagDevelopment() {
         <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-[#AF00E8]/20 blur-3xl" />
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
-            <SectionHeading id="security-heading" eyebrow="As important as accuracy" dark>Security, Privacy and Access Control</SectionHeading>
+            <SectionHeading id="security-heading" eyebrow="As important as accuracy" dark>RAG AI Architectures: Security Risks, Privacy and Access Control</SectionHeading>
             <p className="mt-5 text-[15px] leading-relaxed text-gray-300 lg:text-base">{SECURITY.intro}</p>
           </div>
           <figure className="mt-10 rounded-3xl bg-white p-4 sm:p-8">

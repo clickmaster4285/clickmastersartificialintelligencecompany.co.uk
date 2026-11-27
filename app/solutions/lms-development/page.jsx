@@ -8,9 +8,10 @@ import {
   RiLineChartLine, RiLockLine, RiMedalLine, RiPlugLine, RiPresentationLine, RiQuestionAnswerLine, RiRobot2Line,
   RiRouteLine, RiShieldCheckLine, RiShieldUserLine, RiShoppingCart2Line, RiSmartphoneLine, RiSpeedLine,
   RiStackLine, RiTeamLine, RiUserSettingsLine, RiUserStarLine, RiFileList3Line, RiParentLine, RiGroupLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ON_DARK_LINK, ProcessGrid, ServiceHero, faqPageJsonLd,
@@ -115,6 +116,8 @@ export default function LmsDevelopment() {
         }
         figcaption="Each role sees its own dashboard over shared courses, assessments and reporting."
       />
+
+      <ScopingCallBlock path={PATH} service="LMS development" />
 
       {/* ───────────── What an LMS does ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
@@ -263,7 +266,7 @@ export default function LmsDevelopment() {
       {/* ───────────── Process ───────────── */}
       <ProcessGrid
         eyebrow="6 steps, two-week sprints"
-        title="How We Develop Your LMS"
+        title="Our Learning Management System Development Process"
         columns="md:grid-cols-2 lg:grid-cols-3"
         steps={PROCESS.map((s) => ({ title: s.title, rows: [{ label: "What happens", text: s.text }] }))}
         after={

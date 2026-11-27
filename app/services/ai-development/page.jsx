@@ -10,9 +10,10 @@ import {
   RiPlugLine, RiPriceTag3Line, RiPulseLine, RiQuestionAnswerLine, RiRobot2Line, RiScales3Line, RiServerLine,
   RiSettings3Line, RiShieldCheckLine, RiShieldKeyholeLine, RiShoppingCart2Line, RiShuffleLine, RiSparkling2Line,
   RiSparklingFill, RiStackLine, RiTimerFlashLine, RiAlarmWarningLine, RiTruckLine, RiUserSettingsLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import Breadcrumbs from "../../Components/Breadcrumbs";
 import TrustSection from "../../Components/TrustSection";
 import { BODY_LINK, IconTile as Tile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
@@ -87,8 +88,8 @@ export default function AiDevelopmentServices() {
               className="mt-5 font-bold text-[36px] leading-[42px] sm:text-[44px] sm:leading-[50px] xl:text-[54px] xl:leading-[60px] text-[#1a1a1a]"
               style={{ fontFamily: "Garamond, serif" }}
             >
-              AI Development Services for UK Businesses{" "}
-              <span className="italic font-normal text-[#AF00E8]">Ready to Move Beyond the Pilot</span>
+              {HERO.h1}{" "}
+              <span className="italic font-normal text-[#AF00E8]">{HERO.h1Accent}</span>
             </h1>
             <p className="mt-6 text-base leading-relaxed text-gray-700 lg:text-[17px]">{HERO.lead}</p>
             <p className="mt-4 text-[15px] leading-relaxed text-gray-500">{HERO.audience}</p>
@@ -105,7 +106,7 @@ export default function AiDevelopmentServices() {
                 href="#packages"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#AF00E8]/40 bg-white px-6 py-3.5 text-sm font-semibold text-[#AF00E8] hover:border-[#AF00E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8]"
               >
-                Compare engagement packages
+                Compare engagement levels
               </a>
             </div>
 
@@ -139,6 +140,8 @@ export default function AiDevelopmentServices() {
           </figure>
         </div>
       </section>
+
+      <ScopingCallBlock path={PATH} service="AI development" />
 
       {/* ───────────── What our services cover ───────────── */}
       <section aria-labelledby="cover-heading" className="bg-white py-16 lg:py-24">
@@ -474,8 +477,8 @@ export default function AiDevelopmentServices() {
       <section id="packages" aria-labelledby="packages-heading" className="scroll-mt-24 bg-[#0d0a12] py-16 text-white lg:py-24">
         <div className={WRAP}>
           <div className="mx-auto max-w-2xl text-center">
-            <SectionHeading id="packages-heading" eyebrow="Engagement packages" dark>
-              Clear Starting Points for AI Investment
+            <SectionHeading id="packages-heading" eyebrow="Engagement levels" dark>
+              Three Engagement Levels for AI Projects
             </SectionHeading>
             <p className="mt-5 text-[15px] leading-relaxed text-gray-300">{PACKAGES.intro}</p>
           </div>
@@ -491,9 +494,9 @@ export default function AiDevelopmentServices() {
               >
                 <h3 className="text-xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{tier.name}</h3>
                 <p className="mt-1 text-xs text-gray-400">{tier.subtitle}</p>
-                <p className="mt-6 flex items-baseline gap-2">
-                  <span className="text-5xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{tier.price}</span>
-                  <span className="text-xs text-gray-400">{tier.priceNote}</span>
+                <p className="mt-6">
+                  <span className="block text-2xl font-bold" style={{ fontFamily: "Garamond, serif" }}>{PACKAGES.quoteLabel}</span>
+                  <span className="mt-1 block text-xs text-gray-400">{PACKAGES.quoteNote}</span>
                 </p>
                 <ul className="mt-6 flex-1 space-y-3">
                   {tier.features.map((f) => (
@@ -506,7 +509,7 @@ export default function AiDevelopmentServices() {
               </div>
             ))}
           </div>
-          <div className="mt-10 flex flex-col items-center gap-4">
+          <div className="mt-10 flex justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#AF00E8] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#9600c7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8]"
@@ -514,7 +517,6 @@ export default function AiDevelopmentServices() {
               {PACKAGES.cta}
               <RiArrowRightLine aria-hidden="true" className="h-4 w-4" />
             </Link>
-            <p className="text-xs text-gray-400">{PACKAGES.vatNote}</p>
           </div>
         </div>
       </section>

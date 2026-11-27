@@ -7,8 +7,8 @@ export const BODY_LINK =
 
 export function Eyebrow({ children, dark = false }) {
   return (
-    <p className={`mb-3 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] ${dark ? "text-[#e9c2ff]" : "text-[#7a1fa2]"}`}>
-      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4]" />
+    <p className={dark ? "eyebrow eyebrow--dark" : "eyebrow"}>
+      <span aria-hidden="true" className="eyebrow-dot" />
       {children}
     </p>
   );
@@ -20,8 +20,7 @@ export function SectionHeading({ id, eyebrow, children, dark = false, className 
       {eyebrow && <Eyebrow dark={dark}>{eyebrow}</Eyebrow>}
       <h2
         id={id}
-        className={`font-bold text-[30px] leading-[38px] lg:text-[42px] lg:leading-[50px] ${dark ? "text-white" : "text-[#1a1a1a]"}`}
-        style={{ fontFamily: "Garamond, serif" }}
+        className={dark ? "section-h2 section-h2--dark" : "section-h2"}
       >
         {children}
       </h2>
@@ -32,16 +31,9 @@ export function SectionHeading({ id, eyebrow, children, dark = false, className 
 /** Decorative icon in a rounded tile. `icon` is a react-icons component. */
 export function IconTile({ icon: Icon, dark = false, size = "md" }) {
   if (!Icon) return null;
-  const box = size === "sm" ? "h-9 w-9 rounded-lg" : "h-11 w-11 rounded-xl";
+  // Styles: .icon-tile in globals.css (repeated 60-140 times per page).
   return (
-    <span
-      aria-hidden="true"
-      className={`flex shrink-0 items-center justify-center ring-1 ${box} ${
-        dark
-          ? "bg-white/10 text-[#e9c2ff] ring-white/15"
-          : "bg-gradient-to-br from-[#f7effa] to-[#efe0f7] text-[#AF00E8] ring-[#AF00E8]/10"
-      }`}
-    >
+    <span aria-hidden="true" className={`icon-tile${size === "sm" ? " icon-tile--sm" : ""}${dark ? " icon-tile--dark" : ""}`}>
       <Icon className={size === "sm" ? "h-4 w-4" : "h-5 w-5"} />
     </span>
   );

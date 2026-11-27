@@ -57,7 +57,9 @@ export const LOCATION_LINKS = {
 export const SOLUTION_LINKS = {
   erp: "/solutions/erp-software",
   crm: "/solutions/crm-software",
-  saas: "/solutions/saas-platform",
+  // /solutions/saas-platform is not published; it 301s to this page.
+  saas: "/services/mvp-saas-development",
   lms: "/solutions/lms-development",
   inventory: "/solutions/inventory-management",
+  fleet: "/solutions/fleet-management",
 } as const;

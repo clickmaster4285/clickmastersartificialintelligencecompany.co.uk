@@ -7,9 +7,10 @@ import {
   RiFileList2Line, RiFileList3Line, RiGasStationLine, RiHandHeartLine, RiHistoryLine, RiLockLine, RiMap2Line,
   RiMapPinLine, RiMoneyPoundCircleLine, RiPlugLine, RiQuestionAnswerLine, RiScales3Line, RiShieldCheckLine,
   RiSignalTowerLine, RiSpeedLine, RiStackLine, RiTeamLine, RiTimerLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   CheckCard, ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ON_DARK_LINK, ProcessGrid, ServiceHero,
@@ -126,6 +127,8 @@ export default function FleetManagement() {
         figcaption="Vehicles, drivers and jobs in one system, with telematics, apps and records around it."
       />
 
+      <ScopingCallBlock path={PATH} service="fleet management software" />
+
       {/* ───────────── What it does ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -150,7 +153,7 @@ export default function FleetManagement() {
       <section id="options" aria-labelledby="options-heading" className="scroll-mt-28 border-y border-[#9b1fe0]/10 bg-[#faf9f7] py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="options-heading" eyebrow="Three honest routes">Ready-Made Fleet Software, Tailored or Fully Custom</SectionHeading>
+            <SectionHeading id="options-heading" eyebrow="Three honest routes">Ready-Made UK Fleet Management Software, Tailored or Fully Custom</SectionHeading>
             <p className={`mt-5 ${P}`}>{ROUTES.intro}</p>
           </div>
           <div className="mt-10">
@@ -177,7 +180,7 @@ export default function FleetManagement() {
       <section aria-labelledby="capabilities-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-            <SectionHeading id="capabilities-heading" eyebrow="14 capabilities">Fleet Management Capabilities</SectionHeading>
+            <SectionHeading id="capabilities-heading" eyebrow="14 capabilities">Vehicle Fleet Management System Capabilities</SectionHeading>
             <div>
               <p className="text-[15px] leading-relaxed text-gray-600">{CAPABILITIES_INTRO}</p>
               <p className="mt-3 flex flex-wrap gap-2 text-xs font-semibold">
@@ -217,7 +220,7 @@ export default function FleetManagement() {
         <div className={WRAP}>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="tracking-heading" eyebrow="Your telematics, in context">Vehicle Tracking and Fleet Visibility</SectionHeading>
+              <SectionHeading id="tracking-heading" eyebrow="Your telematics, in context">Vehicle Tracking in a Telematics Fleet Management System</SectionHeading>
               <p className={`mt-5 ${P}`}>{TRACKING.intro}</p>
               <TermList items={TRACKING.sources} />
               <p className={`mt-5 ${P}`}>{TRACKING.context}</p>

@@ -9,9 +9,10 @@ import {
   RiEdit2Line, RiFileShield2Line, RiFileTextLine, RiFlowChart, RiFocus3Line, RiHistoryLine, RiInformationLine,
   RiLineChartLine, RiLockLine, RiPlugLine, RiQuestionAnswerLine, RiRouteLine, RiScales3Line, RiServerLine,
   RiShieldCheckLine, RiSpeedUpLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ServiceHero, faqPageJsonLd,
@@ -121,12 +122,14 @@ export default function LlmDevelopmentFineTuning() {
         figcaption="A tuned model ships only if it beats the baseline on your evaluation set."
       />
 
+      <ScopingCallBlock path={PATH} service="LLM fine-tuning" />
+
       {/* ───────────── What LLM development involves ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="what-heading" eyebrow="The basics">What LLM Development Involves</SectionHeading>
+              <SectionHeading id="what-heading" eyebrow="The basics">What Large Language Model Development Involves</SectionHeading>
               <p className={`mt-6 ${P}`}><Rich text={WHAT_IS.p1} /></p>
               <p className={`mt-5 ${P}`}><Linked value={WHAT_IS.p2} /></p>
             </div>
@@ -329,7 +332,7 @@ export default function LlmDevelopmentFineTuning() {
         <div className={WRAP}>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
             <div>
-              <SectionHeading id="partner-heading" eyebrow="Questions worth asking">Choosing an LLM Development Partner</SectionHeading>
+              <SectionHeading id="partner-heading" eyebrow="Questions worth asking">Choosing an LLM Development Company</SectionHeading>
               <p className={`mt-5 ${P}`}>{PARTNER.intro}</p>
             </div>
             <ol className="space-y-3">

@@ -4,7 +4,7 @@
  * left-to-right flow. Text stays crawlable and reflows on small screens.
  */
 import type { ReactNode } from "react";
-import { RiArrowDownLine, RiArrowRightLine } from "react-icons/ri";
+import { RiArrowDownLine, RiArrowRightLine } from "./icons";
 
 export type Tone = "plain" | "purple" | "teal" | "sun" | "dashed";
 

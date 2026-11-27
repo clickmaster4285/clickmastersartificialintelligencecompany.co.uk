@@ -10,9 +10,10 @@ import {
   RiNodeTree, RiPlugLine, RiRobot2Line, RiRoadMapLine, RiRouteLine, RiSave3Line, RiServerLine, RiSettings3Line,
   RiShieldCheckLine, RiShoppingCart2Line, RiSplitCellsHorizontal, RiStackLine, RiStore3Line, RiTeamLine,
   RiToolsLine, RiTruckLine, RiUserSettingsLine, RiDatabaseLine, RiInboxArchiveLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import TechLogoGroups from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -112,11 +113,13 @@ export default function ErpSoftware() {
         figcaption="Every module reads from and writes to one shared database."
       />
 
+      <ScopingCallBlock path={PATH} service="custom ERP software" />
+
       {/* ───────────── What ERP does ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <SectionHeading id="what-heading" eyebrow="The basics">What ERP Software Does and Why Businesses Adopt It</SectionHeading>
+            <SectionHeading id="what-heading" eyebrow="The basics">What Is an ERP System? What ERP Software Does and Why Businesses Adopt It</SectionHeading>
             <div className="space-y-5">
               <p className={P}><Rich text={WHAT_IS.p1} /></p>
               <p className={P}><Rich text={WHAT_IS.p2} /></p>
@@ -129,6 +132,9 @@ export default function ErpSoftware() {
             <CheckCard title="Custom or tailored ERP fits when…" items={FIT.custom} tone="purple" />
             <CheckCard title="Packaged ERP may fit better when…" items={FIT.packaged} tone="sun" />
           </div>
+
+          <h3 className="mt-12 text-xl font-bold text-[#1a1a1a] lg:text-2xl" style={SERIF}>{FIT.smallTitle}</h3>
+          <p className={`mt-3 max-w-3xl ${P}`}>{FIT.small}</p>
         </div>
       </section>
 
@@ -189,7 +195,7 @@ export default function ErpSoftware() {
                 <div className="flex items-start justify-between gap-4 border-b border-gray-100 p-6">
                   <div className="flex items-center gap-3">
                     <IconTile icon={ICONS[m.icon]} />
-                    <h3 className="text-[22px] font-bold leading-snug text-[#1a1a1a]" style={SERIF}>{m.title}</h3>
+                    <h3 className="text-[22px] font-bold leading-snug text-[#1a1a1a]" style={SERIF}>{m.heading ?? m.title}</h3>
                   </div>
                   <span
                     className={`mt-1 shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold ring-1 ${
@@ -297,7 +303,7 @@ export default function ErpSoftware() {
       {/* ───────────── Implementation process ───────────── */}
       <ProcessGrid
         eyebrow="11 stages, module by module"
-        title="Our ERP Implementation Process"
+        title="Our ERP System Implementation Process"
         intro={PROCESS_INTRO}
         columns="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         checkLabel="Expect"
@@ -370,7 +376,7 @@ export default function ErpSoftware() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-[#AF00E8]/25 blur-3xl" />
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
-            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Why Consider ClickMasters for Your ERP Project?</SectionHeading>
+            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Why Consider ClickMasters as Your Custom ERP Software Development Company?</SectionHeading>
           </div>
           <div className="mt-12">
             <IconCardGrid items={withIcons(WHY)} dark />

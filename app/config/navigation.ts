@@ -34,6 +34,8 @@ export type NavLink = {
    * in the header menu, to keep a long mega menu column short.
    */
   inMenu?: boolean;
+  /** Longer text shown in the centre column of the About Us menu (desktop). */
+  preview?: string;
 };
 
 export type NavGroup = {
@@ -56,6 +58,8 @@ export type NavItem = NavLink & {
   activePaths?: string[];
   /** Highlight card beside the mega menu (desktop). */
   featured?: { eyebrow: string; title: string; text: string; points: string[]; cta: { label: string; href: string } };
+  /** Render the panel as the three-column About Us menu (options | preview | brand card). */
+  aboutMenu?: boolean;
 };
 
 const L = (label: string, href: string, status: NavStatus, extra: Partial<NavLink> = {}): NavLink => ({
@@ -66,6 +70,39 @@ const L = (label: string, href: string, status: NavStatus, extra: Partial<NavLin
 });
 
 export const NAV_ITEMS: NavItem[] = [
+  {
+    // First item in the header (owner request, 26 Nov 2026). "Who We Are" has its
+    // own page; the other options jump to sections of /about and are not added
+    // to the sitemap or SiteNavigationElement JSON-LD.
+    ...L("About Us", "/about", "live", { keyword: "about ClickMasters" }),
+    aboutMenu: true,
+    featured: {
+      eyebrow: "ClickMasters",
+      title: "Turning intelligent ideas into practical digital solutions.",
+      text: "AI, automation and custom software built around your data, your processes and the people who use them.",
+      points: ["AI and software in one team", "Built around real requirements", "Honest advice from the first call"],
+      cta: { label: "Discuss Your Project", href: "/contact#contact-form" },
+    },
+    intro: "An AI and software company built around real business problems.",
+    children: [
+      L("Who We Are", "/about/who-we-are", "live", { icon: "team", description: "The company and the problems we solve",
+        preview: "ClickMasters Artificial Intelligence Company builds AI solutions and custom software for organisations that have outgrown spreadsheets, generic tools and manual workarounds, starting from the business problem, not the technology." }),
+      L("Our Mission & Vision", "/about/mission-vision", "live", { icon: "rocket", description: "Why we exist and where we are heading",
+        preview: "Our mission: making intelligent technology work for business, carrying ideas all the way into dependable systems people use every day. Our vision: a more intelligent and connected way of working for organisations of every size." }),
+      L("What We Do", "/about#what-we-do", "live", { icon: "sparkle", description: "AI solutions and the software behind them",
+        preview: "AI development, automation, agents, generative AI and machine learning, together with the custom software, data and cloud foundations that make intelligent features reliable." }),
+      L("Our Expertise", "/about#expertise", "live", { icon: "brain", description: "Where AI meets software engineering",
+        preview: "Artificial intelligence, software engineering, business process understanding and intelligent automation in one team, so the model and the system around it both work." }),
+      L("Industries We Serve", "/about#industries", "live", { icon: "building", description: "Healthcare, finance, retail and more",
+        preview: "Healthcare, finance, retail and e-commerce, education, manufacturing, logistics, professional services and real estate: technology shaped around how each sector works." }),
+      L("Our Approach", "/about#approach", "live", { icon: "flow", description: "Understand, plan, design, develop, test, improve",
+        preview: "Six clear steps from the first conversation to lasting value: understand, plan, design, develop, test and improve, with regular demos and honest advice throughout." }),
+      L("Why Choose ClickMasters", "/about#why-clickmasters", "live", { icon: "bulb", description: "What working with us is like",
+        preview: "Business-focused technology, practical AI, custom-built solutions, clear communication and maintainable code, so you are never locked in to us." }),
+      L("Let's Work Together", "/about#work-together", "live", { icon: "chat", description: "Tell us what you want to achieve",
+        preview: "Have an idea? Tell us what you are trying to achieve and we will give you an honest view of what is possible, what it involves and the most sensible first step." }),
+    ],
+  },
   {
     ...L("Services", "/services", "live", { keyword: "AI software development services UK" }),
     groups: [
@@ -89,7 +126,7 @@ export const NAV_ITEMS: NavItem[] = [
           L("AI Agent Development", "/services/ai-agent-development", "live", { icon: "robot", description: "Agents that complete multi-step tasks", keyword: "AI agent development UK" }),
           L("Generative AI Development", "/services/generative-ai-development", "live", { icon: "magic", description: "Drafts, summaries and images on-brand", keyword: "generative AI development UK" }),
           L("AI Automation Services", "/services/ai-automation", "live", { icon: "flow", description: "Automate repetitive work and cut costs", keyword: "AI automation services UK" }),
-          L("Machine Learning Development", "/services/machine-learning", "placeholder", { icon: "node", description: "Predictive models and data pipelines", keyword: "machine learning development company UK" }),
+          L("Machine Learning Development", "/services/machine-learning", "live", { icon: "node", description: "Prediction, scoring and anomaly models", keyword: "machine learning development company UK" }),
           L("AI Chatbot Development", "/services/ai-chatbots", "placeholder", { icon: "chat", description: "24/7 assistants for support and sales", keyword: "AI chatbot development UK", inMenu: false }),
           L("Custom AI Development", "/services/custom-ai-development", "live", { icon: "code", description: "Bespoke AI software around your data", keyword: "custom AI development UK", inMenu: false }),
           L("NLP Development", "/services/nlp-development", "live", { icon: "chat", description: "Classify, extract and redact text", keyword: "NLP development services UK", inMenu: false }),
@@ -102,9 +139,9 @@ export const NAV_ITEMS: NavItem[] = [
       {
         heading: "Enterprise & Cloud",
         items: [
-          L("ERP & CRM Development", "/services/erp-crm-development", "placeholder", { icon: "stack", description: "One source of truth for your operations", keyword: "ERP and CRM development UK" }),
-          L("Cloud Solutions & DevOps", "/services/cloud-devops", "placeholder", { icon: "cloud", description: "CI/CD on AWS, Azure and Google Cloud", keyword: "cloud DevOps services UK" }),
-          L("Database Design & Management", "/services/database-design", "placeholder", { icon: "database", description: "PostgreSQL, MongoDB, MySQL and Redis", keyword: "database design services UK" }),
+          L("ERP & CRM Development", "/services/erp-crm-development", "live", { icon: "stack", description: "One source of truth for your operations", keyword: "ERP and CRM development UK" }),
+          L("Cloud Solutions & DevOps", "/services/cloud-devops", "live", { icon: "cloud", description: "CI/CD on AWS, Azure and Google Cloud", keyword: "cloud DevOps services UK" }),
+          L("Database Design & Development", "/services/database-design", "live", { icon: "database", description: "Data modelling, SQL and NoSQL, migration", keyword: "database design services UK" }),
         ],
       },
     ],
@@ -123,7 +160,9 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       L("ERP Software", "/solutions/erp-software", "live", { icon: "building", description: "Finance, inventory and HR in one place", keyword: "ERP software UK" }),
       L("CRM Software", "/solutions/crm-software", "live", { icon: "contacts", description: "Pipelines, contacts and automation", keyword: "custom CRM software UK" }),
-      L("SaaS Platform Development", "/solutions/saas-platform", "placeholder", { icon: "apps", description: "Multi-tenant platforms with billing built in", keyword: "SaaS platform development UK" }),
+      // Hidden until a full page exists: /solutions/saas-platform 301s to
+      // /services/mvp-saas-development (see next.config.ts redirects).
+      L("SaaS Platform Development", "/solutions/saas-platform", "planned", { icon: "apps", description: "Multi-tenant platforms with billing built in", keyword: "SaaS platform development UK" }),
       L("Learning Management System (LMS)", "/solutions/lms-development", "live", { icon: "graduation", description: "Courses, assessments and reporting", keyword: "LMS development UK" }),
       L("Inventory & Warehouse Management", "/solutions/inventory-management", "live", { icon: "archive", description: "Real-time stock across locations", keyword: "custom inventory management software UK" }),
       L("Fleet Management Software", "/solutions/fleet-management", "live", { icon: "truck", description: "Tracking, routing and dispatch", keyword: "custom fleet management software UK" }),
@@ -133,16 +172,15 @@ export const NAV_ITEMS: NavItem[] = [
   {
     ...L("Industries", "/industries", "live", { keyword: "industry software development UK" }),
     intro: "Software shaped around how your sector actually works.",
-    activePaths: ["/locations"],
     children: [
-      L("Healthcare & MedTech", "/industries/healthcare", "placeholder", { icon: "health", description: "Patient portals and EHR integrations", keyword: "healthcare software development UK" }),
-      L("Finance & Fintech", "/industries/finance", "placeholder", { icon: "bank", description: "Billing, ledgers and compliance", keyword: "fintech software development UK" }),
-      L("E-Commerce", "/industries/ecommerce", "placeholder", { icon: "cart", description: "Marketplaces and payment gateways", keyword: "ecommerce development company UK" }),
-      L("EdTech & E-Learning", "/industries/edtech", "placeholder", { icon: "book", description: "LMS platforms and student dashboards", keyword: "edtech software development UK" }),
-      L("Real Estate", "/industries/real-estate", "placeholder", { icon: "home", description: "Listings, tenants and lease automation", keyword: "real estate software development UK" }),
-      L("Supply Chain & Logistics", "/industries/logistics", "placeholder", { icon: "route", description: "Fleet, routing and warehousing", keyword: "logistics software development UK" }),
-      L("Enterprise SaaS", "/industries/enterprise-saas", "placeholder", { icon: "instance", description: "Multi-tenant platforms and billing", keyword: "enterprise SaaS development UK" }),
-      L("Smart Manufacturing", "/industries/manufacturing", "placeholder", { icon: "settings", description: "MES and production planning", keyword: "manufacturing software development UK" }),
+      L("Healthcare & MedTech", "/industries/healthcare", "live", { icon: "health", description: "Admin automation, documents and integrations", keyword: "healthcare software development UK" }),
+      L("Finance & Fintech", "/industries/finance", "live", { icon: "bank", description: "Document automation, risk analytics and integrations", keyword: "fintech software development UK" }),
+      L("E-Commerce", "/industries/ecommerce", "live", { icon: "cart", description: "Product search, support automation and integrations", keyword: "ecommerce development company UK" }),
+      L("EdTech & E-Learning", "/industries/edtech", "live", { icon: "book", description: "Learning platforms, AI assistants and automation", keyword: "edtech software development UK" }),
+      L("Real Estate", "/industries/real-estate", "live", { icon: "home", description: "Listings, leads, tenant portals and automation", keyword: "real estate software development UK" }),
+      L("Supply Chain & Logistics", "/industries/logistics", "live", { icon: "route", description: "Route planning, visibility, warehouse workflows and automation", keyword: "logistics software development UK" }),
+      L("Enterprise SaaS", "/industries/enterprise-saas", "live", { icon: "instance", description: "Multi-tenant architecture, AI integration and modernisation", keyword: "enterprise SaaS development UK" }),
+      L("Smart Manufacturing", "/industries/manufacturing", "live", { icon: "settings", description: "Maintenance, quality, planning and shop-floor data", keyword: "manufacturing software development UK" }),
     ],
     footerLinks: [L("UK Locations", "/locations", "live")],
   },
@@ -173,12 +211,12 @@ export const NAV_ITEMS: NavItem[] = [
     ],
     footerLinks: [L("All Hiring Models", "/hire", "placeholder")],
   },
-  L("Case Studies", "/case-studies", "live", { keyword: "software development case studies" }),
   {
     ...L("Resources", "/resources", "placeholder", { keyword: "AI software development resources", description: "Guides, tools and templates for planning your software project." }),
     intro: "Guides, tools and templates to plan your next build.",
-    activePaths: ["/blog"],
+    activePaths: ["/blog", "/case-studies"],
     children: [
+      L("Case Studies", "/case-studies", "live", { icon: "chart", description: "Example AI projects and use cases", keyword: "software development case studies" }),
       L("Blog", "/blog", "live", { icon: "article", description: "AI and software development insights", keyword: "AI software development blog" }),
       L("Guides & Whitepapers", "/resources/guides", "placeholder", { icon: "guide", description: "In-depth playbooks and reference architectures", keyword: "AI implementation guide" }),
       L("Free Tools & Calculators", "/resources/free-tools", "placeholder", { icon: "tools", description: "Cost calculator, AI ROI calculator, readiness quiz", keyword: "software development cost calculator UK" }),
@@ -188,7 +226,27 @@ export const NAV_ITEMS: NavItem[] = [
     ],
     footerLinks: [L("All Resources", "/resources", "placeholder")],
   },
-  L("About", "/about", "live", { keyword: "about ClickMasters" }),
+  {
+    ...L("Locations", "/locations", "live", { keyword: "software development company UK" }),
+    intro: "Software and AI development for businesses across the UK.",
+    // City pages use the noindex placeholder template until each has real,
+    // city-specific content; then set its status to "live".
+    children: [
+      L("London", "/locations/london", "placeholder", { icon: "pin", keyword: "software development company London" }),
+      L("Manchester", "/locations/manchester", "placeholder", { icon: "pin", keyword: "software development company Manchester" }),
+      L("Birmingham", "/locations/birmingham", "placeholder", { icon: "pin", keyword: "software development company Birmingham" }),
+      L("Leeds", "/locations/leeds", "placeholder", { icon: "pin", keyword: "software development company Leeds" }),
+      L("Glasgow", "/locations/glasgow", "placeholder", { icon: "pin", keyword: "software development company Glasgow" }),
+      L("Edinburgh", "/locations/edinburgh", "placeholder", { icon: "pin", keyword: "software development company Edinburgh" }),
+      L("Bristol", "/locations/bristol", "placeholder", { icon: "pin", keyword: "software development company Bristol" }),
+      L("Liverpool", "/locations/liverpool", "placeholder", { icon: "pin", keyword: "software development company Liverpool" }),
+      L("Sheffield", "/locations/sheffield", "placeholder", { icon: "pin", keyword: "software development company Sheffield" }),
+      L("Newcastle", "/locations/newcastle", "placeholder", { icon: "pin", keyword: "software development company Newcastle" }),
+      L("Nottingham", "/locations/nottingham", "placeholder", { icon: "pin", keyword: "software development company Nottingham" }),
+      L("Cardiff", "/locations/cardiff", "placeholder", { icon: "pin", keyword: "software development company Cardiff" }),
+    ],
+    footerLinks: [L("All UK Locations", "/locations", "live")],
+  },
 ];
 
 export const NAV_CTA = { label: "Get a Free Quote", href: "/contact" } as const;
@@ -199,11 +257,14 @@ export const FOOTER_LINKS = {
   locations: L("Locations", "/locations", "live"),
   contact: L("Contact", "/contact", "live"),
   caseStudies: L("Case Studies", "/case-studies", "live"),
+  // Hidden for now (owner request, 26 Nov 2026). To show it again, set this to
+  // "live" and add L("Portfolio", "/portfolio", "live") back to NAV_ITEMS.
+  portfolio: L("Portfolio", "/portfolio", "planned"),
   about: L("About Us", "/about", "live"),
   blog: L("Blog", "/blog", "live"),
   // TODO: add real policy text, then set to "live" (a placeholder legal page would hurt trust).
   privacy: L("Privacy Policy", "/privacy-policy", "planned"),
-  terms: L("Terms & Conditions", "/terms", "planned"),
+  terms: L("Terms & Conditions", "/terms-and-conditions", "live"),
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -237,7 +298,7 @@ export function menuChildrenOf(item: NavItem): NavLink[] {
 export const visibleNavItems = () => NAV_ITEMS.filter(isVisible);
 
 /** Every link in the config, with its parent (top-level items have none). */
-function allLinks(): { link: NavLink; parent?: NavItem }[] {
+export function allLinks(): { link: NavLink; parent?: NavItem }[] {
   const out: { link: NavLink; parent?: NavItem }[] = [];
   for (const item of NAV_ITEMS) {
     out.push({ link: item });
@@ -274,7 +335,8 @@ export function placeholderParams(section: string): { slug: string }[] {
 
 /** Footer navigation columns, generated from the config. */
 export function footerColumns(): { heading: string; links: NavLink[] }[] {
-  const explore: NavLink[] = NAV_ITEMS.filter((i) => isVisible(i) && (i.groups || i.children)).flatMap((i) => {
+  // About Us is listed under "Company", so it is left out of "Explore".
+  const explore: NavLink[] = NAV_ITEMS.filter((i) => isVisible(i) && (i.groups || i.children) && !i.aboutMenu).flatMap((i) => {
     const link = { ...i, label: i.href === "/hire" ? "Hire Developers" : i.label };
     // "AI Development" sits directly under "Services".
     return i.href === "/services" ? [link, FOOTER_LINKS.aiDevelopment] : [link];
@@ -283,7 +345,7 @@ export function footerColumns(): { heading: string; links: NavLink[] }[] {
     { heading: "Explore", links: explore },
     {
       heading: "Company",
-      links: [FOOTER_LINKS.about, FOOTER_LINKS.caseStudies, FOOTER_LINKS.locations, FOOTER_LINKS.blog, FOOTER_LINKS.contact].filter(isVisible),
+      links: [FOOTER_LINKS.about, FOOTER_LINKS.caseStudies, FOOTER_LINKS.portfolio, FOOTER_LINKS.locations, FOOTER_LINKS.blog, FOOTER_LINKS.contact].filter(isVisible),
     },
     { heading: "Legal", links: [FOOTER_LINKS.privacy, FOOTER_LINKS.terms].filter(isVisible) },
   ].filter((c) => c.links.length > 0);
@@ -292,12 +354,16 @@ export function footerColumns(): { heading: string; links: NavLink[] }[] {
 /**
  * SiteNavigationElement JSON-LD for the main menu. Only "live" URLs are
  * included (placeholder pages are noindex).
+ *
+ * Emitted as a plain @graph of SiteNavigationElement nodes. Wrapping them in
+ * an ItemList made Google validate the block as a Carousel, which requires
+ * every itemListElement to be a ListItem (audit D-03 / C-01).
  */
 export function siteNavigationJsonLd() {
   const entries: { name: string; url: string }[] = [];
   const seen = new Set<string>();
   const add = (link: NavLink) => {
-    if (link.status !== "live" || seen.has(link.href)) return;
+    if (link.status !== "live" || seen.has(link.href) || link.href.startsWith("/about#")) return;
     seen.add(link.href);
     entries.push({ name: link.label, url: absoluteUrl(link.href) });
   };
@@ -309,11 +375,8 @@ export function siteNavigationJsonLd() {
 
   return {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Main navigation",
-    itemListElement: entries.map((e, i) => ({
+    "@graph": entries.map((e) => ({
       "@type": "SiteNavigationElement",
-      position: i + 1,
       name: e.name,
       url: e.url,
     })),

@@ -9,9 +9,9 @@
 export const PATH = "/services/mobile-app-development";
 
 export const SEO = {
-  title: "Mobile App Development UK | iOS & Android Apps",
+  title: "Mobile App Development Company UK",
   description:
-    "Mobile app development services for UK businesses: native iOS and Android or cross-platform Flutter and React Native apps, integrated, secure and supported.",
+    "Mobile app development services for UK firms: native iOS and Android or cross-platform Flutter and React Native apps, integrated, secure and supported.",
   ogTitle: "Mobile App Development Company UK | ClickMasters",
   ogDescription:
     "Customer, employee and e-commerce apps for iOS and Android, built natively or with Flutter and React Native, and connected to your business systems.",
@@ -22,9 +22,9 @@ export type LinkedText = { text: string; link?: { anchor: string; href: string }
 export const HERO = {
   eyebrow: "Mobile App Development UK",
   title: "Mobile App Development Services",
-  titleAccent: "for iOS, Android and Cross-Platform Apps",
+  titleAccent: "for iOS, Android & Cross-Platform Apps",
   lead:
-    "ClickMasters designs and builds mobile apps that customers keep on their home screen and staff rely on in the field: ordering and booking apps, customer accounts, field-service tools and enterprise workflow apps. We develop natively in Swift and Kotlin or cross-platform with Flutter and React Native, connect each app securely to your business systems, and handle the release to the App Store and Google Play.",
+    "ClickMasters is a mobile app development company in UK and US markets, offering custom mobile app development for iOS, Android and both at once: apps that customers keep on their home screen and staff rely on in the field, such as ordering and booking apps, customer accounts, field-service tools and enterprise workflow apps. We develop natively in Swift and Kotlin or cross-platform with Flutter and React Native, connect each app securely to your business systems, and handle the release to the App Store and Google Play.",
   audience:
     "For founders launching an app-based product, businesses that want a direct channel to their customers, and operations teams whose people work away from a desk.",
   stats: [
@@ -87,7 +87,7 @@ export const SERVICES: Service[] = [
   {
     id: "android-app-development",
     icon: "android",
-    title: "Android App Development",
+    title: "Native Android Mobile App Development",
     intro: "Native Android apps written in Kotlin with Google's Android SDK and Jetpack libraries, built for the wide range of Android phones, tablets and rugged devices.",
     fields: [
       { label: "Who needs it", text: "Businesses with Android-heavy audiences, and operations using rugged Android scanners or managed company devices." },
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
   {
     id: "ios-app-development",
     icon: "ios",
-    title: "iOS App Development",
+    title: "Native Mobile App Development for iOS",
     intro: "Native iPhone and iPad apps written in Swift with Apple's SDKs (including SwiftUI), designed to feel at home on Apple devices.",
     fields: [
       { label: "Who needs it", text: "Consumer brands with iPhone-heavy audiences, premium services and apps that depend on Apple-only features." },
@@ -109,6 +109,7 @@ export const SERVICES: Service[] = [
       { label: "Technical considerations", text: "Apple's Human Interface Guidelines and App Review Guidelines, privacy manifests and App Tracking Transparency, and builds made with current Xcode versions as Apple requires." },
       { label: "Integrations", text: "Sign in with Apple, Apple Push Notification service, StoreKit for in-app purchases and subscriptions." },
     ],
+    note: "Choosing an iOS mobile app development company? Ask how they handle App Review, privacy manifests and the annual iOS update cycle; we plan for all three from the start.",
   },
   {
     id: "cross-platform-app-development",
@@ -127,7 +128,7 @@ export const SERVICES: Service[] = [
   {
     id: "react-native-app-development",
     icon: "react",
-    title: "React Native App Development",
+    title: "Mobile App Development with React Native",
     intro: "Cross-platform apps written in TypeScript with React, rendering real native components on each platform.",
     fields: [
       { label: "Who needs it", text: "Businesses with React web products or teams, who want to share skills, logic and sometimes code between web and mobile." },
@@ -402,11 +403,12 @@ export const COST = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
-  { q: "How much does mobile app development cost in the UK?", a: ["The cost depends on complexity, the number of platforms, native or cross-platform development, the number of features, the back end, integrations, design, security, testing, store deployment and ongoing maintenance. A focused single-purpose MVP costs far less than an enterprise app with offline sync and several integrations. ClickMasters offers fixed-price and time-and-materials models and gives a clear estimate with milestones after a free consultation."] },
+  { q: "What affects the cost of mobile app development?", a: ["The cost depends on complexity, the number of platforms, native or cross-platform development, the number of features, the back end, integrations, design, security, testing, store deployment and ongoing maintenance. A focused single-purpose MVP costs far less than an enterprise app with offline sync and several integrations, so the scope you prioritise for the first release matters most."] },
+  { q: "Mobile app development cost UK: how is it estimated?", a: ["There is no honest single figure until the scope is clear. After a free consultation, ClickMasters provides a clear estimate with milestones on a fixed-price or time-and-materials basis. The estimate also includes expected hosting, store and maintenance costs, so you can see the full cost of owning the app, not just the build price, before you commit."] },
   { q: "How long does it take to develop a mobile app?", a: ["Most MVPs are delivered in 6–8 weeks, and larger enterprise apps typically take 3–6 months. Allow extra time for App Store and Google Play review, especially for a first submission. Scope, integrations, the number of platforms and how quickly feedback comes back all affect the timeline."] },
   { q: "What is the difference between native and cross-platform apps?", a: ["Native apps are built separately for each platform, in Swift for iOS and Kotlin for Android, with full and immediate access to every device feature. Cross-platform apps share one codebase, written in Flutter or React Native, which produces both apps, usually at lower cost and with a faster launch. Most business apps work very well cross-platform. Apps that depend on cutting-edge platform features, heavy graphics or specialist hardware often benefit from native development."] },
-  { q: "Can one app work on both Android and iOS?", a: ["Yes. With Flutter or React Native, one shared codebase produces an iOS app and an Android app that are published separately to each store. A small amount of platform-specific code is usually still needed for things like permissions, payments and notifications, and both versions must be tested on real devices."] },
-  { q: "Should I choose React Native or Flutter?", a: ["Both are mature, well-supported choices. React Native uses TypeScript and renders real native components, which suits teams with React web experience and apps that should look platform-standard. Flutter uses Dart and draws its own interface, which suits brands wanting a highly custom, identical design on every device. We recommend one based on your design goals, existing team skills, required plugins and long-term maintenance."] },
+  { q: "Can a cross platform mobile app development company build one app for Android and iOS?", a: ["Yes. With Flutter or React Native, one shared codebase produces an iOS app and an Android app that are published separately to each store. A small amount of platform-specific code is usually still needed for things like permissions, payments and notifications, and both versions must be tested on real devices."] },
+  { q: "Should I use React Native for mobile app development, or Flutter?", a: ["Both are mature, well-supported choices. React Native uses TypeScript and renders real native components, which suits teams with React web experience and apps that should look platform-standard. Flutter uses Dart and draws its own interface, which suits brands wanting a highly custom, identical design on every device. We recommend one based on your design goals, existing team skills, required plugins and long-term maintenance."] },
   { q: "Can you build custom business applications?", a: ["Yes. We build customer apps, employee and field-service apps, booking systems, e-commerce apps and enterprise workflow apps, along with the APIs and admin dashboards behind them. Each is designed around your process and connected to the systems you already use."] },
   { q: "How do mobile apps connect to backend systems?", a: ["The app talks to a secure back-end API over HTTPS, using tokens to identify the signed-in user. The API applies business rules and connects to your database and systems such as CRM, ERP, payment providers and stock platforms. Push notifications are delivered through Apple's and Google's notification services. Where users work offline, changes are queued on the device and synced when the connection returns."] },
   { q: "How do you secure mobile applications?", a: ["We follow the OWASP Mobile Application Security Verification Standard. That means secure sign-in with short-lived tokens, all authorisation checked on the server, encrypted communication, secrets stored in the iOS Keychain or Android Keystore, minimal device permissions, vetted dependencies, certified payment SDKs and security testing of release builds. Regular updates keep the app protected as platforms and libraries change."] },
@@ -417,7 +419,9 @@ export const FAQS: { q: string; a: string[] }[] = [
     q: "Can you publish applications to Google Play and the Apple App Store?",
     a: ["Yes. We prepare store listings, screenshots, privacy disclosures and builds, submit them for review, respond to reviewer feedback and manage staged rollouts. We recommend that apps are published under your own Apple Developer and Google Play developer accounts, so your business owns the listings, reviews and customer relationship."],
   },
-  { q: "How do I start a mobile app development project?", a: ["Share your business objective, who the users are, the key features, which platforms matter and the systems the app must connect to. Sketches or examples of apps you like are useful but not required. We will arrange a free consultation, recommend the right platform approach and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
+  { q: "How should I compare mobile app development companies UK-wide?", a: ["Compare how each supplier handles discovery, platform choice, security, testing on real devices and support after launch, not just the headline price. Ask whose developer accounts the apps are published under, whether estimates include store and maintenance costs, and who owns the source code under the contract. Weekly demos on real devices and a clear change process help you stay in control."] },
+  { q: "Do you work with businesses in London?", a: ["Yes. We can work with businesses in London and anywhere else in the UK. Projects run remotely: discovery workshops, sprint reviews and weekly demos on real devices take place over video call, and you can reach the team on our UK phone line. If you are comparing mobile app development company London options, judge each one on process, communication and support terms."] },
+  { q: "How do I start a project with a mobile app development agency?", a: ["Share your business objective, who the users are, the key features, which platforms matter and the systems the app must connect to. Sketches or examples of apps you like are useful but not required. We will arrange a free consultation, recommend the right platform approach and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
 ];
 
 export const FINAL_CTA = {

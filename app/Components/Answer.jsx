@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { glassCapsule } from '../assets'
-import { RiAddLine, RiGeminiFill } from "react-icons/ri";
+import { RiAddLine, RiGeminiFill } from "./icons";
 import { HOME_FAQS as FAQS } from '../lib/home-faqs'
 
 const Answer = () => {
@@ -59,7 +59,7 @@ const Answer = () => {
           <div className="mt-8 sm:mt-12 flex justify-center lg:justify-start items-center w-full">
             <img loading="lazy" decoding="async"
               src={glassCapsule}
-              alt=""
+              alt="Glass capsule illustration"
               width={383}
               height={386}
               className="w-48 sm:w-64 md:w-72 object-contain rotate-[-5deg] opacity-60"

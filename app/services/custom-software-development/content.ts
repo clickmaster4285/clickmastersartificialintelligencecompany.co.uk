@@ -9,7 +9,7 @@
 export const PATH = "/services/custom-software-development";
 
 export const SEO = {
-  title: "Custom Software Development UK | Bespoke Software",
+  title: "Custom Software Development UK",
   description:
     "Custom software development services for UK businesses: bespoke web apps, SaaS, CRM and ERP systems, integrations and support, built around your processes.",
   ogTitle: "Custom Software Development Services UK | ClickMasters",
@@ -23,9 +23,9 @@ export type LinkedText = { text: string; link?: { anchor: string; href: string }
 export const HERO = {
   eyebrow: "Custom Software Development UK",
   h1: "Custom Software Development Services",
-  h1Accent: "Built Around How Your Business Works",
+  h1Accent: "Built Around How You Work",
   lead:
-    "ClickMasters designs, builds and supports bespoke software for UK businesses: web applications, SaaS platforms, CRM and ERP systems, integrations and process automation. We replace spreadsheets, disconnected tools and manual workarounds with one reliable system that fits your operation and can grow with it.",
+    "ClickMasters is a custom software development firm that designs, builds and supports bespoke software for UK businesses: web applications, SaaS platforms, CRM and ERP systems, integrations and process automation. As a bespoke software development company, we replace spreadsheets, disconnected tools and manual workarounds with one reliable system that fits how your business works and can grow with it.",
   audience:
     "For founders validating a new product, operations leaders who have outgrown off-the-shelf tools, and CTOs who need an experienced team for complex, integration-heavy builds.",
   // VERIFY: timelines and engagement models come from the live site FAQs.
@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
   {
     id: "saas-application-development",
     icon: "saas",
-    title: "SaaS Application Development",
+    title: "SaaS and Custom Software Development for Startups",
     intro: "Subscription software that many customers use from a single platform, where each customer's data stays separate and each plan unlocks the right features.",
     fields: [
       { label: "Problems it addresses", text: "Founders who need to validate an idea quickly without building something they will have to throw away when it succeeds." },
@@ -223,7 +223,7 @@ export const INDUSTRIES_INTRO: LinkedText = {
 
 // VERIFY: the copy describes requirements, not completed projects (pack note).
 export const INDUSTRIES = [
-  { icon: "health", title: "Healthcare & MedTech", text: "Patient portals, appointment workflows and integrations with clinical record systems.", considerations: ["Special category data under UK GDPR", "NHS DSPT where connecting to NHS systems", "HL7 FHIR interoperability"] },
+  { icon: "health", title: "Custom Software Development for Healthcare & MedTech", text: "Patient portals, appointment workflows and integrations with clinical record systems.", considerations: ["Special category data under UK GDPR", "NHS DSPT where connecting to NHS systems", "HL7 FHIR interoperability"] },
   { icon: "finance", title: "Finance & Fintech", text: "Billing engines, ledgers, client onboarding and compliance reporting.", considerations: ["Full audit trails", "PCI DSS scope reduction", "FCA operational resilience expectations"] },
   { icon: "ecommerce", title: "E-Commerce", text: "Marketplaces, order management and payment gateway integration.", considerations: ["Peak-traffic scaling", "Stock sync across channels", "Hosted payment pages"] },
   { icon: "edtech", title: "EdTech & E-Learning", text: "Learning platforms, assessments and student dashboards.", considerations: ["ICO Children's Code where under-18s use the service", "Accessibility"] },
@@ -338,10 +338,11 @@ export const FAQS: { q: string; a: string[] }[] = [
   {
     q: "How much does custom software development cost in the UK?",
     a: [
-      "Cost depends on complexity, the number of features and integrations, design requirements, architecture, data migration, security needs and testing depth, plus ongoing hosting and maintenance. A focused MVP costs far less than a multi-department enterprise system.",
-      "ClickMasters offers fixed-price and time-and-materials models. After a free consultation and discovery, we provide a clear estimate broken into milestones, along with expected running costs, so you can judge the total cost of ownership rather than the build price alone.",
+      "There is no honest single figure, because a focused MVP costs far less than a multi-department enterprise system. ClickMasters offers fixed-price and time-and-materials models. After a free consultation and discovery, we provide a clear estimate broken into milestones, along with expected running costs, so you can judge the total cost of ownership rather than the build price alone.",
     ],
   },
+  { q: "What drives the cost of custom software development?", a: ["Cost depends on complexity, the number of features and integrations, design requirements, architecture, data migration, security needs and testing depth. Ongoing hosting, monitoring and maintenance also count, because they continue for the life of the system. A tightly prioritised first release is the most reliable way to keep the initial build cost in proportion to the value it delivers."] },
+  { q: "What are the benefits of custom software development?", a: ["The main benefits are fit, integration and control. The software follows your process instead of forcing workarounds, it can connect to legacy and sector-specific systems, and there are no per-user licence fees as headcount grows. You control the roadmap and data, subject to your contract terms. The trade-offs are a higher upfront cost and ongoing maintenance, so it suits processes that set you apart."] },
   { q: "How long does bespoke software development take?", a: ["Most MVPs are delivered in 6–8 weeks, and full-scale enterprise solutions typically take 3–6 months. The main variables are scope, the number of integrations, data migration and how quickly decisions and feedback come back from your side. We work in two-week sprints with weekly demos, so usable software arrives well before the final release."] },
   { q: "What is the difference between bespoke and off-the-shelf software?", a: ["Off-the-shelf software is a ready-made product sold to many customers. It is quick to set up and cheaper at the start, but you are limited to its features, integrations and pricing. Bespoke software is built for your organisation, so it fits your process and integrates with your systems, but it needs a larger upfront investment and ongoing maintenance. Many businesses use both: products for standard functions and custom software where their process is distinctive."] },
   { q: "Can custom software integrate with our existing systems?", a: ["Yes. We build secure API integrations with CRMs, ERPs, payment gateways, accounting tools and legacy software. Where an older system has no API, we can integrate through its database, file exchange or a purpose-built middleware layer. Integrations are documented, tested against sandbox environments and monitored, so failures raise alerts instead of going unnoticed."] },
@@ -357,7 +358,8 @@ export const FAQS: { q: string; a: string[] }[] = [
   { q: "How do you protect business data?", a: ["Security is built into every project. We follow OWASP standards and GDPR best practice, encrypt data, apply role-based access so people only see what their role requires, and carry out regular security testing. We sign NDAs on request before you share sensitive details. For regulated data, we agree hosting location, retention and audit requirements during architecture planning."] },
   { q: "Do you provide ongoing software maintenance?", a: ["Yes. After launch we provide monitoring, bug fixes, security updates, dependency upgrades, performance improvements and new feature development, with flexible support plans and 24/7 assistance for critical systems. Regular maintenance keeps the system secure and stops it turning into the next legacy system."] },
   { q: "Can you modernise legacy software?", a: ["Yes. We start with an audit of the code, data and integrations, then recommend whether to rehost, refactor, re-platform or replace the system. Where possible we modernise incrementally, replacing one function at a time while the existing system keeps running, so operations are not disrupted and every step can be tested and rolled back."] },
-  { q: "How do I start a custom software project?", a: ["Start with a conversation about the problem rather than a feature list. Tell us what is slowing your team down, which systems are involved, who will use the software and any deadlines or budget constraints. We will arrange a free consultation, recommend the right approach (including whether an existing product would do the job) and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
+  { q: "Do you work with businesses in London?", a: ["Yes. We can work with businesses in London and anywhere else in the UK. Projects run remotely: discovery workshops, sprint reviews and weekly demos take place over video call, and you can reach the team on our UK phone line. If you are comparing custom software development London providers, or any bespoke software development company UK-wide, judge each one on process, communication and support terms."] },
+  { q: "How do I start a project with a custom software development agency?", a: ["Start with a conversation about the problem rather than a feature list. Tell us what is slowing your team down, which systems are involved, who will use the software and any deadlines or budget constraints. We will arrange a free consultation, recommend the right approach (including whether an existing product would do the job) and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
 ];
 
 export const FINAL_CTA = {

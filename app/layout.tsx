@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import JsonLd from "./Components/JsonLd";
 import ScrollToTop from "./component/ScrolltoTop";
+import HashlessAnchors from "./Components/HashlessAnchors";
 import { SITE, siteJsonLd } from "./lib/site";
 import { siteNavigationJsonLd } from "./config/navigation";
 
@@ -54,6 +55,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        {/* Keeps "#section" fragments out of the address bar on every page. */}
+        <HashlessAnchors />
       </body>
     </html>
   );

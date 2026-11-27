@@ -4,7 +4,7 @@
  * device shape (no Apple/Google frames, logos or store badges, per the pack).
  * The rest are responsive HTML diagrams built from shared parts.
  */
-import { RiArrowDownLine, RiLoopLeftLine } from "react-icons/ri";
+import { RiArrowDownLine, RiLoopLeftLine } from "../../Components/icons";
 import { CAPS, Connector, Flow, Node, NodeList, type FlowStep } from "../../Components/DiagramParts";
 import { LINE, PURPLE, PURPLE_SOFT, TEAL, TEAL_SOFT, caps, label } from "../ServiceDiagrams";
 

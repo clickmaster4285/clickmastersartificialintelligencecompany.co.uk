@@ -42,27 +42,27 @@ const IMG = "/assets/Services/generative-ai";
 export const IMAGES = {
   pipeline: {
     src: `${IMG}/generative-ai-controlled-pipeline.png`, width: 1080, height: 800,
-    alt: "A controlled generative AI pipeline: structured inputs and approved source material feed versioned prompt templates and a model, automated checks filter the output, and a reviewer approves content before it is published",
+    alt: "Diagram of a generative AI pipeline: inputs, approved sources, templates, model, checks and review",
   },
   solutions: {
     src: `${IMG}/generative-ai-solution-types.png`, width: 1720, height: 560,
-    alt: "Generative AI solution types: content from structured data, summarisation, transcription, content transformation, image variation, knowledge assistants, learning content and in-application drafting, each with a human review step",
+    alt: "Diagram of eight generative AI solution types, each ending in a human review step",
   },
   architecture: {
     src: `${IMG}/generative-ai-architecture.png`, width: 1720, height: 620,
-    alt: "Generative AI application architecture: a business application sends inputs to an orchestration layer that applies templates, retrieves approved data and calls a model, with schema validation and quality checks before a review screen",
+    alt: "Diagram of a generative AI app: orchestration, templates, retrieval, model calls, checks and review",
   },
   compare: {
     src: `${IMG}/genai-agents-rag-finetuning.png`, width: 1720, height: 460,
-    alt: "Comparison of generative AI development, AI agents, retrieval-augmented generation and LLM fine-tuning by focus and the question each answers",
+    alt: "Diagram comparing generative AI development, AI agents, RAG and LLM fine-tuning by focus",
   },
   review: {
     src: `${IMG}/generative-ai-review-workflow.png`, width: 1720, height: 560,
-    alt: "Review workflow: generated drafts queue for a reviewer with edit, approve and reject actions, while approval rate, edits, failure reasons and cost per item are tracked on a dashboard",
+    alt: "Diagram of a review queue with edit, approve and reject actions beside a quality and cost dashboard",
   },
   readyMade: {
     src: `${IMG}/custom-vs-ready-made-genai.png`, width: 1720, height: 470,
-    alt: "Comparison of ready-made AI assistants, simple API integrations and custom generative AI applications by what each suits and what to watch for",
+    alt: "Diagram comparing ready-made AI assistants, simple API integrations and custom generative AI apps",
   },
   // Photo: Jakub Żerdzicki (unsplash.com/photos/1q8vISKELBU)
   drafting: {
@@ -72,21 +72,21 @@ export const IMAGES = {
   // Photo: Tanja Tepavac (unsplash.com/photos/81ikZZG7_AA)
   documents: {
     src: `${IMG}/generative-ai-tabbed-documents.webp`, width: 1200, height: 800,
-    alt: "A tall stack of printed documents marked with colourful sticky tabs, waiting to be read and summarised",
+    alt: "A tall stack of printed documents marked with colourful sticky tabs",
   },
   // Photo: Klim Musalimov (unsplash.com/photos/fxHq67K11-E)
   microphone: {
     src: `${IMG}/generative-ai-podcast-microphone.webp`, width: 900, height: 1350,
-    alt: "A condenser microphone in a shock mount on an adjustable boom arm, ready to record speech for transcription",
+    alt: "A condenser microphone in a shock mount on an adjustable boom arm",
   },
 } as const;
 
 export const HERO = {
   eyebrow: "Generative AI Development UK",
   title: "Generative AI Development Services UK:",
-  titleAccent: "Applications That Create, Summarise and Transform Content to Your Standards",
+  titleAccent: "Content to Your Standards",
   lead:
-    "Most organisations have already tried generative AI in a chat window. The results are impressive in a demo and inconsistent in practice: drafts in the wrong tone, summaries that miss the point, facts that sound right but are not, and no record of how anything was produced. The gap between an experiment and a dependable business tool is engineering.",
+    "As a generative AI development company, ClickMasters builds applications that create, summarise and transform content to your standards. Most organisations have already tried generative AI in a chat window. The results are impressive in a demo and inconsistent in practice: drafts in the wrong tone, summaries that miss the point, facts that sound right but are not, and no record of how anything was produced. The gap between an experiment and a dependable business tool is engineering.",
   audience:
     "ClickMasters builds generative AI applications and pipelines that produce text, summaries, transcripts and images as part of real workflows. We agree the standards the output must meet before we build, connect the approved data it should draw on, add automated checks, and keep a person in control wherever content is published or acted upon.",
   stats: [
@@ -127,7 +127,7 @@ export const SOLUTIONS = [
 
 export const SERVICES = [
   { icon: "assess", title: "Use-case assessment and feasibility", text: "Testing current models on samples of your real content to show what is achievable, what it would cost per item and where the risks are, before committing to a build." },
-  { icon: "build", title: "Custom generative AI application development", text: "Complete applications built around a specific content task, with inputs, templates, checks, review workflow and reporting." },
+  { icon: "build", title: "Custom generative AI development services", text: "Complete applications built around a specific content task, with inputs, templates, checks, review workflow and reporting." },
   { icon: "plug", title: "Generative AI integration services", text: "Adding generative features to your existing products, portals and internal tools through APIs, with the user interface and back-end changes needed. Where the feature sits inside a browser-based product or portal, our [web application development](/services/web-application-development) team builds the interface and review screens around it." },
   { icon: "flow", title: "Content pipelines and review workflows", text: "Controlled generation pipelines for high-volume content, with automated quality gates and approve, edit and reject actions for reviewers." },
   { icon: "doc", title: "Document intelligence and summarisation", text: "Summarisation, structuring and transcription systems for documents, calls and meetings." },

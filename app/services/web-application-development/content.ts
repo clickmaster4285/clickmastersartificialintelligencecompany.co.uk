@@ -9,9 +9,9 @@
 export const PATH = "/services/web-application-development";
 
 export const SEO = {
-  title: "Web Application Development UK | Custom Web Apps",
+  title: "Web Application Development UK",
   description:
-    "Web application development services for UK businesses: secure, scalable portals, dashboards and SaaS built with React and Next.js, integrated with your systems.",
+    "Web application development services for UK businesses: secure, scalable portals, dashboards and SaaS built with React and Next.js, linked to your systems.",
   ogTitle: "Web Application Development Company UK | ClickMasters",
   ogDescription:
     "Customer portals, dashboards, SaaS and business web apps, engineered for security, speed and integration with the software you already use.",
@@ -22,9 +22,9 @@ export type LinkedText = { text: string; link?: { anchor: string; href: string }
 export const HERO = {
   eyebrow: "Web Application Development UK",
   title: "Web Application Development Services",
-  titleAccent: "for Secure, Scalable Business Apps",
+  titleAccent: "for Secure, Scalable Apps",
   lead:
-    "ClickMasters builds browser-based applications that run core parts of your business: customer portals, operational dashboards, booking systems, SaaS products and internal tools. We design the interface, engineer the back end and database, connect your existing software, and keep the application fast and secure as usage grows.",
+    "ClickMasters provides custom web application development for UK businesses: secure, scalable browser-based applications that run core parts of your business, such as customer portals, operational dashboards, booking systems, SaaS products and internal tools. If you are comparing web application development agencies, this is what we cover: we design the interface, engineer the back end and database, connect your existing software, and keep the application fast and secure as usage grows.",
   audience:
     "For businesses replacing spreadsheets or outdated desktop software, founders launching a web-based product, and technology leaders who need a dependable full-stack team.",
   stats: [
@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
     id: "custom-web-application-development",
     icon: "custom",
     title: "Custom Web Application Development",
-    intro: "An application designed from scratch around one business's users, data and rules, rather than a template or a configured product.",
+    intro: "An application designed from scratch around one business's users, data and rules, rather than a template or a configured product. In the UK this is often called bespoke web application development.",
     fields: [
       { label: "Who needs it", text: "Businesses whose process does not fit packaged software, or who are stitching several tools together with manual steps." },
       { label: "Functionality", text: "Role-specific screens, forms with business validation, search and filtering, notifications, document generation and audit history." },
@@ -402,7 +402,7 @@ export const COST = {
 export const FAQS: { q: string; a: string[] }[] = [
   { q: "What is web application development?", a: ["Web application development is the design, build, testing, deployment and maintenance of software that runs in a web browser and lets users complete tasks, such as managing orders, bookings, records or workflows. It covers the front end (the interface), the back end (business logic, security and APIs), the database and the hosting infrastructure."] },
   { q: "What is the difference between a website and a web application?", a: ["A website mainly publishes information for visitors to read. A web application lets users do things: log in, enter and change data, follow workflows and see information specific to them. Many businesses have both: a public website to attract customers, and a web application such as a portal or booking system that customers and staff use once they are engaged."] },
-  { q: "How much does web application development cost in the UK?", a: ["Cost depends on complexity, the number of user roles, frontend functionality, backend architecture, data and migration needs, integrations, security, design, testing, deployment and ongoing maintenance. A focused MVP costs far less than an enterprise platform with single sign-on and several integrations. ClickMasters offers fixed-price and time-and-materials models and provides a clear estimate with milestones after a free consultation."] },
+  { q: "What affects the cost of web application development in the UK?", a: ["Cost depends on complexity, the number of user roles, frontend functionality, backend architecture, data and migration needs, integrations, security, design, testing, deployment and ongoing maintenance. A focused MVP costs far less than an enterprise platform with single sign-on and several integrations. ClickMasters offers fixed-price and time-and-materials models and provides a clear estimate with milestones after a free consultation."] },
   { q: "How long does it take to develop a web application?", a: ["Most MVPs are delivered in 6–8 weeks, and full-scale enterprise applications typically take 3–6 months. The timeline depends on scope, integrations, data migration and how quickly feedback and decisions come back. Weekly demos mean you see working software long before launch."] },
   { q: "Which technologies are used to build web applications?", a: ["We commonly use React and Next.js with TypeScript for the front end; Node.js, Python with Django or Laravel for the back end; PostgreSQL, MySQL or MongoDB for data, with Redis for caching; and AWS, Azure or Google Cloud with Docker and CI/CD pipelines for hosting and delivery. The right combination depends on the application's workload, integrations and who will maintain it."] },
   { q: "Can a web application integrate with existing business software?", a: ["Yes. We build secure API integrations with CRMs, ERPs, payment gateways, accounting tools and legacy software. Where an older system has no API, integration can use its database, file exchange or a middleware layer. Integrations are documented, tested against sandbox environments and monitored so failures raise alerts."] },
@@ -411,7 +411,8 @@ export const FAQS: { q: string; a: string[] }[] = [
   { q: "How do you secure web applications?", a: ["We follow OWASP guidance and GDPR best practice: secure authentication, server-side authorisation on every request, input validation, encrypted data in transit and at rest, hardened session handling, secret management, dependency patching, backups, regular security testing and monitoring. No supplier can honestly guarantee an application is unbreachable, but these controls address the weaknesses most commonly exploited."] },
   { q: "Can an existing web application be upgraded?", a: ["Yes. We start by auditing the code, dependencies, data and integrations, then recommend whether to upgrade in place, refactor, or rebuild in stages. Staged modernisation replaces screens or modules one at a time behind a shared routing layer, so the application keeps running throughout."] },
   { q: "Do you provide application maintenance?", a: ["Yes. Maintenance includes monitoring, bug fixes, security and dependency updates, browser compatibility, performance tuning and new features, with flexible support plans and 24/7 assistance for critical systems."] },
-  { q: "How do I start a web application development project?", a: ["Tell us what the application needs to achieve, who will use it, which systems it must connect to and any deadlines or budget constraints. Rough notes or screenshots of your current process are enough to begin. We will arrange a free consultation, suggest the right approach and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
+  { q: "What should I look for when comparing web application development companies?", a: ["Look at how each supplier handles discovery, security, testing and support, not just the headline price. Ask who will maintain the application after launch, whether the estimate includes hosting and support costs, how integrations are tested and monitored, and who owns the source code under the contract. Whether you choose us or another custom web application development company, weekly demos and a clear change process help you stay in control."] },
+  { q: "How do I start a project with a web application development agency?", a: ["Tell us what the application needs to achieve, who will use it, which systems it must connect to and any deadlines or budget constraints. Rough notes or screenshots of your current process are enough to begin. We will arrange a free consultation, suggest the right approach and follow up with a scoped estimate and milestones. We usually respond within a few hours."] },
 ];
 
 export const FINAL_CTA = {

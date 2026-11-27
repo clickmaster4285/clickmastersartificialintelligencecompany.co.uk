@@ -3,7 +3,7 @@
 // app/config/services-catalog.ts; copy from ./hub-content.ts.
 // The former AI page now lives at /services/ai-development.
 import Link from "next/link";
-import { RiArrowRightLine, RiSparklingFill } from "react-icons/ri";
+import { RiArrowRightLine, RiSparklingFill } from "../Components/icons";
 
 import JsonLd from "../Components/JsonLd";
 import Breadcrumbs from "../Components/Breadcrumbs";
@@ -31,7 +31,7 @@ function ServiceCard({ service }) {
         href={service.href}
         className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#AF00E8] after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8]"
       >
-        Learn more<span className="sr-only"> about {service.name}</span>
+        Learn more about our {service.anchor}
         <RiArrowRightLine aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </Link>
     </li>

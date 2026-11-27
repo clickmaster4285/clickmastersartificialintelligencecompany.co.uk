@@ -9,9 +9,10 @@ import {
   RiErrorWarningLine, RiFileList3Line, RiFileShield2Line, RiFileTextLine, RiFlowChart, RiFocus3Line,
   RiKey2Line, RiLineChartLine, RiPlugLine, RiScales3Line, RiSearchEyeLine, RiShieldCheckLine,
   RiStackLine, RiTeamLine, RiTestTubeLine, RiUserLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   ComparisonTable, FaqSection, FinalCta, IconCardGrid, ProcessGrid, RichText, ServiceHero, faqPageJsonLd,
@@ -122,6 +123,8 @@ export default function GenerativeAiDevelopment() {
         figcaption="Automated checks catch most issues; a person approves what is published."
       />
 
+      <ScopingCallBlock path={PATH} service="generative AI development" />
+
       {/* ───────────── What generative AI development is ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -174,7 +177,7 @@ export default function GenerativeAiDevelopment() {
       <section aria-labelledby="services-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="services-heading" eyebrow="Generative AI application development">Our Generative AI Development Services</SectionHeading>
+            <SectionHeading id="services-heading" eyebrow="Generative AI application development">Our Generative AI Services</SectionHeading>
           </div>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICES.map((s) => (
@@ -324,7 +327,8 @@ export default function GenerativeAiDevelopment() {
             <SectionHeading id="why-heading" eyebrow="Generative AI development company">Why Consider Custom Generative AI Development?</SectionHeading>
             <TermList items={WHY.reasons} />
           </div>
-          <h3 className="mt-16 text-2xl font-bold text-[#1a1a1a] lg:text-3xl" style={SERIF}>How ClickMasters approaches it</h3>
+          <h3 className="mt-16 text-2xl font-bold text-[#1a1a1a] lg:text-3xl" style={SERIF}>What to Look For in Generative AI Development Companies</h3>
+          <p className={`mt-4 max-w-3xl ${P}`}>The points below describe how ClickMasters works as a generative AI services company, and they are worth checking with any supplier you consider.</p>
           <div className="mt-8">
             <IconCardGrid items={withIcons(WHY.approach)} columns="sm:grid-cols-2 lg:grid-cols-3" compact />
           </div>

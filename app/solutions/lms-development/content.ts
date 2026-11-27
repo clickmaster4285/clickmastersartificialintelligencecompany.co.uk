@@ -33,33 +33,33 @@ const IMG = "/assets/Solution/lms";
 export const IMAGES = {
   roles: {
     src: `${IMG}/lms-roles-and-dashboards.png`, width: 1080, height: 800,
-    alt: "An LMS at a glance: learners, tutors, managers and administrators each with their own dashboard over shared courses, assessments and reporting, connected to HR, CRM, single sign-on and payment systems",
+    alt: "Diagram of learner, tutor, manager and admin dashboards over shared courses and linked systems",
   },
   routes: {
     src: `${IMG}/lms-build-vs-buy-routes.png`, width: 1720, height: 560,
-    alt: "Three LMS routes compared: ready-made platform, tailored LMS foundation and fully custom build, by speed to start, flexibility and ongoing ownership",
+    alt: "Chart comparing ready-made, tailored and fully custom LMS routes by speed, flexibility and ownership",
   },
   features: {
     src: `${IMG}/lms-features-by-organisation.png`, width: 1720, height: 640,
-    alt: "Matrix of LMS features needed by employers, training providers, schools, course businesses and customer-training teams, marking each feature as usually essential, often useful or rarely needed at first",
+    alt: "Matrix of LMS features against five organisation types, marked essential, useful or rarely needed",
   },
   architecture: {
     src: `${IMG}/lms-architecture.png`, width: 1720, height: 600,
-    alt: "LMS architecture: web and mobile front end, API layer for roles, enrolment rules, assessments and reporting, database, file and video storage and reporting store, with HR, CRM, single sign-on, payment and video integrations",
+    alt: "LMS architecture diagram: front end, API layer, database and storage, with external integrations",
   },
   process: {
     src: `${IMG}/lms-development-process.png`, width: 1720, height: 340,
-    alt: "Six-step LMS development process: discovery, route recommendation, experience and architecture design, build in sprints, migration and testing, launch and continuous improvement",
+    alt: "Six-step LMS development process diagram, from discovery through build and testing to launch",
   },
   // Photo: Christina @ wocintechchat.com (unsplash.com/photos/Q80LYxv_Tbs)
   workplace: {
     src: `${IMG}/lms-workplace-training-session.webp`, width: 1200, height: 801,
-    alt: "Colleagues around a long meeting table with laptops, watching a trainer write on a whiteboard during a workplace training session",
+    alt: "Colleagues with laptops at a long table watching a trainer write on a whiteboard",
   },
   // Photo: Quilia (unsplash.com/photos/1-aA2Fadydc)
   classroom: {
     src: `${IMG}/lms-training-provider-classroom.webp`, width: 1200, height: 800,
-    alt: "Adult learners in a training room following a presenter and a projected slide, some taking notes on tablets and notebooks",
+    alt: "Adult learners in a training room following a presenter and a projected slide",
   },
   // Photo: The Climate Reality Project (unsplash.com/photos/Hb6uWq0i4MI)
   notes: {
@@ -70,10 +70,10 @@ export const IMAGES = {
 
 export const HERO = {
   eyebrow: "LMS Development UK",
-  title: "LMS Development Solutions:",
-  titleAccent: "Custom Learning Management Systems for UK Organisations",
+  title: "LMS Development Company:",
+  titleAccent: "Custom Learning Management Systems",
   lead:
-    "Most organisations looking for a new learning platform already have one. It is just an LMS nobody enjoys using, a shared drive of PDFs, or completion records kept in spreadsheets. Courses exist, but learners cannot find them, managers cannot see who is overdue, and reporting for an audit takes days.",
+    "Our LMS development services help UK organisations replace learning platforms that no longer fit, through custom LMS development shaped around how your people learn. Most organisations looking for a new learning platform already have one. It is just an LMS nobody enjoys using, a shared drive of PDFs, or completion records kept in spreadsheets. Courses exist, but learners cannot find them, managers cannot see who is overdue, and reporting for an audit takes days.",
   // VERIFY: confirm course delivery, assessments, learner dashboards and reporting exist as a reusable LMS foundation.
   audience:
     "ClickMasters designs, builds and tailors learning management systems around how your organisation actually trains people. We start from a ready-to-customise LMS foundation for course delivery, assessments, learner dashboards and reporting, then shape the learning paths, roles, branding and integrations around your learners, whether they are employees, students, customers or paying course members.",
@@ -253,7 +253,7 @@ export const FAQS: { q: string; a: string[] }[] = [
   { q: "Can learners use the LMS on mobile devices?", a: ["Yes. Platforms are responsive in any modern browser, and where learners need offline access or app features such as notifications, we can build companion iOS and Android apps."] },
   { q: "Can you add AI features to an LMS?", a: ["Yes. Typical examples are assessment and question-bank drafting from approved material, and learning assistants that answer learners' questions from your course content. A human review step stays in place wherever content reaches learners."] },
   { q: "How do you handle learner data and accessibility?", a: ["We design to UK GDPR principles with defined retention, role-based access and encryption; take account of the ICO Children's Code where under-18s use the platform; and design interfaces to WCAG so learners with disabilities can use them. Your own legal obligations should be confirmed with your advisers."] },
-  { q: "How much does custom LMS development cost?", a: ["Cost depends on how much of the foundation can be used as is, the custom features required, the number and complexity of integrations, content and data migration, mobile apps, and ongoing support. We provide a fixed-price or time-and-materials estimate with milestones once requirements are understood."] },
+  { q: "What affects LMS development cost?", a: ["Cost depends on how much of the foundation can be used as is, the custom features required, the number and complexity of integrations, content and data migration, mobile apps, and ongoing support. We provide a fixed-price or time-and-materials estimate with milestones once requirements are understood."] },
   // VERIFY: owner to confirm the IP and code-ownership position (pack note). Only the confirmed part is published.
   { q: "Who owns the platform and the content?", a: ["Your courses and learner data remain yours. Ownership of the platform code is set out in the contract and agreed before work starts."] },
 ];

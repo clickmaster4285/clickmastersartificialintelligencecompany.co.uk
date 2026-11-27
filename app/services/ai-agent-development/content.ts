@@ -37,27 +37,27 @@ const IMG = "/assets/Services/ai-agents";
 export const IMAGES = {
   flow: {
     src: `${IMG}/ai-agent-task-flow.png`, width: 1080, height: 800,
-    alt: "How an AI agent completes a task: a request arrives, the agent plans steps, calls permitted tools such as CRM, order and ticketing APIs, checks results, asks a person to approve a high-impact action and logs every step",
+    alt: "Diagram of an AI agent planning a request, calling permitted tools, getting approval and logging it",
   },
   architecture: {
     src: `${IMG}/ai-agent-architecture.png`, width: 1720, height: 620,
-    alt: "AI agent architecture: trigger, context, planning, tool calling through a permissions layer to business systems, validation and approval gates, and logging feeding monitoring and evaluation",
+    alt: "Diagram of AI agent architecture: trigger, planning, permitted tool calls, approval gates, logging",
   },
   autonomy: {
     src: `${IMG}/ai-agent-autonomy-levels.png`, width: 1720, height: 520,
-    alt: "Three levels of agent autonomy matched to risk: suggest, act with approval and act within limits, with examples for each",
+    alt: "Diagram of three agent autonomy levels: suggest, act with approval and act within limits",
   },
   compare: {
     src: `${IMG}/agents-rag-finetuning-automation.png`, width: 1720, height: 460,
-    alt: "Comparison of AI agents, retrieval-augmented generation, LLM fine-tuning and traditional automation by what each does and what it suits",
+    alt: "Diagram comparing AI agents, RAG, LLM fine-tuning and traditional automation by what each suits",
   },
   guardrails: {
     src: `${IMG}/ai-agent-guardrails.png`, width: 1720, height: 640,
-    alt: "Agent guardrails: least-privilege tools, untrusted input handling, output validation, human approval, error handling and audit logging around the language model",
+    alt: "Diagram of guardrails around a language model: scoped tools, validation, approval and audit logging",
   },
   evaluation: {
     src: `${IMG}/ai-agent-evaluation.png`, width: 1720, height: 470,
-    alt: "Agent evaluation: scripted scenarios scored for task success, tool-call accuracy, safe behaviour, escalation and cost before each release, widening scope only when results justify it",
+    alt: "Diagram of agent evaluation: scripted scenarios scored for task success, safety and cost",
   },
   // Photo: Beatriz Cattel (unsplash.com/photos/LycaA7rWsHc)
   team: {
@@ -79,9 +79,9 @@ export const IMAGES = {
 export const HERO = {
   eyebrow: "AI Agent Development UK",
   title: "AI Agent Development Services UK:",
-  titleAccent: "Custom AI Agents That Complete Real Tasks Across Your Systems, Within Limits You Control",
+  titleAccent: "Custom Agents for Real Tasks",
   lead:
-    "In most organisations, a surprising amount of skilled time goes on being the glue between systems: reading a request, looking something up in one screen, checking it in another, drafting a reply, updating a record and raising a ticket. The work is routine, but it varies too much for a fixed automation to handle reliably.",
+    "As an AI agent development company, ClickMasters builds custom AI agents that complete real tasks across your systems, within limits you control. In most organisations, a surprising amount of skilled time goes on being the glue between systems: reading a request, looking something up in one screen, checking it in another, drafting a reply, updating a record and raising a ticket. The work is routine, but it varies too much for a fixed automation to handle reliably.",
   audience:
     "ClickMasters designs and builds AI agents for exactly this kind of work. An agent uses a language model to interpret a request, plan the steps, and call the tools you allow it to use, such as your APIs, databases and knowledge sources. We build agents that start with a narrow, well-defined task, act only within scoped permissions, ask a person before anything consequential happens, and record every step they take.",
   stats: [
@@ -168,7 +168,7 @@ export const TECH = {
     { title: "Logging, monitoring and evaluation", text: "Every request, model response, tool call, approval and outcome is logged, giving a full audit trail and the data needed to evaluate and improve the agent." },
     { title: "Hosting", text: "Deployment on AWS or Microsoft Azure, in containers, in the region your data requirements need." },
   ],
-  stackTitle: "Our agent technology stack",
+  stackTitle: "Our stack for building AI agents",
   stack: [
     ["Models", "OpenAI GPT, Anthropic Claude, Meta Llama, Mistral, via model tool-calling APIs"],
     ["Orchestration", "Python, LangChain"],
@@ -288,9 +288,11 @@ export const PARTNER = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
+  { q: "What are AI agents?", a: ["AI agents are software that combines a language model with a defined set of tools and a goal. Rather than following a fixed script, an agent decides what to do next: which tool to call, how to read the result, and whether the task is finished or needs a person. It can only act through the tools it is given."] },
   { q: "What is AI agent development?", a: ["AI agent development is the design and engineering of software that uses a language model to interpret a goal, plan the steps and call tools, such as APIs, databases and search, to complete a task, within permissions, approval steps and logging defined by the business."] },
   { q: "What is the difference between an AI agent and a chatbot?", a: ["A chatbot answers messages. An AI agent can also take actions: it plans steps and calls tools such as looking up an order, updating a record or raising a ticket, within the permissions it has been given."] },
-  { q: "What is the difference between AI agents and traditional automation?", a: ["Traditional automation follows a fixed, predefined workflow, which is predictable and cheap for stable processes. An agent decides its steps at run time, so it can handle varied requests, but it is less predictable and needs stronger guardrails. Many systems combine both."] },
+  { q: "What advantage do AI agents have over traditional automation?", a: ["Traditional automation follows a fixed, predefined workflow, which is predictable and cheap for stable processes. An agent decides its steps at run time, so it can handle varied requests, but it is less predictable and needs stronger guardrails. Many systems combine both."] },
+  { q: "Agentic AI vs AI agents: what is the difference?", a: ["The terms overlap. An AI agent is a specific piece of software that uses a language model and tools to complete a task. Agentic AI is the broader term for systems that plan steps and act with some autonomy, which may involve one agent or several working together. In practice, what matters is what a system is allowed to do, and with which permissions."] },
   { q: "Can AI agents integrate with our existing business software?", a: ["Yes. Agents call your systems through their APIs, such as CRM, order, ticketing and back-office systems. Where no modern API exists, secure middleware can be built so the agent never needs direct database or screen access."] },
   { q: "Can AI agents work with private company data?", a: ["Yes, through tools and retrieval that respect your access controls. Agents act under scoped accounts or the user's own permissions, and models can be hosted in an environment you control where data must not leave it."] },
   { q: "Are AI agents safe for business operations?", a: ["They can be, when designed for it: least-privilege tools, untrusted handling of all input, validation of outputs, human approval for high-impact actions, explicit error handling and full audit logs. No agent is error-free, so autonomy should match the risk of each action."] },

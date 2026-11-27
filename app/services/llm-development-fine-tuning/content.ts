@@ -35,51 +35,51 @@ const IMG = "/assets/Services/llm";
 export const IMAGES = {
   hero: {
     src: `${IMG}/llm-baseline-to-tuned-model.png`, width: 1080, height: 800,
-    alt: "From baseline to tuned model: benchmark existing models, curate training and evaluation data, fine-tune with LoRA adapters, then compare accuracy, format compliance, latency and cost, deploying only if the tuned model beats the baseline",
+    alt: "Diagram: baseline benchmark, curated data, LoRA fine-tuning and evaluation leading to a tuned model",
   },
   compare: {
     src: `${IMG}/prompting-rag-fine-tuning-comparison.png`, width: 1720, height: 560,
-    alt: "Comparison of prompt engineering, retrieval-augmented generation and fine-tuning by what each changes: the instructions, the information supplied, or the model's weights",
+    alt: "Diagram comparing prompt engineering, RAG and fine-tuning by what each one changes",
   },
   lora: {
     src: `${IMG}/lora-adapter-diagram.png`, width: 1720, height: 600,
-    alt: "LoRA illustrated: a frozen base model with small trainable low-rank adapter matrices added to selected layers, producing a compact task-specific adapter",
+    alt: "Diagram of a frozen base model with small trainable LoRA adapter matrices added to selected layers",
   },
   data: {
     src: `${IMG}/llm-training-data-pipeline.png`, width: 1720, height: 420,
-    alt: "Training data pipeline: collect examples, apply labelling guidelines, clean and deduplicate, format, split into training, validation and held-out test sets, and version",
+    alt: "Diagram of a training data pipeline: collect, label, clean, format, split and version examples",
   },
   scorecard: {
     src: `${IMG}/llm-evaluation-scorecard.png`, width: 1720, height: 640,
-    alt: "Illustrative evaluation scorecard comparing a prompted baseline with a fine-tuned model on task accuracy, format compliance, latency and cost per request, with a ship-only-if-better decision rule",
+    alt: "Illustrative scorecard comparing a prompted baseline with a fine-tuned model on four metrics",
   },
   deployment: {
     src: `${IMG}/llm-private-deployment.png`, width: 1720, height: 560,
-    alt: "Private deployment: a fine-tuned open-weight model with task adapters served inside a dedicated private cloud network, called by business applications through an authenticated API, with logging and monitoring",
+    alt: "Diagram of a fine-tuned open-weight model served in a private cloud network via an authenticated API",
   },
   // Photo: Brecht Corbeel (unsplash.com/photos/28jfmTAiLdI)
   board: {
-    src: `${IMG}/llm-motherboard-processor.webp`, width: 1200, height: 800,
+    src: `${IMG}/llm-motherboard-processor.webp`, width: 960, height: 640,
     alt: "Close-up render of a computer motherboard with a central processor and illuminated circuit traces",
   },
   // Photo: Winston Chen (unsplash.com/photos/iZe21DzHnUg)
   fans: {
-    src: `${IMG}/llm-server-cooling-fans.webp`, width: 1200, height: 800,
+    src: `${IMG}/llm-server-cooling-fans.webp`, width: 960, height: 640,
     alt: "Rows of server cooling fans and coolant pipes in a data centre lit in purple and blue",
   },
   // Photo: Taylor Vick (unsplash.com/photos/aWslrFhs1w4)
   datacentre: {
-    src: `${IMG}/llm-data-centre-hall.webp`, width: 1200, height: 675,
+    src: `${IMG}/llm-data-centre-hall.webp`, width: 1080, height: 607,
     alt: "A data centre hall with server cabinets beneath overhead cable trays carrying blue network cables",
   },
 } as const;
 
 export const HERO = {
   eyebrow: "LLM Fine-Tuning UK",
-  title: "LLM Fine-Tuning and Development Services UK:",
-  titleAccent: "Language Models That Behave the Way Your Business Needs",
+  title: "LLM Fine-Tuning Services UK:",
+  titleAccent: "Models Built Around Your Tasks",
   lead:
-    "General-purpose language models are trained to be good at everything for everyone. That is exactly why they fall short on the narrow, repeated tasks businesses depend on: they misread sector terminology, drift from your house style, return structured output that changes shape between requests, or cost more per request than a narrow task justifies.",
+    "Our LLM fine-tuning and development services give UK businesses language models that behave the way the business needs. General-purpose language models are trained to be good at everything for everyone. That is exactly why they fall short on the narrow, repeated tasks businesses depend on: they misread sector terminology, drift from your house style, return structured output that changes shape between requests, or cost more per request than a narrow task justifies.",
   audience:
     "ClickMasters adapts large language models to your tasks. We benchmark what existing models can already do with good prompting, fine-tune only when the evidence says it will help, prove the result against a held-out test set, and deploy the model where your data rules allow, including privately hosted open-weight models.",
   stats: [
@@ -249,7 +249,7 @@ export const SECURITY = [
 ];
 
 export const PARTNER = {
-  intro: "Questions worth asking any supplier:",
+  intro: "Questions worth asking any LLM development company before you commit:",
   questions: [
     "Will they benchmark prompting first and tell you if fine-tuning is unnecessary?",
     "How will they prove the tuned model beats the baseline on your task?",
@@ -270,6 +270,7 @@ export const PARTNER = {
 
 export const FAQS: { q: string; a: string[] }[] = [
   { q: "What is LLM fine-tuning?", a: ["LLM fine-tuning is the process of training a pretrained language model further on curated examples of a specific task, so it learns your terminology, tone and output structure. Parameter-efficient methods such as LoRA train a small set of additional weights instead of the whole model."] },
+  { q: "Can you explain how LLM fine-tuning works in practice?", a: ["We benchmark a prompted baseline on your real tasks, curate and label representative input-output examples, and split them into training, validation and held-out test sets. We then train, usually with a parameter-efficient method such as LoRA, compare the tuned model with the baseline on the held-out set, and deploy it only if it performs better on what matters to you."] },
   { q: "When should we fine-tune instead of improving our prompts?", a: ["When careful prompting still leaves the model inconsistent, misreading domain language, failing to follow a required format, or too expensive for a high-volume task. We benchmark the prompted baseline first, so the decision is based on measured results."] },
   { q: "Should we fine-tune an LLM or use RAG?", a: ["Use retrieval-augmented generation when the model must answer from documents or data that change. Use fine-tuning when you need consistent behaviour, style, terminology or format. Many systems combine both: retrieval for facts and a tuned model for reliable output."] },
   { q: "What is the difference between LoRA and QLoRA?", a: ["LoRA trains small adapter matrices added to a frozen base model. QLoRA does the same while holding the base model in a compressed, lower-precision form during training, which reduces memory needs and makes larger models trainable on smaller hardware, at the cost of extra configuration and a need to verify quality."] },
@@ -279,7 +280,7 @@ export const FAQS: { q: string; a: string[] }[] = [
   { q: "Will fine-tuning make the model more accurate?", a: ["Not automatically. Fine-tuning can improve task performance and consistency when the examples are good and the task is well defined, but it can also make little difference or degrade other abilities. That is why every tuned model is compared with the baseline on a held-out test set before it is used."] },
   { q: "Can a fine-tuned model learn our company's knowledge?", a: ["Fine-tuning can teach terminology and patterns, but it is not a reliable way to store facts that change, such as prices or policies, and it cannot cite sources. For factual knowledge, retrieval is the better approach, and the two can be combined."] },
   { q: "How do you keep a fine-tuned model performing over time?", a: ["The held-out test set becomes a regression suite, production outputs are monitored for quality and format failures, and the model is retrained on new examples as tasks and terminology change, with every version recorded and reversible."] },
-  { q: "How much do LLM development and fine-tuning cost?", a: ["Cost depends on the task, the amount of data preparation and labelling, the base model and training method, the number of evaluation cycles, hosting choices and ongoing monitoring. We provide a fixed-price or time-and-materials estimate with milestones once the task and data are understood."] },
+  { q: "What affects LLM fine-tuning cost?", a: ["Cost depends on the task, the amount of data preparation and labelling, the base model and training method, the number of evaluation cycles, hosting choices and ongoing monitoring. We provide a fixed-price or time-and-materials estimate with milestones once the task and data are understood."] },
 ];
 
 export const FINAL_CTA = {

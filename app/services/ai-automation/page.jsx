@@ -11,9 +11,10 @@ import {
   RiHospitalLine, RiInboxLine, RiInformationLine, RiKeyLine, RiLockLine, RiMailLine, RiMoneyPoundCircleLine,
   RiPlugLine, RiRefreshLine, RiSearchEyeLine, RiShieldCheckLine, RiShoppingCartLine, RiStackLine, RiTeamLine,
   RiToolsLine, RiTruckLine, RiUserLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   ComparisonTable, FaqSection, FinalCta, IconCardGrid, Linked, ProcessGrid, ServiceHero, faqPageJsonLd,
@@ -124,6 +125,8 @@ export default function AiAutomation() {
         figcaption="Rules handle what is certain, AI reads the document, and a person approves anything outside the limits."
       />
 
+      <ScopingCallBlock path={PATH} service="AI automation" />
+
       {/* ───────────── What AI automation is ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -211,7 +214,7 @@ export default function AiAutomation() {
         <div className={WRAP}>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="processes-heading" eyebrow="Automated business workflows">Business Processes We Can Automate</SectionHeading>
+              <SectionHeading id="processes-heading" eyebrow="Automated business workflows">Business Process Automation: Workflows We Can Automate</SectionHeading>
               <p className={`mt-5 ${P}`}><em>{PROCESSES.note}</em></p>
             </div>
             <Photo image={IMAGES.conveyor} sizes={HALF} className="aspect-[16/10]" />
@@ -356,7 +359,7 @@ export default function AiAutomation() {
         <div className={WRAP}>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
             <div>
-              <SectionHeading id="why-heading" eyebrow="AI automation company">Why Consider Custom AI Automation?</SectionHeading>
+              <SectionHeading id="why-heading" eyebrow="AI automation company">AI Automation for Businesses: When Custom Makes Sense</SectionHeading>
               <p className={`mt-5 ${P}`}>{WHY.intro}</p>
               <p className="mt-6 font-semibold text-[#1a1a1a]">{WHY.whenTitle}</p>
               <ul className="mt-3 space-y-2.5">
@@ -369,7 +372,8 @@ export default function AiAutomation() {
             </div>
             <Photo image={IMAGES.dashboard} sizes={HALF} className="aspect-[4/3] lg:self-center" />
           </div>
-          <h3 className="mt-16 text-2xl font-bold text-[#1a1a1a] lg:text-3xl" style={SERIF}>How ClickMasters approaches it</h3>
+          <h3 className="mt-16 text-2xl font-bold text-[#1a1a1a] lg:text-3xl" style={SERIF}>What to Look For in AI Automation Companies</h3>
+          <p className={`mt-4 max-w-3xl ${P}`}>The points below describe how ClickMasters works, and they are worth checking with any supplier you consider.</p>
           <div className="mt-8">
             <IconCardGrid items={withIcons(WHY.answers)} columns="sm:grid-cols-2 lg:grid-cols-3" compact />
           </div>

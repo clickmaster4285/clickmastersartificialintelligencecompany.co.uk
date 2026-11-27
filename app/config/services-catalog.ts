@@ -45,7 +45,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       s("custom-software-development", "Custom Software Development", "Bespoke business software designed around your workflows, data and integrations, from discovery through to long-term support.", "custom software development services"),
       s("web-application-development", "Web Application Development", "Secure, scalable portals, dashboards and SaaS products built with React and Next.js and connected to the systems you already use.", "web application development services"),
       s("mobile-app-development", "Mobile App Development", "Native and cross-platform iOS and Android apps with Flutter and React Native, from MVP to App Store and Google Play launch.", "mobile app development services"),
-      s("mvp-saas-development", "MVP & SaaS Development", "Validate a product idea quickly with a focused MVP, then grow it into a multi-tenant SaaS platform with billing built in.", "MVP and SaaS development services"),
+      s("mvp-saas-development", "MVP & SaaS Development", "Validate a product idea quickly with a focused MVP, then grow it into a multi-tenant SaaS platform with billing built in.", "MVP development services"),
     ],
   },
   {
@@ -77,7 +77,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     services: [
       s("erp-crm-development", "ERP & CRM Development", "Custom and customised ERP and CRM systems that give finance, sales and operations teams one reliable source of truth.", "ERP and CRM development services"),
       s("cloud-devops", "Cloud Solutions & DevOps", "Infrastructure as code, CI/CD pipelines and well-run environments on AWS, Microsoft Azure and Google Cloud.", "cloud and DevOps services"),
-      s("database-design", "Database Design & Management", "Schema design, migration, performance tuning and backup strategy for PostgreSQL, MySQL, MongoDB and Redis.", "database design and management services"),
+      s("database-design", "Database Design & Development", "Data modelling, schema design, performance tuning, migration and integration for PostgreSQL, MySQL, MongoDB and Redis.", "database design services"),
     ],
   },
 ];

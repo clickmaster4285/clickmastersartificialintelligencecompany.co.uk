@@ -7,7 +7,6 @@
  * flagged with VERIFY comments. Inline links use [anchor](/path) syntax.
  */
 
-import { AI_PACKAGE_PRICES, VAT_NOTE, formatPackagePrice } from "../../config/pricing";
 import { FREE_TOOLS, INDUSTRY_PAGES } from "../../lib/internal-links";
 
 export const PATH = "/services/ai-development";
@@ -50,9 +49,11 @@ export type ServiceSection = {
 
 export const HERO = {
   eyebrow: "AI Development Services UK",
-  h1: "AI Development Services for UK Businesses Ready to Move Beyond the Pilot",
+  // Rendered as h1 + " " + h1Accent (65 chars).
+  h1: "AI Development Services for UK Businesses",
+  h1Accent: "Moving Beyond the Pilot",
   lead:
-    "ClickMasters designs, builds and integrates custom AI systems: fine-tuned language models, retrieval-augmented generation (RAG), machine learning, computer vision and intelligent automation. We connect them to the CRM, ERP and data platforms you already run, and deploy them on cloud infrastructure you control.",
+    "ClickMasters is a custom AI development company for UK businesses that are ready to move an AI idea beyond the pilot stage. We design, build and integrate custom AI systems: fine-tuned language models, retrieval-augmented generation (RAG), machine learning, computer vision and intelligent automation. We connect them to the CRM, ERP and data platforms you already run, and deploy them on cloud infrastructure you control.",
   audience:
     "Built for founders, CTOs, operations leaders and enterprise teams who have a defined business problem and data to work with, and who need an AI system that runs reliably in production rather than a demo.",
   // VERIFY: timelines come from the live site FAQs. "8 sectors" matches the
@@ -383,17 +384,19 @@ export const SECURITY = [
   { icon: "shield", title: "Prompt injection defences", text: "RAG systems and agents treat retrieved content and user input as untrusted, with input filtering, tool permission limits and output checks." },
 ];
 
-// Prices are set in app/config/pricing.ts (GBP, excl. VAT).
-// TODO: Confirm final GBP amounts with business owner, and whether they are "from" prices.
+// No prices are published on the site (owner decision, audit D-09): every
+// engagement is quoted after discovery.
 export const PACKAGES = {
-  intro: "Every project is quoted after discovery. These packages show what each level of engagement typically includes.",
-  vatNote: `All prices are in GBP and ${VAT_NOTE}.`,
+  intro: "Every project is quoted after discovery. These three engagement levels show what each one typically includes, so you can see where your project is likely to sit.",
+  /** Shown on every tier in place of a price. */
+  quoteLabel: "Quoted after discovery",
+  quoteNote: "Fixed quote for the agreed scope",
   // One CTA for the whole section (one link per target per section).
-  cta: "Discuss which package fits your project",
+  cta: "Discuss which engagement level fits your project",
   tiers: [
-    { name: "Starter MVP", price: formatPackagePrice(AI_PACKAGE_PRICES.starterMvp), priceNote: VAT_NOTE, subtitle: "For rapid prototype validation", features: ["One custom model (fine-tuned where justified)", "Core API integrations", "Standard cloud deployment support", "Two weeks of post-launch QA monitoring"], highlighted: false },
-    { name: "Professional", price: formatPackagePrice(AI_PACKAGE_PRICES.professional), priceNote: VAT_NOTE, subtitle: "For scaling operational workloads", features: ["Multiple custom model architectures", "Full ERP and CRM integration", "Dedicated private VPC deployment", "Dedicated support specialist"], highlighted: true },
-    { name: "Enterprise Core", price: formatPackagePrice(AI_PACKAGE_PRICES.enterpriseCore), priceNote: "Quoted after discovery", subtitle: "For global operations", features: ["Isolated sandbox environments aligned to your compliance requirements", "High-availability, redundant deployments", "24/7 priority SLA and on-call monitoring"], highlighted: false },
+    { name: "Starter MVP", subtitle: "For rapid prototype validation", features: ["One custom model (fine-tuned where justified)", "Core API integrations", "Standard cloud deployment support", "Two weeks of post-launch QA monitoring"], highlighted: false },
+    { name: "Professional", subtitle: "For scaling operational workloads", features: ["Multiple custom model architectures", "Full ERP and CRM integration", "Dedicated private VPC deployment", "Dedicated support specialist"], highlighted: true },
+    { name: "Enterprise Core", subtitle: "For global operations", features: ["Isolated sandbox environments aligned to your compliance requirements", "High-availability, redundant deployments", "24/7 priority SLA and on-call monitoring"], highlighted: false },
   ],
 };
 
@@ -402,7 +405,7 @@ export const WHY = [
   { icon: "shuffle", title: "Model-agnostic engineering", text: "We work with commercial and open-weight models and choose on measured accuracy, cost and data requirements, which keeps you free to switch as the market moves." },
   { icon: "plug", title: "Integration first", text: "We connect to the platforms enterprises already run, including Salesforce, SAP, ServiceNow, HubSpot, Microsoft Dynamics and Oracle Cloud." },
   { icon: "server", title: "Private deployment options", text: "Models can run in a dedicated private cloud network on AWS or Azure, for organisations that cannot send data to shared services." },
-  { icon: "price", title: "Published starting prices", text: "Our engagement packages are on this page, so budget conversations start from a clear reference point." },
+  { icon: "price", title: "A fixed quote after discovery", text: "Once discovery has defined the scope, we give you a fixed quote for it, with hosting and model API running costs estimated separately." },
   { icon: "heart", title: "Ethical AI as a working principle", text: "Privacy, human oversight and transparency are part of our core values and are built into how we scope and test every system." },
 ];
 
@@ -415,7 +418,7 @@ export const SERVICE_FAQS: { q: string; a: string[] }[] = [
     q: "How much do AI development services cost in the UK?",
     a: [
       "Cost depends mainly on the amount of data preparation needed, the number of systems the AI must integrate with, whether models are fine-tuned or used through an API, hosting requirements (shared cloud or a private VPC) and the level of ongoing support. A focused proof of concept costs far less than a multi-system enterprise deployment.",
-      `Our published packages start with the Starter MVP and scale to Professional and custom Enterprise engagements. After discovery we provide a fixed quote for the agreed scope, and running costs such as cloud hosting and model API usage are estimated separately so you can see the total cost of ownership. For a first estimate before you talk to us, try our [AI ROI calculator](${FREE_TOOLS}).`,
+      `We work at three engagement levels, from a Starter MVP through Professional to Enterprise Core, and we do not publish fixed prices because scope varies so much. After discovery we provide a fixed quote for the agreed scope, and running costs such as cloud hosting and model API usage are estimated separately so you can see the total cost of ownership. For a first estimate before you talk to us, try our [AI ROI calculator](${FREE_TOOLS}).`,
     ],
   },
   {
@@ -456,7 +459,7 @@ export const SERVICE_FAQS: { q: string; a: string[] }[] = [
   },
   {
     q: "What ongoing maintenance does an AI system need after launch?",
-    a: ["AI systems need more care than conventional software because their inputs change. Maintenance covers monitoring accuracy and drift, retraining or re-indexing as data changes, evaluating new model versions as providers release and retire them, managing cloud and API costs, and security updates. Our Starter MVP includes two weeks of post-launch QA monitoring, and higher tiers include dedicated support and SLA-backed monitoring."],
+    a: ["AI systems need more care than conventional software because their inputs change. Maintenance covers monitoring accuracy and drift, retraining or re-indexing as data changes, evaluating new model versions as providers release and retire them, managing cloud and API costs, and security updates. A Starter MVP engagement includes two weeks of post-launch QA monitoring, and Professional and Enterprise Core engagements add dedicated support and SLA-backed monitoring."],
   },
 ];
 

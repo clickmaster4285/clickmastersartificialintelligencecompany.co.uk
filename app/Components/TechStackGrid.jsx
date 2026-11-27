@@ -163,7 +163,7 @@ export default function TechStackGrid() {
                     <img loading="lazy" decoding="async"
                       key={item.label}
                       src={item.icon}
-                      alt=""
+                      alt={`${item.label} logo`}
                       width={LOGO_SIZE[item.label][0]}
                       height={LOGO_SIZE[item.label][1]}
                       className={`w-auto object-contain ${item.size || "h-[24px]"}`}

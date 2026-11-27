@@ -4,7 +4,7 @@
  * SVG; the others are responsive HTML so they reflow on mobile and their text
  * stays crawlable. No stock photography.
  */
-import { RiArrowRightLine } from "react-icons/ri";
+import { RiArrowRightLine } from "../../Components/icons";
 import { CAPS, Connector, Flow, Node, NodeList, type Tone } from "../../Components/DiagramParts";
 import { INK, LINE, MUTED, PURPLE, PURPLE_SOFT, TEAL, TEAL_SOFT, caps, label } from "../ServiceDiagrams";
 

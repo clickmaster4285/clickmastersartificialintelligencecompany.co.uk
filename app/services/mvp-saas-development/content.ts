@@ -11,7 +11,7 @@ export const PATH = "/services/mvp-saas-development";
 export const SEO = {
   title: "MVP & SaaS Development Services UK | Startups",
   description:
-    "MVP and SaaS development services for UK founders and businesses: validate fast, launch in weeks, then scale with multi-tenant architecture and subscription billing.",
+    "MVP and SaaS development services for UK founders and businesses: validate fast, launch in weeks, then scale with multi-tenancy and subscription billing.",
   ogTitle: "MVP & SaaS Development Company UK | ClickMasters",
   ogDescription:
     "Turn a product idea into a validated MVP, then a secure, subscription-based SaaS platform, with structured scope, multi-tenancy and billing built in.",
@@ -27,40 +27,41 @@ export const IMAGES = {
     src: `${IMG}/mvp-to-saas-product-journey.png`,
     width: 1080,
     height: 760,
-    alt: "Product journey illustration: discovery leads to a focused MVP, launch to early users, a feedback loop of iterations, and finally a scalable SaaS platform with subscriptions and multi-tenancy",
+    alt: "Illustration of a product journey from discovery and MVP launch through iteration to SaaS",
   },
   matrix: {
     src: `${IMG}/mvp-feature-prioritisation-matrix.png`,
     width: 1720,
     height: 600,
-    alt: "MVP feature prioritisation matrix plotting example features by user value and build effort: must-have features in the high-value low-effort quadrant, later features in the high-effort quadrants, and features to drop in low value high effort",
+    alt: "Matrix of example MVP features by user value and build effort, sorted into now, later and drop",
   },
   tenancy: {
     src: `${IMG}/saas-multi-tenant-vs-single-tenant.png`,
     width: 1720,
     height: 460,
-    alt: "Three SaaS tenancy models compared: shared database with a tenant ID on every row, a separate schema per tenant in one database, and a separate database or deployment per tenant, showing increasing isolation and cost",
+    alt: "Diagram comparing SaaS tenancy models: shared database, schema per tenant, database per tenant",
   },
   architecture: {
     src: `${IMG}/saas-architecture-example.png`,
     width: 1720,
     height: 560,
-    alt: "Example SaaS architecture: customers use a web app that calls an API; the API resolves the tenant, checks roles and plan entitlements, and uses a PostgreSQL database with row-level security, a cache, file storage and a job queue; a billing provider sends webhooks to update subscriptions; logging and monitoring cover every component",
+    alt: "SaaS architecture diagram: web app, tenant-aware API, PostgreSQL, cache, queue, billing webhooks",
   },
   billing: {
     src: `${IMG}/saas-subscription-billing-lifecycle.png`,
     width: 1720,
     height: 424,
-    alt: "Subscription lifecycle diagram: a trial converts to an active subscription; a failed payment moves it to past due, where automatic retries and reminder emails either restore it to active or end in cancellation; upgrades and downgrades apply proration while active",
+    alt: "Subscription lifecycle diagram: trial, active, past due with retries, then recovered or cancelled",
   },
 } as const;
 
 export const HERO = {
   eyebrow: "MVP & SaaS Development UK",
   title: "MVP Development and SaaS Development Services",
-  titleAccent: "to Validate, Launch and Scale Your Product",
+  // Rendered H1: title + " " + titleAccent (65 chars).
+  titleAccent: "to Launch and Scale",
   lead:
-    "ClickMasters helps founders and businesses turn a product idea into a working MVP in front of real users, then grow it into a secure, subscription-based SaaS platform. We define the smallest product that tests your riskiest assumption, build it on architecture that will not need replacing when it works, and add multi-tenancy, billing and scale when the evidence says it is time.",
+    "ClickMasters is an MVP development company for UK founders and businesses, and a SaaS development company for the products that prove themselves. Our MVP development services turn a product idea into a working MVP in front of real users, so you can validate it, then grow it into a secure, subscription-based SaaS platform. Minimum viable product development starts with the smallest product that tests your riskiest assumption: we build it on architecture that will not need replacing when it works, and add multi-tenancy, billing and scale when the evidence says it is time.",
   audience:
     "For start-up founders, product owners and established companies launching a new digital product, and for SaaS businesses whose platform has outgrown its first version.",
   stats: [
@@ -72,7 +73,7 @@ export const HERO = {
 };
 
 export const WHAT_IS = {
-  p1: "A **minimum viable product (MVP)** is the smallest working version of a product that real users can adopt, so you can learn whether it solves a problem they care about. It is not a prototype or a demo. A prototype tests whether people understand the idea, and a proof of concept tests whether something is technically possible. An MVP tests whether people will actually use and value the product, and because they use it for real, the feedback is trustworthy.",
+  p1: "A **minimum viable product (MVP)** is the smallest working version of a product that real users can adopt, so you can learn whether it solves a problem they care about. That is the plain meaning of minimum viable product: it is not a prototype or a demo. A prototype tests whether people understand the idea, and a proof of concept tests whether something is technically possible. An MVP tests whether people will actually use and value the product, and because they use it for real, the feedback is trustworthy.",
   p2: "**Software as a Service (SaaS)** is a delivery and business model: software hosted in the cloud, used through a browser or app, and paid for on a recurring subscription. SaaS development adds the parts that model needs, such as customer accounts, plans and billing, tenant isolation, onboarding, admin tools and the ability to serve many customers from one platform.",
   p3: {
     text: "The two are not alternatives. Many SaaS products start life as an MVP: a focused first release that proves demand before the full subscription platform is built. Validating first protects your budget. A founder who learns in week eight that customers want a different workflow has spent a fraction of what a full build would have cost. If what you need is software for your own organisation rather than a product to sell, our [[link]] are the better fit.",
@@ -110,7 +111,7 @@ export const MVP_SERVICES: Service[] = [
   {
     id: "startup-mvp-development",
     icon: "rocket",
-    title: "Startup MVP Development",
+    title: "MVP Development for Startup Founders",
     intro: "An end-to-end MVP engagement for founders: discovery, design, build, launch and the first round of iteration.",
     fields: [
       { label: "Who needs it", text: "Pre-seed and seed founders, often non-technical, who need a credible product to test with users or show investors." },
@@ -122,8 +123,8 @@ export const MVP_SERVICES: Service[] = [
   {
     id: "custom-mvp-software-development",
     icon: "code",
-    title: "Custom MVP Software Development",
-    intro: "MVPs for established businesses testing a new product, service line or internal tool alongside existing operations.",
+    title: "Custom MVP Development for Established Businesses",
+    intro: "Working as a bespoke MVP development company alongside your team, we build MVPs for established businesses testing a new product, service line or internal tool alongside existing operations.",
     fields: [
       { label: "Who needs it", text: "SMEs and corporate innovation teams with existing customers, data and systems." },
       { label: "Problems solved", text: "Committing a full project budget to an untested idea, or a pilot that cannot connect to the systems it depends on." },
@@ -203,7 +204,7 @@ export const MVP_SERVICES: Service[] = [
 ];
 
 export const SAAS_SERVICES_INTRO: LinkedText = {
-  text: "When a product has traction, or a business is building a subscription platform from the start, these services provide the architecture and functionality SaaS customers expect. Most SaaS products are used in the browser, so they also rely on the front-end architecture, rendering and performance work covered by our [[link]].",
+  text: "As a SaaS application development company, we pick up when a product has traction, or when a business is building a subscription platform from the start. These services provide the architecture and functionality SaaS customers expect. Most SaaS products are used in the browser, so they also rely on the front-end architecture, rendering and performance work covered by our [[link]].",
   link: { anchor: "web application development solutions", href: "/services/web-application-development" },
 };
 
@@ -212,7 +213,7 @@ export const SAAS_SERVICES: Service[] = [
     id: "custom-saas-application-development",
     icon: "apps",
     title: "Custom SaaS Application Development",
-    intro: "Full SaaS products built around your market, from tenant model to billing, admin console and customer-facing application.",
+    intro: "Working as your SaaS product development company, we build full SaaS products around your market, from tenant model to billing, admin console and customer-facing application.",
     fields: [
       { label: "Functionality", text: "Organisation sign-up, team invitations, plans, core product features, notifications, an admin console and audit logs." },
       { label: "Architecture", text: "A modular application with clear boundaries between product features, billing and identity, so each can evolve independently." },
@@ -505,6 +506,9 @@ export const COMPARISON = {
   ],
 };
 
+export const WHY_INTRO =
+  "Choosing an MVP development agency or a SaaS development agency is a long-term decision, because the team that builds your first release usually shapes the platform for years. This is how we work.";
+
 export const WHY = [
   { icon: "list", title: "Structured MVP planning", text: "Discovery, written \"now\" and \"later\" lists, and success criteria agreed before development begins." },
   { icon: "briefcase", title: "Business-focused product thinking", text: "We design around your business model, whether that is per-seat, per-usage or tiered plans, not only around features." },
@@ -539,8 +543,8 @@ export const COST = {
 
 export const FAQS = [
   {
-    q: "What is MVP development?",
-    a: ["MVP development is the process of designing and building the smallest working version of a product that real users can adopt, so you can test whether it solves a problem they value before investing in a full build. It covers discovery, ruthless feature prioritisation, design, development, launch and learning from real usage. An MVP is production software, not a mock-up, but its scope is deliberately limited."],
+    q: "What is a minimum viable product (MVP)?",
+    a: ["A minimum viable product (MVP) is the smallest working version of a product that real users can adopt, so you can test whether it solves a problem they value before investing in a full build. MVP development covers discovery, ruthless feature prioritisation, design, development, launch and learning from real usage. An MVP is production software, not a mock-up, but its scope is deliberately limited."],
   },
   {
     q: "What is SaaS development?",
@@ -578,12 +582,20 @@ export const FAQS = [
     a: ["Yes, if it is built with that path in mind. That means a sensible data model with organisations and users, clean code with tests on core logic, infrastructure defined as code, and a written list of deliberate shortcuts. Expansion then means adding self-service billing, roles, integrations, analytics and scaling in stages, rather than a rewrite."],
   },
   {
+    q: "What does the SaaS development life cycle look like?",
+    a: ["It usually runs from discovery and scope definition to an MVP, a launch to early users and iteration on their feedback. Once demand is proven, the SaaS foundations follow in stages: self-service sign-up and billing, roles and permissions, integrations and analytics. After that the work becomes continuous, with monitoring, security updates, performance tuning and scaling as customers and data grow."],
+  },
+  {
     q: "How do SaaS subscription and billing systems work?",
     a: ["A specialist billing provider stores payment methods, charges customers on schedule, issues invoices and retries failed payments. Your application keeps a copy of each tenant's plan and status, updated through secure webhooks from the provider, and uses it to decide which features each tenant can access. Upgrades are usually prorated immediately, downgrades take effect at the end of the period, and failed payments trigger retries and reminders before access is limited."],
   },
   {
     q: "How do you protect SaaS customer data?",
     a: ["We enforce tenant isolation in the data layer and prove it with automated cross-tenant tests. We use strong authentication with MFA and SSO options, role-based permissions checked on the server, and encryption in transit and at rest. Card data stays with the payment provider, and we add audit logs, monitoring, tested backups, dependency patching and regular security testing, following OWASP guidance and GDPR best practice."],
+  },
+  {
+    q: "Should we consider outsourcing SaaS development?",
+    a: ["It can make sense when you need a full product team quickly, or skills you do not have in-house, such as multi-tenant architecture, billing integration or DevOps. Keep product ownership, priorities and user research inside your business, and make sure you own the code, infrastructure accounts and documentation. Weekly demos, a written scope and a clear handover plan reduce the usual outsourcing risks."],
   },
   {
     q: "How do I start an MVP or SaaS development project?",

@@ -8,9 +8,10 @@ import {
   RiLineChartLine, RiListCheck, RiLoopLeftLine, RiMoneyPoundCircleLine, RiNodeTree, RiPaletteLine, RiPlugLine,
   RiPriceTag3Line, RiSettings3Line, RiShieldKeyholeLine, RiShoppingCart2Line, RiStackLine, RiTimeLine,
   RiToolsLine, RiTruckLine, RiUserSearchLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import TechLogoGroups from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -90,6 +91,8 @@ export default function CustomSoftwareDevelopment() {
         figcaption="Every channel talks to one secure API layer, shared business modules and a single source of truth."
       />
 
+      <ScopingCallBlock path={PATH} service="custom software development" />
+
       {/* ───────────── What is custom software ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -129,14 +132,14 @@ export default function CustomSoftwareDevelopment() {
 
       <ServiceCards
         eyebrow="10 capabilities"
-        title="Our Custom Software Development Services"
+        title="Our Custom and Bespoke Software Development Services"
         intro={<Linked value={SERVICES_INTRO} />}
         services={SERVICES.map((s) => ({ ...s, icon: ICONS[s.icon], figure: s.diagram === "legacy" ? LEGACY_FIGURE : null }))}
       />
 
       <IndustryGrid
         eyebrow="Sector-aware architecture"
-        title="Custom Software for the Industries We Support"
+        title="Bespoke Software Development UK: The Industries We Support"
         intro={<Linked value={INDUSTRIES_INTRO} className={ON_DARK_LINK} />}
         items={withIcons(INDUSTRIES)}
       />
@@ -210,7 +213,7 @@ export default function CustomSoftwareDevelopment() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-[#AF00E8]/25 blur-3xl" />
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
-            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Why Choose ClickMasters for Bespoke Software Development?</SectionHeading>
+            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Choosing a Custom Software Development Company UK Businesses Can Rely On</SectionHeading>
           </div>
           <div className="mt-12"><IconCardGrid items={withIcons(WHY)} dark /></div>
         </div>

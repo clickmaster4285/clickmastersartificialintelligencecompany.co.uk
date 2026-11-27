@@ -10,9 +10,10 @@ import {
   RiSettings3Line, RiShieldCheckLine, RiShoppingBag3Line, RiSignalWifi3Line, RiSmartphoneLine, RiSpeedLine,
   RiTabletLine, RiTeamLine, RiTimerLine, RiToolsLine, RiTruckLine, RiUser3Line, RiUserSettingsLine,
   RiWheelchairLine, RiWifiOffLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { TechLogo } from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -97,6 +98,8 @@ export default function MobileAppDevelopment() {
         figure={<PhoneIllustration className="h-auto w-full" />}
         figcaption="Illustrative example with sample data, not a client project."
       />
+
+      <ScopingCallBlock path={PATH} service="mobile app development" />
 
       {/* ───────────── What mobile app development involves ───────────── */}
       <section aria-labelledby="involves-heading" className="bg-white py-16 lg:py-24">
@@ -288,7 +291,7 @@ export default function MobileAppDevelopment() {
       <section aria-labelledby="why-heading" className="border-b border-[#9b1fe0]/10 bg-[#faf9f7] py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="why-heading" eyebrow="Why ClickMasters">Why Choose ClickMasters as Your Mobile App Development Company?</SectionHeading>
+            <SectionHeading id="why-heading" eyebrow="Why ClickMasters">Choosing an App Development Company UK Businesses Can Rely On</SectionHeading>
           </div>
           <div className="mt-12">
             <IconCardGrid items={withIcons(WHY)} />

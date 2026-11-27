@@ -12,9 +12,10 @@ import {
   RiRoadMapLine, RiRobot2Line, RiRocket2Line, RiSave3Line, RiServerLine, RiShakeHandsLine, RiShieldCheckLine,
   RiShoppingCart2Line, RiStackLine, RiTaskLine, RiToolsLine, RiTruckLine, RiUserFollowLine, RiUserSearchLine,
   RiUserSettingsLine, RiUserSharedLine, RiFileUserLine, RiShieldUserLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import TechLogoGroups from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -115,6 +116,8 @@ export default function CrmSoftware() {
         figcaption="Illustrative pipeline with sample data, not a client project."
       />
 
+      <ScopingCallBlock path={PATH} service="custom CRM software" />
+
       {/* ───────────── What CRM is ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -188,6 +191,9 @@ export default function CrmSoftware() {
             <CheckCard title="Custom CRM tends to fit when…" items={FIT.custom} tone="purple" />
             <CheckCard title="A ready-made CRM may fit better when…" items={FIT.readyMade} tone="sun" />
           </div>
+
+          <h3 className="mt-12 text-xl font-bold text-[#1a1a1a] lg:text-2xl" style={SERIF}>{FIT.smallTitle}</h3>
+          <p className={`mt-3 max-w-3xl ${P}`}>{FIT.small}</p>
         </div>
       </section>
 

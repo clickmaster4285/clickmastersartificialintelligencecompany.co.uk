@@ -1,12 +1,12 @@
 // Reusable, server-rendered sections for long-form service pages
 // (/services/<service>). Content comes from each page's content file.
 import Link from "next/link";
-import { RiAddLine, RiArrowRightLine, RiArrowRightUpLine, RiCheckLine, RiInformationLine, RiMailLine, RiPhoneLine, RiShieldCheckLine, RiSparklingFill } from "react-icons/ri";
+import { RiAddLine, RiArrowRightLine, RiArrowRightUpLine, RiCheckLine, RiInformationLine, RiMailLine, RiPhoneLine, RiShieldCheckLine, RiSparklingFill } from "./icons";
 import Breadcrumbs from "./Breadcrumbs";
 import { BODY_LINK, IconTile, SectionHeading, WRAP } from "./ServicePageUI";
 import { CONTACT } from "../lib/site";
 
-const LABEL = "text-xs font-bold uppercase tracking-[0.14em] text-gray-500";
+const LABEL = "field-label";
 const ukPhone = CONTACT.phones[0];
 
 /** Text with one inline link: the link anchor replaces "[[link]]" in `value.text`. */
@@ -218,10 +218,10 @@ export function ProcessGrid({ headingId = "process-heading", eyebrow, title, int
           {steps.map((step, i) => (
             <li key={step.title} className={`flex flex-col rounded-2xl border border-gray-100 p-6 ${faint ? "bg-white" : "bg-[#faf9f7]"}`}>
               <div className="flex items-center">
-                <span aria-hidden="true" className="text-[40px] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_#AF00E8]" style={{ fontFamily: "Garamond, serif" }}>
+                <span aria-hidden="true" className="step-num">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span aria-hidden="true" className="ml-4 h-px flex-1 translate-y-1 bg-gradient-to-r from-[#AF00E8]/30 to-transparent" />
+                <span aria-hidden="true" className="step-line" />
               </div>
               {/* The <ol> already numbers steps for assistive tech; "01" is the only visible number. */}
               <h3 className="mt-4 text-lg font-bold text-[#1a1a1a]">{step.title}</h3>
@@ -267,7 +267,7 @@ export function IndustryGrid({ headingId = "industries-heading", eyebrow, title,
               <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-gray-400">Key considerations</p>
               <ul className="mt-2 flex flex-wrap gap-1.5">
                 {ind.considerations.map((c) => (
-                  <li key={c} className="rounded-full bg-[#AF00E8]/15 px-2.5 py-1 text-xs text-[#ecd0ff] ring-1 ring-[#AF00E8]/30">{c}</li>
+                  <li key={c} className="ind-chip">{c}</li>
                 ))}
               </ul>
             </li>
@@ -303,7 +303,7 @@ export function ComparisonTable({ labelledBy, headers, rows, minWidth = "min-w-[
                 ci === 0 ? (
                   <th key={ci} scope="row" className={`sticky left-0 px-5 py-4 font-semibold text-[#1a1a1a] ${ri % 2 ? "bg-[#faf9f7]" : "bg-white"}`}>{cell}</th>
                 ) : (
-                  <td key={ci} className="px-5 py-4 leading-relaxed text-gray-600">{cell}</td>
+                  <td key={ci} className="cmp-td">{cell}</td>
                 )
               )}
             </tr>
@@ -349,9 +349,9 @@ export function FaqSection({ headingId = "faq-heading", title, intro, faqs }) {
         <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
           {faqs.map((f, i) => (
             <details key={f.q} className="group p-5 sm:p-6" open={i === 0}>
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AF00E8] [&::-webkit-details-marker]:hidden">
-                <h3 className="text-base font-semibold leading-snug text-[#1a1a1a] group-open:text-[#AF00E8] lg:text-[17px]">{f.q}</h3>
-                <span aria-hidden="true" className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f7effa] text-[#AF00E8] transition-transform group-open:rotate-45">
+              <summary className="faq-summary">
+                <h3 className="faq-q">{f.q}</h3>
+                <span aria-hidden="true" className="faq-toggle">
                   <RiAddLine className="h-4 w-4" />
                 </span>
               </summary>

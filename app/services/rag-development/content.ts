@@ -35,30 +35,30 @@ const IMG = "/assets/Services/rag";
  */
 export const IMAGES = {
   heroAlt:
-    "RAG architecture diagram: documents are parsed, chunked, embedded and indexed; a user question triggers retrieval and re-ranking, and a language model returns an answer with citations",
+    "RAG diagram: documents are chunked and indexed, then retrieved and re-ranked into a cited answer",
   pipelines: {
     src: `${IMG}/rag-two-pipelines.png`, width: 1720, height: 640,
-    alt: "Two-pipeline diagram: an ingestion pipeline (connect, parse, clean, chunk, enrich, embed and index) feeds a shared index used by a query pipeline (rewrite, filter, hybrid search, re-rank, generate with citations, log)",
+    alt: "Diagram of an ingestion pipeline feeding a shared index that a query pipeline searches",
   },
   hybrid: {
     src: `${IMG}/rag-hybrid-search.png`, width: 1720, height: 520,
-    alt: "Hybrid search: a question runs through vector search and keyword search in parallel, results are merged with reciprocal rank fusion and re-ranked before reaching the language model",
+    alt: "Diagram of vector and keyword search merged by rank fusion, then re-ranked for the language model",
   },
   compare: {
     src: `${IMG}/rag-vs-fine-tuning.png`, width: 1720, height: 560,
-    alt: "Comparison of a standard LLM integration, retrieval-augmented generation and fine-tuning by knowledge source, update method and traceability",
+    alt: "Table comparing a standard LLM, RAG and fine-tuning by knowledge source, updates and traceability",
   },
   permissions: {
     src: `${IMG}/rag-permission-aware-retrieval.png`, width: 1720, height: 600,
-    alt: "Permission-aware retrieval: a staff member and an HR manager ask the same question and receive answers drawn only from the documents each is allowed to open",
+    alt: "Diagram of two staff asking one question and getting answers only from documents each can open",
   },
   evaluation: {
     src: `${IMG}/rag-evaluation-loop.png`, width: 1720, height: 560,
-    alt: "RAG evaluation loop: a question set is run through the system, retrieval and answer metrics are scored, weak cases are fixed in ingestion or retrieval, and the set is re-run before each release",
+    alt: "Diagram of a RAG evaluation loop: run the question set, score, fix weak cases and re-run",
   },
   // Photo: Sear Greyson (unsplash.com/photos/K-ZsC7YdJ6Y)
   papers: {
-    src: `${IMG}/rag-piles-of-paper-files.webp`, width: 1200, height: 900,
+    src: `${IMG}/rag-piles-of-paper-files.webp`, width: 1080, height: 810,
     alt: "Overflowing stacks of paper documents in folders tied with black ribbon",
   },
   // Photo: Luke Caunt (unsplash.com/photos/5utYi64hnJ0)
@@ -76,9 +76,10 @@ export const IMAGES = {
 export const HERO = {
   eyebrow: "RAG Development UK",
   title: "RAG Development Services UK:",
-  titleAccent: "AI That Answers From Your Own Documents, and Shows Its Sources",
+  // Rendered H1: title + " " + titleAccent (63 chars).
+  titleAccent: "AI Answers From Your Own Documents",
   lead:
-    "Your organisation already has the answers written down: in policies, contracts, product manuals, support tickets and years of reports. The problem is that they are spread across SharePoint sites, shared drives, wikis and databases, and a general-purpose AI model has never seen any of them. Ask it about your returns policy or a clause in a supplier contract and it will either refuse or, worse, produce a confident answer that is wrong.",
+    "We build AI that answers from your own documents and shows its sources, so every answer can be checked. Your organisation already has the answers written down: in policies, contracts, product manuals, support tickets and years of reports. The problem is that they are spread across SharePoint sites, shared drives, wikis and databases, and a general-purpose AI model has never seen any of them. Ask it about your returns policy or a clause in a supplier contract and it will either refuse or, worse, produce a confident answer that is wrong.",
   audience:
     "ClickMasters builds retrieval-augmented generation (RAG) systems that close that gap. We connect a large language model to your own content at the moment a question is asked, so answers are written from your documents, cite the passages they came from, and respect who is allowed to see what.",
   stats: [
@@ -90,7 +91,7 @@ export const HERO = {
 };
 
 export const WHAT_IS = {
-  p1: "**Retrieval-augmented generation (RAG)** is a way of building AI applications in which a language model answers questions using information retrieved from a separate, controlled knowledge source rather than relying only on what it learned during training.",
+  p1: "**Retrieval-augmented generation (RAG)**, often shortened to RAG AI, is a way of building AI applications in which a language model answers questions using information retrieved from a separate, controlled knowledge source rather than relying only on what it learned during training.",
   p2: "It has two distinct halves:",
   halves: [
     ["Retrieval", "finds the most relevant passages in your content for a specific question. This is a search problem."],
@@ -198,7 +199,7 @@ export const COMPARE = {
 };
 
 export const SECURITY: { intro: string; items: { icon: string; title: string; text: LinkedText }[] } = {
-  intro: "A RAG system can see a great deal of your organisation's knowledge, so its security model matters as much as its answer quality.",
+  intro: "The biggest security risks in RAG AI architectures come from how much of your organisation's knowledge the system can see, so its security model matters as much as its answer quality.",
   items: [
     { icon: "lock", title: "Permission-aware retrieval", text: { text: "Access rights are captured from each source during ingestion and applied as filters at query time, so the assistant never retrieves a passage the user could not open directly. When permissions change at the source, the index is updated." } },
     // Body link 4 of 4.
@@ -278,6 +279,8 @@ export const PARTNER = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
+  { q: "What is retrieval-augmented generation?", a: ["Retrieval-augmented generation (RAG) is a way of building AI applications in which a language model answers using passages retrieved from a controlled knowledge source, such as your own documents, at the moment a question is asked. Because the answer is written from those passages and cites them, people can check where each claim came from."] },
+  { q: "What is RAG AI?", a: ["RAG AI is a common shorthand for AI systems built with retrieval-augmented generation. Instead of relying only on what a model learned in training, the system first searches your content for relevant passages, then asks the model to answer from them. It suits questions about internal policies, products and documents that a general model has never seen."] },
   { q: "What is RAG development?", a: ["RAG development is the design and engineering of retrieval-augmented generation systems: AI applications that search an organisation's own content for relevant passages and give them to a language model, which writes an answer based on those passages and cites them."] },
   { q: "How does RAG reduce AI hallucinations?", a: ["The model is instructed to answer only from retrieved passages and to cite them, so claims can be checked, and it is designed to say when the sources do not contain the answer. RAG reduces invented answers but does not eliminate them, so we measure faithfulness on a question set before and after launch."] },
   { q: "Should we use RAG or fine-tune a model?", a: ["Use RAG when the model needs to answer from your documents or data, especially if they change, because updating an index is quicker than retraining. Use fine-tuning for consistent behaviour, tone or output format. Many systems combine both."] },

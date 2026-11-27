@@ -25,8 +25,8 @@ import {
   RiTeamLine, RiUserAddLine, RiArticleLine, RiBook2Line, RiToolsLine, RiLayout4Line, RiBookMarkedLine,
   RiQuestionAnswerLine, RiSparkling2Line, RiFileSearchLine, RiMagicLine, RiFlowChart, RiNodeTree, RiEyeLine,
   RiLineChartLine, RiLightbulbFlashLine,
-} from "react-icons/ri";
-import { SiLaravel, SiPython } from "react-icons/si";
+} from "./icons";
+import { SiLaravel, SiPython } from "./icons";
 import { logo } from "../assets";
 import { NAV_CTA, childrenOf, isVisible, menuChildrenOf, visibleGroups, visibleNavItems } from "../config/navigation";
 
@@ -94,44 +94,23 @@ function ChildLink({ child, pathname, onNavigate, compact = false }) {
   const href = child.href;
   const current = pathname === href;
   const Icon = NAV_ICONS[child.icon];
+  // Styles live in globals.css (.nav-child*): this item repeats ~45 times
+  // per page, and inline utility strings were ~1.2 KB of HTML each (audit D-08).
   return (
-    <li
-      className={`group/item relative flex min-h-11 gap-3 rounded-xl px-3 lg:px-2.5 ${compact ? "items-center py-2" : "items-center lg:items-start py-2 lg:py-2.5"}
-        motion-safe:transition-colors has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-1 has-[a:focus-visible]:outline-[#AF00E8]
-        ${current ? "bg-[#f7effa]" : "hover:bg-[#faf5fd] has-[a:focus-visible]:bg-[#faf5fd]"}`}
-    >
+    <li className={`nav-child group/item ${compact ? "nav-child--compact" : ""} ${current ? "nav-child--current" : ""}`}>
       {Icon && (
-        <span
-          aria-hidden="true"
-          className={`flex shrink-0 items-center justify-center rounded-lg ring-1 ring-[#AF00E8]/10 motion-safe:transition-all motion-safe:duration-200
-            ${compact ? "h-8 w-8" : "h-8 w-8 lg:h-10 lg:w-10"}
-            ${current
-              ? "bg-[#AF00E8] text-white"
-              : "bg-gradient-to-br from-[#f7effa] to-[#efe0f7] text-[#AF00E8] group-hover/item:from-[#AF00E8] group-hover/item:to-[#7c00c9] group-hover/item:text-white group-hover/item:shadow-[0_6px_16px_rgba(175,0,232,0.35)] group-hover/item:ring-transparent"}`}
-        >
-          <Icon className={compact ? "h-4 w-4" : "h-4 w-4 lg:h-[18px] lg:w-[18px]"} />
+        <span aria-hidden="true" className="nav-child-icon">
+          <Icon className="nav-child-glyph" />
         </span>
       )}
       <span className="min-w-0">
         <span className="flex items-center gap-1">
-          <Link
-            href={href}
-            onClick={onNavigate}
-            aria-current={current ? "page" : undefined}
-            className={`text-[15px] lg:text-sm leading-snug outline-none after:absolute after:inset-0 after:rounded-xl after:content-[''] ${
-              current ? "font-semibold text-[#AF00E8]" : "font-medium text-gray-900 group-hover/item:text-[#AF00E8]"
-            }`}
-          >
+          <Link href={href} onClick={onNavigate} aria-current={current ? "page" : undefined} className="nav-child-link">
             {child.label}
           </Link>
-          <RiArrowRightLine
-            aria-hidden="true"
-            className="hidden lg:block h-3.5 w-3.5 shrink-0 text-[#AF00E8] opacity-0 -translate-x-1 motion-safe:transition-all group-hover/item:opacity-100 group-hover/item:translate-x-0"
-          />
+          <RiArrowRightLine aria-hidden="true" className="nav-child-arrow" />
         </span>
-        {child.description && !compact && (
-          <span className="mt-0.5 hidden lg:block text-xs leading-relaxed text-gray-500">{child.description}</span>
-        )}
+        {child.description && !compact && <span className="nav-child-desc">{child.description}</span>}
       </span>
     </li>
   );
@@ -142,10 +121,10 @@ function PanelFooterLink({ link, onNavigate }) {
     <Link
       href={link.href}
       onClick={onNavigate}
-      className={`group/foot inline-flex whitespace-nowrap items-center gap-1.5 min-h-11 lg:min-h-0 px-3 lg:px-0 py-2 lg:py-0 text-sm font-semibold text-[#AF00E8] rounded-md ${FOCUS_RING}`}
+      className="nav-foot-link group/foot"
     >
       {link.label}
-      <RiArrowRightLine aria-hidden="true" className="h-4 w-4 motion-safe:transition-transform group-hover/foot:translate-x-1" />
+      <RiArrowRightLine aria-hidden="true" className="nav-foot-arrow" />
     </Link>
   );
 }
@@ -182,6 +161,74 @@ function FeaturedCard({ featured, onNavigate }) {
         {featured.cta.label}
         <RiArrowRightUpLine aria-hidden="true" className="h-4 w-4 motion-safe:transition-transform group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
       </Link>
+    </div>
+  );
+}
+
+/**
+ * About Us panel: options on the left, a preview of the hovered/focused option
+ * in the centre (desktop) and the brand card on the right (wide desktop).
+ * On mobile only the option list shows, as in the other accordions.
+ */
+function AboutMenu({ item, items, onNavigate }) {
+  const [active, setActive] = useState(0);
+  const cur = items[active] ?? items[0];
+  const CurIcon = NAV_ICONS[cur.icon];
+  return (
+    <div className="lg:grid lg:grid-cols-[250px_1fr] lg:gap-4 lg:p-4 xl:grid-cols-[250px_1fr_270px]">
+      <ul className="space-y-0.5 lg:border-r lg:border-gray-100 lg:pr-3">
+        {items.map((c, i) => {
+          const Icon = NAV_ICONS[c.icon];
+          const on = i === active;
+          return (
+            <li key={c.href}>
+              <Link
+                href={c.href}
+                onClick={onNavigate}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                className={`group/ab flex items-center gap-3 rounded-xl px-3 py-2 text-[14px] motion-safe:transition-colors ${FOCUS_RING} ${
+                  on ? "text-gray-800 lg:bg-[#faf5fd] lg:font-semibold lg:text-[#7a00b0]" : "text-gray-800 hover:text-[#7a00b0]"
+                }`}
+              >
+                <span aria-hidden="true" className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg motion-safe:transition-colors ${on ? "bg-[#f4eefa] text-[#AF00E8] lg:bg-[#AF00E8] lg:text-white" : "bg-[#f4eefa] text-[#AF00E8]"}`}>
+                  {Icon && <Icon className="h-4 w-4" />}
+                </span>
+                <span className="flex-1">{c.label}</span>
+                <RiArrowRightLine aria-hidden="true" className={`hidden h-4 w-4 lg:block motion-safe:transition-[opacity,transform] ${on ? "translate-x-0 opacity-100" : "-translate-x-1 opacity-0"}`} />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="relative hidden overflow-hidden rounded-2xl bg-gradient-to-br from-[#faf5fd] via-white to-[#f1fbf9] p-7 ring-1 ring-[#AF00E8]/10 lg:flex lg:flex-col">
+        <span aria-hidden="true" className="pointer-events-none absolute -right-2 -top-6 select-none font-mono text-[120px] font-bold leading-none text-[#AF00E8]/[0.06]">
+          {String(active + 1).padStart(2, "0")}
+        </span>
+        <p className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7a1fa2]">
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4]" />
+          About ClickMasters
+        </p>
+        <div key={cur.href} className="relative mt-5 flex-1 motion-safe:animate-[navfade_.25s_ease-out]">
+          <span aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#120a1a] text-[#e9c2ff]">
+            {CurIcon && <CurIcon className="h-6 w-6" />}
+          </span>
+          <p className="mt-5 text-[28px] font-bold leading-tight text-[#1a1a1a]" style={{ fontFamily: "Garamond, serif" }}>{cur.label}</p>
+          <p className="mt-3 text-[14px] leading-relaxed text-gray-600">{cur.preview ?? cur.description}</p>
+        </div>
+        <div className="relative mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#AF00E8]/10 pt-4">
+          <Link href={cur.href} onClick={onNavigate} tabIndex={-1} className="group/rm inline-flex items-center gap-1.5 text-sm font-semibold text-[#AF00E8]">
+            Read more<span className="sr-only"> about {cur.label}</span>
+            <RiArrowRightLine aria-hidden="true" className="h-4 w-4 motion-safe:transition-transform group-hover/rm:translate-x-0.5" />
+          </Link>
+          <Link href={item.href} onClick={onNavigate} className={`rounded text-sm text-gray-500 hover:text-[#7a00b0] ${FOCUS_RING}`}>
+            View the full About Us page
+          </Link>
+        </div>
+      </div>
+
+      {item.featured && <FeaturedCard featured={item.featured} onNavigate={onNavigate} />}
     </div>
   );
 }
@@ -380,9 +427,7 @@ export default function Navbar() {
               // so they never spill past the viewport.
               const alignRight = !mega && index >= navItems.length - 3;
 
-              const topLinkClass = `flex items-center min-h-11 rounded-md px-2 lg:px-1 xl:px-2 text-base lg:text-[13px] xl:text-[15px] whitespace-nowrap motion-safe:transition-colors ${FOCUS_RING} ${
-                active ? "text-[#AF00E8] font-semibold" : "text-gray-800 hover:text-[#AF00E8]"
-              }`;
+              const topLinkClass = `nav-top-link ${active ? "nav-top-link--active" : ""}`;
 
               return (
                 <li
@@ -426,10 +471,12 @@ export default function Navbar() {
                     <div
                       id={panelId}
                       onKeyDown={(e) => onPanelKeyDown(e, item)}
-                      className={`lg:absolute lg:top-full lg:z-50 lg:pt-3 ${alignRight ? "lg:right-0" : "lg:left-1/2 lg:-translate-x-1/2"}
+                      className={`lg:absolute lg:top-full lg:z-50 lg:pt-3 ${item.aboutMenu ? "lg:left-0" : alignRight ? "lg:right-0" : "lg:left-1/2 lg:-translate-x-1/2"}
                         ${mega
                           ? "lg:w-[min(880px,calc(100vw_-_2rem))] xl:w-[min(1120px,calc(100vw_-_2rem))]"
-                          : "lg:w-[620px]"}
+                          : item.aboutMenu
+                            ? "lg:w-[min(760px,calc(100vw_-_2rem))] xl:w-[min(1000px,calc(100vw_-_2rem))]"
+                            : "lg:w-[620px]"}
                         motion-safe:lg:duration-200
                         ${isOpen
                           ? "visible opacity-100 lg:translate-y-0 motion-safe:lg:transition-[opacity,transform]"
@@ -439,7 +486,9 @@ export default function Navbar() {
                         {/* Brand gradient accent bar */}
                         <div aria-hidden="true" className="hidden lg:block h-1 w-full bg-gradient-to-r from-[#AF00E8] via-[#d65cff] to-[#5EEAD4]" />
 
-                        {mega ? (
+                        {item.aboutMenu ? (
+                          <AboutMenu item={item} items={kids} onNavigate={closeAll} />
+                        ) : mega ? (
                           <div className="xl:grid xl:grid-cols-[1fr_280px] xl:gap-4 lg:p-4">
                             <div className="grid gap-2 lg:grid-cols-3 lg:gap-x-2 lg:gap-y-0 lg:p-2">
                               {visibleGroups(item).map((group) => (

@@ -23,26 +23,26 @@ export const IMAGES = {
     src: `${IMG}/business-challenges-to-solutions-map.png`,
     width: 1080,
     height: 760,
-    alt: "Problem-to-solution map: common business challenges such as manual processes, disconnected systems, outdated software, poor customer experience and scaling limits lead through ClickMasters to matching solution types including business systems, AI, automation, web and mobile apps and SaaS",
+    alt: "Map linking common business problems, such as manual work and disconnected systems, to solutions",
   },
   stack: {
     src: `${IMG}/business-solution-technology-stack.png`,
     width: 1720,
     height: 500,
-    alt: "Layered business solution stack: customer and staff experiences on top, an AI and automation layer, business systems such as ERP, CRM and LMS, an integration and data layer, and secure cloud infrastructure at the base",
+    alt: "Layered stack: user experiences, AI and automation, ERP/CRM/LMS systems, integration and cloud",
   },
   decision: {
     src: `${IMG}/choosing-the-right-business-solution.png`,
     width: 1720,
     height: 600,
-    alt: "Decision guide flowchart: if a ready foundation covers most needs, customise it; if work involves reading documents or answering questions, add AI; if steps follow clear rules, automate; if users work away from a desk, add a mobile app; if you will sell to many customers, build SaaS; otherwise build custom software",
+    alt: "Flowchart for choosing between a customised foundation, AI, automation, mobile, SaaS or custom",
   },
 } as const;
 
 export const HERO = {
   eyebrow: "Business Software & AI Solutions UK",
   title: "Custom Business Software and AI Solutions",
-  titleAccent: "Built Around the Problems You Need to Solve",
+  titleAccent: "Built Around Your Problems",
   lead:
     "Every business reaches a point where spreadsheets, disconnected tools and manual workarounds start costing more than they save. ClickMasters helps UK organisations fix that with the right mix of ready-to-customise business systems, custom software, AI and automation, chosen for the problem rather than the technology.",
   audience:
@@ -145,14 +145,17 @@ export const CATEGORIES: Category[] = [
 export const FOUNDATIONS_INTRO =
   "Building every system from a blank page is rarely the best use of budget. These foundations cover common needs out of the box and are then tailored to your processes, branding and integrations.";
 
-// VERIFY: each foundation exists as a reusable base (their own pages are still placeholders).
+// VERIFY: each foundation exists as a reusable base.
+// `href` + `anchor`: each card links to its page with a Primary target keyword
+// as the anchor text (url audit D-05). The SaaS platform page is not published
+// yet, so that card points at the MVP & SaaS development service.
 export const FOUNDATIONS = [
-  { icon: "erp", title: "ERP software", text: "Finance, inventory, HR and operations in one system, configured to your processes.", for: "Growing firms with stock, staff and finance spread across tools" },
-  { icon: "crm", title: "CRM software", text: "Pipelines, contacts and customer service with built-in automation and AI insights.", for: "Sales and service teams with non-standard processes" },
-  { icon: "saas", title: "SaaS platform", text: "Multi-tenant foundations with subscriptions, billing, permissions and analytics.", for: "Businesses launching a subscription product" },
-  { icon: "lms", title: "Learning management system", text: "Course delivery, assessments, learner dashboards and reporting.", for: "Schools, training providers, corporate academies" },
-  { icon: "inventory", title: "Inventory & warehouse", text: "Real-time stock, barcode workflows, purchasing and multi-location control.", for: "Wholesalers, retailers, distributors" },
-  { icon: "fleet", title: "Fleet & logistics", text: "Tracking, routing and dispatch, with AI-assisted, demand-aware route planning.", for: "Carriers, delivery and field-service firms" },
+  { icon: "erp", title: "ERP software", text: "Finance, inventory, HR and operations in one system, configured to your processes.", for: "Growing firms with stock, staff and finance spread across tools", href: "/solutions/erp-software", anchor: "custom ERP software development" },
+  { icon: "crm", title: "CRM software", text: "Pipelines, contacts and customer service with built-in automation and AI insights.", for: "Sales and service teams with non-standard processes", href: "/solutions/crm-software", anchor: "custom CRM development" },
+  { icon: "saas", title: "SaaS platform", text: "Multi-tenant foundations with subscriptions, billing, permissions and analytics.", for: "Businesses launching a subscription product", href: "/services/mvp-saas-development", anchor: "SaaS development services" },
+  { icon: "lms", title: "Learning management system", text: "Course delivery, assessments, learner dashboards and reporting.", for: "Schools, training providers, corporate academies", href: "/solutions/lms-development", anchor: "LMS development services" },
+  { icon: "inventory", title: "Inventory & warehouse", text: "Real-time stock, barcode workflows, purchasing and multi-location control.", for: "Wholesalers, retailers, distributors", href: "/solutions/inventory-management", anchor: "inventory management software" },
+  { icon: "fleet", title: "Fleet & logistics", text: "Tracking, routing and dispatch, with AI-assisted, demand-aware route planning.", for: "Carriers, delivery and field-service firms", href: "/solutions/fleet-management", anchor: "fleet management software UK" },
 ];
 
 export const NEEDS_INTRO =

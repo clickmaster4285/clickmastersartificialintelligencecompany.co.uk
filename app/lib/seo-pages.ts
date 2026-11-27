@@ -32,12 +32,12 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
   home: {
     title: "AI Software Development Company UK | ClickMasters",
     description:
-      "ClickMasters is a UK AI software development company building AI automation, custom software, web and mobile apps, and ERP and CRM systems that grow revenue.",
+      "ClickMasters is a UK AI software development company building AI automation, custom software, web and mobile apps, and ERP and CRM systems.",
   },
   solutions: {
     title: "Custom Business Software & AI Solutions UK",
     description:
-      "Custom business software and AI solutions for UK organisations: ERP, CRM, automation, integration, portals and SaaS, matched to the problem you need to solve.",
+      "Custom business software and AI solutions for UK organisations: ERP, CRM, automation, integration, portals and SaaS, matched to the problem you face.",
     service: {
       name: "Business Software and AI Solutions",
       serviceType: ["Business software solutions", "Artificial intelligence solutions", "Business process automation", "System integration"],
@@ -75,15 +75,23 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
       "Example AI projects ClickMasters can design and build: computer vision, fraud detection, demand forecasting, fleet routing, learning copilots and more.",
     pageType: "CollectionPage",
   },
+  // Copy lives in app/portfolio/content.ts (SEO); keep the two in sync.
+  portfolio: {
+    title: "Portfolio: Web, E-commerce & Digital Projects",
+    description:
+      "Websites, online stores and web platforms delivered by ClickMasters, with what each client needed, what we built and real Search Console results. Download the PDF.",
+    pageType: "CollectionPage",
+  },
   locations: {
     title: "Where We Work: UK & Remote AI Services",
     description:
       "Remote AI development and automation for UK and international businesses, with ClickMasters contact lines in the UK, US and Pakistan.",
   },
   about: {
-    title: "About Our AI Software Company",
+    // /about overrides the title as absolute (brand already in it); keep in sync with app/about/content.ts.
+    title: "About ClickMasters Artificial Intelligence Company",
     description:
-      "Learn about ClickMasters, the team behind custom AI platforms, enterprise automation and software development for growing businesses.",
+      "Meet ClickMasters Artificial Intelligence Company: AI, automation and custom software built around real business needs for UK organisations.",
     pageType: "AboutPage",
   },
   contact: {

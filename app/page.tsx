@@ -25,7 +25,7 @@ export const metadata = metadataFor("home");
  *   H2 Services (B) > H3 x8
  *   H2 Revenue Systems (C)
  *   H2 Why Choose Us (D) > H3 x4
- *   H2 Solutions (E) > H3 x5
+ *   H2 Solutions (E) > H3 x6
  *   H2 Industries (F) > H3 x8
  *   H2 Tech Stack (G) > H3 x6
  *   H2 Process (H) > H3 x5

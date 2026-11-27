@@ -11,8 +11,8 @@
 export const PATH = "/services/ai-automation";
 
 export const SEO = {
-  // Rendered as "AI Automation Services UK | Workflow Automation | ClickMasters" (62 chars).
-  title: "AI Automation Services UK | Workflow Automation",
+  // Rendered as "AI Automation Agency UK | Workflow Automation | ClickMasters" (60 chars).
+  title: "AI Automation Agency UK | Workflow Automation",
   // The pack's wording, tightened to stay within 155 characters.
   description:
     "AI automation services for UK businesses: workflows that link your systems, read documents and route exceptions to people. Rules first, AI where it helps.",
@@ -33,37 +33,37 @@ const IMG = "/assets/Services/ai-automation";
 export const IMAGES = {
   hero: {
     src: `${IMG}/ai-automation-invoice-workflow.png`, width: 1200, height: 918,
-    alt: "An AI automation workflow: an incoming email with an invoice triggers the workflow, data is extracted and validated, matched against the ERP, approved automatically within limits or sent to a person, then posted and logged",
+    alt: "Diagram of an invoice workflow: email trigger, extraction, ERP match, approval, posting and logging",
   },
   approaches: {
     src: `${IMG}/automation-approaches-compared.png`, width: 1720, height: 560,
-    alt: "Comparison of rule-based automation, RPA, AI-powered workflow automation, intelligent process automation and AI agents by how they work and what they suit",
+    alt: "Diagram comparing rule-based automation, RPA, AI workflow automation, IPA and AI agents",
   },
   architecture: {
     src: `${IMG}/ai-workflow-architecture.png`, width: 1720, height: 740,
-    alt: "AI workflow architecture: a trigger feeds data collection and validation, rule-based processing and an AI step with schema and confidence checks, a decision point that either executes automatically through system APIs or routes to human approval, with logging, retries and an exception queue throughout",
+    alt: "Diagram of an AI workflow: trigger, validation, rules, AI step with checks, approval or execution",
   },
   integration: {
     src: `${IMG}/automation-integration-reliability.png`, width: 1720, height: 600,
-    alt: "Integration reliability: scoped credentials, data mapping, validation, retries with back-off and idempotent re-runs between a workflow and connected business systems, with failures sent to an exception list",
+    alt: "Diagram of a workflow linked to business systems via scoped credentials, mapping, retries and checks",
   },
   matrix: {
     src: `${IMG}/automation-prioritisation-matrix.png`, width: 1720, height: 760,
-    alt: "Workflow prioritisation: candidate processes scored on business value, process stability, risk and technical feasibility, with the best starting candidates highlighted",
+    alt: "Matrix scoring candidate processes on value, stability, risk and feasibility, top starters marked",
   },
   monitoring: {
     src: `${IMG}/automation-monitoring-dashboard.png`, width: 1720, height: 760,
-    alt: "Automation monitoring dashboard showing workflow throughput, exception rates, failed steps and items awaiting approval",
+    alt: "Dashboard showing workflow throughput, exception rates, failed steps and items awaiting approval",
   },
   // Photo: Cht Gsml (unsplash.com/photos/QfQW294I8sQ)
   desk: {
     src: `${IMG}/automation-desk-calculator-notebook.webp`, width: 1200, height: 800,
-    alt: "A calculator, a squared notebook with a pencil and a folded sheet of paperwork on a white office desk",
+    alt: "A calculator, a squared notebook with a pencil and folded paperwork on a white office desk",
   },
   // Photo: Trans Russia (unsplash.com/s/photos/industrial-robots)
   conveyor: {
-    src: `${IMG}/automation-conveyor-and-robot-arm.webp`, width: 1200, height: 800,
-    alt: "Two people discussing an automated roller conveyor next to a collaborative robot arm and a status light",
+    src: `${IMG}/automation-conveyor-and-robot-arm.webp`, width: 1080, height: 720,
+    alt: "Two people discussing an automated roller conveyor beside a collaborative robot arm",
   },
   // Photo: Kevin Ache (unsplash.com/s/photos/server-room)
   servers: {
@@ -80,9 +80,9 @@ export const IMAGES = {
 export const HERO = {
   eyebrow: "AI Automation Services UK",
   title: "AI Automation Services UK:",
-  titleAccent: "Intelligent Workflows That Connect Your Systems and Handle the Work in Between",
+  titleAccent: "Workflows That Connect Your Systems",
   lead:
-    "In most businesses the expensive work is not the big decisions. It is the steady flow of small tasks between systems: reading an email and keying it into the CRM, checking an invoice against a purchase order, copying an order into the ERP, chasing an approval, compiling the same report every Monday. Each task is simple. Together they consume skilled people's time, introduce errors and slow everything down.",
+    "Our AI automation service builds intelligent workflows that connect your systems and handle the work in between. In most businesses the expensive work is not the big decisions. It is the steady flow of small tasks between systems: reading an email and keying it into the CRM, checking an invoice against a purchase order, copying an order into the ERP, chasing an approval, compiling the same report every Monday. Each task is simple. Together they consume skilled people's time, introduce errors and slow everything down.",
   audience:
     "ClickMasters builds AI automation that takes that work off your team. We map the process as it really runs, automate the stable steps with dependable rules and integrations, use AI only for the steps that need judgement, such as reading a document or classifying a request, and route exceptions to people with the context they need to act.",
   stats: [
@@ -151,7 +151,7 @@ export const HOW = {
 
 export const SERVICES = [
   { icon: "search", title: "Process discovery and automation assessment", text: "Mapping how a process actually runs today, including workarounds, measuring volumes and error points, and identifying which steps to automate, which need AI and which should stay with people." },
-  { icon: "flow", title: "Custom AI workflow automation", text: "End-to-end automated workflows designed around your process, combining integrations, rules, AI steps, approvals and exception handling." },
+  { icon: "flow", title: "Custom business process automation service", text: "End-to-end automated workflows designed around your process, combining integrations, rules, AI steps, approvals and exception handling." },
   { icon: "file", title: "Intelligent document processing", text: "Reading invoices, claims, forms, contracts and onboarding documents, extracting the data you need, validating it against your records and passing it into your systems, with uncertain extractions sent for review." },
   { icon: "contacts", title: "CRM automation", text: "Capturing and enriching leads, updating records from emails and forms, assigning owners and triggering follow-up tasks, so your CRM reflects what is actually happening." },
   { icon: "finance", title: "ERP and finance workflow automation", text: "Synchronising orders, invoices, stock and master data between systems, matching documents to transactions and supporting reconciliation, with financial postings governed by approval rules." },
@@ -310,13 +310,18 @@ export const WHY = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
-  { q: "What are AI automation services?", a: ["AI automation services design and build automated business workflows that connect your systems and combine conventional rules and integrations with AI models for steps such as reading documents, classifying requests or drafting responses, with exceptions and high-impact actions routed to people."] },
+  { q: "What is AI automation, and what does the service include?", a: ["AI automation is the use of software to run business processes automatically, combining rules and integrations with AI models for steps such as reading documents, classifying requests or drafting responses. The service covers designing and building those workflows, connecting your systems, and routing exceptions and high-impact actions to people."] },
+  { q: "What is business process automation?", a: ["Business process automation is the use of software to carry out repeatable business processes, such as approvals, data entry, document handling and system updates, with little or no manual effort. It is usually rule-based; AI automation extends it to steps involving unstructured information, such as varied documents or free-text emails, while people handle the exceptions."] },
+  { q: "What are the benefits of business process automation?", a: ["The main benefits are less time spent on repetitive tasks, fewer keying errors, faster turnaround, consistent handling of every case and a clear record of what happened at each step. The size of each benefit depends on the process, its volume and how stable it is, which is why we measure the current process before automating it."] },
   { q: "How does AI automation work?", a: ["A trigger, such as an email, form or record change, starts a workflow. Data is collected and validated, rules handle the clear-cut steps, an AI model handles unstructured inputs where needed, and the workflow updates your systems through their APIs, asks a person to approve sensitive actions and logs every step."] },
   { q: "What is the difference between AI automation and traditional automation?", a: ["Traditional automation follows fixed rules on structured data, which is reliable for stable processes. AI automation adds models that can interpret unstructured information, such as varied documents or free-text emails. Most effective solutions combine both, using AI only where rules cannot do the job."] },
   { q: "Can AI automation integrate with existing CRM and ERP systems?", a: ["Yes. Workflows connect to CRM and ERP systems through their APIs, with explicit data mapping, validation, retries and error handling. Where no suitable API exists, database access, file exchange or middleware can be used."] },
   { q: "Which business processes can be automated using AI?", a: ["Common candidates include invoice and document processing, email and ticket triage, lead capture and CRM updates, order and data synchronisation between systems, reporting and customer onboarding. The best candidates are high-volume, reasonably stable and currently manual."] },
-  { q: "Is AI automation suitable for small businesses?", a: ["Often, yes, especially for one or two high-volume tasks such as processing invoices or handling a shared inbox. Small businesses should start with the process causing the most cost or delay, and check first whether an existing tool's built-in automation is enough."] },
+  { q: "Is AI automation for small businesses worth it?", a: ["Often, yes, especially for one or two high-volume tasks such as processing invoices or handling a shared inbox. Small businesses should start with the process causing the most cost or delay, and check first whether an existing tool's built-in automation is enough."] },
   { q: "What is the difference between AI automation and AI agents?", a: ["AI automation runs a defined workflow, with AI applied at specific steps. An AI agent decides its own steps at run time and chooses which permitted tools to use, which suits varied tasks but is less predictable. Many systems use automation for the backbone and an agent for the most variable steps."] },
+  { q: "Do we need an AI automation consultant before we build?", a: ["Not necessarily a separate one. Our discovery stage does that work: we walk through the process with the people who run it, measure volumes and error points, and score candidate workflows for value, stability, risk and feasibility. You then get a recommendation on what to automate, what needs AI and what should stay manual, before committing to a build."] },
+  { q: "How do we choose between AI automation agencies?", a: ["Ask each one to map your process before quoting, explain which steps use rules and which use AI, show how exceptions and approvals are handled, describe how integrations are monitored and retried, and confirm who owns the code and workflows. A good partner should also tell you when an existing tool's built-in automation is enough."] },
+  { q: "Do you offer AI automation UK-wide, including London?", a: ["Yes. Businesses in London and across the UK work with us remotely. If you are looking for an AI automation agency London teams can work with without office visits, we can run discovery workshops, process mapping and weekly demos remotely, and you can reach us on our UK phone line. We do not have a London office."] },
   { q: "How much does AI automation development cost?", a: ["Cost depends on the number of processes and systems involved, the condition of their APIs and data, how many steps need AI, the approval and exception design, testing depth, hosting and ongoing monitoring. We provide a fixed-price or time-and-materials estimate with milestones after discovery."] },
   { q: "How long does it take to implement an AI automation solution?", a: ["It depends mainly on process complexity, the number of integrations, API access, data quality and the level of testing the risk requires. Starting with one well-understood process is the fastest route to a reliable first automation."] },
   { q: "Is AI automation secure for business operations?", a: ["It can be, when designed for it: least-privilege credentials, secure integrations, validation of inputs and AI outputs, human approval for high-impact actions, audit logs, safe retries and monitoring. No automation is error-free, so controls should match the risk of each action."] },

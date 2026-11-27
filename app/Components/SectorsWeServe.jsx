@@ -13,7 +13,8 @@ import {
   manufacturingIcon,
 } from "../assets";
 
-// Icons are decorative (the H3 names the industry), so they use alt="".
+// Each icon carries a short alt naming its industry (audit D-10: no image
+// reference on the homepage may be left without alt text).
 const sectors = [
   { icon: healthcareIcon, href: INDUSTRY_LINKS.healthcare, title: "Healthcare and MedTech Software", desc: "Patient portals, secure data storage, diagnostics tools and EHR integrations.", corner: "bottom" },
   { icon: financeIcon, href: INDUSTRY_LINKS.finance, title: "Finance and Fintech Software", desc: "Automated billing, ledger backends, asset dashboards and compliance layers.", corner: "top" },
@@ -61,7 +62,7 @@ export default function SectorsWeServe() {
               aria-hidden="true"
               className={`absolute -right-16 w-35 h-35 rounded-full bg-white/5 ${s.corner === "top" ? "-top-18" : "-bottom-18"}`}
             />
-            <img loading="lazy" decoding="async" src={s.icon} alt="" width={56} height={56} className="w-12 h-12 rounded-lg mb-4 relative z-10" />
+            <img loading="lazy" decoding="async" src={s.icon} alt={`${s.title} icon`} width={56} height={56} className="w-12 h-12 rounded-lg mb-4 relative z-10" />
             <h3
               className="relative z-10 text-white mb-2"
               style={{ fontFamily: "'EB Garamond', serif", fontWeight: 700, fontSize: "22px", lineHeight: "29px" }}

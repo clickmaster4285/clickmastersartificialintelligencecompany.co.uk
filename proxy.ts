@@ -15,6 +15,7 @@ const CANONICAL_PATHS: Record<string, string> = {
   "case-studies": "/case-studies",
   casestudy: "/case-studies",
   contact: "/contact",
+  portfolio: "/portfolio",
   industries: "/industries",
   locations: "/locations",
   location: "/locations",

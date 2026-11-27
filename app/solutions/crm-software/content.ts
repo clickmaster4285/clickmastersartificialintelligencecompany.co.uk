@@ -9,9 +9,9 @@
 export const PATH = "/solutions/crm-software";
 
 export const SEO = {
-  title: "Custom CRM Software Development UK | Bespoke CRM",
+  title: "Custom CRM Software Development UK",
   description:
-    "Custom CRM software development for UK businesses: bespoke pipelines, lead management, automation and integrations, built around how your team sells and serves.",
+    "Custom CRM software development for UK businesses: bespoke pipelines, lead management, automation and integrations, built around how your team sells.",
   ogTitle: "Custom CRM Software for UK Businesses | ClickMasters",
   ogDescription:
     "Leads, contacts, pipelines, service and automation in one CRM built around your sales process, and connected to your website, email and ERP.",
@@ -27,25 +27,25 @@ export const IMAGES = {
     src: `${IMG}/custom-crm-sales-pipeline.png`,
     width: 1080,
     height: 760,
-    alt: "Illustration of a custom CRM sales pipeline: deal cards move across stages from new lead to qualified, proposal, negotiation and won, with a contact timeline and an automated follow-up reminder",
+    alt: "Illustration of a CRM sales pipeline: deal cards move through stages from new lead to won",
   },
   customerView: {
     src: `${IMG}/crm-single-customer-view.png`,
     width: 1720,
     height: 440,
-    alt: "Single customer view diagram: one CRM account record in the centre linked to contacts, emails, calls, meetings, quotes, support tickets, website enquiries, consent records and invoice status from the ERP",
+    alt: "Diagram of one CRM account record linked to contacts, emails, calls, quotes, tickets and invoices",
   },
   leadJourney: {
     src: `${IMG}/crm-lead-journey-assignment-follow-up.png`,
     width: 1720,
     height: 440,
-    alt: "Illustrative CRM lead journey: a website enquiry becomes a lead, is checked for duplicates and assigned by rule, qualified, moved through proposal and negotiation stages with automatic follow-up reminders, and on winning is handed to delivery and finance",
+    alt: "Diagram of a CRM lead journey from website enquiry through assignment and follow-ups to a won deal",
   },
   crmVsErp: {
     src: `${IMG}/crm-vs-erp-integration.png`,
     width: 1720,
     height: 400,
-    alt: "CRM and ERP comparison: CRM manages leads, contacts, pipeline, campaigns and service; ERP manages orders, stock, purchasing, invoicing and finance; shared customer accounts, won deals and invoice status flow between them",
+    alt: "Diagram comparing CRM and ERP roles, with customer, deal and invoice data flowing between them",
   },
 } as const;
 
@@ -54,7 +54,7 @@ export const HERO = {
   title: "Custom CRM Software That Fits",
   titleAccent: "the Way Your Team Sells and Serves",
   lead:
-    "ClickMasters builds CRM systems for UK businesses whose customer information is scattered across inboxes, spreadsheets and tools that do not talk to each other. We start from a CRM foundation covering contacts, sales pipelines, customer service and automation, then shape the stages, fields, rules and integrations around how your team actually wins and keeps customers.",
+    "ClickMasters builds CRM software UK businesses turn to when customer information is scattered across inboxes, spreadsheets and tools that do not talk to each other. Our custom CRM development starts from a CRM foundation covering contacts, sales pipelines, customer service and automation, then shapes the stages, fields, rules and integrations around how your team actually wins and keeps customers.",
   audience:
     "For sales-led SMEs, B2B teams with long or unusual sales cycles, service businesses and growing companies that have outgrown a generic CRM, or never adopted one properly.",
   // VERIFY: integrations or migrations delivered for Salesforce, HubSpot and Dynamics specifically.
@@ -67,9 +67,9 @@ export const HERO = {
 };
 
 export const WHAT_IS = {
-  p1: "**Customer relationship management (CRM) software** is the system where a business keeps everything it knows about its customers and prospects: who they are, how they found you, every conversation, what they have been quoted, what they bought and what they need next. Instead of that knowledge living in individual inboxes and memories, it sits in shared records the whole team can see.",
+  p1: "**Customer relationship management (CRM) software** is the system where a business keeps everything it knows about its customers and prospects: who they are, how they found you, every conversation, what they have been quoted, what they bought and what they need next. Instead of that knowledge living in individual inboxes and memories, it sits in shared records the whole team can see. Well-known CRM software examples include Salesforce, HubSpot and Microsoft Dynamics; a custom CRM is built for one business's process instead.",
   p2: "Sales teams use a CRM to track leads and deals through a pipeline. Marketing uses it to segment contacts and see which campaigns produce real enquiries. Customer service uses it to log requests and see the full history before replying. Managers use it to see what is happening across all three, without asking each person for an update.",
-  p3: "Most businesses start with a ready-made CRM, and many should. A **custom CRM**, often called a **bespoke CRM** in the UK, makes sense when the way you sell does not fit a standard pipeline: long B2B cycles with many stakeholders, field visits, broker or partner channels, memberships, or service-led relationships where the \"deal\" never really closes.",
+  p3: "Most businesses start with a ready-made CRM, and many should. A **custom CRM**, which buyers of CRM software in UK markets often call a **bespoke CRM**, makes sense when the way you sell does not fit a standard pipeline: long B2B cycles with many stakeholders, field visits, broker or partner channels, memberships, or service-led relationships where the \"deal\" never really closes.",
 };
 
 export const TEAMS = [
@@ -120,6 +120,9 @@ export const FIT = {
     "You need to be up and running within days",
     "You prefer a subscription that includes hosting and updates",
   ],
+  smallTitle: "CRM Software for Small Companies",
+  small:
+    "CRM software for small companies does not have to be custom. If your sales process is standard, a ready-made CRM is usually the quickest, most affordable start. A custom CRM makes sense for smaller teams with unusual processes, a need to combine CRM with other operations, or per-user costs that keep growing, and starting from our foundation keeps the scope proportionate.",
 };
 
 // VERIFY: the CRM foundation exists as a reusable base, and what "AI insights" includes in practice.
@@ -279,12 +282,12 @@ export const INDUSTRIES_INTRO =
 
 export const INDUSTRIES = [
   { icon: "briefcase", title: "Professional services", text: "Client relationships, matters or engagements, referrals and cross-selling.", considerations: ["Conflict checks", "Per-client confidentiality"] },
-  { icon: "home", title: "Real estate", text: "Applicants, landlords, vendors, viewings and offers across properties.", considerations: ["Contacts matched to properties", "Multiple relationship types"] },
+  { icon: "home", title: "CRM software in real estate", text: "Real estate agency CRM software tracks applicants, landlords, vendors, viewings and offers across properties: the CRM software realtors and letting agents often need when one contact is both buyer and landlord.", considerations: ["Contacts matched to properties", "Multiple relationship types"] },
   { icon: "cart", title: "Retail and e-commerce", text: "Customer profiles, order history, loyalty and service.", considerations: ["Shop platform integration", "Marketing consent"] },
   { icon: "education", title: "Education and training", text: "Prospective learners, enrolments, employers and sponsors.", considerations: ["Long enquiry-to-enrolment cycles", "Multiple stakeholders"] },
   { icon: "health", title: "Healthcare administration", text: "Referrers, partner organisations and private patient enquiries.", considerations: ["Special category data kept separate", "Strict access"] },
   { icon: "finance", title: "Financial and business services", text: "Prospects, clients, products held and review dates.", considerations: ["Audit trails", "Recorded advice interactions"] },
-  { icon: "recruit", title: "Recruitment", text: "Clients, vacancies, candidates and placements in one system.", considerations: ["Two-sided relationships", "Candidate data rights"] },
+  { icon: "recruit", title: "Recruitment: CRM software for recruiters", text: "CRM software recruitment teams can use to keep clients, vacancies, candidates and placements in one system.", considerations: ["Two-sided relationships", "Candidate data rights"] },
   { icon: "truck", title: "B2B sales and logistics", text: "Accounts with many sites and contacts, quotes, contracts and renewals.", considerations: ["Account hierarchies", "Quote-to-order hand-off"] },
 ];
 
@@ -342,7 +345,7 @@ export const FAQS = [
   { q: "How much does custom CRM software development cost in the UK?", a: ["Cost depends on the number of users and modules, workflow complexity, data migration, integrations, reporting, security, design, hosting and ongoing support. A focused pipeline-and-contacts CRM costs far less than a multi-team system with service, campaigns and ERP integration. We provide a fixed-price or time-and-materials estimate with milestones after a free consultation."] },
   { q: "How long does it take to develop a CRM system?", a: ["It depends on scope. Starting from a foundation and launching core features first, such as contacts, leads and pipeline, gets teams using the CRM sooner, with further features added in later phases. We agree a timeline after discovery, once integrations and data migration are understood."] },
   { q: "What features should a CRM system include?", a: ["Most businesses need contact and account management, lead capture and assignment, a sales pipeline with clear stages, tasks and follow-ups, communication history, and dashboards. Depending on the business, add customer service tracking, segmentation and campaigns, quotes, territories and permissions, and integrations with your website, email and ERP."] },
-  { q: "Is custom CRM software suitable for small businesses?", a: ["Sometimes. If a small business has a standard sales process, a ready-made CRM is usually the quickest, most affordable start. Custom CRM suits small businesses with unusual processes, a need to combine CRM with other operations, or growing per-user costs. Starting from a foundation keeps the cost proportionate."] },
+  { q: "Is custom CRM software for small business a good fit?", a: ["Sometimes. If a small business has a standard sales process, a ready-made CRM is usually the quickest, most affordable start. Custom CRM suits small businesses with unusual processes, a need to combine CRM with other operations, or growing per-user costs. Starting from a foundation keeps the cost proportionate."] },
   { q: "What is the difference between CRM and ERP?", a: ["CRM manages customer-facing activity: leads, contacts, deals, marketing and service. ERP manages internal operations: orders, stock, purchasing, invoicing and finance. Integrated, a won deal in the CRM becomes an order in the ERP, and invoice and payment status flows back so account managers have the full picture."] },
   { q: "Can a CRM system integrate with an existing website?", a: ["Yes. Website enquiry, quote and sign-up forms can create leads in the CRM automatically, with the source page, campaign and marketing consent recorded. The lead is then assigned and followed up according to your rules."] },
   { q: "Can CRM software automate sales follow-ups?", a: ["Yes. Rules can create follow-up tasks when quotes are sent or deals stall, assign new leads, alert owners to customer activity, and send templated, logged emails that respect each contact's preferences. Automation keeps follow-up consistent, while salespeople keep control of the conversation."] },

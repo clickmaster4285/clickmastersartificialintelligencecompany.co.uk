@@ -20,3 +20,126 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+ * Header menu items (Navbar.jsx). Kept as named classes because each one is
+ * repeated ~45 times per page; inline utility strings made the header ~150 KB
+ * of HTML on every page (url audit D-08).
+ */
+@layer components {
+  .nav-child {
+    @apply relative flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 lg:items-start lg:px-2.5 lg:py-2.5 motion-safe:transition-colors;
+    @apply hover:bg-[#faf5fd] has-[a:focus-visible]:bg-[#faf5fd] has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-1 has-[a:focus-visible]:outline-[#AF00E8];
+  }
+  .nav-child--compact {
+    @apply items-center py-2 lg:items-center lg:py-2;
+  }
+  .nav-child--current {
+    @apply bg-[#f7effa] hover:bg-[#f7effa];
+  }
+  .nav-child-icon {
+    @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#f7effa] to-[#efe0f7] text-[#AF00E8] ring-1 ring-[#AF00E8]/10 lg:h-10 lg:w-10 motion-safe:transition-all motion-safe:duration-200;
+    @apply group-hover/item:from-[#AF00E8] group-hover/item:to-[#7c00c9] group-hover/item:text-white group-hover/item:shadow-[0_6px_16px_rgba(175,0,232,0.35)] group-hover/item:ring-transparent;
+  }
+  .nav-child--compact .nav-child-icon {
+    @apply lg:h-8 lg:w-8;
+  }
+  .nav-child--current .nav-child-icon {
+    @apply bg-none bg-[#AF00E8] text-white;
+  }
+  .nav-child-glyph {
+    @apply h-4 w-4 lg:h-[18px] lg:w-[18px];
+  }
+  .nav-child--compact .nav-child-glyph {
+    @apply lg:h-4 lg:w-4;
+  }
+  .nav-child-link {
+    @apply text-[15px] font-medium leading-snug text-gray-900 outline-none after:absolute after:inset-0 after:rounded-xl after:content-[''] group-hover/item:text-[#AF00E8] lg:text-sm;
+  }
+  .nav-child--current .nav-child-link {
+    @apply font-semibold text-[#AF00E8];
+  }
+  .nav-child-arrow {
+    @apply hidden h-3.5 w-3.5 shrink-0 -translate-x-1 text-[#AF00E8] opacity-0 group-hover/item:translate-x-0 group-hover/item:opacity-100 lg:block motion-safe:transition-all;
+  }
+  .nav-child-desc {
+    @apply mt-0.5 hidden text-xs leading-relaxed text-gray-500 lg:block;
+  }
+  .nav-foot-link {
+    @apply inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-2 text-sm font-semibold text-[#AF00E8] lg:min-h-0 lg:px-0 lg:py-0;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8];
+  }
+  .nav-foot-arrow {
+    @apply h-4 w-4 group-hover/foot:translate-x-1 motion-safe:transition-transform;
+  }
+  .nav-top-link {
+    @apply flex min-h-11 items-center whitespace-nowrap rounded-md px-2 text-base text-gray-800 hover:text-[#AF00E8] lg:px-1 lg:text-[13px] xl:px-2 xl:text-[15px] motion-safe:transition-colors;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8];
+  }
+  .nav-top-link--active {
+    @apply font-semibold text-[#AF00E8] hover:text-[#AF00E8];
+  }
+}
+
+/* Shared service-page pieces repeated many times per page (audit D-08). */
+@layer components {
+  .icon-tile {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#f7effa] to-[#efe0f7] text-[#AF00E8] ring-1 ring-[#AF00E8]/10;
+  }
+  .icon-tile--sm {
+    @apply h-9 w-9 rounded-lg;
+  }
+  .icon-tile--dark {
+    @apply bg-none bg-white/10 text-[#e9c2ff] ring-white/15;
+  }
+  .faq-summary {
+    @apply flex cursor-pointer list-none items-start justify-between gap-4 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#AF00E8] [&::-webkit-details-marker]:hidden;
+  }
+  .faq-q {
+    @apply text-base font-semibold leading-snug text-[#1a1a1a] group-open:text-[#AF00E8] lg:text-[17px];
+  }
+  .faq-toggle {
+    @apply mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f7effa] text-[#AF00E8] transition-transform group-open:rotate-45;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply mb-3 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#7a1fa2];
+  }
+  .eyebrow--dark {
+    @apply text-[#e9c2ff];
+  }
+  .eyebrow-dot {
+    @apply h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4];
+  }
+  .section-h2 {
+    @apply text-[30px] font-bold leading-[38px] text-[#1a1a1a] lg:text-[42px] lg:leading-[50px];
+    font-family: Garamond, serif;
+  }
+  .section-h2--dark {
+    @apply text-white;
+  }
+  .field-label {
+    @apply text-xs font-bold uppercase tracking-[0.14em] text-gray-500;
+  }
+  .step-num {
+    @apply text-[40px] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_#AF00E8];
+    font-family: Garamond, serif;
+  }
+  .step-line {
+    @apply ml-4 h-px flex-1 translate-y-1 bg-gradient-to-r from-[#AF00E8]/30 to-transparent;
+  }
+  .ind-chip {
+    @apply rounded-full bg-[#AF00E8]/15 px-2.5 py-1 text-xs text-[#ecd0ff] ring-1 ring-[#AF00E8]/30;
+  }
+  .cmp-td {
+    @apply px-5 py-4 leading-relaxed text-gray-600;
+  }
+}
+
+/* About Us menu: preview text fades in when the hovered option changes (Navbar.jsx AboutMenu). */
+@keyframes navfade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}

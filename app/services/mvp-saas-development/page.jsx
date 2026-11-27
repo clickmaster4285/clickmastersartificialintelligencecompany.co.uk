@@ -10,9 +10,10 @@ import {
   RiNodeTree, RiPaletteLine, RiPlugLine, RiPriceTag3Line, RiPulseLine, RiRefreshLine, RiRestartLine,
   RiRocket2Line, RiSave3Line, RiScales3Line, RiServerLine, RiSettings4Line, RiShieldCheckLine,
   RiShoppingCart2Line, RiSpeedLine, RiTeamLine, RiTimerLine, RiToolsLine, RiTruckLine, RiUserSettingsLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import TechLogoGroups from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -24,7 +25,7 @@ import {
   ARCH_INTRO, ARCH_LAYERS, AVOID, BILLING, BILLING_INTRO, COMPARISON, COMPARISON_INTRO, COST, EVOLUTION, EXAMPLES,
   FAQS, FINAL_CTA, HERO, IMAGES, INDUSTRIES, INDUSTRIES_INTRO, MVP_SERVICES, MVP_SERVICES_INTRO, PATH, PHASES,
   PROCESS, PROCESS_INTRO, SAAS_SERVICES, SAAS_SERVICES_INTRO, SCALE, SCALE_INTRO, SCHEMA_SERVICE, SECURITY,
-  SECURITY_INTRO, SEO, STACK, STACK_FIT, STACK_INTRO, TENANCY, WHAT_IS, WHY,
+  SECURITY_INTRO, SEO, STACK, STACK_FIT, STACK_INTRO, TENANCY, WHAT_IS, WHY, WHY_INTRO,
 } from "./content";
 
 export const metadata = detailPageMetadata({ path: PATH, ...SEO });
@@ -119,6 +120,8 @@ export default function MvpSaasDevelopment() {
         figcaption="Each step is driven by evidence from real users."
       />
 
+      <ScopingCallBlock path={PATH} service="MVP and SaaS development" />
+
       {/* ───────────── What MVP and SaaS mean ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
@@ -161,7 +164,7 @@ export default function MvpSaasDevelopment() {
       <ServiceCards
         headingId="mvp-services-heading"
         eyebrow="Idea to evidence"
-        title="Our MVP Development Services"
+        title="Minimum Viable Product Development Services"
         intro={MVP_SERVICES_INTRO}
         services={withIcons(MVP_SERVICES)}
       />
@@ -170,7 +173,7 @@ export default function MvpSaasDevelopment() {
       <ServiceCards
         headingId="saas-services-heading"
         eyebrow="Built to scale"
-        title="Our SaaS Development Services"
+        title="SaaS Application Development Services"
         intro={<Linked value={SAAS_SERVICES_INTRO} />}
         services={withIcons(SAAS_SERVICES)}
       />
@@ -178,7 +181,7 @@ export default function MvpSaasDevelopment() {
       {/* ───────────── Process + prioritisation matrix ───────────── */}
       <ProcessGrid
         eyebrow="10 stages, two-week sprints"
-        title="Our MVP Development Process"
+        title="Our MVP Development Process for Building a Minimum Viable Product"
         intro={PROCESS_INTRO}
         columns="md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
         checkLabel="Decision"
@@ -200,7 +203,7 @@ export default function MvpSaasDevelopment() {
       <section aria-labelledby="arch-heading" className="border-y border-[#9b1fe0]/10 bg-[#faf9f7] py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="arch-heading" eyebrow="Tenancy, identity, billing">SaaS Product Architecture Explained</SectionHeading>
+            <SectionHeading id="arch-heading" eyebrow="Tenancy, identity, billing">SaaS Platform Development: Architecture Explained</SectionHeading>
             <p className={`mt-5 ${P}`}>{ARCH_INTRO}</p>
           </div>
           <Diagram image={IMAGES.tenancy} className={`mt-10 ${CARD_FIGURE}`} />
@@ -361,6 +364,7 @@ export default function MvpSaasDevelopment() {
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
             <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Why Choose ClickMasters as Your MVP and SaaS Development Company?</SectionHeading>
+            <p className="mt-5 text-[15px] leading-relaxed text-gray-300 lg:text-base">{WHY_INTRO}</p>
           </div>
           <div className="mt-12">
             <IconCardGrid items={withIcons(WHY)} dark />

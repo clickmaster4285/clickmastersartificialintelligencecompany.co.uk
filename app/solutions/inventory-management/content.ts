@@ -11,8 +11,8 @@
 export const PATH = "/solutions/inventory-management";
 
 export const SEO = {
-  // Rendered as "Custom Inventory Management Software UK | ClickMasters" (54 chars).
-  title: "Custom Inventory Management Software UK",
+  // Rendered as "Custom Inventory Management System UK | ClickMasters" (52 chars).
+  title: "Custom Inventory Management System UK",
   description:
     "Custom inventory management software for UK businesses: real-time stock tracking, barcode workflows, purchasing and multi-location control.",
   ogTitle: "Inventory Management Solutions | ClickMasters",
@@ -32,52 +32,52 @@ const IMG = "/assets/Solution/inventory";
 export const IMAGES = {
   flow: {
     src: `${IMG}/inventory-stock-flow.png`, width: 1080, height: 800,
-    alt: "Stock flow from supplier delivery through receiving, putaway, picking and despatch, with each movement updating one live stock record that purchasing, sales channels and reporting all read from",
+    alt: "Diagram of stock moving from delivery through receiving, putaway, picking and despatch to one record",
   },
   statuses: {
     src: `${IMG}/inventory-stock-statuses.png`, width: 1720, height: 420,
-    alt: "Stock statuses explained for one product: 120 on hand, split into 35 allocated, 81 available to promise and 4 quarantined, with 60 more on order from a supplier",
+    alt: "Diagram splitting one product's 120 units on hand into allocated, available and quarantined stock",
   },
   erp: {
     src: `${IMG}/inventory-vs-erp.png`, width: 1720, height: 560,
-    alt: "Comparison of an inventory-focused system connected to accounting software by integration with an ERP system unifying stock, finance, sales, purchasing, HR and operations in one set of records",
+    alt: "Diagram comparing an inventory system linked to accounting with an ERP covering all departments",
   },
   capabilities: {
     src: `${IMG}/inventory-capability-map.png`, width: 1720, height: 640,
-    alt: "Inventory capability map with foundation features (real-time stock tracking, barcode workflows, purchasing, multi-location control) at the centre and built-to-requirement extensions such as batch tracking, cycle counting, bin locations, integrations and forecasting around them",
+    alt: "Map of foundation inventory features in the centre with built-to-requirement extensions around them",
   },
   multiLocation: {
     src: `${IMG}/multi-location-stock-view.png`, width: 1720, height: 560,
-    alt: "Two warehouses and a retail store each showing on-hand, allocated and available stock for the same product, with a transfer in transit from a warehouse to the store",
+    alt: "Two warehouses and a shop showing on-hand, allocated and available stock and a transfer in transit",
   },
   reorder: {
     src: `${IMG}/reorder-point-calculation.png`, width: 1720, height: 620,
-    alt: "Reorder point illustration: stock falls to the reorder line, an order is placed, and the delivery arrives after the supplier lead time before stock reaches safety stock; reorder point equals average daily usage times lead time plus safety stock",
+    alt: "Graph of stock falling to a reorder point, with delivery arriving after lead time above safety stock",
   },
   // Photo: CHUTTERSNAP (unsplash.com/photos/BNBA1h-NgdY)
   racking: {
-    src: `${IMG}/inventory-warehouse-pallet-racking.webp`, width: 1200, height: 799,
-    alt: "Tall warehouse pallet racking stacked with shrink-wrapped cardboard boxes, each carrying a barcode label",
+    src: `${IMG}/inventory-warehouse-pallet-racking.webp`, width: 1080, height: 719,
+    alt: "Tall warehouse pallet racking stacked with shrink-wrapped, barcode-labelled cardboard boxes",
   },
   // Photo: Jacques Dillies (unsplash.com/photos/jcav1COVvOc)
   warehouse: {
     src: `${IMG}/inventory-warehouse-loading-bays.webp`, width: 1600, height: 557,
-    alt: "Wide view of a warehouse with rows of pallet racking holding boxed stock beside a line of loading bay doors",
+    alt: "Wide view of a warehouse with rows of pallet racking beside a line of loading bay doors",
   },
   // Photo: Tianlei Wu (unsplash.com/photos/sf6YUxvCoro)
   shop: {
     src: `${IMG}/inventory-shop-stock-aisle.webp`, width: 1200, height: 750,
-    alt: "Shoppers walking down a narrow shop aisle lined with tightly stocked shelves of hardware and household products",
+    alt: "Shoppers in a narrow shop aisle lined with tightly stocked shelves of hardware and household goods",
   },
 } as const;
 
 // VERIFY: confirm the four foundation capabilities exist as a reusable base.
 export const HERO = {
   eyebrow: "Inventory Management Solutions UK",
-  title: "Custom Inventory Management Software for UK Businesses",
-  titleAccent: "That Need to Trust Their Stock Figures",
+  title: "Custom Inventory Management Software",
+  titleAccent: "for UK Businesses",
   lead:
-    "If your stock count says twelve and the shelf says three, every decision built on that number is a guess: what to buy, what to promise customers, what to move between sites. Spreadsheets, a basic stock module in the accounting package or a system bolted on years ago all fail the same way. Stock moves faster than the records do.",
+    "Built for UK businesses that need to trust their stock figures. If your stock count says twelve and the shelf says three, every decision built on that number is a guess: what to buy, what to promise customers, what to move between sites. Spreadsheets, a basic stock module in the accounting package or a system bolted on years ago all fail the same way. Stock moves faster than the records do.",
   audience:
     "ClickMasters builds and tailors inventory management systems around how stock actually moves through your business. We start from a ready-to-customise foundation for real-time stock tracking, barcode workflows, purchasing and multi-location warehouse control, then shape the locations, workflows, rules and integrations around your products, your sites and your sales channels.",
   stats: [
@@ -102,7 +102,7 @@ export const WHAT_IS = {
 };
 
 export const SIGNS = {
-  title: "Signs your business has outgrown its current stock control",
+  title: "Signs your business has outgrown its current stock inventory management system",
   items: [
     "Stock counts regularly disagree with the system, and nobody trusts either.",
     "Customers are told an item is available, then it is not.",
@@ -137,6 +137,7 @@ export const ROUTES = {
     ["Trade-offs", "Workarounds when processes do not fit; fees that grow with users, orders or channels", "Needs clear scope and ongoing support", "Highest upfront investment; you own all maintenance"],
     ["Watch for", "Spreadsheets reappearing alongside the system", "Scope drifting into a full ERP", "Rebuilding features a foundation already provides"],
   ],
+  smallTitle: "Small business inventory management software: when a product is enough",
   test:
     "**A practical test:** write down the five stock processes that cause the most errors or delay, and check whether a product handles each one without a workaround. If it does, buy the product. If the gaps are in how your stock is located, picked, traced or synchronised, a tailored system usually earns back the difference.",
 };
@@ -175,6 +176,7 @@ export const PRACTICE = [
 export const WAREHOUSE = {
   intro:
     "As soon as stock lives in more than one place, whether two warehouses, a warehouse and a shop, or several stores with a back room, \"how much do we have?\" becomes \"how much do we have, where, and can we get it to the customer in time?\"",
+  pointsTitle: "Inventory management software warehouse teams can rely on",
   points: [
     ["Location hierarchy:", "site, zone, aisle, shelf and bin, defined as finely as your operation needs."],
     ["Transfers:", "stock in transit between sites is tracked as a movement, not left in limbo."],
@@ -212,7 +214,7 @@ export const BUSINESS_TYPES = {
 export const INTEGRATIONS = {
   intro: "An inventory system is only as accurate as its connections. If orders, deliveries and invoices are re-keyed between systems, errors come straight back.",
   items: [
-    { icon: "cart", title: "Sales channels", text: "Your website and any marketplaces you sell through read available stock from one source and send orders back, which is the main defence against overselling." },
+    { icon: "cart", title: "Sales channels for ecommerce inventory management software", text: "Your website and any marketplaces you sell through read available stock from one source and send orders back, which is the main defence against overselling." },
     { icon: "pound", title: "Accounting", text: "Stock valuation, purchase invoices and cost of sales are passed to your accounting package, so finance does not rebuild stock figures from exports." },
     { icon: "stack", title: "Business systems", text: "Where you already run CRM or ERP software, the inventory system shares products, customers and orders rather than duplicating them. We have experience integrating with platforms such as Salesforce, HubSpot, Microsoft Dynamics, SAP ERP and Oracle Cloud." },
     { icon: "truck", title: "Carriers and suppliers", text: "Despatch details, tracking references and supplier deliveries exchanged through documented APIs, file exchange or webhooks, depending on what each partner supports." },
@@ -243,7 +245,7 @@ export const SECURITY = [
   { icon: "shield", title: "Secure engineering", text: "OWASP-guided development, encryption in transit and at rest, regular security testing, and data handled in line with UK GDPR best practice. No supplier can honestly guarantee a system can never be breached; these controls address the risks that matter most." },
   { icon: "speed", title: "Performance at volume", text: "Indexing based on real query patterns, background processing for heavy reports and integration jobs, and caching keep scanning screens fast during peak periods." },
   { icon: "scale", title: "Scalability", text: "New sites, warehouses and channels added as configuration, because locations are modelled from the start." },
-  { icon: "cloud", title: "Hosting", text: "Cloud deployment on AWS, Microsoft Azure or Google Cloud in the region you choose." },
+  { icon: "cloud", title: "Inventory management software cloud hosting", text: "Cloud deployment on AWS, Microsoft Azure or Google Cloud in the region you choose." },
 ];
 
 export const OUTCOMES = {
@@ -278,12 +280,13 @@ export const PARTNER = {
 };
 
 export const FAQS: { q: string; a: string[] }[] = [
-  { q: "What is inventory management software?", a: ["Inventory management software records the products a business holds, where they are and every movement in and out, from deliveries and transfers to sales, returns and adjustments. It shows what is on hand and available, triggers reordering, and reports on stock value and movement."] },
+  { q: "What is inventory management system software?", a: ["Inventory management software records the products a business holds, where they are and every movement in and out, from deliveries and transfers to sales, returns and adjustments. It shows what is on hand and available, triggers reordering, and reports on stock value and movement."] },
   { q: "What is the difference between inventory management software and ERP?", a: ["Inventory management software focuses on stock: locations, movements, purchasing, picking and counts. ERP unifies stock with finance, sales, HR and operations in one system. If your main problem is stock accuracy and control, an inventory-focused system connected to your accounting package is often enough. If departments across the business work from conflicting records, ERP may be the better fit."] },
   { q: "When does custom inventory software make sense?", a: ["When standard products force workarounds in the processes that matter most, such as how stock is located, picked, traced or synchronised across channels, or when per-user or per-order fees are growing faster than the value. If a product handles your key processes without workarounds, it is usually the better choice."] },
-  { q: "Can the system track stock across several warehouses and shops?", a: ["Yes. Multi-location control is part of the foundation: stock is tracked by site and location, transfers are recorded in transit, and channels can see availability by location."] },
+  { q: "Do you build an inventory management system for small business teams?", a: ["Yes, where it pays back. For a small business with a simple product range, one or two locations and standard processes, an accounting add-on or subscription product is often the better choice, and we will say so. A tailored system on our foundation makes sense when workarounds, overselling or manual counts are already costing time across channels or sites."] },
+  { q: "Can it act as warehouse management software UK-wide, across several warehouses and shops?", a: ["Yes, for many businesses. Multi-location control is part of the foundation: stock is tracked by site and location, transfers are recorded in transit, and channels can see availability by location. Warehouse functions such as bin locations, guided picking and packing checks are built to requirement, so the system can cover day-to-day warehouse work from one site to several."] },
   { q: "Does the system support barcode scanning?", a: ["Yes. Barcode workflows for goods in, transfers, picking and counting are part of the foundation, using handheld devices or phones. We can use your existing product barcodes or generate labels and QR codes for items and locations."] },
-  { q: "Can it integrate with our e-commerce platform and accounting software?", a: ["Integrations with sales channels, accounting packages, carriers and existing business systems are built to requirement. We confirm the specific platforms you use during scoping and include them in the estimate."] },
+  { q: "Which inventory management system ecommerce and accounting integrations can you build?", a: ["Integrations with sales channels, accounting packages, carriers and existing business systems are built to requirement. Connecting your website and marketplaces to one live stock figure is the main defence against overselling. We confirm the specific platforms you use during scoping and include them in the estimate."] },
   { q: "Can it track batches, serial numbers and expiry dates?", a: ["Yes, as built-to-requirement features. Batch and serial tracking supports traceability and recalls, and expiry dates support first-expiry-first-out picking for food, health and other date-sensitive products."] },
   { q: "How do you calculate when to reorder stock?", a: ["A common method sets a reorder point equal to average daily usage multiplied by supplier lead time in days, plus safety stock for variation. The system flags products at or below that level and can suggest order quantities. Forecasting can add seasonal demand where sales history supports it."] },
   { q: "Can you replace our spreadsheets or existing stock system?", a: ["Yes. We review your current data and processes, clean and import products and suppliers, and load opening stock from a physical count, so the new system starts from verified figures rather than inherited errors."] },

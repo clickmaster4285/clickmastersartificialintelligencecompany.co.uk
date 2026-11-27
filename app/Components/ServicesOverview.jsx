@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { img15, img15_2, img15_3, img15_4, img15_5, img16 } from "../assets";
-import { RiGeminiFill, RiRobot2Line, RiStackLine } from "react-icons/ri";
+import { RiGeminiFill, RiRobot2Line, RiStackLine } from "./icons";
 import SmartLink from "./SmartLink";
 import { SERVICE_LINKS } from "../lib/home-links";
 
-// Icons are decorative (the H3 already names the service), so alt="".
+// Each icon has a short alt naming its service (audit D-10).
 const SERVICES = [
   {
     title: "Custom Software Development",
@@ -13,9 +13,9 @@ const SERVICES = [
     img: img16,
   },
   {
-    title: "AI Automation and Machine Learning",
+    title: "AI Automation Services",
     href: SERVICE_LINKS.aiAutomation,
-    desc: "Intelligent automation, predictive models and data pipelines that cut operating costs and give your team hours back every week.",
+    desc: "Intelligent automation, machine learning models and data pipelines that cut operating costs and give your team hours back every week.",
     Icon: RiRobot2Line,
   },
   {
@@ -49,7 +49,7 @@ const SERVICES = [
     img: img15_2,
   },
   {
-    title: "Database Design and Management",
+    title: "Database Design and Development",
     href: SERVICE_LINKS.database,
     desc: "Data modelling, migrations and performance tuning for PostgreSQL, MongoDB, MySQL and Redis.",
     img: img15_4,
@@ -120,7 +120,7 @@ export default function ServicesOverview() {
               <div className="relative z-10">
                 <div aria-hidden="true" className="w-9 h-9 rounded-md overflow-hidden mb-4 flex items-center justify-center bg-white">
                   {img ? (
-                    <img loading="lazy" decoding="async" src={img} alt="" width={70} height={70} className="w-full h-full object-cover" />
+                    <img loading="lazy" decoding="async" src={img} alt={`${title} icon`} width={70} height={70} className="w-full h-full object-cover" />
                   ) : (
                     <Icon className="w-6 h-6 text-[#A000DF]" />
                   )}

@@ -10,9 +10,10 @@ import {
   RiCustomerService2Line, RiErrorWarningLine, RiFileList3Line, RiFileShield2Line, RiFocus3Line, RiInformationLine,
   RiKey2Line, RiNodeTree, RiPlugLine, RiQuestionAnswerLine, RiRouteLine, RiShieldCheckLine, RiTestTubeLine,
   RiThumbUpLine, RiUserLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
   CheckCard, ComparisonTable, FaqSection, FinalCta, IconCardGrid, ON_DARK_LINK, ProcessGrid, RichText, ServiceHero,
@@ -128,12 +129,14 @@ export default function AiAgentDevelopment() {
         figcaption="Agents start with a narrow task and a small, defined set of tools."
       />
 
+      <ScopingCallBlock path={PATH} service="AI agent development" />
+
       {/* ───────────── What an AI agent is ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="what-heading" eyebrow="The basics">What an AI Agent Is</SectionHeading>
+              <SectionHeading id="what-heading" eyebrow="The basics">What AI Agents Are</SectionHeading>
               <p className={`mt-6 ${P}`}><Rich text={WHAT_IS.p1} /></p>
               <p className={`mt-5 ${P}`}>{WHAT_IS.p2}</p>
             </div>
@@ -169,7 +172,7 @@ export default function AiAgentDevelopment() {
       <section aria-labelledby="autonomy-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="autonomy-heading" eyebrow="Set per action, not per agent">Matching Autonomy to Risk</SectionHeading>
+            <SectionHeading id="autonomy-heading" eyebrow="Set per action, not per agent">Autonomous AI Agents: Matching Autonomy to Risk</SectionHeading>
             <p className={`mt-5 ${P}`}>{AUTONOMY.intro}</p>
           </div>
           <Diagram image={IMAGES.autonomy} className="mt-10" />
@@ -221,7 +224,7 @@ export default function AiAgentDevelopment() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-[#AF00E8]/25 blur-3xl" />
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
-            <SectionHeading id="tech-heading" eyebrow="Integration-first engineering" dark>AI Agent Technologies and Architecture</SectionHeading>
+            <SectionHeading id="tech-heading" eyebrow="Integration-first engineering" dark>AI Agents Architecture and Technologies</SectionHeading>
             <p className="mt-5 text-[15px] leading-relaxed text-gray-300 lg:text-base">{TECH.intro}</p>
           </div>
           <ul className="mt-12 grid gap-4 md:grid-cols-2">
@@ -244,7 +247,7 @@ export default function AiAgentDevelopment() {
         <div className={WRAP}>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
             <div>
-              <SectionHeading id="usecases-heading" eyebrow="Illustrative, not case studies">Business Use Cases</SectionHeading>
+              <SectionHeading id="usecases-heading" eyebrow="Illustrative, not case studies">AI Agents for Business: Use Cases</SectionHeading>
               <p className={`mt-5 ${P}`}><em>{USE_CASES.note}</em></p>
             </div>
             <Photo image={IMAGES.support} sizes={HALF} className="aspect-[16/10]" />
@@ -309,7 +312,7 @@ export default function AiAgentDevelopment() {
       {/* ───────────── Process ───────────── */}
       <ProcessGrid
         eyebrow="9 stages, narrow first"
-        title="How We Develop AI Agents"
+        title="How to Build AI Agents: Our Process"
         columns="md:grid-cols-2 lg:grid-cols-3"
         steps={PROCESS.map((s) => ({ title: s.title, rows: [{ label: "What happens", text: s.text }] }))}
         after={<p className={`mt-10 max-w-4xl ${P}`}>{PROCESS_OUTRO}</p>}
@@ -334,7 +337,7 @@ export default function AiAgentDevelopment() {
       <section aria-labelledby="readymade-heading" className="bg-white py-16 lg:py-24">
         <div className={WRAP}>
           <div className="max-w-3xl">
-            <SectionHeading id="readymade-heading" eyebrow="An honest comparison">Custom AI Agents vs Ready-Made AI Tools</SectionHeading>
+            <SectionHeading id="readymade-heading" eyebrow="An honest comparison">Custom AI Agents vs Ready-Made AI Agents Platforms</SectionHeading>
             <p className={`mt-5 ${P}`}>{READY_MADE.intro}</p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">

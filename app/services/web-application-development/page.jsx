@@ -9,9 +9,10 @@ import {
   RiRefreshLine, RiRocket2Line, RiSave3Line, RiServerLine, RiSettings4Line, RiShieldCheckLine,
   RiShoppingCart2Line, RiSmartphoneLine, RiSpeedLine, RiStackLine, RiTeamLine, RiTimerLine, RiToolsLine,
   RiUserSettingsLine, RiUserStarLine, RiWindowLine,
-} from "react-icons/ri";
+} from "../../Components/icons";
 
 import JsonLd from "../../Components/JsonLd";
+import ScopingCallBlock from "../../Components/ScopingCallBlock";
 import TechLogoGroups from "../../Components/TechLogoGroups";
 import { IconTile, SectionHeading, WRAP } from "../../Components/ServicePageUI";
 import {
@@ -91,6 +92,8 @@ export default function WebApplicationDevelopment() {
         figure={<DashboardIllustration className="h-auto w-full" />}
         figcaption="Illustrative example with sample data, not a client project."
       />
+
+      <ScopingCallBlock path={PATH} service="web application development" />
 
       {/* ───────────── What is a web application ───────────── */}
       <section aria-labelledby="what-heading" className="bg-white py-16 lg:py-24">
@@ -287,7 +290,7 @@ export default function WebApplicationDevelopment() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-[#AF00E8]/25 blur-3xl" />
         <div className={`${WRAP} relative`}>
           <div className="max-w-3xl">
-            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Why Choose ClickMasters as Your Web Application Development Company?</SectionHeading>
+            <SectionHeading id="why-heading" eyebrow="Why ClickMasters" dark>Choosing a Web App Development Company UK Businesses Can Rely On</SectionHeading>
           </div>
           <div className="mt-12">
             <IconCardGrid items={withIcons(WHY)} dark />

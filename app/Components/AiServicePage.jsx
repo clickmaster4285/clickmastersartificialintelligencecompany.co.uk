@@ -2,7 +2,7 @@
 // Built from the same sections as the other service pages; content comes from
 // each page's content.ts (shape: app/lib/ai-service-page.ts). Server-rendered.
 import Link from "next/link";
-import { RiArrowRightLine, RiCheckLine, RiScales3Line } from "react-icons/ri";
+import { RiArrowRightLine, RiCheckLine, RiScales3Line } from "./icons";
 
 import JsonLd from "./JsonLd";
 import { SectionHeading, WRAP } from "./ServicePageUI";

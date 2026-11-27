@@ -1,8 +1,8 @@
 // app/contact/page.jsx (metadata + JSON-LD live in ./layout.tsx)
 "use client";
 
-import React, { useState } from "react";
-import { CONTACT } from "../lib/site";
+import React, { useEffect, useRef, useState } from "react";
+import { CONTACT, ORG_FACTS, addressLine } from "../lib/site";
 
 const CONTACT_EMAIL = CONTACT.email;
 
@@ -136,6 +136,21 @@ function FaqItem({ faq, isOpen, onToggle }) {
 
 export default function Contact() {
   const [openIndex, setOpenIndex] = useState(null);
+  const subjectRef = useRef(null);
+  const messageRef = useRef(null);
+
+  // "Book a scoping call" links on service pages arrive as
+  // /contact?service=<name>#contact-form: pre-fill the enquiry for them.
+  useEffect(() => {
+    const service = new URLSearchParams(window.location.search).get("service");
+    if (!service) return;
+    if (subjectRef.current) subjectRef.current.value = "30-minute scoping call";
+    if (messageRef.current && !messageRef.current.value) {
+      messageRef.current.value = `I'd like to book a 30-minute scoping call about ${service.slice(0, 120)}.
+
+`;
+    }
+  }, []);
 
   // No form backend exists yet, so the enquiry opens in the visitor's email
   // client, pre-filled and addressed to CONTACT_EMAIL.
@@ -245,7 +260,8 @@ export default function Contact() {
                   <label htmlFor="cf-subject" className="block text-sm font-semibold text-gray-900 mb-2">
                     Subject
                   </label>
-                  <select id="cf-subject" name="subject" className="w-full border-b border-gray-300 focus:border-[#A000DF] outline-none py-2 text-sm text-gray-700 bg-transparent">
+                  <select id="cf-subject" name="subject" ref={subjectRef} className="w-full border-b border-gray-300 focus:border-[#A000DF] outline-none py-2 text-sm text-gray-700 bg-transparent">
+                    <option>30-minute scoping call</option>
                     <option>Custom Model Engineering & Fine-Tuning</option>
                     <option>AI Consulting & Strategy</option>
                     <option>Enterprise Automation</option>
@@ -260,6 +276,7 @@ export default function Contact() {
                   <textarea
                     id="cf-message"
                     name="message"
+                    ref={messageRef}
                     required
                     rows={4}
                     placeholder="Tell us about your project, goals and timeline."
@@ -320,6 +337,18 @@ export default function Contact() {
                     We usually respond {CONTACT.responseTime}.
                   </p>
                 </div>
+
+                {/* Company details, shown once supplied in lib/site.ts ORG_FACTS (mirrors the Organization schema). */}
+                {(ORG_FACTS.legalName || addressLine()) && (
+                  <div>
+                    <p className="text-[#A000DF] text-xs font-semibold tracking-wide">
+                      COMPANY DETAILS
+                    </p>
+                    {ORG_FACTS.legalName && <p className="text-gray-900 text-sm mt-1">{ORG_FACTS.legalName}</p>}
+                    {ORG_FACTS.companyNumber && <p className="text-gray-900 text-sm">Company number {ORG_FACTS.companyNumber}</p>}
+                    {addressLine() && <p className="text-gray-900 text-sm">{addressLine()}</p>}
+                  </div>
+                )}
               </address>
             </div>
           </div>

@@ -4,29 +4,34 @@ import { SOLUTION_LINKS } from "../lib/home-links";
 
 const SOLUTIONS = [
   {
-    title: "ERP Software Solutions",
+    title: "Custom ERP Software Development",
     href: SOLUTION_LINKS.erp,
     desc: "A configurable ERP foundation that unifies finance, inventory, HR and operations, tailored to your processes instead of forcing new ones.",
   },
   {
-    title: "CRM Software Solutions",
+    title: "Custom CRM Software",
     href: SOLUTION_LINKS.crm,
     desc: "Pipeline, contact and customer-service management with built-in automation and AI insights, ready to extend for your sales team.",
   },
   {
-    title: "SaaS Platform Development",
+    title: "MVP and SaaS Development Services",
     href: SOLUTION_LINKS.saas,
     desc: "Multi-tenant SaaS foundations with subscriptions, billing, permissions and analytics, so you launch your product sooner.",
   },
   {
-    title: "Learning Management Systems (LMS)",
+    title: "LMS Development Services",
     href: SOLUTION_LINKS.lms,
     desc: "Course delivery, assessments, learner dashboards and reporting for schools, training providers and corporate academies.",
   },
   {
-    title: "Inventory and Warehouse Management Software",
+    title: "Inventory Management Software",
     href: SOLUTION_LINKS.inventory,
     desc: "Real-time stock tracking, barcode workflows, purchasing and multi-location warehouse control in one system.",
+  },
+  {
+    title: "Fleet Management Software",
+    href: SOLUTION_LINKS.fleet,
+    desc: "Vehicle tracking, dispatch, routing, maintenance records and driver apps for carriers and field-service teams.",
   },
 ];
 
@@ -55,7 +60,7 @@ export default function SolutionsSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {SOLUTIONS.map((s, i) => (
           <article key={s.title} className="bg-white border border-black/5 p-6 shadow-sm">
             <span aria-hidden="true" className="block font-serif italic text-3xl text-[#A000DF]/40 mb-3">
