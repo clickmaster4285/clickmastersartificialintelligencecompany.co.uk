@@ -3,7 +3,7 @@
 // instead of inlining its paths into every page's HTML and RSC payload.
 import type { SVGProps } from "react";
 
-const SPRITE = "/icons.svg?v=c40d47d654";
+const SPRITE = "/icons.svg?v=e4b600b623";
 
 export type IconProps = SVGProps<SVGSVGElement> & { size?: string | number; title?: string };
 
@@ -49,6 +49,7 @@ export const RiArrowRightUpLine = icon("RiArrowRightUpLine");
 export const RiArrowUpCircleLine = icon("RiArrowUpCircleLine");
 export const RiArrowUpDownLine = icon("RiArrowUpDownLine");
 export const RiArticleLine = icon("RiArticleLine");
+export const RiAspectRatioLine = icon("RiAspectRatioLine");
 export const RiAwardLine = icon("RiAwardLine");
 export const RiBankCardLine = icon("RiBankCardLine");
 export const RiBankLine = icon("RiBankLine");
@@ -81,6 +82,7 @@ export const RiCheckboxCircleLine = icon("RiCheckboxCircleLine");
 export const RiClipboardLine = icon("RiClipboardLine");
 export const RiCloseCircleLine = icon("RiCloseCircleLine");
 export const RiCloudLine = icon("RiCloudLine");
+export const RiCloudy2Line = icon("RiCloudy2Line");
 export const RiCodeBoxLine = icon("RiCodeBoxLine");
 export const RiCodeSSlashLine = icon("RiCodeSSlashLine");
 export const RiCompass3Line = icon("RiCompass3Line");
@@ -165,6 +167,7 @@ export const RiListCheck3 = icon("RiListCheck3");
 export const RiListOrdered = icon("RiListOrdered");
 export const RiLockLine = icon("RiLockLine");
 export const RiLockPasswordLine = icon("RiLockPasswordLine");
+export const RiLockUnlockLine = icon("RiLockUnlockLine");
 export const RiLoopLeftLine = icon("RiLoopLeftLine");
 export const RiMagicLine = icon("RiMagicLine");
 export const RiMailLine = icon("RiMailLine");
@@ -188,7 +191,9 @@ export const RiPlugLine = icon("RiPlugLine");
 export const RiPresentationLine = icon("RiPresentationLine");
 export const RiPriceTag3Line = icon("RiPriceTag3Line");
 export const RiPulseLine = icon("RiPulseLine");
+export const RiPuzzle2Line = icon("RiPuzzle2Line");
 export const RiQuestionAnswerLine = icon("RiQuestionAnswerLine");
+export const RiQuillPenLine = icon("RiQuillPenLine");
 export const RiRadarLine = icon("RiRadarLine");
 export const RiReactjsLine = icon("RiReactjsLine");
 export const RiRefreshLine = icon("RiRefreshLine");
@@ -249,6 +254,7 @@ export const RiTimerFlashLine = icon("RiTimerFlashLine");
 export const RiTimerLine = icon("RiTimerLine");
 export const RiToolsLine = icon("RiToolsLine");
 export const RiTruckLine = icon("RiTruckLine");
+export const RiUploadCloud2Line = icon("RiUploadCloud2Line");
 export const RiUser3Line = icon("RiUser3Line");
 export const RiUserAddLine = icon("RiUserAddLine");
 export const RiUserFollowLine = icon("RiUserFollowLine");
@@ -265,5 +271,6 @@ export const RiWheelchairLine = icon("RiWheelchairLine");
 export const RiWifiOffLine = icon("RiWifiOffLine");
 export const RiWindow2Line = icon("RiWindow2Line");
 export const RiWindowLine = icon("RiWindowLine");
+export const RiZzzLine = icon("RiZzzLine");
 export const SiLaravel = icon("SiLaravel");
 export const SiPython = icon("SiPython");

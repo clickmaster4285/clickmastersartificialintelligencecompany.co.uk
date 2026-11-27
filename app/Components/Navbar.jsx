@@ -493,10 +493,24 @@ export default function Navbar() {
                             <div className="grid gap-2 lg:grid-cols-3 lg:gap-x-2 lg:gap-y-0 lg:p-2">
                               {visibleGroups(item).map((group) => (
                                 <div key={group.heading}>
-                                  <p className="flex items-center gap-2 px-3 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#7a1fa2] lg:px-2.5 lg:pb-2 lg:pt-1">
-                                    <span aria-hidden="true" className="hidden lg:block h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4]" />
-                                    {group.heading}
-                                  </p>
+                                  {group.href ? (
+                                    // Pillar page for this column (for example /services/softwaredevelopment).
+                                    <Link
+                                      href={group.href}
+                                      onClick={closeAll}
+                                      aria-current={pathname === group.href ? "page" : undefined}
+                                      className="group/heading flex items-center gap-2 rounded-md px-3 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#7a1fa2] hover:text-[#AF00E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AF00E8] lg:px-2.5 lg:pb-2 lg:pt-1"
+                                    >
+                                      <span aria-hidden="true" className="hidden lg:block h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4]" />
+                                      <span className="underline decoration-[#AF00E8]/30 underline-offset-4 group-hover/heading:decoration-[#AF00E8]">{group.heading}</span>
+                                      <RiArrowRightLine aria-hidden="true" className="h-3.5 w-3.5 transition-transform group-hover/heading:translate-x-0.5" />
+                                    </Link>
+                                  ) : (
+                                    <p className="flex items-center gap-2 px-3 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#7a1fa2] lg:px-2.5 lg:pb-2 lg:pt-1">
+                                      <span aria-hidden="true" className="hidden lg:block h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[#AF00E8] to-[#5EEAD4]" />
+                                      {group.heading}
+                                    </p>
+                                  )}
                                   <ul className="space-y-0.5">
                                     {group.items.map((child) => (
                                       <ChildLink key={child.href} child={child} pathname={pathname} onNavigate={closeAll} />

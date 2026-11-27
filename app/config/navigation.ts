@@ -40,6 +40,8 @@ export type NavLink = {
 
 export type NavGroup = {
   heading: string;
+  /** Optional pillar page: when set, the column heading itself is a link. */
+  href?: string;
   items: NavLink[];
   /** Link shown under the column, e.g. "View all AI services". */
   viewAll?: NavLink;
@@ -108,6 +110,8 @@ export const NAV_ITEMS: NavItem[] = [
     groups: [
       {
         heading: "Software Development",
+        // The pink column heading opens the Software Development pillar page.
+        href: "/services/softwaredevelopment",
         items: [
           L("Custom Software Development", "/services/custom-software-development", "live", { icon: "code", description: "Bespoke software built around your workflows", keyword: "custom software development UK" }),
           L("Web Application Development", "/services/web-application-development", "live", { icon: "web", description: "Fast, secure React and Next.js platforms", keyword: "web application development UK" }),
@@ -117,6 +121,8 @@ export const NAV_ITEMS: NavItem[] = [
       },
       {
         heading: "AI Services",
+        // The pink column heading opens the AI Services pillar page.
+        href: "/services/aiservices",
         // The menu shows the parent page plus the top six; every AI page is
         // listed on the /services hub (#ai-services) and in the sitemap.
         items: [
@@ -138,6 +144,8 @@ export const NAV_ITEMS: NavItem[] = [
       },
       {
         heading: "Enterprise & Cloud",
+        // The pink column heading opens the Enterprise Cloud pillar page.
+        href: "/services/enterprise-cloud",
         items: [
           L("ERP & CRM Development", "/services/erp-crm-development", "live", { icon: "stack", description: "One source of truth for your operations", keyword: "ERP and CRM development UK" }),
           L("Cloud Solutions & DevOps", "/services/cloud-devops", "live", { icon: "cloud", description: "CI/CD on AWS, Azure and Google Cloud", keyword: "cloud DevOps services UK" }),

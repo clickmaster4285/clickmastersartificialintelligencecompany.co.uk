@@ -53,6 +53,10 @@ const nextConfig: NextConfig = {
       { source: "/solutions/saas-platform", destination: "/services/mvp-saas-development", statusCode: 301 },
       // The About page lives at /about; send the common /about-us variant there.
       { source: "/about-us", destination: "/about", statusCode: 301 },
+      // The Enterprise Cloud pillar lives at a lowercase, hyphenated URL like every
+      // other service page; send the mixed-case and unhyphenated variants there.
+      { source: "/services/EnterpriseCloud", destination: "/services/enterprise-cloud", statusCode: 301 },
+      { source: "/services/enterprisecloud", destination: "/services/enterprise-cloud", statusCode: 301 },
     ];
   },
   async headers() {
